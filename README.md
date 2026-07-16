@@ -10,8 +10,9 @@
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=for-the-badge)](LICENSE)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![MCP](https://img.shields.io/badge/MCP-Runtime-7c3aed?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTQgNGg2djZINHptMTAgMGg2djZoLTZ6TTQgMTRoNnY2SDR6bTEwIDBoNnY2aC02eiIvPjwvc3ZnPg==)](https://modelcontextprotocol.io/)
-[![Verified](https://img.shields.io/badge/Verified%20Web-13-0ea5e9?style=for-the-badge)](#-verified-web-catalog--已验证-web-目录)
+[![Public Web](https://img.shields.io/badge/Public%20Web-41-0ea5e9?style=for-the-badge)](#-verified-public-catalog--公开目录事实)
+[![MCP verified](https://img.shields.io/badge/MCP%20verified-13-7c3aed?style=for-the-badge)](#-verified-public-catalog--公开目录事实)
+[![Skills verified](https://img.shields.io/badge/Skills%20verified-28-f59e0b?style=for-the-badge)](#-verified-public-catalog--公开目录事实)
 [![GitHub stars](https://img.shields.io/github/stars/Bozheng-Li/AGRNT-OPT?style=for-the-badge&logo=github)](https://github.com/Bozheng-Li/AGRNT-OPT/stargazers)
 
 [English](#-english) · [中文](#-中文) · [Docs](docs/) · [Catalog](catalog/plugins/) · [Issues](https://github.com/Bozheng-Li/AGRNT-OPT/issues)
@@ -32,6 +33,26 @@
 
 ---
 
+## ⚠️ 数字怎么读（先对齐事实）
+
+本仓库严格区分 **发现层** 与 **正式公开集成**：
+
+| 口径 | 当前真实数字 | 来源 | 能否算“已集成” |
+|:--|--:|:--|:--|
+| 公开 Web 适配（`web-ready` / `verified`） | **41** | `catalog/plugins/*.json` | ✅ 是 |
+| 其中 MCP 运行时工作台 | **13** | `kind=mcp-server` | ✅ 是（stdio MCP + 专属 Web + 测试） |
+| 其中 Agent Skill 工作室 | **28** | `kind=agent-skill` | ✅ 是（入库正文 + 专属 Web + 测试） |
+| 官方 MCP Registry 最新候选 | **16,765** | `var/snapshots/official-mcp-registry/latest-candidates.json` | ❌ 仅发现 |
+| MCP 全量版本记录（一次完整同步） | **51,937** / **520** 页 | `var/.../checkpoint.json` | ❌ 仅发现 |
+| 结构化市场清单 | **2,428** | `var/snapshots/structured-marketplaces/latest-candidates.json` | ❌ 仅发现 |
+| 路径级 skill 候选 | **620** | `var/snapshots/official-skill-repositories/latest-candidates.json` | ❌ 仅发现 |
+| 资格审查队列 | **250** | `var/analysis/official-mcp-ranked.json` | ❌ 仍为 `discovered` |
+
+> **翻译元数据 ≠ 已集成。**  
+> 发现层数字可以很大；公开目录只放通过质量门禁、有专属 Web、有验证证据的条目。
+
+---
+
 ## 🌐 Language / 语言
 
 | | |
@@ -45,180 +66,152 @@
 
 # 🇨🇳 中文
 
-## ✨ 项目亮点
+## ✨ 项目在做什么
 
-> **聚合不是堆链接。**  
-> 每个正式项目都保留原始证据与中文说明，经过质量与安全筛选，并拥有与能力匹配的独立 Web 工作流。
+Agent-OPT 不是“堆 MCP 链接”的目录站，而是：
 
-| 能力 | 说明 |
-|:--|:--|
-| 🧭 **发现** | 同步官方 MCP Registry、结构化市场、官方 skill 仓库 |
-| 🧪 **质量门禁** | 来源 / 许可证 / 安全 / 实用性 / 适配 / 验证，缺一不可 |
-| 🌐 **专属 Web** | 每个正式集成都有独立路由、输入、输出与错误反馈 |
-| 🛡️ **沙箱运行** | 文件、Git、SQLite、PDF、图表等写入项目自有沙箱 |
-| 🇨🇳 **中英双语** | 保留原文，同时提供审阅过的中文本地化 |
+1. **发现**：同步官方 MCP Registry、结构化市场、官方 skill 仓库  
+2. **筛选**：来源 / 许可证 / 安全 / 实用性  
+3. **适配**：可运行的 runtime 或 skill 文档运行时  
+4. **Web**：每个正式项目独立工作台  
+5. **验证**：核心 / 场景 / 失败 / Web 证据  
+
+生命周期：
 
 ```text
 discovered → qualified → translated → adapted → web-ready → verified
                               ↘ blocked / deprecated
 ```
 
-> 只有 `web-ready` 与 `verified` 会进入公开目录。  
-> **翻译元数据 ≠ 已集成。** 没有专属 Web 与真实验证，不算完成。
+只有 `web-ready` 与 `verified` 会出现在公开插件中心。
 
 ---
 
-## 📊 当前规模
+## 📊 公开目录事实
 
-<div align="center">
+当前公开 **41** 个：
 
-| 公开 Web 适配 | 真实验证 | MCP 候选（发现层） | 市场清单 | 路径级 Skill |
-|:---:|:---:|:---:|:---:|:---:|
-| **13** | **13** | **16,765+** | **2,428** | **620** |
+- **13** 个 **MCP 服务器**（真实子进程 / Python / Node 适配）
+- **28** 个 **Agent Skill**（官方 SKILL.md 入库 + Skill 工作室：章节 / 检索 / 全文）
 
-</div>
+### MCP 工作台（13）
 
-发现层数字来自 `var/` 快照，**不是**已集成产品数量。公开产品只认通过质量门禁的清单。
+| 中文名 | 英文名 | 评分 | 路由 |
+|:--|:--|--:|:--|
+| Svelte 开发工作室 | Svelte MCP | 92 | `/plugins/svelte-development-studio` |
+| Blueprint 数据图表工作台 | Blueprint Chart | 91 | `/plugins/blueprint-chart-studio` |
+| 文件系统工作台 | Filesystem MCP Server | 91 | `/plugins/filesystem-workbench` |
+| oxidize-pdf 文档工作台 | oxidize-pdf MCP Server | 90 | `/plugins/oxidize-pdf-workbench` |
+| 世界时间与时区换算 | Time MCP Server | 90 | `/plugins/timezone-converter` |
+| BumpGuard 依赖兼容实验室 | BumpGuard | 89 | `/plugins/bumpguard-dependency-lab` |
+| Git 沙箱工作室 | Git MCP Server | 88 | `/plugins/git-sandbox-studio` |
+| 确定性文本去冗器 | defluff | 88 | `/plugins/prose-defluffer` |
+| 知识图谱记忆库 | Knowledge Graph Memory Server | 87 | `/plugins/knowledge-memory` |
+| Mermaid 图表工作室 | Agentic Mermaid | 87 | `/plugins/mermaid-diagram-studio` |
+| SQLite 数据工作台 | SQLite MCP Server | 87 | `/plugins/sqlite-workbench` |
+| 网页正文读取器 | Fetch MCP Server | 85 | `/plugins/web-content-reader` |
+| 结构化思考工作室 | Sequential Thinking MCP Server | 79 | `/plugins/sequential-thinking-studio` |
 
----
+### Agent Skill 工作室（28）
 
-## 🧩 已验证 Web 目录
+来源：Anthropic 官方 skills（Apache-2.0）+ OpenAI plugins 路径级 skills（MIT）。  
+运行方式：`in-process` 文档运行时，**不执行**上游脚本，**不**假装成 MCP stdio。
 
-点击本地/线上首页的 **「打开 Web」**，或直接访问 `/plugins/<slug>`。
-
-| # | 中文名 | 英文名 | 评分 | 路由 |
-|--:|:--|:--|--:|:--|
-| 1 | Svelte 开发工作室 | Svelte MCP | 92 | `/plugins/svelte-development-studio` |
-| 2 | Blueprint 数据图表工作台 | Blueprint Chart | 91 | `/plugins/blueprint-chart-studio` |
-| 3 | 文件系统工作台 | Filesystem MCP Server | 91 | `/plugins/filesystem-workbench` |
-| 4 | oxidize-pdf 文档工作台 | oxidize-pdf MCP Server | 90 | `/plugins/oxidize-pdf-workbench` |
-| 5 | 世界时间与时区换算 | Time MCP Server | 90 | `/plugins/timezone-converter` |
-| 6 | BumpGuard 依赖兼容实验室 | BumpGuard | 89 | `/plugins/bumpguard-dependency-lab` |
-| 7 | Git 沙箱工作室 | Git MCP Server | 88 | `/plugins/git-sandbox-studio` |
-| 8 | 确定性文本去冗器 | defluff | 88 | `/plugins/prose-defluffer` |
-| 9 | 知识图谱记忆库 | Knowledge Graph Memory Server | 87 | `/plugins/knowledge-memory` |
-| 10 | Mermaid 图表工作室 | Agentic Mermaid | 87 | `/plugins/mermaid-diagram-studio` |
-| 11 | SQLite 数据工作台 | SQLite MCP Server | 87 | `/plugins/sqlite-workbench` |
-| 12 | 网页正文读取器 | Fetch MCP Server | 85 | `/plugins/web-content-reader` |
-| 13 | 结构化思考工作室 | Sequential Thinking MCP Server | 79 | `/plugins/sequential-thinking-studio` |
-
-每个工作台都有能力专属的输入、输出、帮助、运行反馈与浏览器覆盖。  
-Git / SQLite / defluff / Mermaid / Blueprint / oxidize-pdf / BumpGuard 仅写入项目沙箱；BumpGuard 网络仅允许 PyPI、Maven Central、nuget.org 的精确包产物；Svelte 文档网络限制在 `svelte.dev`。
+| 中文名 | 原名 | 来源 | 路由 |
+|:--|:--|:--|:--|
+| MCP 服务构建指南 | mcp-builder | Anthropic | `/plugins/skill-mcp-builder` |
+| 前端视觉设计指南 | frontend-design | Anthropic | `/plugins/skill-frontend-design` |
+| Skill 创作与评测 | skill-creator | Anthropic | `/plugins/skill-skill-creator` |
+| 算法艺术创作指南 | algorithmic-art | Anthropic | `/plugins/skill-algorithmic-art` |
+| 画布视觉设计指南 | canvas-design | Anthropic | `/plugins/skill-canvas-design` |
+| Web 应用测试手册 | webapp-testing | Anthropic | `/plugins/skill-webapp-testing` |
+| 品牌视觉规范应用 | brand-guidelines | Anthropic | `/plugins/skill-brand-guidelines` |
+| Web 产物构建套件 | web-artifacts-builder | Anthropic | `/plugins/skill-web-artifacts-builder` |
+| 内部沟通文案模板 | internal-comms | Anthropic | `/plugins/skill-internal-comms` |
+| 主题样式工厂 | theme-factory | Anthropic | `/plugins/skill-theme-factory` |
+| Slack GIF 创作规范 | slack-gif-creator | Anthropic | `/plugins/skill-slack-gif-creator` |
+| 数据可视化选型指南 | data-visualization | OpenAI plugins | `/plugins/skill-data-visualization` |
+| 无访问数据可视化 | accessibility-and-inclusive-visualization | OpenAI plugins | `/plugins/skill-accessibility-and-inclusive-visualization` |
+| 结构化头脑风暴 | brainstorming | OpenAI plugins | `/plugins/skill-brainstorming` |
+| D3 数据可视化指南 | d3-data-visualization | OpenAI plugins | `/plugins/skill-d3-data-visualization` |
+| Canvas2D 可视化指南 | canvas2d-data-visualization | OpenAI plugins | `/plugins/skill-canvas2d-data-visualization` |
+| 仪表盘与实时可视化 | dashboards-and-real-time-visualization | OpenAI plugins | `/plugins/skill-dashboards-and-real-time-visualization` |
+| Expo 原生 UI 构建 | building-native-ui | OpenAI plugins | `/plugins/skill-building-native-ui` |
+| Cloudflare AI Agent 构建 | building-ai-agent-on-cloudflare | OpenAI plugins | `/plugins/skill-building-ai-agent-on-cloudflare` |
+| CircleCI 配置优化 | circleci-config | OpenAI plugins | `/plugins/skill-circleci-config` |
+| CircleCI 构建排障 | circleci-builds | OpenAI plugins | `/plugins/skill-circleci-builds` |
+| SwiftUI 界面模式 | swiftui-ui-patterns | OpenAI plugins | `/plugins/skill-swiftui-ui-patterns` |
+| SwiftUI 视图重构 | swiftui-view-refactor | OpenAI plugins | `/plugins/skill-swiftui-view-refactor` |
+| SwiftUI 与 AppKit 互通 | appkit-interop | OpenAI plugins | `/plugins/skill-appkit-interop` |
+| Airtable 数据模型概览 | airtable-overview | OpenAI plugins | `/plugins/skill-airtable-overview` |
+| Airtable 过滤语法 | airtable-filters | OpenAI plugins | `/plugins/skill-airtable-filters` |
+| 代码审查工作流 | code-review | OpenAI plugins | `/plugins/skill-code-review` |
+| 引用与脚注规范 | citations | OpenAI plugins | `/plugins/skill-citations` |
 
 ---
 
 ## 🚀 快速开始
 
-### 方式 A · 一键公网部署（推荐）
+### 公网一键部署
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Bozheng-Li/AGRNT-OPT)
 
-1. 点击上方按钮，用 GitHub 登录 Render  
-2. 确认 Blueprint，等待 Docker 构建完成  
-3. 打开分配到的 `https://….onrender.com`  
-4. 首页即**插件中心**，点任意卡片 **打开 Web**
+部署后打开站点首页 = **插件中心**（41 个卡片），点 **打开 Web** 进入对应工作台。
 
-> 本项目是真实 Next.js + MCP 运行时（子进程、Python、沙箱），**不是**静态站，因此不适合纯 GitHub Pages。
+> 这是 Next.js + MCP/Skill 运行时，**不是**静态站；GitHub Pages 无法直接跑完整插件中心。
 
-### 方式 B · Docker Compose（本地全栈）
-
-```powershell
-docker compose up --build
-# 浏览器打开 http://localhost:3000
-```
-
-### 方式 C · 本地开发
+### 本地开发
 
 ```powershell
 npm install
 pip install -r requirements-mcp.txt
-npm run runtime:setup:bumpguard   # 仅 BumpGuard 需要 .NET
+npm run runtime:setup:bumpguard   # 仅 BumpGuard 需要
 npm run catalog:validate
 npm run dev
 ```
 
 打开 **http://localhost:3000**
 
-### 方式 D · GHCR 镜像
-
-推送 `master`/`main` 后由 Actions 发布：
+### Docker
 
 ```powershell
-docker run --rm -p 3000:3000 -e DOTNET_ROOT=/opt/dotnet ghcr.io/bozheng-li/agrnt-opt:latest
+docker compose up --build
 ```
 
 ---
 
-## 🖥️ 如何使用插件中心
+## 🖥️ 如何查看全部 Web
 
-```text
-首页 CatalogExplorer
-   ├─ 搜索能力 / 标签
-   ├─ 按分类筛选
-   └─ 卡片「打开 Web」 → /plugins/<slug>
-```
+1. 打开首页 `http://localhost:3000`（或 Render URL）  
+2. 搜索 / 分类筛选  
+3. 点卡片 **打开 Web**  
+4. MCP 走真实工具调用；Skill 走章节大纲 / 检索 / 全文  
 
-| 你想… | 怎么做 |
-|:--|:--|
-| 看全部公开插件 | 打开站点首页 |
-| 进入某个 Web 工作台 | 点卡片 **打开 Web** |
-| 只看源码元数据 | 打开 [`catalog/plugins/`](catalog/plugins/) |
-| 看质量规则 | 阅读 [`docs/QUALITY_GATES.md`](docs/QUALITY_GATES.md) |
+清单文件：[`catalog/plugins/`](catalog/plugins/)  
+Skill 正文副本：[`catalog/skill-bodies/`](catalog/skill-bodies/)
 
 ---
 
-## 🏗️ 架构一览
+## 🏗️ 架构
 
 ```text
-┌──────────────────────────────────────────────────────────┐
-│  Web UI  (Next.js App Router)                            │
-│  首页目录 · 专属 Workspace · 中文界面                    │
-└───────────────────────────┬──────────────────────────────┘
-                            │ POST /api/plugins/[slug]/invoke
-┌───────────────────────────▼──────────────────────────────┐
-│  Runtime Adapters  (src/lib/runtime)                     │
-│  校验 · 沙箱路径 · 权限边界 · 结果规范化                 │
-└───────────────────────────┬──────────────────────────────┘
-                            │ MCP stdio
-┌───────────────────────────▼──────────────────────────────┐
-│  Upstream MCP / packages                                 │
-│  Node · Python · .NET (BumpGuard)                        │
-└──────────────────────────────────────────────────────────┘
+Web UI (Next.js)
+  └─ POST /api/plugins/[slug]/invoke
+       ├─ MCP stdio adapters  → Node/Python MCP servers (13)
+       └─ Skill in-process    → catalog/skill-bodies/* (28)
 ```
 
 | 目录 | 用途 |
 |:--|:--|
-| `catalog/plugins/` | 可审阅的正式清单（manifest） |
-| `catalog/sources.json` | 发现源定义 |
-| `src/components/workspaces/` | 每个插件的专属 Web UI |
-| `src/lib/runtime/` | 适配器、沙箱、调用与安全 |
-| `scripts/` | 同步、校验、排序、运行时安装 |
-| `docs/` | 产品章程、架构、质量门禁、来源策略 |
-| `var/` | 本地快照与运行时数据（**不提交**） |
+| `catalog/plugins/` | 正式清单（唯一公开真相源） |
+| `catalog/skill-bodies/` | Skill 正文与许可证副本 |
+| `src/lib/runtime/` | MCP / Skill 适配与沙箱 |
+| `src/components/workspaces/` | 专属 Web 工作台 |
+| `var/` | 发现快照（不提交，不可当产品数） |
 
 ---
 
-## 🔁 常用命令
-
-```powershell
-# 同步官方 MCP Registry（增量 / 断点续传）
-npm run sync:official-mcp
-npm run sync:official-mcp -- --max-pages 100
-
-# 同步官方 skill 仓库 / 结构化市场
-npm run sync:official-skills
-npm run sync:structured-markets
-
-# 清单与质量
-npm run catalog:validate
-npm run catalog:report
-
-# 自动化验证
-npm test
-npm run test:e2e
-```
-
-### 变更完成前必须通过
+## 🔁 质量命令
 
 ```powershell
 npm run catalog:validate
@@ -226,40 +219,37 @@ npm run typecheck
 npm run lint
 npm test
 npm run build
-npm run test:e2e   # Web 工作流或集成行为变更时
+npm run test:e2e   # Web 行为变更时
 ```
 
 ---
 
-## 🔐 质量承诺（不可妥协）
+## 🔐 不可妥协规则
 
-- ❌ 不能把「只翻译了元数据」算作已集成  
-- ❌ 不能在凭证 / 付费 / 硬件 / 区域 / 外部服务不可用时强行标 `verified`  
-- ✅ 公开页只展示 `web-ready` / `verified`  
-- ✅ 证据优先级：MCP/官方结构化 API → 官方仓库文档 → 官方市场页 → 可信网络研究  
-- ✅ 保留原文、中文、作者、版本、时间戳、许可证与验证证据  
+- 不能把“只翻译了元数据”算集成  
+- 不能在缺凭证/付费/硬件/区域条件时强行 `verified`  
+- 公开页只展示 `web-ready` / `verified`  
+- Skill 与 MCP 分开计数，不混称  
+- 证据优先：官方结构化 API → 官方仓库 → 官方市场 → 可信研究  
 
-更多细节：
-
-- [产品章程](docs/PRODUCT_CHARTER.md)
-- [架构说明](docs/ARCHITECTURE.md)
-- [质量门禁](docs/QUALITY_GATES.md)
-- [来源策略](docs/SOURCE_POLICY.md)
-- [仓库协作规则](AGENTS.md)
+详见：[`docs/PRODUCT_CHARTER.md`](docs/PRODUCT_CHARTER.md) · [`docs/QUALITY_GATES.md`](docs/QUALITY_GATES.md) · [`AGENTS.md`](AGENTS.md)
 
 ---
 
-## 🤝 贡献
+## 🛣️ 扩展计划（诚实版）
 
-欢迎 Issue / PR，但请先阅读质量门禁与产品章程。  
-新增公开集成必须包含：证据、中文本地化、专属 Web、真实测试结果。
+目标是继续把公开目录扩到更多“几十个→上百个”，但**不会**把 16,765 个 MCP 候选直接上架：
+
+1. 从 250 条资格审查队列里做许可证 + 无凭证 + 本地可运行筛选  
+2. 每批新增 MCP 必须有 adapter + 专属 Web + 真实测试  
+3. 继续从 620 条 skill 候选中收录纯文档 / 可安全展示的 skill  
+4. 需要密钥或外部账号的条目保持 `blocked` / `discovered`，写清阻塞原因  
 
 ---
 
 ## 📄 许可证
 
-平台代码以仓库声明为准；上游插件/MCP 包保留各自许可证。  
-Agent-OPT **优先通过适配器调用上游包**，不擅自拷贝第三方实现。
+平台代码见 [LICENSE](LICENSE)。上游 MCP / skill 保留各自许可证；本仓库优先适配调用，不擅自拷贝受限实现。
 
 ---
 
@@ -267,179 +257,46 @@ Agent-OPT **优先通过适配器调用上游包**，不擅自拷贝第三方实
 
 # 🇺🇸 English
 
-## ✨ Highlights
+## What this repo is
 
-> **Aggregation is not a pile of links.**  
-> Every formal entry keeps provenance + Chinese localization, passes quality/security review, and ships a dedicated Web workflow matched to the real capability.
+Agent-OPT is a **quality-first** platform that discovers agent skills / plugins / MCP servers, localizes them, adapts them to a runtime, ships a dedicated Web workspace, and records real verification.
 
-| Pillar | What it means |
-|:--|:--|
-| 🧭 **Discover** | Official MCP Registry, structured marketplaces, official skill repos |
-| 🧪 **Quality gates** | Provenance, license, security, usefulness, adaptation, verification |
-| 🌐 **Dedicated Web** | Each formal integration gets its own route, inputs, outputs, and errors |
-| 🛡️ **Sandboxed runtime** | Files, Git, SQLite, PDF, charts write only into project-owned sandboxes |
-| 🇨🇳 **Bilingual** | Original text preserved with reviewed Chinese localization |
+It deliberately separates:
 
-```text
-discovered → qualified → translated → adapted → web-ready → verified
-                              ↘ blocked / deprecated
-```
+- **Discovery coverage** (large, under `var/`)  
+- **Formal public integrations** (small, under `catalog/plugins/`)
 
-> Public catalog pages only expose `web-ready` and `verified`.  
-> **Translated metadata ≠ integrated.** No dedicated Web + real verification means not done.
+## Facts (measured from this workspace)
 
----
+| Metric | Value | Counts as integrated? |
+|:--|--:|:--|
+| Public Web entries | **41** | Yes |
+| Verified MCP runtimes | **13** | Yes |
+| Verified agent skills | **28** | Yes |
+| MCP registry latest candidates | **16,765** | No |
+| MCP version records in full sync | **51,937** across **520** pages | No |
+| Structured marketplace listings | **2,428** | No |
+| Path-addressed skill candidates | **620** | No |
+| Qualification review queue | **250** still `discovered` | No |
 
-## 📊 Scale snapshot
+## Public catalog
 
-<div align="center">
+- **13 MCP workspaces**: real stdio adapters, sandboxes, core/scenario/error/web evidence  
+- **28 skill studios**: curated official `SKILL.md` bodies with section outline, search, full-text viewer; **scripts are not executed**
 
-| Public Web | Verified | MCP candidates (discovery) | Marketplace listings | Path skills |
-|:---:|:---:|:---:|:---:|:---:|
-| **13** | **13** | **16,765+** | **2,428** | **620** |
+Open `http://localhost:3000` after `npm run dev`, or deploy via the Render button above. The homepage is the plugin center; each card’s **Open Web** route is `/plugins/<slug>`.
 
-</div>
-
-Discovery counts live under `var/` and are **not** product integration counts. Only quality-gated manifests ship in the public catalog.
-
----
-
-## 🧩 Verified Web catalog
-
-Use the homepage **Open Web** action, or open `/plugins/<slug>` directly.
-
-| # | Chinese | English | Score | Route |
-|--:|:--|:--|--:|:--|
-| 1 | Svelte 开发工作室 | Svelte MCP | 92 | `/plugins/svelte-development-studio` |
-| 2 | Blueprint 数据图表工作台 | Blueprint Chart | 91 | `/plugins/blueprint-chart-studio` |
-| 3 | 文件系统工作台 | Filesystem MCP Server | 91 | `/plugins/filesystem-workbench` |
-| 4 | oxidize-pdf 文档工作台 | oxidize-pdf MCP Server | 90 | `/plugins/oxidize-pdf-workbench` |
-| 5 | 世界时间与时区换算 | Time MCP Server | 90 | `/plugins/timezone-converter` |
-| 6 | BumpGuard 依赖兼容实验室 | BumpGuard | 89 | `/plugins/bumpguard-dependency-lab` |
-| 7 | Git 沙箱工作室 | Git MCP Server | 88 | `/plugins/git-sandbox-studio` |
-| 8 | 确定性文本去冗器 | defluff | 88 | `/plugins/prose-defluffer` |
-| 9 | 知识图谱记忆库 | Knowledge Graph Memory Server | 87 | `/plugins/knowledge-memory` |
-| 10 | Mermaid 图表工作室 | Agentic Mermaid | 87 | `/plugins/mermaid-diagram-studio` |
-| 11 | SQLite 数据工作台 | SQLite MCP Server | 87 | `/plugins/sqlite-workbench` |
-| 12 | 网页正文读取器 | Fetch MCP Server | 85 | `/plugins/web-content-reader` |
-| 13 | 结构化思考工作室 | Sequential Thinking MCP Server | 79 | `/plugins/sequential-thinking-studio` |
-
-Each workspace has capability-specific inputs, output handling, help, runtime feedback, and browser coverage. Sandboxed writers never accept host roots from clients. BumpGuard network access is restricted to exact package artifacts from PyPI, Maven Central, and nuget.org. Svelte documentation network access is bounded to `svelte.dev`.
-
----
-
-## 🚀 Quick start
-
-### A · One-click public deploy (recommended)
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Bozheng-Li/AGRNT-OPT)
-
-1. Click the button and sign in to Render with GitHub  
-2. Confirm the Blueprint and wait for the Docker build  
-3. Open the assigned `https://….onrender.com` URL  
-4. The homepage is the **plugin center** — click **Open Web** on any card
-
-> This is a real Next.js + MCP runtime (child processes, Python, sandboxes). It is **not** a static site, so plain GitHub Pages cannot host the runnable center.
-
-### B · Docker Compose (local full stack)
-
-```powershell
-docker compose up --build
-# open http://localhost:3000
-```
-
-### C · Local development
+## Quick start
 
 ```powershell
 npm install
 pip install -r requirements-mcp.txt
-npm run runtime:setup:bumpguard   # .NET only required for BumpGuard
+npm run runtime:setup:bumpguard
 npm run catalog:validate
 npm run dev
 ```
 
-Open **http://localhost:3000**
-
-### D · GHCR image
-
-Pushes to `master`/`main` publish via Actions:
-
-```powershell
-docker run --rm -p 3000:3000 -e DOTNET_ROOT=/opt/dotnet ghcr.io/bozheng-li/agrnt-opt:latest
-```
-
----
-
-## 🖥️ Using the plugin center
-
-```text
-Home CatalogExplorer
-   ├─ Search capabilities / tags
-   ├─ Filter by category
-   └─ Card "Open Web" → /plugins/<slug>
-```
-
-| Goal | Action |
-|:--|:--|
-| Browse all public plugins | Open the site homepage |
-| Enter a Web workspace | Click **Open Web** on a card |
-| Inspect manifests only | Open [`catalog/plugins/`](catalog/plugins/) |
-| Read quality rules | See [`docs/QUALITY_GATES.md`](docs/QUALITY_GATES.md) |
-
----
-
-## 🏗️ Architecture
-
-```text
-┌──────────────────────────────────────────────────────────┐
-│  Web UI  (Next.js App Router)                            │
-│  Catalog · dedicated workspaces · bilingual UX           │
-└───────────────────────────┬──────────────────────────────┘
-                            │ POST /api/plugins/[slug]/invoke
-┌───────────────────────────▼──────────────────────────────┐
-│  Runtime Adapters  (src/lib/runtime)                     │
-│  Validation · sandbox paths · permission bounds          │
-└───────────────────────────┬──────────────────────────────┘
-                            │ MCP stdio
-┌───────────────────────────▼──────────────────────────────┐
-│  Upstream MCP / packages                                 │
-│  Node · Python · .NET (BumpGuard)                        │
-└──────────────────────────────────────────────────────────┘
-```
-
-| Path | Purpose |
-|:--|:--|
-| `catalog/plugins/` | Curated, reviewable manifests |
-| `catalog/sources.json` | Discovery source definitions |
-| `src/components/workspaces/` | Per-plugin dedicated Web UIs |
-| `src/lib/runtime/` | Adapters, sandbox, invoke, safety |
-| `scripts/` | Sync, validate, rank, runtime setup |
-| `docs/` | Charter, architecture, gates, source policy |
-| `var/` | Local snapshots & runtime data (**not committed**) |
-
----
-
-## 🔁 Common workflows
-
-```powershell
-# Official MCP Registry sync (incremental / resumable)
-npm run sync:official-mcp
-npm run sync:official-mcp -- --max-pages 100
-
-# Official skill repos / structured marketplaces
-npm run sync:official-skills
-npm run sync:structured-markets
-
-# Catalog quality
-npm run catalog:validate
-npm run catalog:report
-
-# Automated verification
-npm test
-npm run test:e2e
-```
-
-### Required before claiming a change complete
+Required checks before claiming completeness:
 
 ```powershell
 npm run catalog:validate
@@ -447,46 +304,28 @@ npm run typecheck
 npm run lint
 npm test
 npm run build
-npm run test:e2e   # for Web workflow or integration behavior changes
+npm run test:e2e
 ```
 
----
+## Non-negotiables
 
-## 🔐 Non-negotiable product rules
+- Metadata translation alone is **not** integration  
+- Never mark `verified` when credentials/paid access/hardware/region/service blocked the test  
+- Public pages only expose `web-ready` / `verified`  
+- Do not blur MCP counts with skill counts  
+- Preserve provenance, original text, Chinese labels, license evidence, and verification evidence  
 
-- ❌ Do not count metadata translation as integration  
-- ❌ Never mark `verified` when credentials, paid access, hardware, regional access, or external services blocked testing — record the blocker instead  
-- ✅ Public pages may only expose `web-ready` / `verified`  
-- ✅ Evidence order: MCP/official structured API → official repo/docs → official marketplace → trustworthy research  
-- ✅ Preserve original text, Chinese translation, author, version, timestamps, license evidence, and verification evidence  
+## License
 
-Read more:
-
-- [Product charter](docs/PRODUCT_CHARTER.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Quality gates](docs/QUALITY_GATES.md)
-- [Source policy](docs/SOURCE_POLICY.md)
-- [Agent collaboration rules](AGENTS.md)
-
----
-
-## 🤝 Contributing
-
-Issues and PRs are welcome. Please read the quality gates and product charter first.  
-A new public integration must include evidence, Chinese localization, a dedicated Web surface, and real test results.
-
----
-
-## 📄 License
-
-Platform code follows the repository license declaration. Upstream plugins/MCP packages keep their own licenses.  
-Agent-OPT **prefers adapters over vendoring** third-party implementations.
+See [LICENSE](LICENSE). Upstream packages keep their own licenses.
 
 ---
 
 <div align="center">
 
-**Agent-OPT** · Quality first · Continuously expanding · Honestly verified
+**Agent-OPT** · Quality first · Honest counts · Continuously expanding
+
+Public now: **41** · MCP: **13** · Skills: **28** · Discovery: much larger under `var/`
 
 [⬆ Back to top](#agent-opt)
 

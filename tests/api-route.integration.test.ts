@@ -26,6 +26,21 @@ describe("Next plugin invocation route", () => {
     expect(payload.result.isError).toBe(false);
   });
 
+  it("calls the in-process skill adapter through the HTTP route", async () => {
+    const outline = await invoke("skill-frontend-design", "skill_outline", {});
+    expect(outline.status).toBe(200);
+    const outlinePayload = await outline.json();
+    expect(outlinePayload.plugin).toBe("com.anthropic.skills/frontend-design");
+    expect(outlinePayload.result.isError).toBe(false);
+    const sectionId = outlinePayload.result.structuredContent.sections[0].id as string;
+
+    const opened = await invoke("skill-frontend-design", "skill_open", { sectionId });
+    expect(opened.status).toBe(200);
+    const openedPayload = await opened.json();
+    expect(openedPayload.result.isError).toBe(false);
+    expect(String(openedPayload.result.structuredContent.content || "")).toMatch(/./);
+  });
+
   it("calls the sequential-thinking MCP adapter through the HTTP route", async () => {
     const response = await invoke("sequential-thinking-studio", "sequentialthinking", {
       thought: "Verify the route boundary",

@@ -7,12 +7,13 @@ import { MemoryWorkspace } from "./memory-workspace";
 import { MermaidWorkspace } from "./mermaid-workspace";
 import { OxidizePdfWorkspace } from "./oxidize-pdf-workspace";
 import { SequentialThinkingWorkspace } from "./sequential-thinking-workspace";
+import { SkillWorkspace } from "./skill-workspace";
 import { SqliteWorkspace } from "./sqlite-workspace";
 import { SvelteWorkspace } from "./svelte-workspace";
 import { TimeWorkspace } from "./time-workspace";
 import { WebFetchWorkspace } from "./web-fetch-workspace";
 
-export function PluginWorkspace({ component }: { component?: string }) {
+export function PluginWorkspace({ component, slug }: { component?: string; slug?: string }) {
   if (component === "BlueprintWorkspace") return <BlueprintWorkspace />;
   if (component === "BumpguardWorkspace") return <BumpguardWorkspace />;
   if (component === "DefluffWorkspace") return <DefluffWorkspace />;
@@ -22,6 +23,7 @@ export function PluginWorkspace({ component }: { component?: string }) {
   if (component === "MermaidWorkspace") return <MermaidWorkspace />;
   if (component === "OxidizePdfWorkspace") return <OxidizePdfWorkspace />;
   if (component === "SequentialThinkingWorkspace") return <SequentialThinkingWorkspace />;
+  if (component === "SkillWorkspace" && slug) return <SkillWorkspace slug={slug} />;
   if (component === "SqliteWorkspace") return <SqliteWorkspace />;
   if (component === "SvelteWorkspace") return <SvelteWorkspace />;
   if (component === "TimeWorkspace") return <TimeWorkspace />;

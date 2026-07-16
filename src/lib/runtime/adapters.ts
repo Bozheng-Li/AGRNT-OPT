@@ -1,8 +1,14 @@
 import { access, lstat, mkdir } from "node:fs/promises";
+import { readdirSync } from "node:fs";
 import path from "node:path";
 import { z } from "zod";
 import { InvocationValidationError } from "./errors";
 import { resolveSandboxPath } from "./sandbox";
+import {
+  loadSkillIndex,
+  readSkillDocument,
+  searchSkillText,
+} from "./skill-runtime";
 import { validatePublicHttpUrl } from "./url-safety";
 
 export type AdapterContext = {
@@ -28,6 +34,8 @@ export type AdapterLaunch = {
 export type PluginAdapter = {
   slug: string;
   allowedTools: readonly string[];
+  /** stdio MCP child process (default) or in-process skill/document runtime. */
+  mode?: "stdio" | "in-process";
   requestTimeoutMs?(tool: string): number;
   persistentSession?: {
     key(context: AdapterContext): string;
@@ -35,6 +43,11 @@ export type PluginAdapter = {
   };
   prepare(context: AdapterContext): Promise<AdapterLaunch>;
   validateAndTransform(tool: string, input: unknown, context: AdapterContext): Promise<Record<string, unknown>>;
+  invokeInProcess?(
+    tool: string,
+    input: Record<string, unknown>,
+    context: AdapterContext,
+  ): Promise<AdapterToolResult>;
   normalizeResult?(
     tool: string,
     result: AdapterToolResult,
@@ -1701,6 +1714,154 @@ const svelteAdapter: PluginAdapter = {
   },
 };
 
+const skillTools = ["skill_outline", "skill_open", "skill_search", "skill_meta"] as const;
+
+const skillOutlineSchema = z.object({}).strict();
+const skillOpenSchema = z
+  .object({
+    sectionId: z.string().trim().min(1).max(120).optional(),
+    includeFull: z.boolean().optional(),
+  })
+  .strict();
+const skillSearchSchema = z
+  .object({
+    query: z.string().trim().min(1).max(120),
+    limit: z.number().int().min(1).max(30).default(12),
+  })
+  .strict();
+const skillMetaSchema = z.object({}).strict();
+
+function createSkillAdapter(slug: string): PluginAdapter {
+  return {
+    slug,
+    mode: "in-process",
+    allowedTools: skillTools,
+    async prepare() {
+      throw new InvocationValidationError(`Skill 适配器 ${slug} 为进程内文档运行时，不启动 MCP 子进程。`);
+    },
+    async validateAndTransform(tool, input) {
+      if (tool === "skill_outline") return parseWithFriendlyError(skillOutlineSchema, input);
+      if (tool === "skill_open") return parseWithFriendlyError(skillOpenSchema, input);
+      if (tool === "skill_search") return parseWithFriendlyError(skillSearchSchema, input);
+      if (tool === "skill_meta") return parseWithFriendlyError(skillMetaSchema, input);
+      throw new InvocationValidationError(`Web 适配未开放工具：${tool}`);
+    },
+    async invokeInProcess(tool, input) {
+      if (tool === "skill_meta") {
+        const index = await loadSkillIndex(slug);
+        const doc = await readSkillDocument(slug);
+        const payload = {
+          slug,
+          name: doc.parsed.name ?? slug,
+          description: doc.parsed.description ?? "",
+          sectionCount: doc.sections.length,
+          supportingFiles: index.supportingPaths,
+          characterCount: doc.raw.length,
+        };
+        return {
+          content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
+          structuredContent: payload,
+          isError: false,
+        };
+      }
+
+      const doc = await readSkillDocument(slug);
+      if (tool === "skill_outline") {
+        const outline = doc.sections.map((section) => ({
+          id: section.id,
+          level: section.level,
+          title: section.title,
+          preview: section.content.replace(/^#+\s+.+\n?/, "").trim().slice(0, 160),
+        }));
+        const payload = { slug, sectionCount: outline.length, sections: outline };
+        return {
+          content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
+          structuredContent: payload,
+          isError: false,
+        };
+      }
+
+      if (tool === "skill_open") {
+        const sectionId = typeof input.sectionId === "string" ? input.sectionId : undefined;
+        const includeFull = input.includeFull === true;
+        if (includeFull || !sectionId) {
+          const payload = {
+            slug,
+            mode: includeFull || !sectionId ? "full" : "section",
+            title: doc.parsed.name ?? slug,
+            content: doc.raw,
+            characterCount: doc.raw.length,
+          };
+          if (sectionId) {
+            const section = doc.sections.find((item) => item.id === sectionId);
+            if (!section) throw new InvocationValidationError(`未知章节：${sectionId}`);
+            const sectionPayload = {
+              slug,
+              mode: "section",
+              sectionId: section.id,
+              title: section.title,
+              level: section.level,
+              content: section.content,
+              characterCount: section.content.length,
+            };
+            return {
+              content: [{ type: "text", text: section.content }],
+              structuredContent: sectionPayload,
+              isError: false,
+            };
+          }
+          return {
+            content: [{ type: "text", text: doc.raw }],
+            structuredContent: payload,
+            isError: false,
+          };
+        }
+        const section = doc.sections.find((item) => item.id === sectionId);
+        if (!section) throw new InvocationValidationError(`未知章节：${sectionId}`);
+        const payload = {
+          slug,
+          mode: "section",
+          sectionId: section.id,
+          title: section.title,
+          level: section.level,
+          content: section.content,
+          characterCount: section.content.length,
+        };
+        return {
+          content: [{ type: "text", text: section.content }],
+          structuredContent: payload,
+          isError: false,
+        };
+      }
+
+      if (tool === "skill_search") {
+        const query = String(input.query ?? "");
+        const limit = typeof input.limit === "number" ? input.limit : 12;
+        const hits = searchSkillText(doc.raw, query, limit);
+        const payload = { slug, query, hitCount: hits.length, hits };
+        return {
+          content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
+          structuredContent: payload,
+          isError: false,
+        };
+      }
+
+      throw new InvocationValidationError(`Web 适配未开放工具：${tool}`);
+    },
+  };
+}
+
+function loadSkillAdapters(): PluginAdapter[] {
+  const root = path.join(/* turbopackIgnore: true */ process.cwd(), "catalog", "skill-bodies");
+  try {
+    return readdirSync(root, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => createSkillAdapter(entry.name));
+  } catch {
+    return [];
+  }
+}
+
 const adapters = new Map(
   [
     filesystemAdapter,
@@ -1716,9 +1877,26 @@ const adapters = new Map(
     oxidizeAdapter,
     bumpguardAdapter,
     svelteAdapter,
+    ...loadSkillAdapters(),
   ].map((adapter) => [adapter.slug, adapter]),
 );
 
 export function getPluginAdapter(slug: string): PluginAdapter | undefined {
-  return adapters.get(slug);
+  const existing = adapters.get(slug);
+  if (existing) return existing;
+  // Lazy register skill adapters added after process start (tests / hot paths).
+  if (slug.startsWith("skill-")) {
+    try {
+      const adapter = createSkillAdapter(slug);
+      adapters.set(slug, adapter);
+      return adapter;
+    } catch {
+      return undefined;
+    }
+  }
+  return undefined;
+}
+
+export function listRegisteredAdapterSlugs(): string[] {
+  return [...adapters.keys()].sort();
 }

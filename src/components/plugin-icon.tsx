@@ -1,6 +1,22 @@
-import { BarChart3, BrainCircuit, Clock3, Database, FileSearch2, FileText, FolderOpen, GitBranch, Network, ScanSearch, ScanText, Workflow } from "lucide-react";
+import {
+  BarChart3,
+  BookOpenText,
+  BrainCircuit,
+  Clock3,
+  Code2,
+  Database,
+  FileSearch2,
+  FileText,
+  FolderOpen,
+  GitBranch,
+  Network,
+  ScanSearch,
+  ScanText,
+  Workflow,
+} from "lucide-react";
 
 export function PluginIcon({ slug, size = 20 }: { slug: string; size?: number }) {
+  if (slug.startsWith("skill-")) return <BookOpenText size={size} />;
   if (slug === "filesystem-workbench") return <FolderOpen size={size} />;
   if (slug === "git-sandbox-studio") return <GitBranch size={size} />;
   if (slug === "knowledge-memory") return <BrainCircuit size={size} />;
@@ -13,5 +29,6 @@ export function PluginIcon({ slug, size = 20 }: { slug: string; size?: number })
   if (slug === "blueprint-chart-studio") return <BarChart3 size={size} />;
   if (slug === "oxidize-pdf-workbench") return <FileText size={size} />;
   if (slug === "bumpguard-dependency-lab") return <ScanSearch size={size} />;
+  if (slug === "svelte-development-studio") return <Code2 size={size} />;
   return <GitBranch size={size} />;
 }

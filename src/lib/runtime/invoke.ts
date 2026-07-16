@@ -153,6 +153,9 @@ export async function closePluginSessions(slug?: string): Promise<void> {
 export async function listPluginTools(slug: string, context: AdapterContext = {}) {
   const adapter = getPluginAdapter(slug);
   if (!adapter) throw new InvocationValidationError(`不存在运行适配器：${slug}`);
+  if (adapter.mode === "in-process") {
+    return adapter.allowedTools.map((name) => ({ name }));
+  }
   const launch = await adapter.prepare(context);
   const transport = createTransport(launch);
   const client = new Client({ name: "agent-opt", version: "0.1.0" }, { capabilities: {} });
@@ -177,6 +180,15 @@ export async function invokePluginTool(
   if (!adapter.allowedTools.includes(tool)) throw new InvocationValidationError(`Web 适配未开放工具：${tool}`);
 
   const transformedInput = await adapter.validateAndTransform(tool, input, context);
+
+  if (adapter.mode === "in-process") {
+    if (!adapter.invokeInProcess) {
+      throw new InvocationValidationError(`进程内适配器缺少 invokeInProcess：${slug}`);
+    }
+    const result = await adapter.invokeInProcess(tool, transformedInput, context);
+    return normalizeResult(adapter, tool, result, context);
+  }
+
   if (adapter.persistentSession) {
     return invokePersistent(adapter, tool, transformedInput, context);
   }

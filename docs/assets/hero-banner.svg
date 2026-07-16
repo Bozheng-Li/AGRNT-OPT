@@ -48,18 +48,18 @@
   <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
     <g transform="translate(168,230)">
       <rect width="150" height="68" rx="14" fill="url(#card)" stroke="#334155"/>
-      <text x="75" y="30" text-anchor="middle" fill="#38bdf8" font-size="24" font-weight="700">13</text>
-      <text x="75" y="52" text-anchor="middle" fill="#94a3b8" font-size="13">Verified Web</text>
+      <text x="75" y="30" text-anchor="middle" fill="#38bdf8" font-size="24" font-weight="700">41</text>
+      <text x="75" y="52" text-anchor="middle" fill="#94a3b8" font-size="13">Public Web</text>
     </g>
     <g transform="translate(338,230)">
       <rect width="170" height="68" rx="14" fill="url(#card)" stroke="#334155"/>
-      <text x="85" y="30" text-anchor="middle" fill="#a78bfa" font-size="24" font-weight="700">16.7k+</text>
-      <text x="85" y="52" text-anchor="middle" fill="#94a3b8" font-size="13">MCP Candidates</text>
+      <text x="85" y="30" text-anchor="middle" fill="#a78bfa" font-size="24" font-weight="700">13+28</text>
+      <text x="85" y="52" text-anchor="middle" fill="#94a3b8" font-size="13">MCP + Skills</text>
     </g>
     <g transform="translate(528,230)">
       <rect width="170" height="68" rx="14" fill="url(#card)" stroke="#334155"/>
-      <text x="85" y="30" text-anchor="middle" fill="#34d399" font-size="24" font-weight="700">100%</text>
-      <text x="85" y="52" text-anchor="middle" fill="#94a3b8" font-size="13">Source Traceable</text>
+      <text x="85" y="30" text-anchor="middle" fill="#34d399" font-size="24" font-weight="700">16.7k+</text>
+      <text x="85" y="52" text-anchor="middle" fill="#94a3b8" font-size="13">Discovered MCP</text>
     </g>
     <g transform="translate(718,230)">
       <rect width="170" height="68" rx="14" fill="url(#card)" stroke="#334155"/>

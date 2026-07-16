@@ -48,7 +48,7 @@ export default async function PluginPage({ params }: { params: Promise<{ slug: s
         </header>
 
         <div className="workspace-layout">
-          <PluginWorkspace component={plugin.web.component} />
+          <PluginWorkspace component={plugin.web.component} slug={plugin.slug} />
 
           <aside className="info-stack">
             <section className="info-card">

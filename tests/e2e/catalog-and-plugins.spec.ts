@@ -3,7 +3,8 @@ import { expect, test } from "@playwright/test";
 test("catalog exposes the Web-ready integrations", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: /把真正有用的 Agent 能力/ })).toBeVisible();
-  await expect(page.getByRole("link", { name: /打开 Web/ })).toHaveCount(13);
+  // 13 verified MCP workspaces + curated agent-skill studios.
+  await expect(page.getByRole("link", { name: /打开 Web/ })).toHaveCount(41);
   await expect(page.getByText("文件系统工作台")).toBeVisible();
   await expect(page.getByText("知识图谱记忆库")).toBeVisible();
   await expect(page.getByText("结构化思考工作室")).toBeVisible();
@@ -17,6 +18,16 @@ test("catalog exposes the Web-ready integrations", async ({ page }) => {
   await expect(page.getByText("oxidize-pdf 文档工作台")).toBeVisible();
   await expect(page.getByText("BumpGuard 依赖兼容实验室")).toBeVisible();
   await expect(page.getByText("Svelte 开发工作室")).toBeVisible();
+  await expect(page.getByText("前端视觉设计指南")).toBeVisible();
+  await expect(page.getByText("结构化头脑风暴")).toBeVisible();
+});
+
+test("skill studio opens a curated Anthropic skill section", async ({ page }) => {
+  await page.goto("/plugins/skill-frontend-design");
+  await expect(page.getByText("Skill 工作室")).toBeVisible();
+  await expect(page.getByTestId("skill-outline")).toBeVisible({ timeout: 15_000 });
+  await page.getByTestId("skill-open-section").click();
+  await expect(page.getByTestId("result-output")).not.toHaveText("", { timeout: 15_000 });
 });
 
 test("filesystem Web writes and reads a sandbox file", async ({ page }) => {

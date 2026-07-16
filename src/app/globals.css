@@ -702,6 +702,46 @@ button {
   margin-bottom: 13px;
 }
 
+.skill-outline {
+  display: grid;
+  gap: 6px;
+  max-height: 280px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-strong);
+}
+
+.skill-outline-item {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.skill-outline-item strong {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.skill-outline-item span {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.skill-outline-item:hover,
+.skill-outline-item.active {
+  background: var(--surface);
+  border-color: var(--border-strong);
+}
+
 .field-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
