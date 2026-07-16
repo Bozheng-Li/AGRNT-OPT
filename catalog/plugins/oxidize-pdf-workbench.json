@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.bzsanti/oxidize-pdf-mcp",
+  "slug": "oxidize-pdf-workbench",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T18:35:36.619Z"
+  },
+  "name": {
+    "original": "oxidize-pdf MCP Server",
+    "zhCN": "oxidize-pdf 文档工作台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Rust-powered PDF generation, parsing, extraction, conversion, analysis, manipulation, annotation, forms, and security through twelve local MCP tools.",
+    "zhCN": "通过 12 个本地 MCP 工具完成 Rust 驱动的 PDF 创建、解析、提取、转换、分析、处理、标注、表单和安全操作。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Rust-powered PDF library for Python. Generate, parse, split, merge, and manipulate PDFs with native performance. Ships with a built-in MCP server so AI agents can work with PDFs out of the box. No C dependencies, no Java, and no subprocess calls.",
+    "zhCN": "oxidize-pdf 是带 Python 绑定的 Rust PDF 引擎，官方 MCP 发布版提供 read_pdf、extract_text、convert_pdf、analyze_pdf、extract_entities、manipulate_pdf、annotate_pdf、manage_forms、secure_pdf、create_pdf、add_pdf_content 与 save_pdf 共 12 个工具。Agent-OPT 为其增加安全上传、文件库、浏览器 PDF 预览、阅读分析、页面处理、表单、安全和持久创建会话，并把全部路径与资源上限固定在项目工作区。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Santiago Fernández Muñoz",
+    "url": "https://github.com/bzsanti",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.15.1",
+    "releasedAt": "2026-07-15T13:46:37.266Z",
+    "checkedAt": "2026-07-15T18:21:42.059Z"
+  },
+  "categories": [
+    "documents",
+    "productivity",
+    "data-extraction"
+  ],
+  "tags": [
+    "MCP",
+    "PDF",
+    "Rust",
+    "text extraction",
+    "RAG",
+    "forms",
+    "encryption",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/bzsanti/oxidize-python",
+    "repositoryUrl": "https://github.com/bzsanti/oxidize-python",
+    "packageUrl": "https://pypi.org/project/oxidize-pdf/0.15.1/",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.bzsanti%2Foxidize-pdf-mcp",
+        "listingId": "io.github.bzsanti/oxidize-pdf-mcp",
+        "checkedAt": "2026-07-15T18:21:42.059Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.bzsanti%2Foxidize-pdf-mcp",
+        "retrievedAt": "2026-07-15T18:21:42.059Z",
+        "note": "The official MCP Registry record links the verified io.github.bzsanti namespace, repository, PyPI distribution, and stdio oxidize-mcp entry. Its recorded 0.13.0 package led to the same official repository and the subsequently published 0.15.1 release tested by Agent-OPT."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://pypi.org/pypi/oxidize-pdf/0.15.1/json",
+        "retrievedAt": "2026-07-15T18:21:42.059Z",
+        "note": "PyPI metadata supplies the exact 0.15.1 release timestamp, CPython >=3.10 requirement, Windows/Linux/macOS wheels, official repository links, MCP extra dependencies, and file digests."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/bzsanti/oxidize-python/blob/d88c5d894885ea476e26359875872183f128ec32/README.md",
+        "retrievedAt": "2026-07-15T18:21:42.059Z",
+        "note": "The pinned README documents the twelve MCP tools, six resources, five prompts, supported platforms, local stdio operation, workspace configuration, resource caps, known limitations, and MIT license."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/bzsanti/oxidize-python/blob/d88c5d894885ea476e26359875872183f128ec32/python/oxidize_pdf/mcp/security.py",
+        "retrievedAt": "2026-07-15T18:21:42.059Z",
+        "note": "The pinned security implementation resolves paths before containment checks and enforces extension, file-size, page-count, response-size, and session-size limits."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/bzsanti/oxidize-python/blob/d88c5d894885ea476e26359875872183f128ec32/python/oxidize_pdf/mcp/server.py",
+        "retrievedAt": "2026-07-15T18:21:42.059Z",
+        "note": "The pinned MCP server registers the actual twelve-tool surface and documents its stateful creation sessions, capabilities, version, fonts, page sizes, and workspace resources."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/bzsanti/oxidize-python/blob/d88c5d894885ea476e26359875872183f128ec32/LICENSE",
+        "retrievedAt": "2026-07-15T18:21:42.059Z",
+        "note": "The pinned repository LICENSE contains the MIT terms and Santiago Fernández Muñoz copyright notice."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/bzsanti/oxidize-python/blob/d88c5d894885ea476e26359875872183f128ec32/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The official repository, PyPI classifiers, and project metadata declare MIT. Agent-OPT invokes the upstream wheel and does not copy its Rust or Python implementation.",
+    "checkedAt": "2026-07-15T18:21:42.059Z"
+  },
+  "capabilities": [
+    {
+      "id": "pdf-reading-extraction",
+      "name": {
+        "original": "Read and extract PDF content",
+        "zhCN": "读取与提取 PDF 内容",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read document and page metadata, extract raw text, and return positioned text entities with font and coordinate information.",
+        "zhCN": "读取文档及页面元数据，提取纯文本，并返回包含字体和页面坐标的文本实体。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "pdf-conversion-analysis",
+      "name": {
+        "original": "Convert and analyze PDFs",
+        "zhCN": "转换与分析 PDF",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Convert documents to Markdown, chunks, or RAG representations and validate structure, corruption, PDF/A compliance, or equivalence.",
+        "zhCN": "把文档转换为 Markdown、固定分块或 RAG 表示，并检查结构、损坏、PDF/A 合规或文件等价性。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "pdf-manipulation",
+      "name": {
+        "original": "Manipulate and annotate PDF pages",
+        "zhCN": "处理与标注 PDF 页面",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Split, merge, rotate, extract, reverse, or overlay pages and add text notes or highlight rectangles.",
+        "zhCN": "拆分、合并、旋转、抽取、倒序或叠加页面，并添加文本便签或高亮矩形。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "pdf-forms-security",
+      "name": {
+        "original": "Work with forms and PDF security",
+        "zhCN": "处理表单与 PDF 安全",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Create, fill, read, and validate form values; encrypt copies and inspect document permissions or digital signatures.",
+        "zhCN": "创建、填写、读取和校验表单值，生成加密副本并检查文档权限或数字签名。",
+        "sourceLanguage": "en"
+      },
+      "risk": "high"
+    },
+    {
+      "id": "stateful-pdf-authoring",
+      "name": {
+        "original": "Author PDFs through persistent sessions",
+        "zhCN": "通过持久会话创建 PDF",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Create an in-memory document session, add text and pages incrementally, then save the final PDF to the sandbox.",
+        "zhCN": "创建内存文档会话，逐步添加文本和页面，然后把最终 PDF 保存到项目沙箱。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [
+      "Optional PDF document passwords, request-scoped and never persisted by Agent-OPT"
+    ],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches the fixed oxidize-mcp executable from the project virtual environment and exposes the exact twelve tools discovered from 0.15.1.",
+      "OXIDIZE_WORKSPACE is fixed under var/runtime/oxidize-pdf/workspace; OXIDIZE_ALLOWED_PATHS is empty and clients cannot supply paths, commands, environment variables, or network endpoints outside the bounded tool inputs.",
+      "Agent-OPT adds an 8 MiB PDF-signature-checked upload endpoint and a contained no-store PDF viewer/download route. Runtime inputs are capped at 16 MiB and 500 pages; responses and sessions are capped at 2 MiB; four sessions expire after five minutes.",
+      "Stateful create_pdf/add_pdf_content/save_pdf calls use one serialized persistent stdio connection per workspace with a two-minute idle shutdown, so the actual upstream session semantics remain available through separate Web requests."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-oxidize-pdf-python",
+    "transport": "stdio",
+    "package": {
+      "registry": "pypi",
+      "name": "oxidize-pdf",
+      "version": "0.15.1"
+    },
+    "requirements": [
+      "CPython 3.10 or newer",
+      "A host supported by the official abi3 wheel (Windows x86_64, Linux x86_64/aarch64, or macOS x86_64/Apple Silicon)",
+      "Python dependencies installed from requirements-mcp.txt"
+    ],
+    "configuration": [
+      {
+        "key": "fixed PDF workspace and resource caps",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Agent-OPT injects the workspace, empty extra-path allowlist, file/page/response/session caps, home directory, and temporary paths.",
+          "zhCN": "Agent-OPT 固定注入工作区、空的额外路径白名单、文件/页数/响应/会话上限、用户目录和临时路径。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "persistent stdio session manager",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "A serialized per-workspace MCP connection preserves upstream PDF authoring sessions and is closed after two idle minutes.",
+          "zhCN": "按工作区串行化的 MCP 连接保留上游 PDF 创建会话，并在空闲两分钟后自动关闭。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 90,
+    "usefulness": 5,
+    "uniqueness": 5,
+    "reliability": 4.5,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.5,
+    "webFitness": 5,
+    "notes": [
+      "PDF reading, extraction, RAG conversion, page manipulation, forms, security, and stateful authoring provide a broad user-facing capability absent from the existing catalog.",
+      "The official 0.15.1 package exposes twelve tools. Agent-OPT records the real add_pdf_content name even though one README table still uses the older add_content wording.",
+      "The repository is young and labels the package beta, but it ships current cross-platform wheels, explicit resource controls, extensive tests, clear limitations, and no subprocess-based PDF backend.",
+      "Single-connection qualification successfully exercised all twelve tools and produced valid PDF signatures for created, rotated, extracted, merged, annotated, form, and encrypted files. Formal verification evidence is recorded only after the Agent-OPT adapter and Web suites pass."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T18:21:42.059Z",
+    "notes": [
+      "Kept oxidize-pdf, PDF, PDF/A, RAG, MCP, Rust, session, tool names, page points, and form/security terms where they are established technical vocabulary.",
+      "Preserved upstream limitations for overlay-based form filling and reconstructed encryption rather than presenting them as full AcroForm or in-place editing."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "OxidizePdfWorkspace",
+    "route": "/plugins/oxidize-pdf-workbench",
+    "features": [
+      "PDF-signature-checked browser upload and sandbox file library",
+      "inline browser PDF preview and download",
+      "metadata, text, Markdown, chunks, RAG, structural, compliance, comparison, and positioned-entity workflows",
+      "split, merge, rotate, extract, reverse, overlay, annotation, and highlight controls",
+      "form creation/filling/reading/validation and PDF encryption/permission/signature panels",
+      "persistent create/add-page/add-text/save authoring workflow",
+      "runtime activity, structured diagnostics, resource feedback, and error states"
+    ],
+    "dedicatedElements": [
+      "PDF upload and workspace file selector",
+      "embedded PDF document viewer",
+      "reading, conversion, analysis, and entity task selector",
+      "page manipulation and coordinate-based annotation panel",
+      "form definition/value editors",
+      "document security controls with password inputs",
+      "stateful PDF authoring session builder",
+      "chunk, entity, metadata, analysis, and security result cards"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.15.1",
+    "tests": [
+      {
+        "id": "oxidize-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T18:35:36.619Z",
+        "evidence": "Vitest launched oxidize-pdf 0.15.1 over stdio, discovered the exact twelve-tool surface, preserved a real create_pdf/add_pdf_content/save_pdf session across calls, and exercised read_pdf, extract_text, convert_pdf, analyze_pdf, extract_entities, manipulate_pdf, annotate_pdf, manage_forms, and secure_pdf through the shipped adapter."
+      },
+      {
+        "id": "oxidize-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test && npm run runtime:smoke",
+        "checkedAt": "2026-07-15T18:35:36.619Z",
+        "evidence": "The real runtime created a two-page PDF, extracted text, produced Markdown/fixed/RAG representations, validated and compared structure, returned positioned entities, and completed rotate, extract-pages, reverse, overlay, merge, split, highlight, note, form create/fill/read/validate, permission, signature, encrypt, locked-read, and password-unlocked workflows. Created, rotated, extracted, merged, annotated, form, and encrypted outputs carried valid %PDF- signatures."
+      },
+      {
+        "id": "oxidize-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T18:35:36.619Z",
+        "evidence": "Missing files returned normalized SECURITY_ERROR results; invalid extensions, pages above the adapter limit, invalid chunk overlap, unsupported rotation degrees, malformed session IDs, invalid form JSON, and absent stateful sessions were rejected or returned controlled errors."
+      },
+      {
+        "id": "oxidize-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test && npm audit --omit=dev && python -m pip check",
+        "checkedAt": "2026-07-15T18:35:36.619Z",
+        "evidence": "Absolute paths, traversal, non-PDF extensions, fake PDF uploads, extra environment/command fields, and symlink escapes were blocked. The launch fixed an empty OXIDIZE_ALLOWED_PATHS value, workspace/home/temp paths, 16 MiB/500 page/2 MiB response/4 session/5 minute caps, and a two-minute idle process shutdown. Document passwords were not echoed in results; npm audit found zero vulnerabilities and pip check found no broken requirements."
+      },
+      {
+        "id": "oxidize-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T18:35:36.619Z",
+        "evidence": "Playwright Chromium created a persistent PDF session across separate HTTP requests, added text, saved and selected the real file, loaded the contained PDF preview/download endpoint, extracted the expected text, checked PDF security permissions, and verified the downloaded %PDF- signature. The complete browser suite passed 12 of 12 workflows."
+      }
+    ],
+    "blockers": []
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.appcreationsca/bumpguard",
+  "slug": "bumpguard-dependency-lab",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T04:05:04.444Z"
+  },
+  "name": {
+    "original": "BumpGuard",
+    "zhCN": "BumpGuard 依赖兼容实验室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Guard your dependency bumps: an MCP server that tells your AI agent exactly which parts of YOUR code break when you upgrade a dependency, and verifies AI-written code against the API that's actually installed — by static analysis, never by running third-party code.",
+    "zhCN": "在升级依赖前，以静态分析比对真实 API 并定位受影响代码，同时核验 AI 生成的导入、调用和符号是否确实存在；分析过程不执行第三方包代码。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Guard your dependency bumps. BumpGuard is a Model Context Protocol (MCP) server that tells your AI coding agent exactly which lines of your code break when you upgrade a dependency — and verifies AI-written code against the API that is actually installed, so it stops calling functions that don't exist. It does this by static analysis only. BumpGuard never imports or executes third-party code; it reads a package's real public API straight from its source.",
+    "zhCN": "BumpGuard 0.2.1 提供依赖升级影响检查、版本 API 差异、代码片段幻觉核验、导入拼写与潜在供应链风险提示、真实符号浏览以及生态探测共 6 个 MCP 工具。它支持 Python/PyPI、Java/Maven Central 与 .NET/NuGet；Agent-OPT 为三种生态提供专属参数、代码编辑、风险摘要、breaking 变化、发现项和符号表，并把下载、构建与缓存限制在项目运行目录。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "BumpGuard contributors",
+    "url": "https://github.com/appcreationsca/bumpguard-mcp",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.2.1",
+    "releasedAt": "2026-06-17T23:19:19.952847Z",
+    "checkedAt": "2026-07-16T03:16:32.707Z"
+  },
+  "categories": [
+    "developer-tools",
+    "code-quality",
+    "dependency-management",
+    "security"
+  ],
+  "tags": [
+    "MCP",
+    "static analysis",
+    "dependency upgrades",
+    "API diff",
+    "hallucination detection",
+    "PyPI",
+    "Maven",
+    "NuGet"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/appcreationsca/bumpguard-mcp",
+    "repositoryUrl": "https://github.com/appcreationsca/bumpguard-mcp",
+    "packageUrl": "https://pypi.org/project/bumpguard-mcp/0.2.1/",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.appcreationsca%2Fbumpguard",
+        "listingId": "io.github.appcreationsca/bumpguard",
+        "checkedAt": "2026-07-16T03:16:32.707Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.appcreationsca%2Fbumpguard",
+        "retrievedAt": "2026-07-16T03:16:32.707Z",
+        "note": "The official MCP Registry marks io.github.appcreationsca/bumpguard 0.2.1 as the active latest record and links the PyPI package, official repository, stdio transport, and Python/.NET/Java description."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://pypi.org/pypi/bumpguard-mcp/0.2.1/json",
+        "retrievedAt": "2026-07-16T03:16:32.707Z",
+        "note": "PyPI supplies the exact 0.2.1 release timestamp, SHA-256 digest af4efcde75b1e179f9ff9f7cdf85f1ffc3cc0caea1f6d7480ef125277a2b329e, Python >=3.10 requirement, MIT classifier, author, and official repository links."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/appcreationsca/bumpguard-mcp/blob/6209137b2b397738465457bd7de6ef71ec9a32a2/README.md",
+        "retrievedAt": "2026-07-16T03:16:32.707Z",
+        "note": "The pinned v0.2.1 README documents all six tools, static-only analysis, supported ecosystems, source and bytecode extraction methods, official registries, security boundaries, examples, and known v1 limitations."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/appcreationsca/bumpguard-mcp/blob/6209137b2b397738465457bd7de6ef71ec9a32a2/src/bumpguard/server.py",
+        "retrievedAt": "2026-07-16T03:16:32.707Z",
+        "note": "The pinned MCP server registers the actual check_upgrade, diff_versions, verify_snippet, check_import, list_symbols, and list_languages tool surface and describes the static-analysis confidence contract."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/appcreationsca/bumpguard-mcp/blob/6209137b2b397738465457bd7de6ef71ec9a32a2/src/bumpguard/providers/python/fetch.py",
+        "retrievedAt": "2026-07-16T03:16:32.707Z",
+        "note": "The Python provider downloads exact wheels with pip without installing them, caps extracted files and bytes, rejects archive traversal, and bounds each download to 120 seconds."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/appcreationsca/bumpguard-mcp/blob/6209137b2b397738465457bd7de6ef71ec9a32a2/src/bumpguard/providers/java/maven.py",
+        "retrievedAt": "2026-07-16T03:16:32.707Z",
+        "note": "The Java provider fixes downloads to Maven Central, validates group:artifact and version URL segments, caps POM/JAR/metadata sizes, and parses class metadata without executing bytecode."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/appcreationsca/bumpguard-mcp/blob/6209137b2b397738465457bd7de6ef71ec9a32a2/src/bumpguard/providers/dotnet/nuget.py",
+        "retrievedAt": "2026-07-16T03:16:32.707Z",
+        "note": "The .NET provider fixes package downloads to nuget.org, validates package/version segments, caps archives, rejects extraction traversal, and selects managed reference assemblies for metadata inspection."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/appcreationsca/bumpguard-mcp/blob/6209137b2b397738465457bd7de6ef71ec9a32a2/LICENSE",
+        "retrievedAt": "2026-07-16T03:16:32.707Z",
+        "note": "The pinned repository LICENSE contains the MIT terms and 2026 BumpGuard contributors copyright notice."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/appcreationsca/bumpguard-mcp/blob/6209137b2b397738465457bd7de6ef71ec9a32a2/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The official repository LICENSE, pinned pyproject.toml, PyPI metadata, and classifier all declare MIT. Agent-OPT invokes the upstream wheel and only adds an independent adapter bootstrap; it does not copy BumpGuard implementation code.",
+    "checkedAt": "2026-07-16T03:16:32.707Z"
+  },
+  "capabilities": [
+    {
+      "id": "upgrade-impact-analysis",
+      "name": {
+        "original": "Check dependency upgrade impact",
+        "zhCN": "检查依赖升级影响",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Diff the current or selected baseline API against a target release, scan supplied source, and report only affected usages with line, severity, and fix hints.",
+        "zhCN": "对比当前或指定基线与目标版本的 API，扫描所给源码，只报告真正命中的使用位置、行号、严重性和修复提示。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "version-api-diff",
+      "name": {
+        "original": "Diff real package API versions",
+        "zhCN": "比对真实版本 API",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Extract two released surfaces from PyPI wheels, Maven jars, or NuGet assemblies and classify removed, added, and signature-level changes.",
+        "zhCN": "从 PyPI wheel、Maven jar 或 NuGet 程序集提取两个发布版本的真实表面，并归类删除、新增及签名级变化。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "snippet-hallucination-check",
+      "name": {
+        "original": "Verify AI-written Python snippets",
+        "zhCN": "核验 AI 生成的 Python 代码",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Check Python syntax, installed imports, and statically visible attributes to flag invented APIs and typo or slopsquat package names.",
+        "zhCN": "检查 Python 语法、已安装导入和静态可见属性，标出虚构 API、拼写错误及疑似 slopsquatting 包名。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "import-and-symbol-grounding",
+      "name": {
+        "original": "Ground imports and browse public symbols",
+        "zhCN": "核实导入并浏览公开符号",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Check whether a package is present, suggest close installed names, and list real public functions, classes, methods, properties, and signatures.",
+        "zhCN": "检查包是否存在、提示相近的已安装名称，并列出真实公开函数、类、方法、属性及签名。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches the fixed project Python interpreter and an Agent-OPT bootstrap that prevents pip and dotnet child commands from inheriting the MCP JSON-RPC stdin stream.",
+      "Package coordinates, versions, source snippets, filters, tool names, and output size are bounded. Unknown client fields, option-like package names, path separators, traversal segments, and unsupported ecosystems are rejected before launch.",
+      "HOME, USERPROFILE, APPDATA, LOCALAPPDATA, TEMP, pip cache, Maven repository, NuGet packages, and .NET CLI home are fixed under var/runtime/bumpguard; symbolic-link roots and cache directories are rejected.",
+      "PyPI is fixed to https://pypi.org/simple with config files disabled; upstream Java and .NET implementations fix requests to Maven Central and nuget.org. Host proxy and CA variables may be inherited, but clients cannot choose network endpoints or environment values.",
+      "The adapter pins the project-local .NET 8 SDK and applies per-tool MCP deadlines up to ten minutes to cover upstream bounded downloads, first-use extractor compilation, and static analysis."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-bumpguard-python",
+    "transport": "stdio",
+    "package": {
+      "registry": "pypi",
+      "name": "bumpguard-mcp",
+      "version": "0.2.1"
+    },
+    "requirements": [
+      "CPython 3.10 or newer with requirements-mcp.txt installed in the project virtual environment",
+      "Project-local .NET 8 SDK under var/runtime/dotnet-sdk for complete NuGet support",
+      "Network access to pypi.org, repo1.maven.org, and api.nuget.org for selected released versions",
+      "Installed Python packages in the project virtual environment when checking the current environment without an explicit version"
+    ],
+    "configuration": [
+      {
+        "key": "isolated registry caches and temporary workspace",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Agent-OPT injects project-owned home, temporary, pip, Maven, NuGet, .NET build, and CLI cache directories for every MCP process.",
+          "zhCN": "Agent-OPT 为每个 MCP 进程固定注入项目自有的用户目录、临时目录、pip、Maven、NuGet、.NET 构建及 CLI 缓存。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "official package registry network access",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Exact released artifacts are fetched only from the upstream provider's fixed PyPI, Maven Central, or nuget.org endpoint; no account or API key is used.",
+          "zhCN": "精确版本产物只从上游提供器固定的 PyPI、Maven Central 或 nuget.org 端点获取，不使用账号或 API 密钥。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "project-local Python and .NET runtimes",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "The adapter pins the project virtual-environment Python and local .NET 8 SDK, disables telemetry and interactive pip input, and never accepts executable paths from Web callers.",
+          "zhCN": "适配器固定使用项目虚拟环境 Python 与本地 .NET 8 SDK，关闭遥测和 pip 交互输入，且不接受 Web 调用方提供的可执行路径。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 89,
+    "usefulness": 5,
+    "uniqueness": 4.5,
+    "reliability": 4,
+    "maintenance": 4.5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.5,
+    "webFitness": 5,
+    "notes": [
+      "Upgrade impact, package API diffing, hallucination checks, typo/slopsquat suggestions, and grounded symbol discovery address high-frequency failures in AI-assisted development and are not duplicated by the current catalog.",
+      "The official 0.2.1 package exposes exactly six tools and three ecosystem providers. verify_snippet is semantically supported only for Python in v1; Java and .NET return an explicit unsupported result rather than a false pass.",
+      "Qualification through the shipped adapter completed Python upgrade/import/snippet/symbol workflows, a Gson 2.8.9 to 2.10.1 diff with 76 changes and 16 breaking changes, and Newtonsoft.Json 12.0.1 to 13.0.1 diff and symbol extraction.",
+      "The project is an alpha-stage, young repository and all surfaces are explicitly partial static analysis. Agent-OPT verification covers the complete adapter, API, multi-ecosystem, error, security, smoke, build, and browser workflows without presenting a clean static result as a runtime guarantee."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T03:16:32.707Z",
+    "notes": [
+      "Kept BumpGuard, MCP, API, PyPI, Maven, NuGet, wheel, jar, slopsquatting, symbol, and tool identifiers in established technical form.",
+      "Translated safe_to_upgrade as a static-analysis conclusion, not a guarantee; preserved upstream partial-surface, overload, erased-generics, dynamic-module, and semantic-binding limitations."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "BumpguardWorkspace",
+    "route": "/plugins/bumpguard-dependency-lab",
+    "features": [
+      "Python, Java, and .NET ecosystem segmented control with representative presets",
+      "dependency upgrade impact workflow with source editor and line-level risk findings",
+      "two-version API diff with breaking and non-breaking change views",
+      "Python hallucination, syntax, missing-import, typo, and slopsquat-oriented verification",
+      "installed import check with close-name suggestions",
+      "versioned real-symbol browser with substring filtering and signature table",
+      "provider discovery, bounded runtime state, static-analysis caveats, and structured errors"
+    ],
+    "dedicatedElements": [
+      "three-ecosystem mode switch and package/version preset loader",
+      "upgrade source-code editor and safety summary",
+      "breaking-change and affected-line risk lists",
+      "Python hallucination finding inspector",
+      "import availability and close-name suggestion panel",
+      "filterable public symbol and signature table",
+      "live provider availability strip"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.2.1",
+    "tests": [
+      {
+        "id": "bumpguard-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T04:05:04.444Z",
+        "evidence": "Vitest launched BumpGuard 0.2.1 over the fixed Python stdio bootstrap, discovered exactly six tools and all three providers, then exercised list_languages, installed and misspelled check_import, valid/typo/syntax-error verify_snippet, installed list_symbols, diff_versions, and check_upgrade with normalized structured results. The full suite passed 61 of 61 tests."
+      },
+      {
+        "id": "bumpguard-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test && npm run runtime:smoke",
+        "checkedAt": "2026-07-16T04:05:04.444Z",
+        "evidence": "Real scenarios verified a safe sniffio 1.3.0 to 1.3.1 Python upgrade, 128 installed Pydantic BaseModel matches, Gson 2.8.9 to 2.10.1 with 76 changes and 16 breaking changes plus code-impact and fromJson symbol analysis, and Newtonsoft.Json 12.0.1 to 13.0.1 diff, code-impact, and SerializeObject symbol analysis. runtime:smoke also passed all 12 integrations and controlled security failures."
+      },
+      {
+        "id": "bumpguard-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T04:05:04.444Z",
+        "evidence": "Malformed Python, Java, and NuGet coordinates, traversal and option-like values, invalid versions, 100,001-character code, unknown fields, an unavailable PyPI version, Python syntax errors, and unsupported Java/.NET snippet verification all produced bounded validation or explicit upstream error results rather than false passes."
+      },
+      {
+        "id": "bumpguard-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test && npm audit --omit=dev && python -m pip check",
+        "checkedAt": "2026-07-16T04:05:04.444Z",
+        "evidence": "Tests verified fixed executables, the stdin-safe bootstrap, strict coordinate and version schemas, official PyPI index, client-inaccessible environment fields, project-contained home/temp/pip/Maven/NuGet/.NET caches, symlink-root rejection, 2 MiB output rejection, host-path redaction, bounded per-tool deadlines, disabled .NET telemetry/build servers, and no residual BumpGuard or Roslyn processes. npm audit found zero vulnerabilities and pip check found no broken requirements."
+      },
+      {
+        "id": "bumpguard-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-16T04:05:04.444Z",
+        "evidence": "Playwright Chromium used the dedicated workspace to probe three providers, run a real upgrade and version diff, flag a misspelled Python import, show a close-name import suggestion, reject an option-like package through the HTTP boundary, browse real Pydantic symbols, and verify Java/.NET presets. The complete browser suite passed 13 of 13 workflows; nonblank 1280px and 390px screenshots showed stable desktop/mobile layouts and dynamic result cards without overlap."
+      }
+    ],
+    "blockers": []
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.modelcontextprotocol/server-time",
+  "slug": "timezone-converter",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T09:28:14.000Z"
+  },
+  "name": {
+    "original": "Time MCP Server",
+    "zhCN": "世界时间与时区换算",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "An MCP server for current-time queries and conversions between IANA timezones.",
+    "zhCN": "查询任意 IANA 时区的当前时间，并在不同时区之间准确换算时刻。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "A Model Context Protocol server providing tools for time queries and timezone conversions for LLMs.",
+    "zhCN": "这是 Model Context Protocol 官方参考实现，通过 IANA 时区数据库查询当前时间并完成跨时区换算。专属网页提供常用时区自动补全、24 小时时间输入和换算结果，不需要网络、账号或密钥。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Model Context Protocol a Series of LF Projects, LLC.",
+    "url": "https://modelcontextprotocol.io",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "2026.7.10",
+    "releasedAt": "2026-07-10T03:31:04.803Z",
+    "checkedAt": "2026-07-15T08:37:12.057Z"
+  },
+  "categories": [
+    "productivity",
+    "time"
+  ],
+  "tags": [
+    "MCP",
+    "timezone",
+    "IANA",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+    "repositoryUrl": "https://github.com/modelcontextprotocol/servers",
+    "packageUrl": "https://pypi.org/project/mcp-server-time/2026.7.10/",
+    "marketplaces": [
+      {
+        "sourceId": "mcp-reference-servers",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+        "listingId": "time",
+        "checkedAt": "2026-07-15T08:37:12.057Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "package-registry",
+        "url": "https://pypi.org/pypi/mcp-server-time/2026.7.10/json",
+        "retrievedAt": "2026-07-15T08:37:12.057Z",
+        "note": "PyPI metadata confirms package identity, version, MIT license, Python requirement, release time, and official repository path."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+        "retrievedAt": "2026-07-15T08:37:12.057Z",
+        "note": "Official README documents get_current_time, convert_time, IANA timezone inputs, and MIT licensing."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+        "retrievedAt": "2026-07-15T08:37:12.057Z",
+        "note": "Repository license file supplies the applicable MIT text referenced by the component README."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "PyPI metadata and the official component README both state MIT; Agent-OPT invokes the upstream package.",
+    "checkedAt": "2026-07-15T08:37:12.057Z"
+  },
+  "capabilities": [
+    {
+      "id": "current-time",
+      "name": {
+        "original": "Current time",
+        "zhCN": "查询当前时间",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Return the current date and time for an IANA timezone.",
+        "zhCN": "返回指定 IANA 时区的当前日期和时间。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "convert-time",
+      "name": {
+        "original": "Timezone conversion",
+        "zhCN": "时区换算",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Convert a 24-hour time from one IANA timezone to another with daylight-saving rules.",
+        "zhCN": "按照夏令时规则，把一个 24 小时时刻从来源时区换算到目标时区。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "none",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches one fixed Python module.",
+      "Timezone names and HH:MM values are validated before MCP invocation."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-time-python",
+    "transport": "stdio",
+    "package": {
+      "registry": "pypi",
+      "name": "mcp-server-time",
+      "version": "2026.7.10"
+    },
+    "requirements": [
+      "Python 3.10 or newer",
+      "Project virtual environment installed from requirements-mcp.txt"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 90,
+    "usefulness": 4,
+    "uniqueness": 3,
+    "reliability": 5,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 5,
+    "webFitness": 5,
+    "notes": [
+      "Small, deterministic capability with no external account or network dependency.",
+      "IANA timezone validation gives the Web workflow immediate, actionable errors."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T08:37:12.057Z",
+    "notes": [
+      "IANA timezone identifiers and HH:MM syntax remain unchanged."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "TimeWorkspace",
+    "route": "/plugins/timezone-converter",
+    "features": [
+      "current-time query",
+      "timezone conversion",
+      "IANA autocomplete",
+      "24-hour input",
+      "activity log"
+    ],
+    "dedicatedElements": [
+      "timezone datalist",
+      "source/target conversion form",
+      "time input",
+      "daylight-saving explanation"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "2026.7.10",
+    "tests": [
+      {
+        "id": "time-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:42:32.000Z",
+        "evidence": "Vitest launched mcp-server-time 2026.7.10 over stdio and returned live Asia/Shanghai current-time data."
+      },
+      {
+        "id": "time-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:42:32.000Z",
+        "evidence": "A 09:00 Asia/Shanghai value was converted through the real upstream tool to America/New_York."
+      },
+      {
+        "id": "time-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:42:32.000Z",
+        "evidence": "Invalid IANA zones and invalid 25:61 syntax were rejected before process launch."
+      },
+      {
+        "id": "time-permission",
+        "category": "permission",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:42:32.000Z",
+        "evidence": "The launch boundary was asserted to contain only the fixed -m mcp_server_time module arguments and no injected environment."
+      },
+      {
+        "id": "time-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T09:28:14.000Z",
+        "evidence": "Playwright chromium converted 09:00 Asia/Shanghai to America/New_York through TimeWorkspace."
+      }
+    ],
+    "blockers": []
+  }
+}

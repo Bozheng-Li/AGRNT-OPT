@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.adewale/agentic-mermaid",
+  "slug": "mermaid-diagram-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T17:08:09.322Z"
+  },
+  "name": {
+    "original": "Agentic Mermaid",
+    "zhCN": "Mermaid 图表工作室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Render, verify, describe, and safely edit Mermaid diagrams through MCP.",
+    "zhCN": "通过本地 MCP 创建、验证、描述和渲染 Mermaid 图表。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Agentic Mermaid: render, verify, and safely edit Mermaid diagrams as ASCII, PNG, SVG, or structured agent workflows — with composable styles (hand-drawn, excalidraw, watercolor, or your own as JSON).",
+    "zhCN": "Agentic Mermaid 提供确定性 Mermaid 解析、结构验证、语义描述、ASCII/SVG/PNG 渲染和类型化编辑能力。Agent-OPT 使用实际发布包的三个本地 stdio 工具：render_png、describe 与 execute；网页提供源码编辑、真实 PNG 预览、语义事实和受限 Code Mode。文件产物与临时目录固定在项目沙箱，Code Mode 进程同时受 node:vm、禁用网络/进程全局、执行超时和 Node 内存上限约束。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Ade Oshineye",
+    "url": "https://github.com/adewale",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.1.1",
+    "releasedAt": "2026-07-10T11:22:31.044Z",
+    "checkedAt": "2026-07-15T16:53:32.176Z"
+  },
+  "categories": [
+    "visualization",
+    "diagramming",
+    "developer-tools"
+  ],
+  "tags": [
+    "MCP",
+    "Mermaid",
+    "PNG",
+    "diagram",
+    "Code Mode",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/adewale/agentic-mermaid",
+    "repositoryUrl": "https://github.com/adewale/agentic-mermaid",
+    "packageUrl": "https://www.npmjs.com/package/agentic-mermaid/v/0.1.1",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.adewale%2Fagentic-mermaid",
+        "listingId": "io.github.adewale/agentic-mermaid",
+        "checkedAt": "2026-07-15T16:53:32.176Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.adewale%2Fagentic-mermaid",
+        "retrievedAt": "2026-07-15T16:53:32.176Z",
+        "note": "The namespace-verified registry record identifies version 0.1.1, the official GitHub repository, npm package, stdio runtime, and hosted remote."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/agentic-mermaid/0.1.1",
+        "retrievedAt": "2026-07-15T16:53:32.176Z",
+        "note": "npm metadata supplies the exact release time, MIT declaration, author, repository, Node requirement, executable path, and integrity hash."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/adewale/agentic-mermaid/blob/e60be1e68b5aa51fac205c7cf9e481ea3b27ffc8/README.md",
+        "retrievedAt": "2026-07-15T16:53:32.176Z",
+        "note": "The pinned README documents local-first rendering, supported diagram families, output formats, styling, MCP usage, and the hosted/local distinction."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/adewale/agentic-mermaid/blob/e60be1e68b5aa51fac205c7cf9e481ea3b27ffc8/SECURITY.md",
+        "retrievedAt": "2026-07-15T16:53:32.176Z",
+        "note": "The pinned security document defines offline PNG behavior, Code Mode restrictions, SVG external-reference risks, and explicitly states that node:vm is not an OS security boundary."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/adewale/agentic-mermaid/blob/e60be1e68b5aa51fac205c7cf9e481ea3b27ffc8/LICENSE",
+        "retrievedAt": "2026-07-15T16:53:32.176Z",
+        "note": "The pinned repository LICENSE contains MIT terms; the package also ships third-party notices for embedded fonts and assets."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/adewale/agentic-mermaid/blob/e60be1e68b5aa51fac205c7cf9e481ea3b27ffc8/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The npm release and official repository declare MIT. Agent-OPT invokes the upstream package and does not copy its implementation or bundled assets.",
+    "checkedAt": "2026-07-15T16:53:32.176Z"
+  },
+  "capabilities": [
+    {
+      "id": "render-png",
+      "name": {
+        "original": "Render Mermaid to PNG",
+        "zhCN": "渲染 Mermaid PNG",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Rasterize Mermaid source into an offline PNG with scale, background, named style, deterministic seed, and base64 or managed-file output.",
+        "zhCN": "把 Mermaid 源码离线渲染成 PNG，可设置缩放、背景、命名风格和确定性笔触种子，并返回网页预览或沙箱文件。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "describe-diagram",
+      "name": {
+        "original": "Describe diagram semantics",
+        "zhCN": "描述图表语义",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Return a natural-language summary, deterministic semantic facts, or an accessibility-oriented JSON tree.",
+        "zhCN": "返回自然语言摘要、确定性语义事实或面向无障碍场景的 JSON 结构树。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "code-mode",
+      "name": {
+        "original": "Sandboxed Code Mode",
+        "zhCN": "沙箱 Code Mode",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Run synchronous JavaScript against the typed mermaid SDK to build, mutate, verify, serialize, and render multi-step diagram workflows.",
+        "zhCN": "在受限 node:vm 中运行同步 JavaScript，通过类型化 mermaid SDK 完成多步建图、修改、验证、序列化和渲染。",
+        "sourceLanguage": "en"
+      },
+      "risk": "high"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches a fixed Node executable and fixed agentic-mermaid entry point with a 192 MiB old-space ceiling.",
+      "Managed files and temporary data are fixed under var/runtime/agentic-mermaid; clients cannot supply artifact directories or public URLs.",
+      "Web render_png permits base64 and sandbox-file output; URL artifacts are intentionally unavailable on the local stdio transport.",
+      "Code Mode exposes the upstream node:vm sandbox with process, require, fetch, eval, Function, dynamic string code generation, timers, workers, and host-constructor escapes disabled; node:vm is still not represented as an OS isolation boundary."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-agentic-mermaid-node",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "agentic-mermaid",
+      "version": "0.1.1"
+    },
+    "requirements": [
+      "Node.js 18 or newer",
+      "Native @resvg/resvg-js binary compatible with the host platform",
+      "Project dependencies installed from package-lock.json"
+    ],
+    "configuration": [
+      {
+        "key": "@mermaid-js/parser override",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Agent-OPT resolves the transitive parser to 1.2.0, eliminating the vulnerable lodash/langium chain while preserving the tested mermaid-ast API behavior.",
+          "zhCN": "Agent-OPT 将传递解析器固定到 1.2.0，在保持已测试 mermaid-ast API 兼容的同时移除存在漏洞的 lodash/langium 依赖链。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "fixed sandbox limits",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Artifact size is capped at 8 MiB, Code Mode at 5 seconds, and Node old-space at 192 MiB.",
+          "zhCN": "文件产物上限为 8 MiB，Code Mode 上限为 5 秒，Node old-space 上限为 192 MiB。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 87,
+    "usefulness": 5,
+    "uniqueness": 4.5,
+    "reliability": 4,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4,
+    "webFitness": 5,
+    "notes": [
+      "The combination of deterministic rendering, semantic fact read-back, and typed Code Mode supports materially richer workflows than a generic Mermaid text box.",
+      "The package is new and Code Mode is explicitly not an OS/container security boundary, so the adapter adds process memory, time, filesystem, and transport constraints.",
+      "The published 0.1.1 listTools response exposes execute, render_png, and describe. Some repository prose mentions a fourth local describe_sdk tool, but Agent-OPT records and adapts the real runtime surface rather than the stale count.",
+      "The published dependency tree initially included a high-severity lodash advisory. A tested @mermaid-js/parser 1.2.0 override removes that chain; npm audit returns zero vulnerabilities and real parse/render/Code Mode calls pass."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T16:53:32.176Z",
+    "notes": [
+      "Kept Mermaid, Code Mode, SVG, PNG, ASCII, node:vm, and tool names in their original technical form.",
+      "Translated describe facts as deterministic semantic facts rather than model-generated interpretation."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "MermaidWorkspace",
+    "route": "/plugins/mermaid-diagram-studio",
+    "features": [
+      "Mermaid source editor and diagram examples",
+      "style, background, scale, seed, and output controls",
+      "real PNG preview and browser download",
+      "sandbox artifact output summary",
+      "text, facts, and accessibility-tree descriptions",
+      "advanced Code Mode editor with timeout control",
+      "runtime activity and error feedback"
+    ],
+    "dedicatedElements": [
+      "checkerboard PNG canvas",
+      "diagram-family example switcher",
+      "render parameter panel",
+      "semantic description format selector",
+      "Code Mode editor",
+      "artifact metadata card"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.1.1",
+    "tests": [
+      {
+        "id": "mermaid-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T17:08:09.322Z",
+        "evidence": "Vitest launched agentic-mermaid 0.1.1 over stdio, discovered the actual execute/render_png/describe tools, parsed Mermaid through the audited parser override, and returned live description and PNG results."
+      },
+      {
+        "id": "mermaid-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T17:08:09.322Z",
+        "evidence": "The real runtime exercised text/facts/JSON descriptions; hand-drawn, watercolor, and Excalidraw PNGs; flowchart, sequence, and architecture families; base64 and sandbox-file outputs; and a typed Code Mode build with verification, serialization, facts, and ASCII output."
+      },
+      {
+        "id": "mermaid-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T17:08:09.322Z",
+        "evidence": "Invalid Mermaid source returned an upstream error; unsafe CSS backgrounds, URL artifact mode, excessive timeouts, and client artifact-directory fields were rejected or removed before launch."
+      },
+      {
+        "id": "mermaid-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test && npm audit --omit=dev",
+        "checkedAt": "2026-07-15T17:08:09.322Z",
+        "evidence": "process/require/fetch were absent, constructor escape was blocked by disabled string code generation, an infinite loop hit the VM timeout, files stayed under the injected artifact root, launch args enforced 192 MiB/5 s/8 MiB limits, and npm audit reported zero vulnerabilities with @mermaid-js/parser 1.2.0."
+      },
+      {
+        "id": "mermaid-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T17:08:09.322Z",
+        "evidence": "Playwright Chromium rendered a real data-URL PNG, read deterministic flowchart facts, and executed the sandboxed ASCII Code Mode workflow through MermaidWorkspace."
+      }
+    ],
+    "blockers": []
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.modelcontextprotocol/server-memory",
+  "slug": "knowledge-memory",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T09:28:14.000Z"
+  },
+  "name": {
+    "original": "Knowledge Graph Memory Server",
+    "zhCN": "知识图谱记忆库",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "A persistent local memory server built around entities, observations, and directed relations.",
+    "zhCN": "使用实体、观察和有向关系构建可持久化本地记忆图谱。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "A basic implementation of persistent memory using a local knowledge graph, exposed through MCP tools and a readable resource.",
+    "zhCN": "这是 Model Context Protocol 官方参考记忆实现。它把信息组织为实体、原子观察和有向关系，并保存到本地 JSONL 文件。专属网页适配提供实体录入、关系建立、搜索和图谱结果视图。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Model Context Protocol a Series of LF Projects, LLC.",
+    "url": "https://modelcontextprotocol.io",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "2026.7.4",
+    "releasedAt": "2026-07-04T23:05:12.015Z",
+    "checkedAt": "2026-07-15T08:00:00.000Z"
+  },
+  "categories": [
+    "memory",
+    "knowledge-management"
+  ],
+  "tags": [
+    "MCP",
+    "knowledge-graph",
+    "memory",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+    "repositoryUrl": "https://github.com/modelcontextprotocol/servers",
+    "packageUrl": "https://www.npmjs.com/package/@modelcontextprotocol/server-memory",
+    "marketplaces": [
+      {
+        "sourceId": "mcp-reference-servers",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+        "listingId": "memory",
+        "checkedAt": "2026-07-15T08:00:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "package-registry",
+        "url": "https://www.npmjs.com/package/@modelcontextprotocol/server-memory/v/2026.7.4",
+        "retrievedAt": "2026-07-15T08:00:00.000Z",
+        "note": "Package identity, version, mcpName, author, and repository were checked from npm metadata."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+        "retrievedAt": "2026-07-15T08:00:00.000Z",
+        "note": "Official README documents entities, relations, observations, tools, resource behavior, and persistence configuration."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+        "retrievedAt": "2026-07-15T08:00:00.000Z",
+        "note": "Repository license transition text and component README provide license evidence."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The memory component README explicitly states MIT; Agent-OPT invokes the upstream package without copying implementation code.",
+    "checkedAt": "2026-07-15T08:00:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "store-entities",
+      "name": {
+        "original": "Store entities",
+        "zhCN": "保存实体",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Create typed entities and attach atomic observations.",
+        "zhCN": "创建带类型的实体，并保存原子化观察。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "connect-entities",
+      "name": {
+        "original": "Connect entities",
+        "zhCN": "建立实体关系",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Create directed active-voice relations between known entities.",
+        "zhCN": "在已知实体之间创建主动语态的有向关系。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "search-memory",
+      "name": {
+        "original": "Search memory",
+        "zhCN": "搜索记忆",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Search entity names, types, and observations and retrieve connected relations.",
+        "zhCN": "搜索实体名称、类型和观察，并返回相关关系。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "Memory is stored in a dedicated Agent-OPT runtime JSONL file.",
+      "The Web adapter does not expose a host filesystem path setting."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-memory",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@modelcontextprotocol/server-memory",
+      "version": "2026.7.4"
+    },
+    "requirements": [
+      "Node.js 22 or newer",
+      "Writable Agent-OPT var/runtime/memory directory"
+    ],
+    "configuration": [
+      {
+        "key": "MEMORY_FILE_PATH",
+        "required": false,
+        "secret": false,
+        "description": {
+          "original": "Server-side JSONL storage path. Agent-OPT supplies a private runtime path.",
+          "zhCN": "服务端 JSONL 存储路径，由 Agent-OPT 固定到专属运行目录。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 87,
+    "usefulness": 4.5,
+    "uniqueness": 3.5,
+    "reliability": 4,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 4,
+    "security": 4,
+    "webFitness": 4.5,
+    "notes": [
+      "Useful as a transparent local memory primitive with inspectable storage.",
+      "It is intentionally basic and should not be marketed as semantic or vector memory."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T08:00:00.000Z",
+    "notes": [
+      "Entity, observation, and relation are translated consistently as 实体、观察、关系."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "MemoryWorkspace",
+    "route": "/plugins/knowledge-memory",
+    "features": [
+      "entity composer",
+      "relation builder",
+      "memory search",
+      "graph result view",
+      "activity log"
+    ],
+    "dedicatedElements": [
+      "entity form",
+      "relation form",
+      "graph statistics",
+      "search and node cards"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "2026.7.4",
+    "tests": [
+      {
+        "id": "memory-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "Vitest launched upstream 2026.7.4, created entities, read the graph, and confirmed JSONL persistence."
+      },
+      {
+        "id": "memory-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "The test created two entities, connected them, searched an observation, and recovered the directed relation."
+      },
+      {
+        "id": "memory-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "Adding an observation to an unknown entity returned a real upstream error result."
+      },
+      {
+        "id": "memory-permission",
+        "category": "permission",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "Persistence was verified against an isolated temporary JSONL path; the Web/API surface exposes no host path parameter."
+      },
+      {
+        "id": "memory-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T09:28:14.000Z",
+        "evidence": "Playwright chromium created a unique entity, searched for it, and confirmed the entity appeared in the result panel."
+      }
+    ],
+    "blockers": []
+  }
+}

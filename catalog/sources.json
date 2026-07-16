@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "official-mcp-registry",
+      "name": "Official MCP Registry",
+      "type": "registry-api",
+      "url": "https://registry.modelcontextprotocol.io",
+      "apiUrl": "https://registry.modelcontextprotocol.io/v0.1/servers",
+      "documentationUrl": "https://modelcontextprotocol.io/registry/about",
+      "priority": 100,
+      "status": "active",
+      "provenanceStrength": "namespace-verified metadata; upstream repository/package references when publishers provide them",
+      "caveats": "The registry is unopinionated and in preview; entries still require independent quality, license, and runtime review."
+    },
+    {
+      "id": "mcp-reference-servers",
+      "name": "Model Context Protocol reference servers",
+      "type": "official-repository",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "priority": 100,
+      "status": "active",
+      "provenanceStrength": "official steering-group repository with package release history and license files",
+      "caveats": "Reference quality does not automatically imply broad end-user usefulness."
+    },
+    {
+      "id": "smithery",
+      "name": "Smithery",
+      "type": "marketplace",
+      "url": "https://smithery.ai",
+      "priority": 80,
+      "status": "connector-planned",
+      "provenanceStrength": "market listing and managed connection metadata",
+      "caveats": "Authentication and redistribution terms must be checked before automated ingestion."
+    },
+    {
+      "id": "glama-mcp",
+      "name": "Glama MCP Servers",
+      "type": "marketplace",
+      "url": "https://glama.ai/mcp/servers",
+      "priority": 75,
+      "status": "connector-planned",
+      "provenanceStrength": "marketplace quality, license, and maintenance signals",
+      "caveats": "Marketplace grades are discovery signals and require primary-source verification."
+    },
+    {
+      "id": "lobehub-mcp",
+      "name": "LobeHub MCP Marketplace",
+      "type": "marketplace",
+      "url": "https://lobehub.com/mcp",
+      "priority": 70,
+      "status": "connector-planned",
+      "provenanceStrength": "large multilingual marketplace with repository links for many entries",
+      "caveats": "Unvalidated listings and very large reported counts require aggressive deduplication and primary-source checks."
+    },
+    {
+      "id": "openai-codex-plugins",
+      "name": "OpenAI curated Codex plugins",
+      "type": "official-marketplace-repository",
+      "url": "https://github.com/openai/plugins",
+      "apiUrl": "https://raw.githubusercontent.com/openai/plugins/main/.agents/plugins/marketplace.json",
+      "documentationUrl": "https://developers.openai.com/codex/plugins/build",
+      "priority": 100,
+      "status": "active",
+      "provenanceStrength": "official OpenAI repository with structured marketplace files and per-plugin .codex-plugin/plugin.json manifests",
+      "caveats": "Availability and authentication policy vary by product and plugin; runtime access must still be tested in the target environment."
+    },
+    {
+      "id": "openai-skills-legacy",
+      "name": "OpenAI Agent Skills legacy repository",
+      "type": "deprecated-official-repository",
+      "url": "https://github.com/openai/skills",
+      "priority": 20,
+      "status": "deprecated",
+      "provenanceStrength": "official historical source with per-skill license files",
+      "caveats": "The repository README explicitly redirects current Codex skill and plugin examples to openai/plugins; do not use it as the primary current feed."
+    },
+    {
+      "id": "anthropic-agent-skills",
+      "name": "Anthropic Agent Skills",
+      "type": "official-repository-marketplace",
+      "url": "https://github.com/anthropics/skills",
+      "priority": 100,
+      "status": "active",
+      "provenanceStrength": "official Anthropic skill repository with SKILL.md sources and Claude plugin marketplace metadata",
+      "caveats": "Licensing is mixed: most examples are Apache-2.0, while docx/pdf/pptx/xlsx skills are source-available and require separate review."
+    },
+    {
+      "id": "anthropic-community-plugins",
+      "name": "Claude Plugins Community",
+      "type": "official-reviewed-marketplace",
+      "url": "https://github.com/anthropics/claude-plugins-community",
+      "apiUrl": "https://raw.githubusercontent.com/anthropics/claude-plugins-community/main/.claude-plugin/marketplace.json",
+      "priority": 90,
+      "status": "active",
+      "provenanceStrength": "read-only official mirror of community plugins that passed Anthropic automated security scanning and distribution review",
+      "caveats": "Marketplace approval does not prove license compatibility, usefulness, current upstream behavior, or Agent-OPT Web fitness."
+    },
+    {
+      "id": "skills-sh",
+      "name": "skills.sh",
+      "type": "agent-skills-marketplace",
+      "url": "https://skills.sh",
+      "documentationUrl": "https://github.com/vercel-labs/skills",
+      "priority": 85,
+      "status": "credential-blocked",
+      "provenanceStrength": "open multi-agent installer with source repository, content hash, install, and leaderboard signals",
+      "caveats": "The documented v1 API currently requires an issued API key; use official API access rather than scraping when credentials become available."
+    },
+    {
+      "id": "agentskill-sh",
+      "name": "agentskill.sh",
+      "type": "agent-skills-marketplace",
+      "url": "https://agentskill.sh",
+      "documentationUrl": "https://github.com/agentskill-sh/ags",
+      "priority": 70,
+      "status": "connector-planned",
+      "provenanceStrength": "open CLI with content SHA tracking, community feedback, and documented static security analysis categories",
+      "caveats": "Reported scale and security grades require independent sampling and primary-source validation before formal qualification."
+    }
+  ]
+}

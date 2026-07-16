@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.modelcontextprotocol/server-sequential-thinking",
+  "slug": "sequential-thinking-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T09:28:14.000Z"
+  },
+  "name": {
+    "original": "Sequential Thinking MCP Server",
+    "zhCN": "结构化思考工作室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "A structured scratchpad for multi-step problem solving with revisions and branches.",
+    "zhCN": "支持步骤、修订和分支的结构化问题求解记录器。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "An MCP tool for dynamic and reflective problem-solving through a structured sequence of thoughts.",
+    "zhCN": "这是 Model Context Protocol 官方参考工具，用结构化步骤记录复杂问题的分析过程，并支持调整预计步骤数、修订旧步骤和创建备选分支。网页适配强调用户主动填写的工作记录，不宣称读取模型的隐藏推理。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Model Context Protocol a Series of LF Projects, LLC.",
+    "url": "https://modelcontextprotocol.io",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "2026.7.4",
+    "releasedAt": "2026-07-04T23:05:13.130Z",
+    "checkedAt": "2026-07-15T08:00:00.000Z"
+  },
+  "categories": [
+    "reasoning-tools",
+    "planning"
+  ],
+  "tags": [
+    "MCP",
+    "planning",
+    "branching",
+    "revision"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+    "repositoryUrl": "https://github.com/modelcontextprotocol/servers",
+    "packageUrl": "https://www.npmjs.com/package/@modelcontextprotocol/server-sequential-thinking",
+    "marketplaces": [
+      {
+        "sourceId": "mcp-reference-servers",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+        "listingId": "sequentialthinking",
+        "checkedAt": "2026-07-15T08:00:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "package-registry",
+        "url": "https://www.npmjs.com/package/@modelcontextprotocol/server-sequential-thinking/v/2026.7.4",
+        "retrievedAt": "2026-07-15T08:00:00.000Z",
+        "note": "Package identity, version, mcpName, author, and repository were checked from npm metadata."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+        "retrievedAt": "2026-07-15T08:00:00.000Z",
+        "note": "Official README documents step numbering, total estimates, revision fields, and branch fields."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+        "retrievedAt": "2026-07-15T08:00:00.000Z",
+        "note": "Repository license transition text and component README provide license evidence."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The sequential-thinking component README explicitly states MIT; Agent-OPT invokes the upstream package.",
+    "checkedAt": "2026-07-15T08:00:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "structured-steps",
+      "name": {
+        "original": "Structured steps",
+        "zhCN": "结构化步骤",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Record an ordered step with an adjustable estimate of remaining work.",
+        "zhCN": "记录有序步骤，并随时调整预计总步骤数。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "revise-branch",
+      "name": {
+        "original": "Revise and branch",
+        "zhCN": "修订与分支",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Mark a step as a revision or start an alternative branch from an earlier step.",
+        "zhCN": "把当前步骤标记为对旧步骤的修订，或从旧步骤创建备选分支。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "none",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "Thought logging in the upstream process is disabled by the adapter.",
+      "The tool receives only user-submitted text and metadata."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-sequential-thinking",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@modelcontextprotocol/server-sequential-thinking",
+      "version": "2026.7.4"
+    },
+    "requirements": [
+      "Node.js 22 or newer"
+    ],
+    "configuration": [
+      {
+        "key": "DISABLE_THOUGHT_LOGGING",
+        "required": false,
+        "secret": false,
+        "description": {
+          "original": "Disables upstream stderr logging of submitted thought text; Agent-OPT sets this to true.",
+          "zhCN": "关闭上游进程对提交文本的标准错误日志；Agent-OPT 固定设置为 true。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 79,
+    "usefulness": 3.5,
+    "uniqueness": 3,
+    "reliability": 4.5,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 4,
+    "security": 5,
+    "webFitness": 4,
+    "notes": [
+      "Useful for explicit planning records, revision trails, and branching analysis.",
+      "The UI and copy avoid claiming access to hidden model chain-of-thought.",
+      "The installed 2026.7.4 package exposes the runtime tool name sequentialthinking, while the upstream README currently documents sequential_thinking; the adapter follows the real listTools response."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T08:00:00.000Z",
+    "notes": [
+      "Translated thought as user-authored analysis step rather than hidden model reasoning."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "SequentialThinkingWorkspace",
+    "route": "/plugins/sequential-thinking-studio",
+    "features": [
+      "step composer",
+      "revision controls",
+      "branch controls",
+      "timeline result",
+      "activity log"
+    ],
+    "dedicatedElements": [
+      "step counter",
+      "revision selector",
+      "branch metadata",
+      "structured timeline"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "2026.7.4",
+    "tests": [
+      {
+        "id": "thinking-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "Vitest used the package's real listTools name sequentialthinking and passed a live stdio invocation."
+      },
+      {
+        "id": "thinking-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "Revision and branch metadata were sent to upstream 2026.7.4 and returned in the tool result."
+      },
+      {
+        "id": "thinking-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "Invalid zero step numbers were rejected by the adapter before process launch."
+      },
+      {
+        "id": "thinking-permission",
+        "category": "permission",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "The fixed launch has no user-controlled command, filesystem, or network arguments; extra path and URL fields are removed by validation."
+      },
+      {
+        "id": "thinking-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T09:28:14.000Z",
+        "evidence": "Playwright chromium submitted a structured thought through SequentialThinkingWorkspace and observed thoughtNumber in the result."
+      }
+    ],
+    "blockers": []
+  }
+}

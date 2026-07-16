@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.modelcontextprotocol/server-fetch",
+  "slug": "web-content-reader",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T09:28:14.000Z"
+  },
+  "name": {
+    "original": "Fetch MCP Server",
+    "zhCN": "网页正文读取器",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Fetch a public URL and convert its main content to Markdown or return bounded raw HTML.",
+    "zhCN": "读取公开网页并提取主要正文为 Markdown，也可在长度限制内返回原始 HTML。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "A Model Context Protocol server providing tools to fetch and convert web content for usage by LLMs.",
+    "zhCN": "这是 Model Context Protocol 官方参考网页读取服务，可以抓取公开 HTTP/HTTPS 页面、提取主要正文并转换成 Markdown。Agent-OPT 在调用前额外拒绝本机、局域网、私有 IP、链路本地地址和带凭证 URL，并限制单次返回长度。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Model Context Protocol a Series of LF Projects, LLC.",
+    "url": "https://modelcontextprotocol.io",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "2026.7.10",
+    "releasedAt": "2026-07-10T03:31:06.746Z",
+    "checkedAt": "2026-07-15T08:37:12.057Z"
+  },
+  "categories": [
+    "information-retrieval",
+    "web"
+  ],
+  "tags": [
+    "MCP",
+    "fetch",
+    "Markdown",
+    "robots.txt"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+    "repositoryUrl": "https://github.com/modelcontextprotocol/servers",
+    "packageUrl": "https://pypi.org/project/mcp-server-fetch/2026.7.10/",
+    "marketplaces": [
+      {
+        "sourceId": "mcp-reference-servers",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+        "listingId": "fetch",
+        "checkedAt": "2026-07-15T08:37:12.057Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "package-registry",
+        "url": "https://pypi.org/pypi/mcp-server-fetch/2026.7.10/json",
+        "retrievedAt": "2026-07-15T08:37:12.057Z",
+        "note": "PyPI metadata confirms identity, version, MIT license, Python requirement, release time, and official repository path."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+        "retrievedAt": "2026-07-15T08:37:12.057Z",
+        "note": "Official README documents URL fetching, Markdown conversion, pagination fields, raw mode, robots behavior, and MIT licensing."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+        "retrievedAt": "2026-07-15T08:37:12.057Z",
+        "note": "Repository license file supplies the applicable MIT text referenced by the component README."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "PyPI metadata and the official component README both state MIT; Agent-OPT invokes the upstream package.",
+    "checkedAt": "2026-07-15T08:37:12.057Z"
+  },
+  "capabilities": [
+    {
+      "id": "extract-web-content",
+      "name": {
+        "original": "Extract Web content",
+        "zhCN": "提取网页正文",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Fetch a public URL and simplify its main content into Markdown.",
+        "zhCN": "抓取公开 URL，并把主要内容清理为 Markdown。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "paginate-content",
+      "name": {
+        "original": "Paginate long content",
+        "zhCN": "分段读取长内容",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Bound response length and continue from a later character index.",
+        "zhCN": "限制单次返回字符数，并从后续字符位置继续读取。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "raw-html",
+      "name": {
+        "original": "Raw HTML",
+        "zhCN": "原始 HTML",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Return bounded raw HTML instead of simplified Markdown when explicitly requested.",
+        "zhCN": "用户明确选择时，在长度限制内返回原始 HTML。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "none",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "Only HTTP and HTTPS URLs without embedded credentials are accepted.",
+      "DNS results are checked against private, loopback, link-local, multicast, and reserved ranges before invocation.",
+      "Redirect-time DNS rebinding remains a residual risk and should be isolated further before enabling untrusted multi-tenant hosting."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-fetch-python",
+    "transport": "stdio",
+    "package": {
+      "registry": "pypi",
+      "name": "mcp-server-fetch",
+      "version": "2026.7.10"
+    },
+    "requirements": [
+      "Python 3.10 or newer",
+      "Project virtual environment installed from requirements-mcp.txt",
+      "Outbound public HTTP/HTTPS access"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 85,
+    "usefulness": 5,
+    "uniqueness": 3.5,
+    "reliability": 4,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 3.5,
+    "webFitness": 5,
+    "notes": [
+      "High-value retrieval primitive with explicit response bounds and robots support.",
+      "Public URL validation substantially reduces SSRF exposure, but production multi-tenant deployment should add network-layer egress isolation."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T08:37:12.057Z",
+    "notes": [
+      "Kept URL, HTTP/HTTPS, HTML, Markdown, DNS, SSRF, and robots.txt technically precise."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "WebFetchWorkspace",
+    "route": "/plugins/web-content-reader",
+    "features": [
+      "URL input",
+      "Markdown/raw mode",
+      "bounded length",
+      "continuation offset",
+      "activity log"
+    ],
+    "dedicatedElements": [
+      "public URL validator",
+      "length and offset controls",
+      "raw HTML toggle",
+      "network safety notice"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "2026.7.10",
+    "tests": [
+      {
+        "id": "fetch-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:42:32.000Z",
+        "evidence": "Vitest launched mcp-server-fetch 2026.7.10 and extracted the real https://example.com page into simplified content."
+      },
+      {
+        "id": "fetch-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:42:32.000Z",
+        "evidence": "Raw mode, a nonzero start index, a 180-character bound, truncation notice, and continuation offset were verified."
+      },
+      {
+        "id": "fetch-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:42:32.000Z",
+        "evidence": "An unresolvable .invalid domain produced a controlled validation error instead of reaching upstream."
+      },
+      {
+        "id": "fetch-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:42:32.000Z",
+        "evidence": "file URLs, localhost, loopback, cloud metadata link-local IPs, embedded credentials, and unresolvable domains were rejected."
+      },
+      {
+        "id": "fetch-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T09:28:14.000Z",
+        "evidence": "Playwright chromium fetched https://example.com/, observed Example Domain, and confirmed localhost rejection in the error panel."
+      }
+    ],
+    "blockers": []
+  }
+}

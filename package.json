@@ -1,0 +1,55 @@
+{
+  "name": "agent-opt",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Quality-first aggregator and web adaptation platform for agent skills, plugins, and MCP servers.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "catalog:validate": "tsx scripts/validate-catalog.ts",
+    "catalog:report": "tsx scripts/catalog-report.ts",
+    "sync:official-mcp": "tsx scripts/sync-official-mcp.ts",
+    "sync:official-skills": "tsx scripts/sync-official-skill-repositories.ts",
+    "sync:structured-markets": "tsx scripts/sync-structured-marketplaces.ts",
+    "discovery:rank": "tsx scripts/rank-official-mcp.ts",
+    "runtime:smoke": "tsx scripts/runtime-smoke.ts",
+    "runtime:setup:bumpguard": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-bumpguard-dotnet.ps1"
+  },
+  "dependencies": {
+    "@blueprint-chart/mcp": "0.2.0",
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "@modelcontextprotocol/server-filesystem": "2026.7.10",
+    "@modelcontextprotocol/server-memory": "2026.7.4",
+    "@modelcontextprotocol/server-sequential-thinking": "2026.7.4",
+    "@sveltejs/mcp": "0.1.25",
+    "agentic-mermaid": "0.1.1",
+    "lucide-react": "0.468.0",
+    "next": "16.2.10",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "yaml": "2.9.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.61.1",
+    "@types/node": "24.10.4",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.2",
+    "eslint-config-next": "16.2.10",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
+  },
+  "overrides": {
+    "esbuild": "0.28.1",
+    "postcss": "8.5.10",
+    "@mermaid-js/parser": "1.2.0"
+  }
+}

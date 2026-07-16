@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.blueprint-chart/mcp",
+  "slug": "blueprint-chart-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T17:45:19.281Z"
+  },
+  "name": {
+    "original": "Blueprint Chart",
+    "zhCN": "Blueprint 数据图表工作台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Author, validate, recommend, inspect, render, and export accessible data charts through an open plain-text format.",
+    "zhCN": "使用开放的纯文本 .bpc 格式推荐、编写、校验、检查、渲染和导出可访问数据图表。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Model Context Protocol server for authoring Blueprint Chart .bpc files with LLMs, grounded in real dataviz pedagogy with a tight parse and render feedback loop. An open, plain-text chart format an AI can write and any browser can render; self-contained, with no backend or account required.",
+    "zhCN": "Blueprint Chart MCP 把数据可视化方法、图表类型指南、语法、官方示例、调色板、确定性校验与 SVG/PNG/HTML 渲染组合成完整反馈闭环。Agent-OPT 适配实际发布版的 11 个工具，提供数据意图推荐、.bpc 专用编辑器、结构检查、真实图像预览、场景和尺寸控制、资料库以及官方编辑器分享链接；所有工具本地运行，不要求账号或密钥。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Pierre Romera (pirhoo)",
+    "url": "https://github.com/pirhoo",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.2.0",
+    "releasedAt": "2026-06-29T07:54:12.683Z",
+    "checkedAt": "2026-07-15T17:31:07.933Z"
+  },
+  "categories": [
+    "visualization",
+    "data-analysis",
+    "authoring"
+  ],
+  "tags": [
+    "MCP",
+    "Blueprint Chart",
+    "data visualization",
+    "PNG",
+    "SVG",
+    "DSL",
+    "accessibility",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/blueprint-chart/mcp",
+    "repositoryUrl": "https://github.com/blueprint-chart/mcp",
+    "packageUrl": "https://www.npmjs.com/package/@blueprint-chart/mcp/v/0.2.0",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.blueprint-chart%2Fmcp",
+        "listingId": "io.github.blueprint-chart/mcp",
+        "checkedAt": "2026-07-15T17:31:07.933Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.blueprint-chart%2Fmcp",
+        "retrievedAt": "2026-07-15T17:31:07.933Z",
+        "note": "The official namespace record identifies version 0.2.0, the Blueprint Chart website and repository, the exact npm package, and stdio transport."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@blueprint-chart/mcp/0.2.0",
+        "retrievedAt": "2026-07-15T17:31:07.933Z",
+        "note": "npm metadata supplies the exact publication timestamp, integrity, MIT declaration, maintainer, repository, executable, and Node >=22 requirement."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/blueprint-chart/mcp/blob/93bf00efcf38e11b393784ebda5f7cece50a773a/README.md",
+        "retrievedAt": "2026-07-15T17:31:07.933Z",
+        "note": "The pinned README documents the eleven tools, local account-free operation, render formats, reference resources, file-save behavior, and export semantics."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/blueprint-chart/mcp/blob/93bf00efcf38e11b393784ebda5f7cece50a773a/DEPLOYMENT.md",
+        "retrievedAt": "2026-07-15T17:31:07.933Z",
+        "note": "The pinned deployment guide identifies the official editor and documentation base URLs and states that stateless links carry chart source in the URL without server-side session state."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/blueprint-chart/mcp/blob/93bf00efcf38e11b393784ebda5f7cece50a773a/src/tools/render.ts",
+        "retrievedAt": "2026-07-15T17:31:07.933Z",
+        "note": "The pinned render implementation defines the 1600-pixel bounds, image/text response shapes, MCP_FS_WRITE_DIR handling, and the upstream lexical containment limitation that Agent-OPT hardens against symlinks."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/blueprint-chart/mcp/blob/93bf00efcf38e11b393784ebda5f7cece50a773a/LICENSE",
+        "retrievedAt": "2026-07-15T17:31:07.933Z",
+        "note": "The pinned repository license contains the MIT terms and 2026 Blueprint Chart copyright notice."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/blueprint-chart/mcp/blob/93bf00efcf38e11b393784ebda5f7cece50a773a/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The exact npm release and pinned official repository both declare MIT. Agent-OPT invokes the upstream package and does not copy its implementation or chart assets.",
+    "checkedAt": "2026-07-15T17:31:07.933Z"
+  },
+  "capabilities": [
+    {
+      "id": "chart-authoring-loop",
+      "name": {
+        "original": "Validate and inspect .bpc charts",
+        "zhCN": "校验与检查 .bpc 图表",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Parse plain-text chart source, return structured errors and warnings, and inspect chart type, scenes, data shape, annotations, highlights, and series.",
+        "zhCN": "解析纯文本图表源码，返回结构化错误与警告，并检查图表类型、场景、数据形状、标注、高亮和序列信息。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "chart-recommendation-library",
+      "name": {
+        "original": "Dataviz recommendations and reference library",
+        "zhCN": "数据可视化推荐与资料库",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Recommend chart types from column shapes, row counts, and goals; expose chart-type guidance, canonical examples, palettes, and grammar.",
+        "zhCN": "根据列类型、行数与表达目标推荐图表，并提供图表使用指南、官方示例、调色板和完整语法。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "accessible-rendering",
+      "name": {
+        "original": "Render accessible SVG, PNG, and HTML",
+        "zhCN": "渲染可访问 SVG、PNG 与 HTML",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Deterministically render a chart or narrative scene with bounded dimensions and structured frame metadata.",
+        "zhCN": "以有界尺寸确定性渲染图表或叙事场景，同时返回结构化画面元数据与真实浏览器预览。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "chart-export",
+      "name": {
+        "original": "Export editable and read-only chart links",
+        "zhCN": "导出可编辑与只读图表链接",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Validate source, generate an inline PNG preview, and encode the source into official editor copy and embed URLs without uploading it during export.",
+        "zhCN": "先校验并生成内联 PNG 预览，再把源码编码进官方编辑器的可编辑与只读链接；生成链接时不上传图表数据。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches a fixed Node executable and exact @blueprint-chart/mcp 0.2.0 entry point with a 256 MiB old-space ceiling.",
+      "MCP_FS_WRITE_DIR, working directory, home, and temporary paths are adapter-injected under var/runtime/blueprint-chart; clients cannot supply environment variables, hosts, editor bases, or public render URLs.",
+      "Render saves accept only relative paths with a format-matching extension. Agent-OPT rejects traversal, absolute paths, a symlinked sandbox root, and any existing symlink component before the upstream write.",
+      "BLUEPRINT_CHART_EDITOR_URL and BLUEPRINT_CHART_DOCS_URL are fixed to the official HTTPS origins. export_chart only constructs source-bearing URLs and performs no upload or open-world request."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-blueprint-chart-node",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@blueprint-chart/mcp",
+      "version": "0.2.0"
+    },
+    "requirements": [
+      "Node.js 22 or newer",
+      "Project dependencies installed from package-lock.json",
+      "A host platform supported by the package's SVG and PNG rendering dependencies"
+    ],
+    "configuration": [
+      {
+        "key": "fixed render sandbox",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Agent-OPT injects MCP_FS_WRITE_DIR and all temporary paths; Web callers can only provide a bounded relative artifact path.",
+          "zhCN": "Agent-OPT 固定注入 MCP_FS_WRITE_DIR 与全部临时路径；Web 调用方只能提供有界相对产物路径。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "official editor and docs origins",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "The adapter pins link generation to https://blueprintchart.com and documentation links to https://docs.blueprintchart.com while leaving MCP_PUBLIC_URL unset.",
+          "zhCN": "适配器把分享链接固定到 https://blueprintchart.com、文档链接固定到 https://docs.blueprintchart.com，并保持 MCP_PUBLIC_URL 未启用。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 91,
+    "usefulness": 5,
+    "uniqueness": 4.5,
+    "reliability": 4.5,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.5,
+    "webFitness": 5,
+    "notes": [
+      "The capability is materially different from Mermaid: it is a data-chart authoring system with recommendation, chart pedagogy, semantic validation, palettes, scenes, accessible rendering, and an open source format.",
+      "The published 0.2.0 runtime exposes exactly eleven deterministic tools, all of which are represented in the dedicated Web workflow and adapter allowlist.",
+      "The upstream save jail uses lexical containment and documents a symlink caveat. Agent-OPT adds relative-path, extension, root, and existing symlink checks because filesystem output is formally exposed.",
+      "The local package is credential-free, npm audit reports no known vulnerability, and real PNG/SVG/HTML rendering succeeds on the supported host."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T17:31:07.933Z",
+    "notes": [
+      "Kept Blueprint Chart, .bpc, DSL, MCP, SVG, PNG, HTML, scene, and tool names in their original technical form where clearer.",
+      "Translated recommendation guidance as deterministic data-visualization pedagogy, not model-generated chart advice."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "BlueprintWorkspace",
+    "route": "/plugins/blueprint-chart-studio",
+    "features": [
+      "data-goal, column-shape, and row-count chart recommendation",
+      "dedicated .bpc editor with validation and structural inspection",
+      "PNG, SVG, and sandboxed HTML previews with dimensions and scene controls",
+      "optional sandbox artifact output with format-aware filenames",
+      "chart-type handbook, canonical example search, palette browser, and grammar reader",
+      "official editable-copy and read-only embed links with inline preview",
+      "runtime activity, structured diagnostics, and error feedback"
+    ],
+    "dedicatedElements": [
+      "data-shape recommendation panel",
+      ".bpc source editor and validation status card",
+      "PNG/SVG/HTML chart canvas",
+      "chart-type and official-sample browser",
+      "interactive palette swatch gallery",
+      "grammar reference viewer",
+      "share-link preview and export panel"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.2.0",
+    "tests": [
+      {
+        "id": "blueprint-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T17:45:19.281Z",
+        "evidence": "Vitest launched @blueprint-chart/mcp 0.2.0 over stdio, discovered the exact eleven-tool surface, loaded a canonical .bpc sample, and exercised validation, inspection, recommendations, chart types, type descriptions, example search, palettes, and grammar through the shipped adapter."
+      },
+      {
+        "id": "blueprint-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test && npm run runtime:smoke",
+        "checkedAt": "2026-07-15T17:45:19.281Z",
+        "evidence": "The real runtime completed recommendation and authoring flows; rendered SVG, an embeddable HTML frame, and PNG; verified PNG signatures; saved a PNG under the injected artifact root; generated editable and read-only official editor URLs; decoded the copy URL back to the exact source; and returned an inline export preview."
+      },
+      {
+        "id": "blueprint-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T17:45:19.281Z",
+        "evidence": "Malformed DSL and invalid chart types returned structured upstream errors, while empty searches, excessive result limits, dimensions above 1600, negative scenes, unsupported grammar sections, and extension mismatches were rejected before launch."
+      },
+      {
+        "id": "blueprint-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test && npm audit --omit=dev",
+        "checkedAt": "2026-07-15T17:45:19.281Z",
+        "evidence": "Absolute and traversal save paths were blocked; existing symlink path components were rejected; client editor/public URL and environment fields were stripped; launch paths, official origins, temporary directories, and a 256 MiB old-space cap were fixed; saved files stayed in the sandbox; and npm audit reported zero vulnerabilities."
+      },
+      {
+        "id": "blueprint-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T17:45:19.281Z",
+        "evidence": "Playwright Chromium used the dedicated BlueprintWorkspace to recommend a chart, load an official example, validate the resulting .bpc, render a real data-URL PNG, and generate official editable-copy and read-only embed links. The complete browser suite passed 11 of 11 workflows."
+      }
+    ],
+    "blockers": []
+  }
+}

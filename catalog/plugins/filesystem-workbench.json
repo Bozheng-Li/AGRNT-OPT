@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.modelcontextprotocol/server-filesystem",
+  "slug": "filesystem-workbench",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T09:28:14.000Z"
+  },
+  "name": {
+    "original": "Filesystem MCP Server",
+    "zhCN": "文件系统工作台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "An MCP server for controlled filesystem access, including reading, writing, directory listing, metadata, and file search.",
+    "zhCN": "在受控目录中读取、写入、浏览和搜索文件，并查看文件元数据的 MCP 文件工作台。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Node.js server implementing Model Context Protocol for filesystem operations with allowed-directory access control.",
+    "zhCN": "这是 Model Context Protocol 官方参考实现之一，通过允许目录边界控制文件读写、目录浏览、文件搜索和元数据查询。Agent-OPT 仅开放沙箱内的安全工具子集，网页传入的相对路径会在服务端转换并再次检查边界。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Model Context Protocol a Series of LF Projects, LLC.",
+    "url": "https://modelcontextprotocol.io",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "2026.7.10",
+    "releasedAt": "2026-07-10T03:31:10.875Z",
+    "checkedAt": "2026-07-15T08:00:00.000Z"
+  },
+  "categories": [
+    "developer-tools",
+    "files"
+  ],
+  "tags": [
+    "MCP",
+    "filesystem",
+    "sandbox",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+    "repositoryUrl": "https://github.com/modelcontextprotocol/servers",
+    "packageUrl": "https://www.npmjs.com/package/@modelcontextprotocol/server-filesystem",
+    "marketplaces": [
+      {
+        "sourceId": "mcp-reference-servers",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+        "listingId": "filesystem",
+        "checkedAt": "2026-07-15T08:00:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "package-registry",
+        "url": "https://www.npmjs.com/package/@modelcontextprotocol/server-filesystem/v/2026.7.10",
+        "retrievedAt": "2026-07-15T08:00:00.000Z",
+        "note": "Package identity, current version, mcpName, author, and repository were checked from npm metadata."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+        "retrievedAt": "2026-07-15T08:00:00.000Z",
+        "note": "Official README documents the allowed-directory model and tool behavior."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+        "retrievedAt": "2026-07-15T08:00:00.000Z",
+        "note": "Repository license transition text and the component README identify this server as MIT licensed."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The filesystem component README explicitly states MIT; Agent-OPT invokes the upstream package and does not copy its implementation.",
+    "checkedAt": "2026-07-15T08:00:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "browse-files",
+      "name": {
+        "original": "Browse files",
+        "zhCN": "浏览文件",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List directories and inspect a recursive directory tree inside an allowed root.",
+        "zhCN": "在允许的根目录内浏览目录并查看递归目录树。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "read-search-files",
+      "name": {
+        "original": "Read and search",
+        "zhCN": "读取与搜索",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read UTF-8 text and search for files by pattern.",
+        "zhCN": "读取 UTF-8 文本并按模式搜索文件。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "write-files",
+      "name": {
+        "original": "Write files",
+        "zhCN": "写入文件",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Create directories and write files inside the dedicated sandbox.",
+        "zhCN": "仅在专属沙箱内创建目录和写入文件。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The upstream process receives one dedicated allowed root.",
+      "The Web adapter rejects absolute paths and traversal before invoking MCP."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-filesystem",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@modelcontextprotocol/server-filesystem",
+      "version": "2026.7.10"
+    },
+    "requirements": [
+      "Node.js 22 or newer",
+      "Writable Agent-OPT var/runtime/filesystem directory"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 91,
+    "usefulness": 5,
+    "uniqueness": 3.5,
+    "reliability": 4.5,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 4,
+    "security": 4.5,
+    "webFitness": 5,
+    "notes": [
+      "Broadly useful local capability with clear directory boundaries.",
+      "Package metadata references a LICENSE file that is not shipped in the npm tarball; the official repository supplies the required license evidence."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T08:00:00.000Z",
+    "notes": [
+      "Kept MCP, sandbox, path, and package identifiers untranslated where technical precision matters."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "FilesystemWorkspace",
+    "route": "/plugins/filesystem-workbench",
+    "features": [
+      "directory browser",
+      "text reader",
+      "pattern search",
+      "sandboxed writer",
+      "activity log"
+    ],
+    "dedicatedElements": [
+      "path navigator",
+      "file editor",
+      "search results panel",
+      "sandbox boundary notice"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "2026.7.10",
+    "tests": [
+      {
+        "id": "filesystem-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "Vitest launched upstream 2026.7.10 over stdio and passed create-directory, write, read, and list assertions."
+      },
+      {
+        "id": "filesystem-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "A nested file was written and found with the documented **/*.txt recursive glob workflow."
+      },
+      {
+        "id": "filesystem-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "Reading a missing file produced a real upstream MCP error result."
+      },
+      {
+        "id": "filesystem-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T08:18:49.670Z",
+        "evidence": "Absolute Windows/POSIX paths and dot-dot traversal were rejected before the upstream process received them."
+      },
+      {
+        "id": "filesystem-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T09:28:14.000Z",
+        "evidence": "Playwright chromium wrote e2e/verified.txt through the dedicated FilesystemWorkspace and read the content back."
+      }
+    ],
+    "blockers": []
+  }
+}

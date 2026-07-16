@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.modelcontextprotocol/server-sqlite",
+  "slug": "sqlite-workbench",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T10:10:00.000Z"
+  },
+  "name": {
+    "original": "SQLite MCP Server",
+    "zhCN": "SQLite 数据工作台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Run SQL queries and inspect tables through a sandboxed SQLite database.",
+    "zhCN": "在隔离 SQLite 数据库中建表、查询、写入数据，并记录分析洞察。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "A Model Context Protocol server implementation that provides database interaction and business intelligence capabilities through SQLite.",
+    "zhCN": "这是 Model Context Protocol 官方参考实现之一，提供 read_query、write_query、create_table、list_tables、describe_table 与 append_insight 工具。Agent-OPT 将数据库固定在 `var/runtime/sqlite/sandbox.db`，网页不能指定宿主路径；SQL 仅允许单语句，读通道限 SELECT，写通道限 INSERT、UPDATE、DELETE 与 REPLACE，并拦截 ATTACH、PRAGMA、VACUUM、REINDEX 与 load_extension 等越界能力。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Model Context Protocol a Series of LF Projects, LLC.",
+    "url": "https://modelcontextprotocol.io",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "2025.4.25",
+    "releasedAt": "2025-04-25T00:00:00.000Z",
+    "checkedAt": "2026-07-15T09:58:00.000Z"
+  },
+  "categories": [
+    "developer-tools",
+    "data"
+  ],
+  "tags": [
+    "MCP",
+    "SQLite",
+    "SQL",
+    "database",
+    "sandbox"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
+    "repositoryUrl": "https://github.com/modelcontextprotocol/servers",
+    "packageUrl": "https://pypi.org/project/mcp-server-sqlite/2025.4.25/",
+    "marketplaces": [
+      {
+        "sourceId": "mcp-reference-servers",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
+        "listingId": "sqlite",
+        "checkedAt": "2026-07-15T09:58:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "package-registry",
+        "url": "https://pypi.org/pypi/mcp-server-sqlite/2025.4.25/json",
+        "retrievedAt": "2026-07-15T09:58:00.000Z",
+        "note": "PyPI package identity and version for mcp-server-sqlite 2025.4.25."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
+        "retrievedAt": "2026-07-15T09:58:00.000Z",
+        "note": "Official component path for the SQLite MCP reference server."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://pypi.org/project/mcp-server-sqlite/2025.4.25/",
+        "retrievedAt": "2026-07-15T09:58:00.000Z",
+        "note": "Package long description states the MCP server is licensed under the MIT License."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "Package long description states MIT; Agent-OPT invokes the upstream package without vendoring its source.",
+    "checkedAt": "2026-07-15T09:58:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "sql-read",
+      "name": {
+        "original": "SQL read queries",
+        "zhCN": "SQL 只读查询",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Execute SELECT statements against the sandboxed SQLite database.",
+        "zhCN": "对隔离 SQLite 数据库执行 SELECT 查询。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "sql-write",
+      "name": {
+        "original": "SQL write queries",
+        "zhCN": "SQL 写入",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Create tables and run INSERT/UPDATE/DELETE inside the sandbox database only.",
+        "zhCN": "仅在沙箱数据库中建表并执行 INSERT/UPDATE/DELETE。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "schema-inspect",
+      "name": {
+        "original": "Schema inspection",
+        "zhCN": "表结构检查",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List tables and describe their columns.",
+        "zhCN": "列出表并查看列结构。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "insight-memo",
+      "name": {
+        "original": "Insight memo",
+        "zhCN": "洞察备忘",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Append business insights discovered during analysis.",
+        "zhCN": "追加分析过程中发现的业务洞察。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches a fixed console script with a fixed sandbox database path.",
+      "Web clients never supply --db-path; the adapter injects the sandbox absolute path.",
+      "SQL is restricted to one statement; read_query only accepts SELECT, while write_query only accepts INSERT, UPDATE, DELETE, or REPLACE.",
+      "ATTACH, DETACH, PRAGMA, VACUUM, REINDEX, and load_extension are rejected before launch."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-sqlite-python",
+    "transport": "stdio",
+    "package": {
+      "registry": "pypi",
+      "name": "mcp-server-sqlite",
+      "version": "2025.4.25"
+    },
+    "requirements": [
+      "Python 3.10 or newer",
+      "Project virtual environment installed from requirements-mcp.txt"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 87,
+    "usefulness": 5,
+    "uniqueness": 4,
+    "reliability": 4,
+    "maintenance": 4,
+    "provenance": 5,
+    "licenseClarity": 4,
+    "security": 4,
+    "webFitness": 5,
+    "notes": [
+      "Local, credential-free SQL workbench with clear sandbox boundaries.",
+      "Package metadata license field is sparse, but the package long description and official servers repo establish MIT."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T09:58:00.000Z",
+    "notes": [
+      "SQL keywords and table/column identifiers remain in original form."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "SqliteWorkspace",
+    "route": "/plugins/sqlite-workbench",
+    "features": [
+      "table list",
+      "schema describe",
+      "SELECT editor",
+      "write SQL editor",
+      "CREATE TABLE form",
+      "insight memo",
+      "activity log"
+    ],
+    "dedicatedElements": [
+      "mode tabs for tables/describe/read/write/create/insight",
+      "SQL editors with SELECT-only guardrails",
+      "table name inspector",
+      "sandbox database notice"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "2025.4.25",
+    "tests": [
+      {
+        "id": "sqlite-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:11:51.319Z",
+        "evidence": "Vitest launched mcp-server-sqlite 2025.4.25 over stdio and discovered the read, write, create, list, describe, and insight tools."
+      },
+      {
+        "id": "sqlite-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:11:51.319Z",
+        "evidence": "Created and inspected an items table, inserted and selected data, listed tables, described columns, preserved SQL keywords inside literals, and appended an insight in an isolated database."
+      },
+      {
+        "id": "sqlite-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:11:51.319Z",
+        "evidence": "Wrong-channel commands, multiple statements, unsupported write DDL, extension loading, unterminated or invalid inputs, and invalid table names were rejected before process launch."
+      },
+      {
+        "id": "sqlite-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:11:51.319Z",
+        "evidence": "ATTACH/DETACH, PRAGMA, VACUUM INTO, REINDEX, and load_extension paths were rejected; launch args always inject the sandbox --db-path."
+      },
+      {
+        "id": "sqlite-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T12:11:51.319Z",
+        "evidence": "Playwright chromium created e2e_items through SqliteWorkspace and listed the table in the result panel."
+      }
+    ],
+    "blockers": []
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.ahmedak/defluff",
+  "slug": "prose-defluffer",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T12:41:26.552Z"
+  },
+  "name": {
+    "original": "defluff",
+    "zhCN": "确定性文本去冗器",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Deterministic prose linter for LLM text — flags AI slop, filler, buzzwords, hedges, clichés.",
+    "zhCN": "用本地确定性规则标记填充表达、空泛限定、企业黑话与陈词滥调。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The deterministic slop check for AI-generated prose. Point it at a changelog, a doc, or an agent's own output and get back the filler phrases to cut — plus a CI exit code and a pinnable score, identical on every run. No model, no API key.",
+    "zhCN": "defluff 是无需模型和 API 密钥的确定性文本检查器，返回可删短语、分类、权重、字符位置、去冗分数和可固定的词典版本。Agent-OPT 不把它包装成不可靠的‘AI 作者检测器’，而是用于检查草稿、文档和更新日志中的填充表达；自定义词条与忽略项只能写入项目沙箱。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Ahmed Karanath",
+    "url": "https://github.com/ahmedak",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.1.2",
+    "releasedAt": "2026-06-22T21:01:44.617Z",
+    "checkedAt": "2026-07-15T12:31:22.670Z"
+  },
+  "categories": [
+    "writing-tools",
+    "text-analysis"
+  ],
+  "tags": [
+    "MCP",
+    "prose",
+    "linting",
+    "deterministic",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/ahmedak/defluff",
+    "repositoryUrl": "https://github.com/ahmedak/defluff",
+    "packageUrl": "https://pypi.org/project/defluff/0.1.2/",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.ahmedak%2Fdefluff",
+        "listingId": "io.github.ahmedak/defluff",
+        "checkedAt": "2026-07-15T12:31:22.670Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.ahmedak%2Fdefluff",
+        "retrievedAt": "2026-07-15T12:31:22.670Z",
+        "note": "The namespace-verified registry record identifies version 0.1.2, the GitHub repository, PyPI package, stdio transport, and defluff-mcp entry point."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://pypi.org/pypi/defluff/0.1.2/json",
+        "retrievedAt": "2026-07-15T12:31:22.670Z",
+        "note": "PyPI supplies the exact release time, Python requirement, dependencies, repository URLs, and full MIT license text."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/ahmedak/defluff/blob/67c0ef388bf688194ab0667275d4898b4222e7d3/README.md",
+        "retrievedAt": "2026-07-15T12:31:22.670Z",
+        "note": "The pinned official README documents deterministic local detection, the three MCP tools, output fields, overlay behavior, and lack of API-key requirements."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/ahmedak/defluff/blob/67c0ef388bf688194ab0667275d4898b4222e7d3/LICENSE",
+        "retrievedAt": "2026-07-15T12:31:22.670Z",
+        "note": "The pinned repository LICENSE contains the MIT terms and Ahmed Karanath's copyright notice."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/ahmedak/defluff/blob/67c0ef388bf688194ab0667275d4898b4222e7d3/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The official repository and PyPI release both provide the MIT license; Agent-OPT invokes the upstream package without copying its implementation.",
+    "checkedAt": "2026-07-15T12:31:22.670Z"
+  },
+  "capabilities": [
+    {
+      "id": "detect-filler",
+      "name": {
+        "original": "Detect removable filler",
+        "zhCN": "检测可删填充表达",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Return a deterministic score and exact spans for clichés, hedges, filler transitions, AI vocabulary, and corporate buzzwords.",
+        "zhCN": "返回确定性分数，并给出陈词滥调、空泛限定、填充过渡、高频 AI 用语和企业黑话的准确位置。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "add-project-phrase",
+      "name": {
+        "original": "Add a project phrase",
+        "zhCN": "添加项目禁用短语",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Add a custom phrase to one of the five curated categories for future project-scoped checks.",
+        "zhCN": "把自定义短语加入五类词典之一，供当前项目沙箱后续检查使用。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "ignore-project-phrase",
+      "name": {
+        "original": "Ignore domain terminology",
+        "zhCN": "忽略领域术语",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Suppress a phrase that is legitimate domain terminology in this project.",
+        "zhCN": "把当前项目中的合法领域术语加入忽略列表，避免后续误报。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches the fixed defluff-mcp console entry point with no client-controlled command arguments.",
+      "HOME, USERPROFILE, and XDG_CONFIG_HOME are redirected to the project sandbox so host user overlays are neither read nor written.",
+      "slop_add and slop_ignore accept only scope=project and write under var/runtime/defluff/.defluff."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-defluff-python",
+    "transport": "stdio",
+    "package": {
+      "registry": "pypi",
+      "name": "defluff",
+      "version": "0.1.2"
+    },
+    "requirements": [
+      "Python 3.10 or newer",
+      "Project virtual environment installed from requirements-mcp.txt"
+    ],
+    "configuration": [
+      {
+        "key": "project-overlay-sandbox",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Agent-OPT fixes the process working directory and user-home environment to its defluff runtime sandbox.",
+          "zhCN": "Agent-OPT 将进程工作目录和用户主目录环境固定到 defluff 运行沙箱。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 88,
+    "usefulness": 4.5,
+    "uniqueness": 4,
+    "reliability": 4.5,
+    "maintenance": 4.5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.5,
+    "webFitness": 5,
+    "notes": [
+      "Deterministic and local behavior makes results reproducible and inexpensive to verify.",
+      "Exact spans and category weights support a dedicated editing workflow rather than a generic chat box.",
+      "The rules encode editorial preferences and can produce false positives; the Web describes them as removable-filler signals, not proof of AI authorship.",
+      "Project-scoped add and ignore operations are useful, but require a strict filesystem boundary because upstream also supports machine-wide user overlays."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T12:31:22.670Z",
+    "notes": [
+      "Translated slop as removable filler or text redundancy according to context, avoiding a claim that the tool can identify AI authorship."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "DefluffWorkspace",
+    "route": "/plugins/prose-defluffer",
+    "features": [
+      "draft text editor",
+      "deterministic score summary",
+      "category breakdown",
+      "exact span cards",
+      "project lexicon add and ignore controls",
+      "runtime activity and raw evidence"
+    ],
+    "dedicatedElements": [
+      "slop score dashboard",
+      "weighted phrase span list",
+      "category selector",
+      "project-only lexicon editor",
+      "lexicon version badge"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.1.2",
+    "tests": [
+      {
+        "id": "defluff-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:41:26.552Z",
+        "evidence": "Vitest launched defluff-mcp 0.1.2 over stdio, discovered slop_detect/slop_add/slop_ignore, and returned a live score with exact spans."
+      },
+      {
+        "id": "defluff-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:41:26.552Z",
+        "evidence": "A temporary sandbox detected built-in filler, added quantum synergy to the project lexicon, detected it, ignored it, and confirmed the next detection no longer returned that span."
+      },
+      {
+        "id": "defluff-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:41:26.552Z",
+        "evidence": "Empty detection text, unsupported categories, multiline phrases, and invalid scope values were rejected before upstream invocation."
+      },
+      {
+        "id": "defluff-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:41:26.552Z",
+        "evidence": "scope=user was rejected; real overlay writes landed under the temporary project sandbox; HOME, USERPROFILE, XDG_CONFIG_HOME, and cwd were all adapter-fixed to that sandbox."
+      },
+      {
+        "id": "defluff-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T12:41:26.552Z",
+        "evidence": "Playwright Chromium submitted a filler-heavy draft through DefluffWorkspace and observed the score dashboard, raw slop_score evidence, and an exact Furthermore span card."
+      }
+    ],
+    "blockers": []
+  }
+}

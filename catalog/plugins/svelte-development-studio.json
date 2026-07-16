@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "id": "dev.svelte/mcp",
+  "slug": "svelte-development-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T08:30:22.581Z"
+  },
+  "name": {
+    "original": "Svelte MCP",
+    "zhCN": "Svelte 开发工作室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "The official Svelte MCP server providing docs and autofixing tools for Svelte development",
+    "zhCN": "Svelte 官方 MCP：检索 Svelte/SvelteKit 文档，以编译器、专用规则和 ESLint 分析组件，并生成多文件官方 Playground。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The official Svelte MCP server. It can provide official documentation, code examples and correct your code. After you correct the component call this tool again to confirm all the issues are fixed.",
+    "zhCN": "Svelte MCP 0.1.25 提供 list-sections、get-documentation、svelte-autofixer 与 playground-link 四个工具。Agent-OPT 将它适配为文档检索、Svelte 4/5 代码诊断和多文件 Playground 三条完整 Web 工作流；源码只按文本分析，官方文档网络被限制到 svelte.dev，Playground 代码只编码进 URL hash。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Svelte Contributors",
+    "url": "https://github.com/sveltejs",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.1.25",
+    "releasedAt": "2026-06-26T16:21:48.663Z",
+    "checkedAt": "2026-07-16T04:24:02.339Z"
+  },
+  "categories": [
+    "developer-tools",
+    "frameworks",
+    "code-quality",
+    "documentation"
+  ],
+  "tags": [
+    "MCP",
+    "Svelte",
+    "SvelteKit",
+    "Svelte 5",
+    "autofixer",
+    "documentation",
+    "Playground",
+    "local analysis"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/sveltejs/ai-tools/tree/a668188dfa93cfa71ddec26d9b47a61c1258a1da/packages/mcp-stdio",
+    "repositoryUrl": "https://github.com/sveltejs/ai-tools",
+    "packageUrl": "https://www.npmjs.com/package/@sveltejs/mcp/v/0.1.25",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=dev.svelte%2Fmcp",
+        "listingId": "dev.svelte/mcp",
+        "checkedAt": "2026-07-16T04:24:02.339Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=dev.svelte%2Fmcp",
+        "retrievedAt": "2026-07-16T04:24:02.339Z",
+        "note": "The official MCP Registry marks dev.svelte/mcp 0.1.25 as latest, identifies the Svelte GitHub organization and repository subfolder, and publishes the exact npm package plus local stdio and official remote transports."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@sveltejs/mcp/0.1.25",
+        "retrievedAt": "2026-07-16T04:24:02.339Z",
+        "note": "npm metadata supplies the exact version, publication integrity, MIT declaration, Svelte maintainers, executable, 11-file package, dependencies, repository path, and 2026-06-26 release timestamp."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/@sveltejs%2Fmcp@0.1.25",
+        "retrievedAt": "2026-07-16T04:24:02.339Z",
+        "note": "npm provenance binds the 0.1.25 package to the Svelte GitHub Actions release workflow and commit a668188dfa93cfa71ddec26d9b47a61c1258a1da; the dereferenced Git tag points to the same commit."
+      },
+      {
+        "kind": "official-documentation",
+        "url": "https://svelte.dev/docs/mcp/overview",
+        "retrievedAt": "2026-07-16T04:24:02.339Z",
+        "note": "The official Svelte documentation describes the MCP integration and is the website recorded by the official server manifest."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/sveltejs/ai-tools/blob/a668188dfa93cfa71ddec26d9b47a61c1258a1da/packages/mcp-server/src/mcp/utils.ts",
+        "retrievedAt": "2026-07-16T04:24:02.339Z",
+        "note": "The pinned documentation utility fixes network requests to the Svelte sections index and per-section llms.txt URLs with ten-second request timeouts; Agent-OPT additionally enforces the host/path allowlist and rejects redirects."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/sveltejs/ai-tools/blob/a668188dfa93cfa71ddec26d9b47a61c1258a1da/packages/mcp-server/src/mcp/handlers/tools/svelte-autofixer.ts",
+        "retrievedAt": "2026-07-16T04:24:02.339Z",
+        "note": "The pinned autofixer combines Svelte compile diagnostics, dedicated AST checks, and ESLint, supports Svelte 4/5 and async mode, and documents the stdio file-path behavior that Agent-OPT disables for Web callers."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/sveltejs/ai-tools/blob/a668188dfa93cfa71ddec26d9b47a61c1258a1da/packages/mcp-server/src/mcp/handlers/tools/playground-link.ts",
+        "retrievedAt": "2026-07-16T04:24:02.339Z",
+        "note": "The pinned Playground implementation requires App.svelte, gzip-compresses a multi-file configuration into the URL hash, and fixes links and embedded resources to https://svelte.dev/playground."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/sveltejs/ai-tools/blob/a668188dfa93cfa71ddec26d9b47a61c1258a1da/LICENSE",
+        "retrievedAt": "2026-07-16T04:24:02.339Z",
+        "note": "The pinned repository LICENSE contains the MIT terms and 2026 Svelte Contributors copyright notice."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/sveltejs/ai-tools/blob/a668188dfa93cfa71ddec26d9b47a61c1258a1da/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The exact npm release and pinned Svelte repository declare MIT. Agent-OPT invokes the upstream package and adds an independent network/path-limiting bootstrap without copying Svelte implementation code.",
+    "checkedAt": "2026-07-16T04:24:02.339Z"
+  },
+  "capabilities": [
+    {
+      "id": "svelte-documentation-discovery",
+      "name": {
+        "original": "Discover official Svelte documentation sections",
+        "zhCN": "发现 Svelte 官方文档章节",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List Svelte and SvelteKit sections with titles, paths, and task-oriented use cases, then retrieve selected official llms.txt content.",
+        "zhCN": "列出 Svelte 与 SvelteKit 章节的标题、路径和任务型适用场景，再读取选中章节的官方 llms.txt 正文。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "svelte-code-diagnostics",
+      "name": {
+        "original": "Analyze Svelte code with compiler, rules, and ESLint",
+        "zhCN": "以编译器、专用规则和 ESLint 分析 Svelte 代码",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Return compile issues and migration or correctness suggestions for Svelte 4/5 components and modules without executing submitted code.",
+        "zhCN": "不执行提交代码，为 Svelte 4/5 组件与模块返回编译问题、迁移提示和正确性建议。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "svelte-playground-export",
+      "name": {
+        "original": "Generate official multi-file Svelte Playground links",
+        "zhCN": "生成官方多文件 Svelte Playground",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Encode bounded component, module, style, and data files into a compressed official Svelte Playground URL without uploading the URL fragment during generation.",
+        "zhCN": "把有界的组件、模块、样式和数据文件压缩编码进 Svelte 官方 Playground URL；生成时不会把 URL fragment 上传到服务器。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches the exact @sveltejs/mcp 0.1.25 package through a fixed Node bootstrap with a 512 MiB old-space limit and project-owned home and temporary directories.",
+      "The bootstrap permits fetch only for https://svelte.dev/docs/experimental/sections.json and same-host /docs/.../llms.txt paths and rejects redirects; Web callers cannot choose URLs, hosts, proxies, commands, or environment variables.",
+      "Agent-OPT accepts autofixer input only as bounded source text. Absolute paths, drive paths, existing relative paths, path-like filenames, NUL bytes, unknown fields, and a Svelte 4 async combination are rejected before launch.",
+      "Playground inputs require App.svelte, 1-12 safe root-level source filenames, at most 75,000 characters per file and 100,000 bytes total. Returned URLs must use the exact official Svelte Playground prefix; upstream HTML/resource payloads are removed from the public API result.",
+      "Documentation requests accept at most eight bounded title or section-path values, while all normalized results stay below 1.5 MiB."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-svelte-node",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@sveltejs/mcp",
+      "version": "0.1.25"
+    },
+    "requirements": [
+      "Node.js supported by the Agent-OPT application runtime",
+      "Project dependencies installed from package-lock.json",
+      "Network access to the fixed svelte.dev documentation endpoints for list-sections and get-documentation",
+      "A browser with access to svelte.dev only when the user opens or embeds a generated Playground link"
+    ],
+    "configuration": [
+      {
+        "key": "fixed official documentation allowlist",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "The local bootstrap permits only the official Svelte sections index and llms.txt documentation paths and rejects redirects.",
+          "zhCN": "本地启动引导只允许访问 Svelte 官方章节索引和 llms.txt 文档路径，并拒绝重定向。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "source-text-only autofixer boundary",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Web input is validated as source text and cannot activate the upstream stdio convenience behavior that reads a matching host file path.",
+          "zhCN": "Web 输入被强制校验为源码文本，不能触发上游 stdio 读取同名宿主文件路径的便捷行为。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "bounded official Playground export",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "File count, names, contents, total bytes, output size, and official URL prefix are enforced before a link can be returned.",
+          "zhCN": "返回链接前会强制检查文件数量、名称、内容、总字节、输出大小和官方 URL 前缀。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 92,
+    "usefulness": 5,
+    "uniqueness": 4.5,
+    "reliability": 4.5,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.5,
+    "webFitness": 5,
+    "notes": [
+      "The official server combines framework-grounded documentation, deterministic code diagnostics, migration guidance, and runnable multi-file examples in one workflow; no existing catalog entry provides Svelte-specific semantics.",
+      "The exact release exposes four tools. Qualification through the shipped package returned 195 official sections, 9,482 characters for $state, two correct Svelte 5 migration diagnostics, and a valid official Playground URL.",
+      "The upstream stdio package intentionally accepts a file path in its code field and emits an MCP UI resource. Agent-OPT closes both public-boundary risks by source-only validation and result normalization.",
+      "Formal verification passed through shipped adapter runtime suites, HTTP invoke route coverage, and dedicated Playwright Web workflows for diagnostics, docs, and Playground."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T04:24:02.339Z",
+    "notes": [
+      "Kept Svelte, SvelteKit, rune, autofixer, ESLint, llms.txt, MCP, Playground, URL hash, and tool names where they are established technical vocabulary.",
+      "Separated compile issues from heuristic suggestions and described Playground fragment behavior without implying that opening the resulting site is offline."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "SvelteWorkspace",
+    "route": "/plugins/svelte-development-studio",
+    "features": [
+      "Svelte 4/5 source editor with filename, async mode, issue and suggestion diagnostics",
+      "official Svelte/SvelteKit section index with title, path, use-case search and multi-select retrieval",
+      "formatted official llms.txt documentation reader",
+      "bounded multi-file Playground editor with safe add, switch, edit, and remove controls",
+      "official Playground link, embed preview, and source-fragment privacy feedback",
+      "runtime activity, fixed-network status, structured failures, examples, and rerun workflow"
+    ],
+    "dedicatedElements": [
+      "Svelte version segmented control and async mode toggle",
+      "component/module source editor",
+      "compiler, migration, AST-rule, and ESLint diagnostic list",
+      "searchable documentation section catalog with multi-selection",
+      "official Markdown documentation reader",
+      "multi-file Playground tabs and editor",
+      "sandboxed official Playground preview and external-open command"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.1.25",
+    "tests": [
+      {
+        "id": "svelte-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/runtime.integration.test.ts",
+        "evidence": "Shipped invokePluginTool path lists four tools, list-sections returns 195 official sections, get-documentation returns $state markdown, svelte-autofixer returns Svelte 5 migration issues, playground-link returns official svelte.dev URL."
+      },
+      {
+        "id": "svelte-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/runtime.integration.test.ts",
+        "evidence": "Representative Svelte 4/5 diagnostic scenario and multi-file Playground export exercised through the adapter."
+      },
+      {
+        "id": "svelte-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/runtime.integration.test.ts",
+        "evidence": "Invalid docs URL, section count bound, missing App.svelte, path-like filenames, and Svelte 4 async mismatch rejected with InvocationValidationError."
+      },
+      {
+        "id": "svelte-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/runtime.integration.test.ts",
+        "evidence": "Absolute/relative path autofixer inputs rejected; bootstrap restricts fetch to svelte.dev docs; non-official Playground URLs and oversized results rejected in normalizeResult."
+      },
+      {
+        "id": "svelte-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e -- tests/e2e/catalog-and-plugins.spec.ts",
+        "evidence": "Dedicated /plugins/svelte-development-studio page runs diagnostics, docs retrieval, and Playground generation with structured UI output."
+      }
+    ],
+    "blockers": []
+  }
+}

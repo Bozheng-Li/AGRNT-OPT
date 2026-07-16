@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.modelcontextprotocol/server-git",
+  "slug": "git-sandbox-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-15T09:37:32.000Z"
+  },
+  "name": {
+    "original": "Git MCP Server",
+    "zhCN": "Git 沙箱工作室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Read, search, and manipulate Git repositories through structured MCP tools.",
+    "zhCN": "在隔离沙箱仓库中查看状态、差异、历史，并完成安全的暂存与提交。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "A Model Context Protocol server providing tools to read, search, and manipulate Git repositories programmatically via LLMs.",
+    "zhCN": "这是 Model Context Protocol 官方参考实现，提供 git_status、git_diff、git_log、git_add、git_commit 等结构化 Git 工具。Agent-OPT 将仓库锁定在 `var/runtime/git-sandbox`，Web 不接受宿主任意路径，写操作只作用于该隔离仓库。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Model Context Protocol a Series of LF Projects, LLC.",
+    "url": "https://modelcontextprotocol.io",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "2026.7.10",
+    "releasedAt": "2026-07-10T03:31:04.803Z",
+    "checkedAt": "2026-07-15T09:35:00.000Z"
+  },
+  "categories": [
+    "developer-tools",
+    "git"
+  ],
+  "tags": [
+    "MCP",
+    "git",
+    "diff",
+    "commit",
+    "sandbox"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+    "repositoryUrl": "https://github.com/modelcontextprotocol/servers",
+    "packageUrl": "https://pypi.org/project/mcp-server-git/2026.7.10/",
+    "marketplaces": [
+      {
+        "sourceId": "mcp-reference-servers",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+        "listingId": "git",
+        "checkedAt": "2026-07-15T09:35:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "package-registry",
+        "url": "https://pypi.org/pypi/mcp-server-git/2026.7.10/json",
+        "retrievedAt": "2026-07-15T09:35:00.000Z",
+        "note": "PyPI metadata confirms package identity, version, MIT license, and official repository path."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+        "retrievedAt": "2026-07-15T09:35:00.000Z",
+        "note": "Official component path documents the Git MCP server tools and repository argument."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+        "retrievedAt": "2026-07-15T09:35:00.000Z",
+        "note": "Repository license file supplies the applicable MIT text referenced by the component package."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "PyPI metadata and the official servers repository both state MIT; Agent-OPT invokes the upstream package without vendoring its source.",
+    "checkedAt": "2026-07-15T09:35:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "repo-status",
+      "name": {
+        "original": "Repository status",
+        "zhCN": "仓库状态",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Inspect working tree and index status for the sandboxed repository.",
+        "zhCN": "查看隔离仓库的工作区与暂存区状态。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "diff-and-history",
+      "name": {
+        "original": "Diff and history",
+        "zhCN": "差异与历史",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Show unstaged, staged, or revision diffs and read commit history.",
+        "zhCN": "查看未暂存、已暂存或相对目标的差异，并读取提交历史。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "stage-and-commit",
+      "name": {
+        "original": "Stage and commit",
+        "zhCN": "暂存与提交",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Stage sandbox-relative files and create commits inside the isolated repository only.",
+        "zhCN": "只对沙箱相对路径执行暂存，并在隔离仓库内创建提交。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "branch-management",
+      "name": {
+        "original": "Branch management",
+        "zhCN": "分支管理",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List, create, and checkout branches within the sandbox repository.",
+        "zhCN": "在沙箱仓库内列出、创建和切换分支。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches one fixed Python module with a fixed sandbox repository path.",
+      "Web clients never supply repo_path; the adapter injects the sandbox absolute path after validation.",
+      "git_add only accepts sandbox-relative file paths and rejects absolute or parent traversal paths.",
+      "Revision, date-filter, and branch inputs reject option-like values, control characters, and invalid Git ref structures before launch."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-git-python",
+    "transport": "stdio",
+    "package": {
+      "registry": "pypi",
+      "name": "mcp-server-git",
+      "version": "2026.7.10"
+    },
+    "requirements": [
+      "Python 3.10 or newer",
+      "Git available on PATH",
+      "Project virtual environment installed from requirements-mcp.txt"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 88,
+    "usefulness": 5,
+    "uniqueness": 4,
+    "reliability": 4,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4,
+    "webFitness": 5,
+    "notes": [
+      "High developer value with local, credential-free verification.",
+      "Sandboxing is mandatory because the upstream tool otherwise accepts arbitrary repo_path values."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-15T09:35:00.000Z",
+    "notes": [
+      "Git command names, HEAD, and branch identifiers remain in original technical form."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "GitWorkspace",
+    "route": "/plugins/git-sandbox-studio",
+    "features": [
+      "status inspector",
+      "diff viewer",
+      "commit history",
+      "branch controls",
+      "stage and commit forms",
+      "activity log"
+    ],
+    "dedicatedElements": [
+      "mode tabs for status/diff/log/branch/stage/commit",
+      "sandbox-relative file list",
+      "commit message composer",
+      "branch create/checkout actions",
+      "sandbox boundary notice"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "2026.7.10",
+    "tests": [
+      {
+        "id": "git-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:11:51.319Z",
+        "evidence": "Vitest launched mcp-server-git 2026.7.10 over stdio, discovered its fixed tool set, and returned live status from an isolated repository."
+      },
+      {
+        "id": "git-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:11:51.319Z",
+        "evidence": "A temporary repository exercised all 12 exposed tools: status, unstaged/staged/revision diffs, log, show, branch listing, add, commit, reset, branch creation, and checkout."
+      },
+      {
+        "id": "git-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:11:51.319Z",
+        "evidence": "Empty commit messages, invalid sandbox-relative inputs, malformed branch names, option-like revisions, and option-like date filters were rejected before upstream invocation."
+      },
+      {
+        "id": "git-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-15T12:11:51.319Z",
+        "evidence": "Absolute paths and parent traversal were rejected; client repo_path values were overwritten with the sandbox root; ref and revision schemas blocked option/control-character injection."
+      },
+      {
+        "id": "git-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-15T12:11:51.319Z",
+        "evidence": "Playwright chromium opened GitWorkspace, ran git_status, and observed repository status text in the result panel."
+      }
+    ],
+    "blockers": []
+  }
+}
