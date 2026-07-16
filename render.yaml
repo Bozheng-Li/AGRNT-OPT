@@ -1,0 +1,21 @@
+# One-click deploy on Render: https://render.com/deploy
+services:
+  - type: web
+    name: agent-opt
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3000"
+      - key: HOSTNAME
+        value: 0.0.0.0
+      - key: DOTNET_ROOT
+        value: /opt/dotnet
+    # Free web services do not include persistent disks. Sandboxes reset on
+    # redeploy/restart, which is acceptable for a public demo. Upgrade the plan
+    # and attach a disk at /app/var/runtime if you need durable plugin state.

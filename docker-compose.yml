@@ -1,0 +1,27 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: agent-opt:local
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
+      DOTNET_ROOT: /opt/dotnet
+    volumes:
+      # Persist sandboxes (filesystem / git / sqlite / memory / artifacts).
+      # Keep DOTNET_ROOT outside this mount so the image SDK stays available.
+      - agent-opt-runtime:/app/var/runtime
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  agent-opt-runtime:

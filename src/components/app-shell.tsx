@@ -16,7 +16,8 @@ export function AppShell({ children, publicCount }: { children: React.ReactNode;
             <Link className="sidebar-link active" href="/"><Gauge size={15} />插件目录</Link>
             <Link className="sidebar-link" href="/#sources"><Database size={15} />来源与证据</Link>
             <Link className="sidebar-link" href="/#quality"><ShieldCheck size={15} />质量门槛</Link>
-            <Link className="sidebar-link" href="https://github.com/modelcontextprotocol/registry"><BookOpen size={15} />上游生态</Link>
+            <Link className="sidebar-link" href="https://github.com/Bozheng-Li/AGRNT-OPT" target="_blank" rel="noreferrer"><BookOpen size={15} />GitHub 源码</Link>
+            <Link className="sidebar-link" href="https://github.com/modelcontextprotocol/registry" target="_blank" rel="noreferrer"><BookOpen size={15} />上游生态</Link>
           </nav>
         </div>
 

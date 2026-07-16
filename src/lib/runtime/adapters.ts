@@ -1447,7 +1447,10 @@ export async function ensureBumpguardSandbox(root: string = defaultBumpguardRoot
 }
 
 const bumpguardBootstrap = path.join(/* turbopackIgnore: true */ process.cwd(), "scripts", "bumpguard-mcp-entry.py");
-const localDotnetRoot = path.join(/* turbopackIgnore: true */ process.cwd(), "var", "runtime", "dotnet-sdk");
+const localDotnetRoot = path.resolve(
+  /* turbopackIgnore: true */ process.env.DOTNET_ROOT?.trim() ||
+    path.join(/* turbopackIgnore: true */ process.cwd(), "var", "runtime", "dotnet-sdk"),
+);
 const localDotnetEntryPoint = path.join(localDotnetRoot, process.platform === "win32" ? "dotnet.exe" : "dotnet");
 
 function inheritedBumpguardNetworkEnvironment(): Record<string, string> {

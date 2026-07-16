@@ -35,6 +35,40 @@ The raw discovery layer is intentionally much larger than the public catalog:
 
 These records remain `discovered` until they pass provenance, license, security, usefulness, translation, adaptation, dedicated Web, and verification gates. Counts in `var/` are discovery coverage, not integrated-product counts.
 
+## Live Web (GitHub-friendly deploy)
+
+This project is a real Next.js + MCP runtime (Node child processes, Python MCP servers, sandboxes). It is **not** a static site, so plain GitHub Pages cannot host the runnable plugin center.
+
+### Fastest public URL: Render one-click
+
+1. Open the repository on GitHub: <https://github.com/Bozheng-Li/AGRNT-OPT>
+2. Click the button below (or open Render and choose **New → Blueprint** with this repo):
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Bozheng-Li/AGRNT-OPT)
+
+3. After the Docker build finishes, open the assigned `https://….onrender.com` URL.
+4. That homepage is the **plugin center**. Click **打开 Web** on any card to use that plugin workspace.
+
+`render.yaml` is already in the repo (Docker web service + persistent `/app/var/runtime` disk). Free tier machines may cold-start slowly; first plugin invoke after idle can take longer.
+
+### Local full stack with Docker Compose
+
+With Docker Desktop running:
+
+```powershell
+docker compose up --build
+```
+
+Then open `http://localhost:3000` for the full catalog and every verified Web workspace.
+
+### GitHub Container Registry image
+
+Pushes to `master`/`main` build and publish `ghcr.io/bozheng-li/agrnt-opt` via `.github/workflows/docker-publish.yml`. After the first successful workflow:
+
+```powershell
+docker run --rm -p 3000:3000 -e DOTNET_ROOT=/opt/dotnet ghcr.io/bozheng-li/agrnt-opt:latest
+```
+
 ## Local development
 
 ```powershell
@@ -46,7 +80,6 @@ npm run dev
 ```
 
 Open `http://localhost:3000`.
-
 ## Main workflows
 
 ```powershell
