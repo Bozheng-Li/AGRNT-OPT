@@ -4,6 +4,7 @@ import path from "node:path";
 import { z } from "zod";
 import { InvocationValidationError } from "./errors";
 import { resolveSandboxPath } from "./sandbox";
+import { localMcpCatalog, listLocalMcpSlugs } from "./local-mcp-tools";
 import {
   loadSkillIndex,
   readSkillDocument,
@@ -1862,6 +1863,34 @@ function loadSkillAdapters(): PluginAdapter[] {
   }
 }
 
+function createLocalMcpAdapter(slug: string): PluginAdapter {
+  const entry = localMcpCatalog[slug];
+  if (!entry) throw new InvocationValidationError(`未知本地 MCP：${slug}`);
+  const tools = entry.tools;
+  return {
+    slug,
+    mode: "in-process",
+    allowedTools: tools.map((tool) => tool.name),
+    async prepare() {
+      throw new InvocationValidationError(`本地 MCP ${slug} 为进程内工具运行时，不启动外部子进程。`);
+    },
+    async validateAndTransform(tool, input) {
+      const def = tools.find((item) => item.name === tool);
+      if (!def) throw new InvocationValidationError(`Web 适配未开放工具：${tool}`);
+      return parseWithFriendlyError(def.schema, input);
+    },
+    async invokeInProcess(tool, input) {
+      const def = tools.find((item) => item.name === tool);
+      if (!def) throw new InvocationValidationError(`Web 适配未开放工具：${tool}`);
+      return def.run(input);
+    },
+  };
+}
+
+function loadLocalMcpAdapters(): PluginAdapter[] {
+  return listLocalMcpSlugs().map((slug) => createLocalMcpAdapter(slug));
+}
+
 const adapters = new Map(
   [
     filesystemAdapter,
@@ -1878,6 +1907,7 @@ const adapters = new Map(
     bumpguardAdapter,
     svelteAdapter,
     ...loadSkillAdapters(),
+    ...loadLocalMcpAdapters(),
   ].map((adapter) => [adapter.slug, adapter]),
 );
 
@@ -1893,6 +1923,11 @@ export function getPluginAdapter(slug: string): PluginAdapter | undefined {
     } catch {
       return undefined;
     }
+  }
+  if (slug.startsWith("local-") && localMcpCatalog[slug]) {
+    const adapter = createLocalMcpAdapter(slug);
+    adapters.set(slug, adapter);
+    return adapter;
   }
   return undefined;
 }

@@ -13,10 +13,12 @@ import {
   ScanSearch,
   ScanText,
   Workflow,
+  Wrench,
 } from "lucide-react";
 
 export function PluginIcon({ slug, size = 20 }: { slug: string; size?: number }) {
   if (slug.startsWith("skill-")) return <BookOpenText size={size} />;
+  if (slug.startsWith("local-")) return <Wrench size={size} />;
   if (slug === "filesystem-workbench") return <FolderOpen size={size} />;
   if (slug === "git-sandbox-studio") return <GitBranch size={size} />;
   if (slug === "knowledge-memory") return <BrainCircuit size={size} />;

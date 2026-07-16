@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "id": "com.openai.plugins/expo-tailwind-setup",
+  "slug": "skill-expo-tailwind-setup",
+  "kind": "agent-skill",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T13:40:57.604Z"
+  },
+  "name": {
+    "original": "expo-tailwind-setup",
+    "zhCN": "Expo Tailwind 配置",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Set up Tailwind CSS v4 in Expo with react-native-css and NativeWind v5 for universal styling",
+    "zhCN": "Expo Tailwind 配置：Set up Tailwind CSS v4 in Expo with react-native-css and NativeWind v5 for unive…",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Set up Tailwind CSS v4 in Expo with react-native-css and NativeWind v5 for universal styling Official skill document adapted by Agent-OPT as a dedicated bilingual Web skill studio with section navigation, full-text search, and sandboxed source rendering. No upstream executable scripts are executed.",
+    "zhCN": "Expo Tailwind 配置。Agent-OPT 将官方 SKILL.md 适配为独立 Web 技能工作室：支持章节导航、全文检索、中英对照元数据与只读源码呈现；不执行上游脚本，不访问外部账号。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "OpenAI / plugin authors",
+    "url": "https://github.com/openai",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "11c74d6ba24d",
+    "checkedAt": "2026-07-16T13:40:57.604Z"
+  },
+  "categories": [
+    "mobile",
+    "frontend"
+  ],
+  "tags": [
+    "skill",
+    "expo",
+    "tailwind"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/expo/skills/expo-tailwind-setup",
+    "repositoryUrl": "https://github.com/openai/plugins",
+    "marketplaces": [
+      {
+        "sourceId": "openai-codex-plugins",
+        "url": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/expo/skills/expo-tailwind-setup",
+        "listingId": "expo-tailwind-setup",
+        "checkedAt": "2026-07-16T13:40:57.604Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/expo/skills/expo-tailwind-setup",
+        "retrievedAt": "2026-07-16T13:40:57.604Z",
+        "note": "Pinned path-addressed SKILL.md from the official repository snapshot with content SHA d37fe3298bd003ee44df6636dc8ebc970a4f1b65."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/openai/plugins/blob/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/expo/LICENSE",
+        "retrievedAt": "2026-07-16T13:40:57.604Z",
+        "note": "License evidence from the official repository path for this skill or its parent plugin manifest."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/openai/plugins/blob/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/expo/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "Primary-source license identifier MIT recorded from plugins/expo/LICENSE. Agent-OPT stores a local review copy of SKILL.md for Web rendering and does not execute upstream scripts.",
+    "checkedAt": "2026-07-16T13:40:57.604Z"
+  },
+  "capabilities": [
+    {
+      "id": "skill-read",
+      "name": {
+        "original": "Read skill guidance",
+        "zhCN": "阅读技能指南",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Open the full official skill document with structured sections.",
+        "zhCN": "以结构化章节打开完整官方技能文档。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "skill-search",
+      "name": {
+        "original": "Search skill text",
+        "zhCN": "检索技能正文",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Keyword search across the skill body with line-level excerpts.",
+        "zhCN": "在技能正文中做关键词检索并返回行级摘录。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "skill-outline",
+      "name": {
+        "original": "Navigate sections",
+        "zhCN": "章节导航",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Jump between markdown headings and inspect one section at a time.",
+        "zhCN": "在 Markdown 标题之间跳转，并按章节查看内容。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-read",
+    "network": "none",
+    "commands": "none",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "In-process skill runtime reads only catalog/skill-bodies/<slug> files prepared at curation time.",
+      "Upstream scripts, if any, are not executed by Agent-OPT.",
+      "No network, credentials, or host filesystem access is granted to the skill body."
+    ]
+  },
+  "runtime": {
+    "adapter": "skill-document-in-process",
+    "transport": "in-process",
+    "package": {
+      "registry": "source",
+      "name": "expo-tailwind-setup",
+      "version": "11c74d6ba24d"
+    },
+    "requirements": [
+      "Skill body checked into catalog/skill-bodies/skill-expo-tailwind-setup/SKILL.md",
+      "No external credentials"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 84,
+    "usefulness": 4.1,
+    "uniqueness": 3.7,
+    "reliability": 4.5,
+    "maintenance": 4.4,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 4.5,
+    "notes": [
+      "Official path-addressed skill with preserved source text and dedicated Web skill studio.",
+      "Marked verified after in-process core/scenario/error/web tests of the skill reader runtime for this body snapshot."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T13:40:57.604Z",
+    "notes": [
+      "Chinese UI labels and summary reviewed; original SKILL.md body remains English source text."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "SkillWorkspace",
+    "route": "/plugins/skill-expo-tailwind-setup",
+    "features": [
+      "section outline",
+      "full-text search",
+      "source viewer",
+      "bilingual metadata"
+    ],
+    "dedicatedElements": [
+      "section navigator",
+      "keyword search panel",
+      "readonly markdown source pane",
+      "skill metadata strip"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "11c74d6ba24d",
+    "tests": [
+      {
+        "id": "skill-expo-tailwind-setup-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:40:57.604Z",
+        "evidence": "Skill body loaded from catalog/skill-bodies and outline/list tools returned structured sections."
+      },
+      {
+        "id": "skill-expo-tailwind-setup-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:40:57.604Z",
+        "evidence": "Representative section open + keyword search returned line excerpts from the official body."
+      },
+      {
+        "id": "skill-expo-tailwind-setup-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:40:57.604Z",
+        "evidence": "Empty query and unknown section id rejected with controlled validation errors."
+      },
+      {
+        "id": "skill-expo-tailwind-setup-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-16T13:40:57.604Z",
+        "evidence": "SkillWorkspace route renders outline and can open a section through the invoke API."
+      },
+      {
+        "id": "skill-expo-tailwind-setup-permission",
+        "category": "permission",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:40:57.604Z",
+        "evidence": "Runtime only reads curated skill-body files; no network/commands/secrets granted."
+      }
+    ],
+    "blockers": []
+  }
+}

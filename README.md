@@ -10,9 +10,9 @@
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=for-the-badge)](LICENSE)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Public Web](https://img.shields.io/badge/Public%20Web-41-0ea5e9?style=for-the-badge)](#-verified-public-catalog--公开目录事实)
-[![MCP verified](https://img.shields.io/badge/MCP%20verified-13-7c3aed?style=for-the-badge)](#-verified-public-catalog--公开目录事实)
-[![Skills verified](https://img.shields.io/badge/Skills%20verified-28-f59e0b?style=for-the-badge)](#-verified-public-catalog--公开目录事实)
+[![Public Web](https://img.shields.io/badge/Public%20Web-115-0ea5e9?style=for-the-badge)](#-verified-public-catalog--公开目录事实)
+[![MCP verified](https://img.shields.io/badge/MCP%20verified-55-7c3aed?style=for-the-badge)](#-verified-public-catalog--公开目录事实)
+[![Skills verified](https://img.shields.io/badge/Skills%20verified-60-f59e0b?style=for-the-badge)](#-verified-public-catalog--公开目录事实)
 [![GitHub stars](https://img.shields.io/github/stars/Bozheng-Li/AGRNT-OPT?style=for-the-badge&logo=github)](https://github.com/Bozheng-Li/AGRNT-OPT/stargazers)
 
 [English](#-english) · [中文](#-中文) · [Docs](docs/) · [Catalog](catalog/plugins/) · [Issues](https://github.com/Bozheng-Li/AGRNT-OPT/issues)
@@ -39,9 +39,9 @@
 
 | 口径 | 当前真实数字 | 来源 | 能否算“已集成” |
 |:--|--:|:--|:--|
-| 公开 Web 适配（`web-ready` / `verified`） | **41** | `catalog/plugins/*.json` | ✅ 是 |
-| 其中 MCP 运行时工作台 | **13** | `kind=mcp-server` | ✅ 是（stdio MCP + 专属 Web + 测试） |
-| 其中 Agent Skill 工作室 | **28** | `kind=agent-skill` | ✅ 是（入库正文 + 专属 Web + 测试） |
+| 公开 Web 适配（`web-ready` / `verified`） | **115** | `catalog/plugins/*.json` | ✅ 是 |
+| 其中 MCP 运行时工作台 | **55** | `kind=mcp-server` | ✅ 是（13 上游 stdio + 42 一等公民进程内本地 MCP） |
+| 其中 Agent Skill 工作室 | **60** | `kind=agent-skill` | ✅ 是（官方正文入库 + Skill 工作室 + 测试） |
 | 官方 MCP Registry 最新候选 | **16,765** | `var/snapshots/official-mcp-registry/latest-candidates.json` | ❌ 仅发现 |
 | MCP 全量版本记录（一次完整同步） | **51,937** / **520** 页 | `var/.../checkpoint.json` | ❌ 仅发现 |
 | 结构化市场清单 | **2,428** | `var/snapshots/structured-marketplaces/latest-candidates.json` | ❌ 仅发现 |
@@ -89,12 +89,16 @@ discovered → qualified → translated → adapted → web-ready → verified
 
 ## 📊 公开目录事实
 
-当前公开 **41** 个：
+当前公开 **115** 个：
 
-- **13** 个 **MCP 服务器**（真实子进程 / Python / Node 适配）
-- **28** 个 **Agent Skill**（官方 SKILL.md 入库 + Skill 工作室：章节 / 检索 / 全文）
+- **55** 个 **MCP**  
+  - **13** 上游 stdio MCP（Node/Python 子进程 + 专属工作台）  
+  - **42** 一等公民进程内本地 MCP（`local-*`，无外网 / 无凭证，专属表单 Web）  
+- **60** 个 **Agent Skill**（官方 SKILL.md 入库 + Skill 工作室：章节 / 检索 / 全文）
 
-### MCP 工作台（13）
+> 本地 MCP 明确标注为 Agent-OPT first-party `in-process` 工具面，**不是**把第三方 Registry 条目直接标 verified。
+
+### 上游 MCP 工作台（13）
 
 | 中文名 | 英文名 | 评分 | 路由 |
 |:--|:--|--:|:--|
@@ -112,10 +116,17 @@ discovered → qualified → translated → adapted → web-ready → verified
 | 网页正文读取器 | Fetch MCP Server | 85 | `/plugins/web-content-reader` |
 | 结构化思考工作室 | Sequential Thinking MCP Server | 79 | `/plugins/sequential-thinking-studio` |
 
-### Agent Skill 工作室（28）
+### 本地 MCP 工具面（42）
+
+路由形如 `/plugins/local-json-lab`、`/plugins/local-hash-lab`…  
+实现：`src/lib/runtime/local-mcp-tools.ts` + `LocalMcpWorkspace`。  
+覆盖 JSON/YAML/CSV、Base64、Hash、UUID、URL、Regex、Cron、SemVer、单位换算、安全算术等确定性本地工具。
+
+### Agent Skill 工作室（60）
 
 来源：Anthropic 官方 skills（Apache-2.0）+ OpenAI plugins 路径级 skills（MIT）。  
-运行方式：`in-process` 文档运行时，**不执行**上游脚本，**不**假装成 MCP stdio。
+运行方式：`in-process` 文档运行时，**不执行**上游脚本，**不**假装成 MCP stdio。  
+下表仅列部分代表；完整列表见 [`catalog/plugins/`](catalog/plugins/)（`skill-*.json`）。
 
 | 中文名 | 原名 | 来源 | 路由 |
 |:--|:--|:--|:--|
@@ -156,7 +167,7 @@ discovered → qualified → translated → adapted → web-ready → verified
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Bozheng-Li/AGRNT-OPT)
 
-部署后打开站点首页 = **插件中心**（41 个卡片），点 **打开 Web** 进入对应工作台。
+部署后打开站点首页 = **插件中心**（115 个卡片），点 **打开 Web** 进入对应工作台。
 
 > 这是 Next.js + MCP/Skill 运行时，**不是**静态站；GitHub Pages 无法直接跑完整插件中心。
 
@@ -197,8 +208,9 @@ Skill 正文副本：[`catalog/skill-bodies/`](catalog/skill-bodies/)
 ```text
 Web UI (Next.js)
   └─ POST /api/plugins/[slug]/invoke
-       ├─ MCP stdio adapters  → Node/Python MCP servers (13)
-       └─ Skill in-process    → catalog/skill-bodies/* (28)
+       ├─ MCP stdio adapters     → Node/Python upstream MCP (13)
+       ├─ Local MCP in-process   → local-mcp-tools.ts (42)
+       └─ Skill in-process       → catalog/skill-bodies/* (60)
 ```
 
 | 目录 | 用途 |
@@ -270,9 +282,9 @@ It deliberately separates:
 
 | Metric | Value | Counts as integrated? |
 |:--|--:|:--|
-| Public Web entries | **41** | Yes |
-| Verified MCP runtimes | **13** | Yes |
-| Verified agent skills | **28** | Yes |
+| Public Web entries | **115** | Yes |
+| Verified MCP surfaces | **55** (13 upstream stdio + 42 first-party local in-process) | Yes |
+| Verified agent skills | **60** | Yes |
 | MCP registry latest candidates | **16,765** | No |
 | MCP version records in full sync | **51,937** across **520** pages | No |
 | Structured marketplace listings | **2,428** | No |
@@ -281,8 +293,8 @@ It deliberately separates:
 
 ## Public catalog
 
-- **13 MCP workspaces**: real stdio adapters, sandboxes, core/scenario/error/web evidence  
-- **28 skill studios**: curated official `SKILL.md` bodies with section outline, search, full-text viewer; **scripts are not executed**
+- **55 MCP surfaces**: 13 upstream stdio adapters + 42 first-party local in-process MCP tools with dedicated Web forms  
+- **60 skill studios**: curated official `SKILL.md` bodies with section outline, search, full-text viewer; **scripts are not executed**
 
 Open `http://localhost:3000` after `npm run dev`, or deploy via the Render button above. The homepage is the plugin center; each card’s **Open Web** route is `/plugins/<slug>`.
 
@@ -325,7 +337,7 @@ See [LICENSE](LICENSE). Upstream packages keep their own licenses.
 
 **Agent-OPT** · Quality first · Honest counts · Continuously expanding
 
-Public now: **41** · MCP: **13** · Skills: **28** · Discovery: much larger under `var/`
+Public now: **115** · MCP: **55** · Skills: **60** · Discovery: much larger under `var/`
 
 [⬆ Back to top](#agent-opt)
 

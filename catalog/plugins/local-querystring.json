@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "id": "agent-opt.local/querystring",
+  "slug": "local-querystring",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T13:46:11.919Z"
+  },
+  "name": {
+    "original": "Query String Lab",
+    "zhCN": "查询串实验室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Parse and stringify URL query strings.",
+    "zhCN": "解析与序列化 URL 查询串。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Parse and stringify URL query strings. Agent-OPT ships this as a first-party in-process MCP-compatible tool surface with dedicated Web controls, deterministic validation, and no external network or credentials.",
+    "zhCN": "解析与序列化 URL 查询串。 Agent-OPT 将其作为一等公民的进程内 MCP 兼容工具面：专属 Web 控件、确定性校验，且不访问外网、不需要凭证。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Agent-OPT",
+    "url": "https://github.com/Bozheng-Li/AGRNT-OPT",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "1.0.0",
+    "releasedAt": "2026-07-16T13:46:11.919Z",
+    "checkedAt": "2026-07-16T13:46:11.919Z"
+  },
+  "categories": [
+    "web",
+    "developer-tools"
+  ],
+  "tags": [
+    "MCP",
+    "querystring",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/Bozheng-Li/AGRNT-OPT/tree/master/src/lib/runtime/local-mcp-tools.ts",
+    "repositoryUrl": "https://github.com/Bozheng-Li/AGRNT-OPT",
+    "marketplaces": [
+      {
+        "sourceId": "agent-opt-local",
+        "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/local-mcp-tools.ts",
+        "listingId": "local-querystring",
+        "checkedAt": "2026-07-16T13:46:11.919Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/local-mcp-tools.ts",
+        "retrievedAt": "2026-07-16T13:46:11.919Z",
+        "note": "First-party in-process MCP tool implementation for slug local-querystring with tools: parse_query, stringify_query"
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/adapters.ts",
+        "retrievedAt": "2026-07-16T13:46:11.919Z",
+        "note": "Adapter registration wires the local MCP catalog into the shared invoke path used by Web and tests."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "First-party Agent-OPT code under the repository MIT license; no third-party package redistribution required.",
+    "checkedAt": "2026-07-16T13:46:11.919Z"
+  },
+  "capabilities": [
+    {
+      "id": "parse-query",
+      "name": {
+        "original": "parse_query",
+        "zhCN": "parse_query",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Local MCP tool parse_query executed in-process.",
+        "zhCN": "进程内执行本地 MCP 工具 parse_query。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "stringify-query",
+      "name": {
+        "original": "stringify_query",
+        "zhCN": "stringify_query",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Local MCP tool stringify_query executed in-process.",
+        "zhCN": "进程内执行本地 MCP 工具 stringify_query。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "none",
+    "network": "none",
+    "commands": "none",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "In-process first-party MCP surface; no child process, host FS, or network access.",
+      "Inputs are schema-validated and size-bounded before execution."
+    ]
+  },
+  "runtime": {
+    "adapter": "local-mcp-in-process",
+    "transport": "in-process",
+    "package": {
+      "registry": "source",
+      "name": "local-querystring",
+      "version": "1.0.0"
+    },
+    "requirements": [
+      "Agent-OPT server runtime"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 80,
+    "usefulness": 4,
+    "uniqueness": 3.5,
+    "reliability": 4.8,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 4.6,
+    "notes": [
+      "First-party local MCP tool with dedicated Web form and real invoke tests.",
+      "Marked verified after core/scenario/error/web evidence on the in-process adapter path."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T13:46:11.919Z",
+    "notes": [
+      "Chinese name/summary reviewed for the local MCP catalog entry."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "LocalMcpWorkspace",
+    "route": "/plugins/local-querystring",
+    "features": [
+      "tool:parse_query",
+      "tool:stringify_query",
+      "activity log",
+      "validation errors"
+    ],
+    "dedicatedElements": [
+      "tool selector",
+      "parameter form",
+      "result panel",
+      "privacy notice"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "1.0.0",
+    "tests": [
+      {
+        "id": "local-querystring-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Primary tool of local-querystring executed through invokePluginTool and returned non-error content."
+      },
+      {
+        "id": "local-querystring-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Representative valid input produced structured output for local-querystring."
+      },
+      {
+        "id": "local-querystring-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Invalid input rejected with InvocationValidationError before unsafe work."
+      },
+      {
+        "id": "local-querystring-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "LocalMcpWorkspace route and invoke API path cover local-querystring."
+      },
+      {
+        "id": "local-querystring-permission",
+        "category": "permission",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Adapter is in-process with filesystem/network/commands none."
+      }
+    ],
+    "blockers": []
+  }
+}

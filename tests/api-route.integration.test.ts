@@ -41,6 +41,15 @@ describe("Next plugin invocation route", () => {
     expect(String(openedPayload.result.structuredContent.content || "")).toMatch(/./);
   });
 
+  it("calls a first-party local MCP through the HTTP route", async () => {
+    const response = await invoke("local-json-lab", "format_json", { text: '{"z":1,"a":2}' });
+    expect(response.status).toBe(200);
+    const payload = await response.json();
+    expect(payload.plugin).toBe("agent-opt.local/json-lab");
+    expect(payload.result.isError).toBe(false);
+    expect(String(payload.result.structuredContent.text || "")).toContain('"a"');
+  });
+
   it("calls the sequential-thinking MCP adapter through the HTTP route", async () => {
     const response = await invoke("sequential-thinking-studio", "sequentialthinking", {
       thought: "Verify the route boundary",

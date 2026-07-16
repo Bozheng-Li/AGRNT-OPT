@@ -3,8 +3,9 @@ import { expect, test } from "@playwright/test";
 test("catalog exposes the Web-ready integrations", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: /把真正有用的 Agent 能力/ })).toBeVisible();
-  // 13 verified MCP workspaces + curated agent-skill studios.
-  await expect(page.getByRole("link", { name: /打开 Web/ })).toHaveCount(41);
+  // Public verified MCP + skill studios (exact count comes from catalog manifests).
+  const publicCount = 115;
+  await expect(page.getByRole("link", { name: /打开 Web/ })).toHaveCount(publicCount);
   await expect(page.getByText("文件系统工作台")).toBeVisible();
   await expect(page.getByText("知识图谱记忆库")).toBeVisible();
   await expect(page.getByText("结构化思考工作室")).toBeVisible();
@@ -28,6 +29,13 @@ test("skill studio opens a curated Anthropic skill section", async ({ page }) =>
   await expect(page.getByTestId("skill-outline")).toBeVisible({ timeout: 15_000 });
   await page.getByTestId("skill-open-section").click();
   await expect(page.getByTestId("result-output")).not.toHaveText("", { timeout: 15_000 });
+});
+
+test("local MCP workspace runs JSON format tool", async ({ page }) => {
+  await page.goto("/plugins/local-json-lab");
+  await expect(page.getByText("JSON 实验室")).toBeVisible();
+  await page.getByTestId("local-mcp-run").click();
+  await expect(page.getByTestId("result-output")).toContainText("hello", { timeout: 15_000 });
 });
 
 test("filesystem Web writes and reads a sandbox file", async ({ page }) => {

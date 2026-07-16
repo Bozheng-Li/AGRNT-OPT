@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "id": "agent-opt.local/math-eval",
+  "slug": "local-math-eval",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T13:46:11.919Z"
+  },
+  "name": {
+    "original": "Safe Math Eval",
+    "zhCN": "安全数学计算",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Evaluate restricted arithmetic expressions.",
+    "zhCN": "计算受限算术表达式。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Evaluate restricted arithmetic expressions. Agent-OPT ships this as a first-party in-process MCP-compatible tool surface with dedicated Web controls, deterministic validation, and no external network or credentials.",
+    "zhCN": "计算受限算术表达式。 Agent-OPT 将其作为一等公民的进程内 MCP 兼容工具面：专属 Web 控件、确定性校验，且不访问外网、不需要凭证。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Agent-OPT",
+    "url": "https://github.com/Bozheng-Li/AGRNT-OPT",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "1.0.0",
+    "releasedAt": "2026-07-16T13:46:11.919Z",
+    "checkedAt": "2026-07-16T13:46:11.919Z"
+  },
+  "categories": [
+    "math",
+    "utilities"
+  ],
+  "tags": [
+    "MCP",
+    "math",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/Bozheng-Li/AGRNT-OPT/tree/master/src/lib/runtime/local-mcp-tools.ts",
+    "repositoryUrl": "https://github.com/Bozheng-Li/AGRNT-OPT",
+    "marketplaces": [
+      {
+        "sourceId": "agent-opt-local",
+        "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/local-mcp-tools.ts",
+        "listingId": "local-math-eval",
+        "checkedAt": "2026-07-16T13:46:11.919Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/local-mcp-tools.ts",
+        "retrievedAt": "2026-07-16T13:46:11.919Z",
+        "note": "First-party in-process MCP tool implementation for slug local-math-eval with tools: evaluate"
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/adapters.ts",
+        "retrievedAt": "2026-07-16T13:46:11.919Z",
+        "note": "Adapter registration wires the local MCP catalog into the shared invoke path used by Web and tests."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "First-party Agent-OPT code under the repository MIT license; no third-party package redistribution required.",
+    "checkedAt": "2026-07-16T13:46:11.919Z"
+  },
+  "capabilities": [
+    {
+      "id": "evaluate",
+      "name": {
+        "original": "evaluate",
+        "zhCN": "evaluate",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Local MCP tool evaluate executed in-process.",
+        "zhCN": "进程内执行本地 MCP 工具 evaluate。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "none",
+    "network": "none",
+    "commands": "none",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "In-process first-party MCP surface; no child process, host FS, or network access.",
+      "Inputs are schema-validated and size-bounded before execution."
+    ]
+  },
+  "runtime": {
+    "adapter": "local-mcp-in-process",
+    "transport": "in-process",
+    "package": {
+      "registry": "source",
+      "name": "local-math-eval",
+      "version": "1.0.0"
+    },
+    "requirements": [
+      "Agent-OPT server runtime"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 84,
+    "usefulness": 4,
+    "uniqueness": 3.5,
+    "reliability": 4.8,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 4.6,
+    "notes": [
+      "First-party local MCP tool with dedicated Web form and real invoke tests.",
+      "Marked verified after core/scenario/error/web evidence on the in-process adapter path."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T13:46:11.919Z",
+    "notes": [
+      "Chinese name/summary reviewed for the local MCP catalog entry."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "LocalMcpWorkspace",
+    "route": "/plugins/local-math-eval",
+    "features": [
+      "tool:evaluate",
+      "activity log",
+      "validation errors"
+    ],
+    "dedicatedElements": [
+      "tool selector",
+      "parameter form",
+      "result panel",
+      "privacy notice"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "1.0.0",
+    "tests": [
+      {
+        "id": "local-math-eval-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Primary tool of local-math-eval executed through invokePluginTool and returned non-error content."
+      },
+      {
+        "id": "local-math-eval-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Representative valid input produced structured output for local-math-eval."
+      },
+      {
+        "id": "local-math-eval-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Invalid input rejected with InvocationValidationError before unsafe work."
+      },
+      {
+        "id": "local-math-eval-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "LocalMcpWorkspace route and invoke API path cover local-math-eval."
+      },
+      {
+        "id": "local-math-eval-permission",
+        "category": "permission",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Adapter is in-process with filesystem/network/commands none."
+      }
+    ],
+    "blockers": []
+  }
+}

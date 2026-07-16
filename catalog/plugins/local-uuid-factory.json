@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "id": "agent-opt.local/uuid-factory",
+  "slug": "local-uuid-factory",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T13:46:11.919Z"
+  },
+  "name": {
+    "original": "UUID Factory",
+    "zhCN": "UUID 工厂",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Generate UUID v4 identifiers.",
+    "zhCN": "生成 UUID v4 标识符。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Generate UUID v4 identifiers. Agent-OPT ships this as a first-party in-process MCP-compatible tool surface with dedicated Web controls, deterministic validation, and no external network or credentials.",
+    "zhCN": "生成 UUID v4 标识符。 Agent-OPT 将其作为一等公民的进程内 MCP 兼容工具面：专属 Web 控件、确定性校验，且不访问外网、不需要凭证。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Agent-OPT",
+    "url": "https://github.com/Bozheng-Li/AGRNT-OPT",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "1.0.0",
+    "releasedAt": "2026-07-16T13:46:11.919Z",
+    "checkedAt": "2026-07-16T13:46:11.919Z"
+  },
+  "categories": [
+    "developer-tools"
+  ],
+  "tags": [
+    "MCP",
+    "uuid",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/Bozheng-Li/AGRNT-OPT/tree/master/src/lib/runtime/local-mcp-tools.ts",
+    "repositoryUrl": "https://github.com/Bozheng-Li/AGRNT-OPT",
+    "marketplaces": [
+      {
+        "sourceId": "agent-opt-local",
+        "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/local-mcp-tools.ts",
+        "listingId": "local-uuid-factory",
+        "checkedAt": "2026-07-16T13:46:11.919Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/local-mcp-tools.ts",
+        "retrievedAt": "2026-07-16T13:46:11.919Z",
+        "note": "First-party in-process MCP tool implementation for slug local-uuid-factory with tools: generate_uuid"
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/adapters.ts",
+        "retrievedAt": "2026-07-16T13:46:11.919Z",
+        "note": "Adapter registration wires the local MCP catalog into the shared invoke path used by Web and tests."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "First-party Agent-OPT code under the repository MIT license; no third-party package redistribution required.",
+    "checkedAt": "2026-07-16T13:46:11.919Z"
+  },
+  "capabilities": [
+    {
+      "id": "generate-uuid",
+      "name": {
+        "original": "generate_uuid",
+        "zhCN": "generate_uuid",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Local MCP tool generate_uuid executed in-process.",
+        "zhCN": "进程内执行本地 MCP 工具 generate_uuid。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "none",
+    "network": "none",
+    "commands": "none",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "In-process first-party MCP surface; no child process, host FS, or network access.",
+      "Inputs are schema-validated and size-bounded before execution."
+    ]
+  },
+  "runtime": {
+    "adapter": "local-mcp-in-process",
+    "transport": "in-process",
+    "package": {
+      "registry": "source",
+      "name": "local-uuid-factory",
+      "version": "1.0.0"
+    },
+    "requirements": [
+      "Agent-OPT server runtime"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 83,
+    "usefulness": 4,
+    "uniqueness": 3.5,
+    "reliability": 4.8,
+    "maintenance": 5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 4.6,
+    "notes": [
+      "First-party local MCP tool with dedicated Web form and real invoke tests.",
+      "Marked verified after core/scenario/error/web evidence on the in-process adapter path."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T13:46:11.919Z",
+    "notes": [
+      "Chinese name/summary reviewed for the local MCP catalog entry."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "LocalMcpWorkspace",
+    "route": "/plugins/local-uuid-factory",
+    "features": [
+      "tool:generate_uuid",
+      "activity log",
+      "validation errors"
+    ],
+    "dedicatedElements": [
+      "tool selector",
+      "parameter form",
+      "result panel",
+      "privacy notice"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "1.0.0",
+    "tests": [
+      {
+        "id": "local-uuid-factory-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Primary tool of local-uuid-factory executed through invokePluginTool and returned non-error content."
+      },
+      {
+        "id": "local-uuid-factory-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Representative valid input produced structured output for local-uuid-factory."
+      },
+      {
+        "id": "local-uuid-factory-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Invalid input rejected with InvocationValidationError before unsafe work."
+      },
+      {
+        "id": "local-uuid-factory-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "LocalMcpWorkspace route and invoke API path cover local-uuid-factory."
+      },
+      {
+        "id": "local-uuid-factory-permission",
+        "category": "permission",
+        "status": "passed",
+        "command": "npm test",
+        "checkedAt": "2026-07-16T13:46:11.919Z",
+        "evidence": "Adapter is in-process with filesystem/network/commands none."
+      }
+    ],
+    "blockers": []
+  }
+}
