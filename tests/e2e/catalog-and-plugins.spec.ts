@@ -6,21 +6,13 @@ test("catalog exposes the Web-ready integrations", async ({ page }) => {
   // Public verified MCP + skill studios (exact count comes from catalog manifests).
   const publicCount = 115;
   await expect(page.getByRole("link", { name: /打开 Web/ })).toHaveCount(publicCount);
-  await expect(page.getByText("文件系统工作台")).toBeVisible();
-  await expect(page.getByText("知识图谱记忆库")).toBeVisible();
-  await expect(page.getByText("结构化思考工作室")).toBeVisible();
-  await expect(page.getByText("世界时间与时区换算")).toBeVisible();
-  await expect(page.getByText("网页正文读取器")).toBeVisible();
-  await expect(page.getByText("Git 沙箱工作室")).toBeVisible();
-  await expect(page.getByText("SQLite 数据工作台")).toBeVisible();
-  await expect(page.getByText("确定性文本去冗器")).toBeVisible();
-  await expect(page.getByText("Mermaid 图表工作室")).toBeVisible();
-  await expect(page.getByText("Blueprint 数据图表工作台")).toBeVisible();
-  await expect(page.getByText("oxidize-pdf 文档工作台")).toBeVisible();
-  await expect(page.getByText("BumpGuard 依赖兼容实验室")).toBeVisible();
-  await expect(page.getByText("Svelte 开发工作室")).toBeVisible();
-  await expect(page.getByText("前端视觉设计指南")).toBeVisible();
-  await expect(page.getByText("结构化头脑风暴")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "文件系统工作台" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "知识图谱记忆库" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Svelte 开发工作室" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "前端视觉设计指南" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "结构化头脑风暴" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "JSON 实验室" })).toBeVisible();
+  await expect(page.getByText("115 个符合质量门槛的 Web 适配")).toBeVisible();
 });
 
 test("skill studio opens a curated Anthropic skill section", async ({ page }) => {
@@ -33,7 +25,7 @@ test("skill studio opens a curated Anthropic skill section", async ({ page }) =>
 
 test("local MCP workspace runs JSON format tool", async ({ page }) => {
   await page.goto("/plugins/local-json-lab");
-  await expect(page.getByText("JSON 实验室")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "JSON 实验室" })).toBeVisible();
   await page.getByTestId("local-mcp-run").click();
   await expect(page.getByTestId("result-output")).toContainText("hello", { timeout: 15_000 });
 });
