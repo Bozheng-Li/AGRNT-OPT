@@ -8,10 +8,17 @@ RUN apt-get update \
     ca-certificates \
     curl \
     git \
+    libc6 \
+    libgcc-s1 \
+    libgssapi-krb5-2 \
+    libicu72 \
+    libssl3 \
+    libstdc++6 \
     python3 \
     python3-pip \
     python3-venv \
     build-essential \
+    zlib1g \
   && rm -rf /var/lib/apt/lists/*
 
 FROM base AS deps
