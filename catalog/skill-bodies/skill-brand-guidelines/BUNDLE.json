@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-brand-guidelines",
+  "sourceId": "anthropic-agent-skills",
+  "sourceCommit": "9d2f1ae187231d8199c64b5b762e1bdf2244733d",
+  "sourcePath": "skills/brand-guidelines",
+  "skillSha256": "a0aa0a21ebf9e8511a045cc234bc839adc2b6706db727add14e9855f242e11a7",
+  "supportingFiles": [
+    {
+      "path": "LICENSE.txt",
+      "sha256": "52b223c318576d65c32f70cb745f31352730e9f4c2c2c2570a66ce700f4f5a64"
+    }
+  ]
+}

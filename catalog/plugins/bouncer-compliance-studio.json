@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.nugehs/bouncer",
+  "slug": "bouncer-compliance-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T18:45:16.820Z"
+  },
+  "name": {
+    "original": "bouncer",
+    "zhCN": "Bouncer 合规控制体检台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Check bounded inline Next.js or React Native source against deterministic UK Online Safety Act and ICO Children's Code control packs, without treating a green result as legal compliance.",
+    "zhCN": "用确定性的 UK Online Safety Act 与 ICO Children’s Code 控制规则包检查有界的内联 Next.js 或 React Native 源码，同时明确不把绿色结果当作法律合规结论。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The official @nugehs/bouncer 0.2.0 STDIO server exposes four real MCP tools for repository control checks, rule discovery, rule explanation, and bundled-pack discovery. Agent-OPT preserves that protocol while replacing caller-selected config paths with one-use inline project sandboxes, restricting Web scans to the two UK packs, denying network and subprocess access, and presenting pass, fail, and unknown as static engineering evidence rather than legal advice.",
+    "zhCN": "官方 @nugehs/bouncer 0.2.0 STDIO 服务提供四个真实 MCP 工具，分别用于仓库控制检查、规则发现、规则解释与内置规则包发现。Agent-OPT 保留这套协议，但用一次性内联项目沙箱替代调用方自选配置路径，把 Web 扫描限制在两个 UK 规则包，禁止网络与子进程，并将 pass、fail、unknown 作为静态工程证据呈现，而非法律意见。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "nugehs",
+    "url": "https://github.com/nugehs",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.2.0",
+    "releasedAt": "2026-06-16T11:59:05.652Z",
+    "checkedAt": "2026-07-16T18:17:37.728Z"
+  },
+  "categories": [
+    "compliance-engineering",
+    "static-analysis",
+    "developer-tools",
+    "online-safety"
+  ],
+  "tags": [
+    "MCP",
+    "UK Online Safety Act",
+    "Ofcom",
+    "ICO Children's Code",
+    "AADC",
+    "age assurance",
+    "policy as code",
+    "static controls"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/nugehs/bouncer/tree/49fec92cc496aa343ea74dac6e58efe238bd326b",
+    "repositoryUrl": "https://github.com/nugehs/bouncer",
+    "packageUrl": "https://www.npmjs.com/package/@nugehs/bouncer/v/0.2.0",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.nugehs%2Fbouncer&limit=10",
+        "listingId": "io.github.nugehs/bouncer",
+        "checkedAt": "2026-07-16T18:17:37.728Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.nugehs%2Fbouncer&limit=10",
+        "retrievedAt": "2026-07-16T18:17:37.728Z",
+        "note": "The official MCP Registry marks io.github.nugehs/bouncer 0.2.0 as latest and active, binds it to https://github.com/nugehs/bouncer, and declares the exact @nugehs/bouncer 0.2.0 npm package over STDIO with positional argument mcp."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@nugehs/bouncer/0.2.0",
+        "retrievedAt": "2026-07-16T18:17:37.728Z",
+        "note": "npm records 0.2.0 as latest, MIT, Node >=18, zero runtime dependencies, 25 files, 91,970 unpacked bytes, gitHead 49fec92cc496aa343ea74dac6e58efe238bd326b, SHA-512 integrity RbYFpOMUn8JXJdxAhD3wnJ7Otwygsqz5WX7hmEejaus2yPc+K5D3QjEkv6Md33xLBBkcYGhqp4PlncwMHPsQ0w==, a registry signature, and SLSA provenance."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/@nugehs%2fbouncer@0.2.0",
+        "retrievedAt": "2026-07-16T18:17:37.728Z",
+        "note": "The npm Sigstore/SLSA attestation identifies the nugehs/bouncer release workflow on refs/tags/v0.2.0 and resolves the source dependency to commit 49fec92cc496aa343ea74dac6e58efe238bd326b. npm audit signatures verified the installed registry signatures and attestations."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/nugehs/bouncer/blob/49fec92cc496aa343ea74dac6e58efe238bd326b/src/lib/mcp.js",
+        "retrievedAt": "2026-07-16T18:17:37.728Z",
+        "note": "The pinned source registers exactly compliance_check, list_rules, explain_rule, and list_packs with tool-only capabilities. Real published-package discovery confirmed those four schemas; resources/list and prompts/list both returned JSON-RPC -32601 because this release exposes neither capability."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/nugehs/bouncer/blob/49fec92cc496aa343ea74dac6e58efe238bd326b/src/lib/engine.js",
+        "retrievedAt": "2026-07-16T18:17:37.728Z",
+        "note": "The deterministic engine maps fixed Next.js or React Native surfaces to bounded regex and co-occurrence probes, caps evidence hits, and distinguishes an absent surface as unknown instead of pass. Every file included in the npm artifact has the same Git blob hash as the dereferenced v0.2.0 commit."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/nugehs/bouncer/blob/49fec92cc496aa343ea74dac6e58efe238bd326b/README.md",
+        "retrievedAt": "2026-07-16T18:17:37.728Z",
+        "note": "The pinned documentation explicitly describes Bouncer as an engineering aid, not legal advice, and warns that a green report only means configured static controls were found. It documents the two current code adapters and the UK OSA and AADC packs used by this Web workflow."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/nugehs/bouncer/blob/49fec92cc496aa343ea74dac6e58efe238bd326b/LICENSE",
+        "retrievedAt": "2026-07-16T18:17:37.728Z",
+        "note": "The dereferenced source tag and published npm artifact contain the byte-identical MIT License with the 2026 nugehs copyright notice."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/nugehs/bouncer/blob/49fec92cc496aa343ea74dac6e58efe238bd326b/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The exact provenance commit and npm artifact contain the same MIT License. Agent-OPT invokes the fixed upstream package and adds an independent adapter, process sandbox, tests, translation, and Web presentation without copying its implementation.",
+    "checkedAt": "2026-07-16T18:17:37.728Z"
+  },
+  "capabilities": [
+    {
+      "id": "bounded-uk-control-check",
+      "name": {
+        "original": "Check UK online-safety controls",
+        "zhCN": "检查 UK 在线安全控制",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Run the fixed UK OSA and/or AADC packs over up to 48 bounded inline Next.js or React Native text files and return pass, fail, unknown, and file-line evidence.",
+        "zhCN": "对最多 48 个有界内联 Next.js 或 React Native 文本文件运行固定 UK OSA 和/或 AADC 规则包，返回 pass、fail、unknown 与文件行证据。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "uk-rule-directory",
+      "name": {
+        "original": "Browse fixed UK control rules",
+        "zhCN": "浏览固定 UK 控制规则",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List the selected packs' rule IDs, legal-standard labels, severities, surfaces, and engineering intent without scanning a project.",
+        "zhCN": "无需扫描项目，即可列出所选规则包的规则 ID、法律标准标签、严重级别、表面与工程意图。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "rule-explanation",
+      "name": {
+        "original": "Explain one deterministic rule",
+        "zhCN": "解释一条确定性规则",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Explain a fixed OSA or AADC rule's intent, suggested engineering control, source authority, and exact regex or co-occurrence check.",
+        "zhCN": "解释一条固定 OSA 或 AADC 规则的意图、建议工程控制、来源机构，以及精确的正则或共现判断方式。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "bundled-pack-discovery",
+      "name": {
+        "original": "Discover bundled rule packs",
+        "zhCN": "发现内置规则包",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read the five-pack catalog bundled with 0.2.0 and distinguish the two UK packs opened for Web checks from three Nigeria packs shown only as upstream inventory.",
+        "zhCN": "读取 0.2.0 内置的五包目录，并区分 Web 已开放检查的两个 UK 包与仅作为上游库存展示的三个 Nigeria 包。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The Web schema accepts only bounded inline files, one fixed stack adapter, UK pack IDs, a fixed status filter, or a fixed UK rule ID. Upstream config paths, repository roots, packDirs, URLs, commands, environment variables, and ignore lists are not caller-selectable.",
+      "Each invocation creates a fresh project-owned directory, writes at most 48 validated text files plus a generated config, points the real upstream MCP tool at that config, replaces the returned absolute repository path with inline://project, and removes the directory after result normalization.",
+      "The bootstrap makes the package and one invocation directory read-only, rejects symlink escapes and filesystem mutation, denies fetch, WebSocket, HTTP(S), sockets, DNS, datagrams, worker threads, subprocesses, and working-directory changes, and clears proxy, registry, cloud, model-provider, and telemetry credentials.",
+      "Input is limited to 180 KiB, individual files and lines are bounded, accepted extensions are static-text formats understood by the two upstream adapters, upstream evidence is capped to eight hits per rule, and both process writes and normalized output are limited to 1.5 MiB.",
+      "The fixed package also includes Nigeria rule packs. They remain visible through the real list_packs tool, but the Web check, list, and explanation schemas deliberately accept only uk-osa and uk-aadc to match this product's reviewed scope.",
+      "All upstream strings are rendered by escaped React text. No source text, evidence excerpt, fix text, Markdown, HTML, path, URL, or command is executed or opened."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-bouncer-inline-uk-sandbox",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@nugehs/bouncer",
+      "version": "0.2.0"
+    },
+    "requirements": [
+      "Node.js 18 or newer",
+      "The exact @nugehs/bouncer 0.2.0 package installed from package-lock.json",
+      "No API key, network, paid service, external account, browser extension, repository checkout, legal database, or remote MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "bounded inline project",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "The adapter generates a one-use config and repository from validated inline text; users cannot provide host paths, custom packs, or commands.",
+          "zhCN": "适配器从校验后的内联文本生成一次性配置与仓库；用户不能提供宿主路径、自定义规则包或命令。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "static-result interpretation boundary",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Pass means the configured pattern found evidence, fail means a located surface lacks evidence, and unknown means the surface was not located; none is a legal conclusion.",
+          "zhCN": "pass 表示配置模式找到了证据，fail 表示已定位表面但缺少证据，unknown 表示未定位表面；三者都不是法律结论。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 91,
+    "usefulness": 4.7,
+    "uniqueness": 4.6,
+    "reliability": 4.3,
+    "maintenance": 4.1,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 4.7,
+    "notes": [
+      "The tool addresses a concrete engineering gap: required online-safety controls can be absent even when ordinary vulnerability scanners report no defect, and the deterministic evidence is reviewable without credentials or an LLM.",
+      "Official Registry identity, exact npm metadata, registry signatures, SLSA provenance, a dereferenced signed tag, matching gitHead, and byte-identical published blobs provide unusually strong release traceability.",
+      "Qualification discovered exactly four tools, no resources or prompts, five bundled packs, fourteen UK rules, and a real 100/100 four-file scenario. The published upstream test suite passed all 19 cases and npm audit reported no known dependency vulnerabilities.",
+      "Static patterns can produce false positives or miss controls expressed differently. Unknown is preserved rather than promoted to pass, evidence excerpts are shown, and every result repeats the non-legal-advice boundary.",
+      "The upstream status value unknown actually returns every non-pass finding (fail plus unknown) rather than only unknown; the Chinese Web labels this option as '需处理：fail + unknown' instead of repeating the ambiguous upstream wording."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T18:29:41.000Z",
+    "notes": [
+      "Kept Bouncer, MCP, STDIO, UK Online Safety Act, Ofcom, ICO, Children's Code, AADC, Next.js, React Native, pass, fail, unknown, DPO and DPIA as established names or protocol terms.",
+      "Chinese copy consistently uses static control evidence and engineering prompt rather than certification, legal compliance, legal advice, guaranteed safety, or automatic remediation.",
+      "The Web explicitly translates the upstream unknown filter by its observed behavior, fail plus unknown, and preserves the distinction between a missing control and an unlocated surface."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "BouncerWorkspace",
+    "route": "/plugins/bouncer-compliance-studio",
+    "features": [
+      "GPT-flavored project control review with separate missing-control and complete-control examples",
+      "bounded multi-file inline editor with Next.js and React Native stack selection",
+      "Ofcom OSA and ICO Children's Code pack selection plus honest all, fail, and non-pass filtering",
+      "score and pass, fail, unknown summary with per-rule intent, engineering prompt, surface, severity, and escaped file-line evidence",
+      "read-only fourteen-rule browser, exact rule explainer, and five-pack upstream catalog",
+      "pending, activity, empty, validation, upstream error, filtered-empty, responsive, sandbox, and non-legal-advice feedback"
+    ],
+    "dedicatedElements": [
+      "one-use virtual project file editor with capability-specific complete and missing-control fixtures",
+      "OSA and AADC pack selector with Next.js or React Native surface adapter",
+      "three-state compliance finding cards with file-line evidence and static score boundary",
+      "fixed UK rule directory and deterministic assertion explanation viewer",
+      "upstream pack inventory separating Web-reviewed UK packs from inventory-only Nigeria packs",
+      "persistent non-legal-advice and offline sandbox notices"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.2.0",
+    "tests": [
+      {
+        "id": "bouncer-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/bouncer-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:29:41.000Z",
+        "evidence": "Against the real published 0.2.0 package, protocol discovery returned exactly compliance_check, explain_rule, list_packs, and list_rules. resources/list and prompts/list returned -32601; list_packs returned five built-ins, list_rules returned fourteen selected UK rules, explain_rule returned the exact geolocation assertion, and compliance_check returned normalized inline-project evidence."
+      },
+      {
+        "id": "bouncer-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/bouncer-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:29:41.000Z",
+        "evidence": "A four-file Next.js fixture containing age assurance, parental consent, privacy and location defaults, report, block, moderation, DPIA, risk, CSAM reporting, and terms controls produced 14 pass, 0 fail, 0 unknown and score 100. A self-declaration-only fixture produced explicit fail and unknown findings."
+      },
+      {
+        "id": "bouncer-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/bouncer-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:29:41.000Z",
+        "evidence": "An unknown but syntactically valid UK rule ID preserved the real upstream isError result without leaking a host path. Table-driven adapter tests rejected caller config, path, URL, command, traversal, URL-shaped file, duplicate file, invalid status, non-UK pack, oversize file count, oversize project, and non-UK rule ID before launch."
+      },
+      {
+        "id": "bouncer-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/bouncer-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:29:41.000Z",
+        "evidence": "The adapter rejected a Windows directory junction runtime root. The executable bootstrap probe proved sandbox and package reads work while host reads, filesystem writes, fetch, HTTP, DNS, subprocesses, worker threads, and oversized responses are denied, and proxy plus npm, cloud, and model-provider credentials are removed."
+      },
+      {
+        "id": "bouncer-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/bouncer-api.test.ts",
+        "checkedAt": "2026-07-16T18:44:09.822Z",
+        "evidence": "The public Next route invoked the real compliance_check tool with an inline project, returned sanitized structured findings, and rejected caller-supplied repository paths with HTTP 400."
+      },
+      {
+        "id": "bouncer-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=bouncer.spec.ts › @web-e2e [bouncer-compliance-studio] Bouncer runs control, rule, explanation, pack, error, and responsive workflows; route=/plugins/bouncer-compliance-studio; result=passed",
+        "checkedAt": "2026-07-16T18:45:16.820Z"
+      }
+    ],
+    "blockers": []
+  }
+}

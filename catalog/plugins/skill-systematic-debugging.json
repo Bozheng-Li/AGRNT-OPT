@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "id": "com.openai.plugins/systematic-debugging",
+  "slug": "skill-systematic-debugging",
+  "kind": "agent-skill",
+  "lifecycle": {
+    "status": "web-ready",
+    "changedAt": "2026-07-16T18:01:15.000Z"
+  },
+  "name": {
+    "original": "systematic-debugging",
+    "zhCN": "系统化调试",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+    "zhCN": "遇到任何缺陷、测试失败或意外行为时，在提出修复方案之前使用。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes. Agent-OPT preserves the fixed official bundle and adapts it for a dedicated bilingual SkillWorkspace workflow with ranked guidance, full-text search, and sandboxed supporting-file previews. Upstream scripts are never executed by this adapter.",
+    "zhCN": "遇到任何缺陷、测试失败或意外行为时，在提出修复方案之前使用。 Agent-OPT 保留固定版本的官方完整资源包，并将其适配为能力专属的双语 SkillWorkspace 工作流，支持相关章节排序、全文检索和沙箱化支持文件预览；此适配器绝不执行上游脚本。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "OpenAI / plugin authors",
+    "url": "https://github.com/openai",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "11c74d6ba24d",
+    "checkedAt": "2026-07-16T17:30:58.755Z"
+  },
+  "categories": [
+    "development",
+    "debugging"
+  ],
+  "tags": [
+    "skill",
+    "root-cause",
+    "debugging",
+    "superpowers-wave"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/superpowers/skills/systematic-debugging",
+    "repositoryUrl": "https://github.com/openai/plugins",
+    "marketplaces": [
+      {
+        "sourceId": "openai-codex-plugins",
+        "url": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/superpowers/skills/systematic-debugging",
+        "listingId": "systematic-debugging",
+        "checkedAt": "2026-07-16T17:30:58.755Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/superpowers/skills/systematic-debugging",
+        "retrievedAt": "2026-07-16T17:30:58.755Z",
+        "note": "Pinned path-addressed SKILL.md from the official OpenAI plugins repository at commit 11c74d6ba24d3a6d48f54a194cd00ef3beea18f9; Git blob SHA 111d2a98c2698b5a202ddae8906f75f16ecfcffd."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/openai/plugins/blob/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/superpowers/LICENSE",
+        "retrievedAt": "2026-07-16T17:30:58.755Z",
+        "note": "The parent superpowers plugin declares the MIT license in its fixed official repository LICENSE file; a local review copy is preserved with this skill bundle."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/openai/plugins/blob/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/superpowers/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "Primary-source MIT license evidence is preserved from plugins/superpowers/LICENSE. Agent-OPT redistributes the fixed text bundle for read-only bilingual Web rendering and does not execute upstream implementation scripts.",
+    "checkedAt": "2026-07-16T17:30:58.755Z"
+  },
+  "capabilities": [
+    {
+      "id": "prepare-task-playbook",
+      "name": {
+        "original": "Build a root-cause debugging plan",
+        "zhCN": "制定根因调试方案",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Structure evidence gathering, pattern comparison, a single falsifiable hypothesis, and a minimal verification experiment before any fix.",
+        "zhCN": "在修复前组织证据收集、模式对照、单一可证伪假设和最小验证实验。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "skill-read",
+      "name": {
+        "original": "Read skill guidance",
+        "zhCN": "阅读技能指南",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Open the complete pinned skill document in Simplified Chinese or its original language.",
+        "zhCN": "以完整简体中文译文或原文打开固定版本的技能文档。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "skill-search",
+      "name": {
+        "original": "Search skill text",
+        "zhCN": "搜索技能正文",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Run keyword search across the selected skill body and return line-level excerpts.",
+        "zhCN": "在所选技能正文中执行关键词搜索，并返回行级摘录。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "skill-outline",
+      "name": {
+        "original": "Navigate skill sections",
+        "zhCN": "浏览技能章节",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Inspect the heading outline and open one structured section at a time.",
+        "zhCN": "查看标题大纲，并一次打开一个结构化章节。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "browse-pinned-supporting-files",
+      "name": {
+        "original": "Browse pinned supporting resources",
+        "zhCN": "浏览固定版本支持资源",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List and safely preview text references, scripts, and templates captured from the fixed upstream skill directory; license evidence remains a separately reviewed manifest and local copy.",
+        "zhCN": "列出并安全预览固定上游技能目录中的文本参考、脚本和模板；许可证证据在 manifest 与本地审查副本中单独保留。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-read",
+    "network": "none",
+    "commands": "none",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The in-process adapter reads only curated files under catalog/skill-bodies/skill-systematic-debugging.",
+      "Supporting-resource previews are limited to BUNDLE.json fixed-hash paths; traversal, unknown paths, symlinks, binaries, and oversized files are rejected.",
+      "No upstream scripts, Git commands, network calls, secrets, or external accounts are executed or accessed by this Web adaptation."
+    ]
+  },
+  "runtime": {
+    "adapter": "skill-document-in-process",
+    "transport": "in-process",
+    "package": {
+      "registry": "source",
+      "name": "systematic-debugging",
+      "version": "11c74d6ba24d"
+    },
+    "requirements": [
+      "Pinned official body at catalog/skill-bodies/skill-systematic-debugging/SKILL.md",
+      "Complete Simplified Chinese body at catalog/skill-bodies/skill-systematic-debugging/SKILL.zh-CN.md",
+      "Fixed-commit supporting-file evidence at catalog/skill-bodies/skill-systematic-debugging/BUNDLE.json",
+      "No external credentials"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 92,
+    "usefulness": 5,
+    "uniqueness": 4.4,
+    "reliability": 4.6,
+    "maintenance": 4.6,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.9,
+    "webFitness": 4.7,
+    "notes": [
+      "Selected from the official OpenAI superpowers plugin for broadly reusable, non-trivial Agent workflow guidance.",
+      "The complete Simplified Chinese SKILL.md preserves frontmatter name, heading hierarchy, fenced code blocks, inline-code tokens, Markdown destinations, and raw URLs; the focused structural validator passed.",
+      "Every tracked supporting file from the pinned skill directory is preserved and recorded with SHA-256 evidence in BUNDLE.json; the MIT license review copy is included separately.",
+      "The capability-specific Chinese Web profile is merged into the shared SkillWorkspace registry and passed its real Chromium task, bilingual source, supporting-resource and failure workflows.",
+      "Lifecycle remains web-ready: the read-only bilingual Web adapter is fully evidenced, while optional upstream commands and downstream implementation outcomes are not claimed as executed."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T17:30:58.755Z",
+    "notes": [
+      "Complete Simplified Chinese translation reviewed against the pinned original; code blocks, commands, paths, inline tokens, links, URLs, and heading structure are preserved.",
+      "Chinese body: catalog/skill-bodies/skill-systematic-debugging/SKILL.zh-CN.md"
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "SkillWorkspace",
+    "route": "/plugins/skill-systematic-debugging",
+    "features": [
+      "待调查的技术故障 with two capability-specific examples",
+      "症状、复现与系统边界 bounded context input",
+      "系统化调试调查包 in checklist, agent-prompt, checklist, and reference-pack modes",
+      "complete Simplified Chinese and original SKILL.md switch",
+      "relevance-ranked official sections with outline, search, and full-text reader",
+      "fixed-commit supporting-resource browser backed by BUNDLE.json hashes",
+      "controlled validation and runtime feedback"
+    ],
+    "dedicatedElements": [
+      "待调查的技术故障 input",
+      "症状、复现与系统边界 panel",
+      "系统化调试调查包 result view",
+      "定位间歇性测试失败 example chip",
+      "调查跨服务数据丢失 example chip",
+      "Chinese/original document switch",
+      "ranked section navigator and search",
+      "fixed-commit supporting-resource browser"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "skill-systematic-debugging-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:04:10.000Z",
+        "evidence": "skill-systematic-debugging: pinned BUNDLE hashes and bilingual source, outline, search and asset runtime paths passed in the merged 50-Skill suite."
+      },
+      {
+        "id": "skill-systematic-debugging-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:04:10.000Z",
+        "evidence": "skill-systematic-debugging: its dedicated Chinese profile executed skill_prepare with representative objective and context and returned a non-empty task artifact."
+      },
+      {
+        "id": "skill-systematic-debugging-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:04:10.000Z",
+        "evidence": "skill-systematic-debugging: invalid locale, empty or oversized objective, unknown fields or sections, traversal and unknown supporting-resource paths were rejected."
+      },
+      {
+        "id": "skill-systematic-debugging-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=skills.spec.ts › priority Agent Skill browser workflows › @web-e2e [skill-systematic-debugging] runs bilingual task, source, asset, and failure workflows; route=/plugins/skill-systematic-debugging; result=passed",
+        "checkedAt": "2026-07-16T18:05:30.911Z"
+      },
+      {
+        "id": "skill-systematic-debugging-permission",
+        "category": "permission",
+        "status": "passed",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:04:10.000Z",
+        "evidence": "skill-systematic-debugging: bundle containment and fixed hashes passed; the adapter reads only curated files and grants no network, command, secret or external-account access."
+      }
+    ],
+    "blockers": [
+      "The shipped bilingual Web adaptation is verified; optional upstream scripts and downstream agent outcomes are outside this adapter and are not claimed as executed."
+    ],
+    "testedVersion": "11c74d6ba24d"
+  }
+}

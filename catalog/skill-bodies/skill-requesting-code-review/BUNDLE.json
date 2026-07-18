@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-requesting-code-review",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/requesting-code-review",
+  "skillSha256": "59f0c7d3180a47946734c03afa975b417428c49edaf7526d8e589ef40bb3aa7e",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "fc2051fe4f199267311cc02eac6254787d3f6e84e26dfc5c37ad347d5bff89a1"
+    },
+    {
+      "path": "code-reviewer.md",
+      "sha256": "442ced6266fa01e2429c7e48af3dcc63bd56ff89e5d0dd5f1461d8769ba4a93a"
+    }
+  ]
+}

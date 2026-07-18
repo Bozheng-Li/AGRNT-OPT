@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-game-studio",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/game-studio/skills/game-studio",
+  "skillSha256": "b76eac4342df15cca37ae26fe5908f11929dabe19596f08636a98a66cf9f2be8",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "c7e01fc2f94b85b0541025653f79599439857922e1634dfc92b935188840d990"
+    }
+  ]
+}

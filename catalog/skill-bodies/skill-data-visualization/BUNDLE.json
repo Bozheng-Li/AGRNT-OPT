@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-data-visualization",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/build-web-data-visualization/skills/data-visualization",
+  "skillSha256": "0078ccf7d8f448dba767e6d0bd12e903c18df7411a09272289e48b5dd3b4731c",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "5fe691a29fe39bf138df5de4508e71bc2aeb6e0ac02a243e70e138bfe7847f53"
+    },
+    {
+      "path": "references/default-stack-selection.md",
+      "sha256": "d37c3fd80e0dd2ef9d84e4f627ba23b1baa531e4db8bec29a1385ce36acd4179"
+    },
+    {
+      "path": "references/prompt-routing-examples.md",
+      "sha256": "76c895f5f27ae82c025a2280afc390d9ce3587b7862ceb4b40407d561c2ead1e"
+    },
+    {
+      "path": "references/route-by-problem.md",
+      "sha256": "bc514559d714f7f9e7cd5775c1c30b48413f932d775fe9d54919fd68ed4ba348"
+    }
+  ]
+}

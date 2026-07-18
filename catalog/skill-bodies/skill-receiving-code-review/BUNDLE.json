@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-receiving-code-review",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/receiving-code-review",
+  "skillSha256": "bda6f19ebd6d4ec043e448c8d233de8308f76b72230de2297b306bc49b8a6e93",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "8e9815cb2909162fa062f48ee650d349186e4771ea25c5de787e7fec7f3b0159"
+    }
+  ]
+}

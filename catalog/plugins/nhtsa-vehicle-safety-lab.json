@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.cyanheads/nhtsa-vehicle-safety-mcp-server",
+  "slug": "nhtsa-vehicle-safety-lab",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-18T05:29:49.164Z"
+  },
+  "name": {
+    "original": "NHTSA Vehicle Safety MCP Server",
+    "zhCN": "NHTSA 车辆安全实验室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Build a bounded NHTSA vehicle-safety profile, inspect recalls and consumer complaints, read NCAP crash ratings, decode VINs, and browse official vehicle reference catalogues without credentials.",
+    "zhCN": "无需凭据即可生成有界的 NHTSA 车辆安全画像，查看召回与消费者投诉、读取 NCAP 碰撞评级、解码 VIN，并浏览官方车型参考目录。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The exact signed npm 0.8.4 package exposes seven read-only tools and no resources, resource templates, or prompts. Agent-OPT publicly adapts six tools through fixed HTTPS access to api.nhtsa.gov and vpic.nhtsa.dot.gov: composite safety profiles, recall lookup, bounded complaint narratives and harm totals, NCAP ratings, VIN decoding, and vehicle reference lookup. The upstream nhtsa_search_investigations tool is unavailable because every fresh process downloads a 4,276,158-byte ZIP that expands to 389,871,079 bytes without decompressed-byte or line-length limits and then loses row associations. The package also corrupts comma-bearing complaint component names, discards legitimate pre-1990 incident dates, and loses make association in standalone vehicle-type lookup. Agent-OPT rejects or removes those sub-features, rejects an all-empty composite profile as an unconfirmed vehicle identity, and preserves the remaining verified fields. The dedicated Web lab provides six task-specific workflows, partial-section and warning states, pagination, provenance, and explicit guidance that public records are not a substitute for a VIN-specific recall check or professional safety decision.",
+    "zhCN": "精确锁定且带签名的 npm 0.8.4 包提供七个只读工具，不提供资源、资源模板或提示。Agent-OPT 通过固定访问 api.nhtsa.gov 与 vpic.nhtsa.dot.gov 的 HTTPS 策略公开适配其中六个工具：综合安全画像、召回查询、有界投诉原文与伤害汇总、NCAP 评级、VIN 解码和车型参考查询。上游 nhtsa_search_investigations 工具被关闭，因为每个新进程首次调用都会下载 4,276,158 字节 ZIP 并展开为 389,871,079 字节，且没有解压上限并会丢失逐行关联。该版本还会破坏含逗号的投诉组件名、错误删除真实的 1990 年前事件日期，并在独立车辆类型查询中丢失品牌关联。Agent-OPT 拒绝或移除这些子功能，把全空综合画像判为车型身份未确认，并保留其余已核验字段。专属 Web 实验室提供六种任务化流程、分区部分成功与警告状态、分页、来源证据，并明确说明公开记录不能替代 VIN 级召回核验或专业安全判断。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Casey Hand (@cyanheads)",
+    "url": "https://github.com/cyanheads",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.8.4",
+    "releasedAt": "2026-06-20T12:09:36.993Z",
+    "checkedAt": "2026-07-18T04:57:39.218Z"
+  },
+  "categories": [
+    "automotive",
+    "public-data",
+    "safety",
+    "reference"
+  ],
+  "tags": [
+    "MCP",
+    "NHTSA",
+    "VPIC",
+    "vehicle safety",
+    "recalls",
+    "consumer complaints",
+    "NCAP",
+    "VIN decoder",
+    "keyless API"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/cyanheads/nhtsa-vehicle-safety-mcp-server/tree/df4b6dfe473141d829be97bf2671f966c7e3908f",
+    "repositoryUrl": "https://github.com/cyanheads/nhtsa-vehicle-safety-mcp-server",
+    "packageUrl": "https://www.npmjs.com/package/@cyanheads/nhtsa-vehicle-safety-mcp-server/v/0.8.4",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.cyanheads%2Fnhtsa-vehicle-safety-mcp-server/versions/0.8.4",
+        "listingId": "io.github.cyanheads/nhtsa-vehicle-safety-mcp-server",
+        "checkedAt": "2026-07-18T04:57:39.218Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.cyanheads%2Fnhtsa-vehicle-safety-mcp-server/versions/0.8.4",
+        "retrievedAt": "2026-07-18T04:57:39.218Z",
+        "note": "The official MCP Registry marks io.github.cyanheads/nhtsa-vehicle-safety-mcp-server 0.8.4 active and latest, published 2026-06-20, and binds it to @cyanheads/nhtsa-vehicle-safety-mcp-server 0.8.4. The upstream protocol surface is seven tools, zero resources, zero resource templates, and zero prompts; Agent-OPT uses only the exact local STDIO package."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@cyanheads/nhtsa-vehicle-safety-mcp-server/0.8.4",
+        "retrievedAt": "2026-07-18T04:57:39.218Z",
+        "note": "npm records Apache-2.0, Node >=24, 55 files, 292,897 unpacked bytes, shasum 8cc3f0d2e6597aa03e0af4ea646fc21e696a0bb6, integrity sha512-mowlbS1PXny1DKUjufM8OwSp8tZA0jYSDEvGIx0IY2ghrM7PaLH7xP7eVSX4YE1jNmKVyIxhNSLbIPbuMbDlbw==, and a registry signature. A plain exact npm install on Node 24 succeeded, production audit reported zero vulnerabilities, and 129 installed dependency signatures verified. The package has no package-level provenance attestation."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/nhtsa-vehicle-safety-mcp-server/releases/tag/v0.8.4",
+        "retrievedAt": "2026-07-18T04:57:39.218Z",
+        "note": "Annotated tag object a1b5743245af73451ae8b9ae3134dfd7002c404b dereferences to commit df4b6dfe473141d829be97bf2671f966c7e3908f. GitHub displays both tag and commit signatures as Verified for Casey Hand with SSH fingerprint lkZCAfVCK5qsrcvEYCs0BnVRDCX7pKsdCZkw5yYKMuw. A clean Node 24 tsc plus tsc-alias build reproduced all 48 npm dist files content-for-content after line-ending normalization."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/nhtsa-vehicle-safety-mcp-server/blob/df4b6dfe473141d829be97bf2671f966c7e3908f/LICENSE",
+        "retrievedAt": "2026-07-18T04:57:39.218Z",
+        "note": "The pinned source and exact npm artifact contain matching Apache License 2.0 text. Agent-OPT invokes the upstream package and does not copy or relicense NHTSA datasets or upstream implementation code."
+      },
+      {
+        "kind": "official-documentation",
+        "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=HONDA&model=CIVIC&modelYear=2020",
+        "retrievedAt": "2026-07-18T04:57:39.218Z",
+        "note": "Isolated exact-package qualification made real STDIO calls and independently compared 25 selected semantic fields or collections with official NHTSA and VPIC JSON; all selected checks passed. A separate adversarial review then found the untested comma-split complaint-component defect, which the public adapter excludes. The fixed 2020 Honda Civic sample returned five recalls, 217 complaints, NCAP variants 14819 and 14483, and campaign 24V064000 reported 750,114 potentially affected units. Formal Agent-OPT runtime, API, security, and browser suites remain not-run in this manifest."
+      },
+      {
+        "kind": "official-documentation",
+        "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/1HGCM82633A004352?format=json",
+        "retrievedAt": "2026-07-18T04:57:39.218Z",
+        "note": "The fixed VIN decoded as a 2003 HONDA Accord EX-V6 with a clean check digit. Qualification showed that VPIC warnings remain distinguishable from clean decodes; the formal adapter additionally rejects illegal VIN syntax and uses syntactically valid but semantically invalid values such as AAAAAAAAAAAAAAAAA to test warning presentation. HONDA model and vehicle-type catalogue totals matched independent VPIC responses, but the standalone vehicle-type operation is excluded publicly because partial make matches lose their brand association in 0.8.4."
+      },
+      {
+        "kind": "official-documentation",
+        "url": "https://static.nhtsa.gov/odi/ffdd/inv/FLAT_INV.zip",
+        "retrievedAt": "2026-07-18T04:57:39.218Z",
+        "note": "The current official investigation archive was 4,276,158 compressed bytes and contained a 389,871,079-byte FLAT_INV.txt member, a 91.17x expansion ratio. Upstream 0.8.4 streams the archive but sets no decompressed-byte, line-length, or association-array bound, so Agent-OPT denies static.nhtsa.gov and does not expose nhtsa_search_investigations."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/cyanheads/nhtsa-vehicle-safety-mcp-server/blob/df4b6dfe473141d829be97bf2671f966c7e3908f/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The exact 0.8.4 tag and npm artifact contain matching Apache-2.0 license text. Agent-OPT invokes the pinned upstream package through an independent adapter, adds Chinese localization, tests and Web presentation, and does not bundle or relicense NHTSA and VPIC public datasets.",
+    "checkedAt": "2026-07-18T04:57:39.218Z"
+  },
+  "capabilities": [
+    {
+      "id": "composite-vehicle-safety-profile",
+      "name": {
+        "original": "Build a composite vehicle safety profile",
+        "zhCN": "生成综合车辆安全画像",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Combine matching NCAP variants, vehicle recalls, complaint totals, crashes, fires, injuries, deaths, per-section availability, and upstream warnings for one make, model, and year. The incorrect upstream component breakdown is removed.",
+        "zhCN": "针对一个品牌、车型和年份，组合匹配的 NCAP 变体、车辆召回、投诉总量、碰撞、火灾、伤亡、分区可用性和上游警告；错误的上游组件 breakdown 会被移除。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "vehicle-and-campaign-recalls",
+      "name": {
+        "original": "Search vehicle and campaign recalls",
+        "zhCN": "检索车型与 Campaign 召回",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Search all recall campaigns for an exact make, model, and year with an optional received-date range, or inspect one validated NHTSA campaign number and its remedy, consequence, date, and affected-unit count.",
+        "zhCN": "按精确品牌、车型和年份检索全部召回并可限定接收日期，或查看一个经过校验的 NHTSA Campaign Number 及其补救措施、后果、日期和受影响数量。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "consumer-complaint-analysis",
+      "name": {
+        "original": "Analyze consumer safety complaints",
+        "zhCN": "分析消费者安全投诉",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Return the total matching complaints and a bounded page ordered by complaint-filed date, with original NHTSA component text and crash, fire, injury, and death indicators. Component filtering and derived component breakdowns are unavailable because upstream 0.8.4 corrupts comma-bearing official component names; incident dates are also removed because that version incorrectly discards legitimate pre-1990 values.",
+        "zhCN": "返回匹配投诉总数和有界的按投诉提交日期排序的叙述页，保留 NHTSA 官方组件原文以及碰撞、火灾、受伤和死亡指标。由于上游 0.8.4 会破坏含逗号的官方组件名，组件过滤和派生组件 breakdown 被关闭；该版本还会错误删除真实的 1990 年前事件日期，因此事件日期也不公开。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "ncap-crash-ratings",
+      "name": {
+        "original": "Inspect NCAP crash ratings",
+        "zhCN": "查看 NCAP 碰撞评级",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Find NCAP variants by make, model, and year or open one vehicle ID with overall, frontal, side, rollover, dynamic-tip, and ADAS fields plus clearly scoped linked-record counts.",
+        "zhCN": "按品牌、车型和年份查找 NCAP 变体，或打开一个 Vehicle ID 查看总体、正面、侧面、翻滚、动态倾覆和 ADAS 字段，以及范围明确的关联记录计数。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "vin-decoding",
+      "name": {
+        "original": "Decode single or batch VINs",
+        "zhCN": "解码单个或批量 VIN",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Decode one VIN or a public Web batch of at most ten into vehicle, engine, manufacturing, safety-equipment, and VPIC warning fields without treating partial or invalid decodes as clean results.",
+        "zhCN": "解码一个 VIN 或最多十条的公开 Web 批次，返回车辆、发动机、制造、安全设备和 VPIC 警告字段，不把部分或无效解码误标为完整成功。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "vehicle-reference-catalogues",
+      "name": {
+        "original": "Browse vehicle reference catalogues",
+        "zhCN": "浏览车型参考目录",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Browse bounded pages of official makes, models by make and year, and manufacturer details with manufacturer-associated vehicle types to verify spelling and identifiers before safety queries. The standalone vehicle-types operation is unavailable because upstream 0.8.4 drops the make association for partial matches.",
+        "zhCN": "浏览官方品牌、按品牌和年份划分的车型，以及包含制造商关联车辆类型的制造商详情有界分页，以便在安全查询前核对拼写和标识符。由于上游 0.8.4 会在部分匹配中丢失品牌关联，独立 vehicle-types 操作不公开。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches only the exact local @cyanheads/nhtsa-vehicle-safety-mcp-server 0.8.4 Node entry over STDIO. Web callers cannot select commands, packages, transports, environments, working directories, or author-hosted remote MCP endpoints.",
+      "The bootstrap permits only closed HTTPS JSON paths on https://api.nhtsa.gov and https://vpic.nhtsa.dot.gov. Alternate origins, static.nhtsa.gov, ports, credentials, fragments, Request objects, redirects, arbitrary methods, headers, query keys, and bodies are denied.",
+      "Proxy, package, cloud, model-provider, auth, telemetry, NHTSA, VPIC, ODI, and credential environment variables are removed. Raw sockets, arbitrary DNS, HTTP clients, datagrams, WebSockets, subprocesses, workers, server creation, host reads, linked paths, and all runtime file writes are denied outside controlled module/runtime preparation.",
+      "Makes, models, manufacturers, model years, campaign numbers, vehicle IDs, dates, VIN syntax, duplicate VINs, a ten-VIN public batch, limits, offsets, request count, query bytes, per-response bytes, total bytes, JSON depth, arrays, nodes, and text lengths must be bounded before or after execution. Complaint component input is rejected because the upstream filter is semantically incorrect.",
+      "The upstream package exposes seven tools, but the public adapter exposes six. nhtsa_search_investigations is denied before launch and its static.nhtsa.gov archive origin is absent from the network allowlist because the current 4.3 MB archive expands to 389.9 MB without an upstream decompression ceiling. The adapter also rejects complaint component filtering and strips the upstream componentBreakdown field so incorrect comma-split categories cannot reach users.",
+      "Complaint incident dates are removed uniformly because 0.8.4 incorrectly drops legitimate pre-1990 values; composite all-empty results are rejected as unconfirmed identities; standalone vehicle_types input and its network path are denied because partial matches lose their make association.",
+      "Returned recall, complaint, NCAP, VIN, make, model, and manufacturer text is revision-prone untrusted public data. The dedicated Web renders escaped text, distinguishes warnings from clean results, and does not infer that no record means no risk."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-nhtsa-two-fixed-origins-six-tools",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@cyanheads/nhtsa-vehicle-safety-mcp-server",
+      "version": "0.8.4"
+    },
+    "requirements": [
+      "Node.js 24",
+      "The exact @cyanheads/nhtsa-vehicle-safety-mcp-server 0.8.4 package installed from package-lock.json",
+      "Outbound TLS access to the fixed api.nhtsa.gov and vpic.nhtsa.dot.gov origins",
+      "No API key, credential, paid plan, external account, local data mirror, vehicle hardware, or remote MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "fixed NHTSA and VPIC network policy",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Origins, paths, methods, query keys, VIN batch body, redirects, timeouts, request counts, and response limits are adapter-controlled and cannot be selected by Web callers.",
+          "zhCN": "来源、路径、方法、查询键、VIN 批量请求体、重定向、超时、请求次数和响应限制由适配器控制，Web 调用方不能选择。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "six-tool public capability policy",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Only safety profile, recall, complaint, NCAP rating, VIN decode, and vehicle lookup tools are public; the investigation archive workflow is rejected before the upstream package can download or decompress it.",
+          "zhCN": "公开范围仅包括安全画像、召回、投诉、NCAP 评级、VIN 解码和车型查询；调查归档流程会在上游包下载或解压前被拒绝。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 91,
+    "usefulness": 5,
+    "uniqueness": 4.8,
+    "reliability": 4.4,
+    "maintenance": 4.6,
+    "provenance": 4.8,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 5,
+    "notes": [
+      "Official keyless recall, bounded complaint, NCAP, VIN, make, model, and manufacturer data supports practical ownership research, journalism, customer support, education, and safety triage in one coherent workspace.",
+      "Registry identity, exact npm package, author, repository, version, Apache-2.0 license, annotated tag object, peeled commit, and Node requirement align. GitHub verifies both tag and commit signatures, npm signs the artifact, and the exact tag reproducibly generated all published dist files; the absence of package-level npm provenance prevents a perfect provenance score.",
+      "Isolated qualification exercised all seven upstream tools and independently compared 25 selected fields or collections with official NHTSA and VPIC responses, with 25 passing comparisons. An additional adversarial review found the complaint-component and investigation-association defects outside that first matrix; formal adaptation excludes those paths rather than treating the initial matrix as blanket correctness evidence.",
+      "Campaign-number lookup returns campaign-level metadata rather than the full structured product-association matrix. The Web must preserve the official summary and affected-unit count without claiming a complete product list.",
+      "Independent semantic review found that upstream 0.8.4 splits complaint component strings on every comma, so valid official names become false categories and exact component filters can miss records. The public adapter rejects that input and removes both complaint breakdown surfaces while retaining complaint totals, harm flags, pagination, narratives, and original component text.",
+      "The same review found that 0.8.4 treats every incident date before 1990 as missing, not only the 1969 epoch sentinel. Public complaint rows therefore omit incident dates uniformly and retain the independently correct complaint-filed date instead of mixing real and false missing values.",
+      "Composite profiles with no ratings, recalls, or complaints are rejected as an unconfirmed vehicle identity, so misspelled vehicles cannot be displayed as a zero-record safety result.",
+      "The standalone vehicle-types operation is excluded because partial make matches are merged after upstream 0.8.4 drops their make association. Manufacturer detail retains associated vehicle types without that ambiguity.",
+      "The investigation search produced real ODI results in qualification, but its 91.17x archive expansion and missing decompression ceilings fail the public runtime resource boundary. The six safe tools are represented honestly instead of counting the full upstream surface."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-18T04:57:39.218Z",
+    "notes": [
+      "Kept NHTSA, VPIC, NCAP, MCP, STDIO, VIN, Vehicle ID, Campaign Number, ADAS and ODI as established agency, protocol, identifier, programme, or safety-data terms.",
+      "Chinese copy distinguishes official recalls, consumer complaints, NCAP test variants, linked-record counts, VIN decode warnings, and professional or VIN-specific safety conclusions."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "NhtsaWorkspace",
+    "route": "/plugins/nhtsa-vehicle-safety-lab",
+    "features": [
+      "GPT-flavored composite safety profile with per-section availability, warnings, NCAP variant cards, recalls, and complaint harm metrics, with the invalid upstream component breakdown removed",
+      "mutually exclusive vehicle and Campaign Number recall workflows with received-date filtering and remedy, consequence, affected-unit, and advisory presentation",
+      "consumer complaint workflow with total counts, original component text, crash/fire/injury/death flags, ten-row complaint-filed-date pages, previous/next controls, and explicit notice that broken component and incident-date fields are unavailable",
+      "NCAP workflow supporting make/model/year discovery and direct Vehicle ID detail with star, frontal, side, rollover, dynamic-tip, ADAS, and linked-record fields",
+      "single or at-most-ten VIN decoder with engine, manufacturing, safety-equipment, clean-decode, partial-decode, and warning states",
+      "paged makes, models, and manufacturer lookup workflows, with manufacturer-associated vehicle types and the ambiguous standalone vehicle-types path disabled",
+      "pending, activity, partial-section, unconfirmed-vehicle, no-record, invalid combination/date/VIN, upstream failure, disabled-investigation, disabled-vehicle-types, fixed-origin, and responsive mobile states"
+    ],
+    "dedicatedElements": [
+      "six-workflow vehicle-safety tab rail",
+      "NCAP star and rollover metric cards",
+      "recall campaign and remedy ledger",
+      "complaint harm dashboard and original-component narrative ledger",
+      "VIN warning and vehicle-detail cards",
+      "paged make, model, and manufacturer catalogue with manufacturer-associated vehicle types"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "nhtsa-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/nhtsa-runtime.test.ts",
+        "checkedAt": "2026-07-18T05:21:32.257Z",
+        "evidence": "Vitest passed 3/3 runtime integration tests. The exact 0.8.4 STDIO package exposed seven read-only upstream tools and zero resources, resource templates, or prompts; the adapter invoked all six approved tools while rejecting investigations and the association-losing standalone vehicle_types operation before launch."
+      },
+      {
+        "id": "nhtsa-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/nhtsa-runtime.test.ts",
+        "checkedAt": "2026-07-18T05:21:32.257Z",
+        "evidence": "The real production adapter decoded VIN 1HGCM82633A004352 as a 2003 HONDA Accord, preserved two-VIN batch order, loaded campaign 24V064000, paged real 2020 HONDA CIVIC complaints, returned NCAP IDs 14819 and 14483, built the composite profile, and browsed the bounded VPIC model catalogue."
+      },
+      {
+        "id": "nhtsa-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/nhtsa-runtime.test.ts",
+        "checkedAt": "2026-07-18T05:21:32.257Z",
+        "evidence": "Runtime tests covered real empty catalogues and missing ratings/campaigns, then rejected conflicting recall modes, invalid ISO dates and years, complaint component filtering, standalone vehicle_types, missing lookup arguments, illegal/duplicate/excess VINs, unsafe limits and offsets, extra fields, malformed output, and ambiguous all-empty composite profiles. Public normalization removed incorrect component breakdowns and every unreliable incident-date field."
+      },
+      {
+        "id": "nhtsa-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/nhtsa-runtime.test.ts",
+        "checkedAt": "2026-07-18T05:21:32.257Z",
+        "evidence": "The executable bootstrap probe proved exact package and Node 24 pinning, accepted only closed api.nhtsa.gov and vpic.nhtsa.dot.gov paths, and denied static.nhtsa.gov, vehicle-types, arbitrary hosts/paths/queries/methods, oversized batches, Request objects, credential headers, host read/open/directory access, writes, subprocesses, workers, linked roots, proxies, secrets and custom endpoint environments."
+      },
+      {
+        "id": "nhtsa-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/nhtsa-api.test.ts",
+        "checkedAt": "2026-07-18T05:21:32.257Z",
+        "evidence": "Vitest passed 2/2 public Next-route tests. All six approved tools ran against official NHTSA or VPIC data, including composite profile, vehicle and campaign recalls, bounded complaints, both NCAP modes, clean and warning VINs, and models; the route rejected investigations, vehicle_types, broken component filtering, invalid combinations, oversized batches, unsafe identifiers, custom base URLs and an unconfirmed all-empty vehicle profile."
+      },
+      {
+        "id": "nhtsa-web-e2e",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=nhtsa.spec.ts › @web-e2e [nhtsa-vehicle-safety-lab] NHTSA Web runs six guarded vehicle-safety workflows and mobile layout; route=/plugins/nhtsa-vehicle-safety-lab; result=passed",
+        "checkedAt": "2026-07-18T05:29:49.164Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "0.8.4"
+  }
+}

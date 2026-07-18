@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-geospatial-and-cartographic-visualization",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/build-web-data-visualization/skills/geospatial-and-cartographic-visualization",
+  "skillSha256": "ee7595430af215ebc65ae8e9396006ae95255478cbb4c196b6bd93cec5d86153",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "1e7d558eb4a3343d567b7bf649f83c673c35c366442224dabc98eccae6fe1b0c"
+    },
+    {
+      "path": "references/adaptive-basemaps-and-layer-stacks.md",
+      "sha256": "83a6d702439b5cc59f44bce105d4f25b18d0a27bda86d7e6c89ebf1fe036e3f6"
+    },
+    {
+      "path": "references/choropleths-symbols-and-flows.md",
+      "sha256": "cf8aecbb0c482f4f42dd7cb0f73473c76dfdba4700b2b9e69a98d1dab4c2389d"
+    },
+    {
+      "path": "references/deckgl-d3-geo-stack-selection.md",
+      "sha256": "268bf111c6d3dbc77692f9ee4ac1e78dc8f9679a68cf03d4615304f50261dc07"
+    },
+    {
+      "path": "references/map-or-not.md",
+      "sha256": "d31badb2147fd9925b23c7f8739fe1ea6d4d466f7e1f2fd3b31360e43c46439f"
+    },
+    {
+      "path": "references/multiscale-symbols-and-zoom-behavior.md",
+      "sha256": "e9d458b014267da33e63b9fffbbadbe4e222ddcc23708ed3253eaf5f289228b5"
+    },
+    {
+      "path": "references/point-overlap-strategies.md",
+      "sha256": "0714ba47302be6f886c8e87553acc7972e67d499e9ce07ae6b7d1bf444023778"
+    },
+    {
+      "path": "references/projections-and-normalization.md",
+      "sha256": "12c01442a5be50987c70c1b67f59c74fdfcf4222f1104526827d1109be805a0c"
+    },
+    {
+      "path": "references/slippy-map-and-product-stack-selection.md",
+      "sha256": "8e7c12dc46e82453e6d795fd521efd2cbc06900c1254e4f69280265bd5b57108"
+    },
+    {
+      "path": "references/source-method-and-coordinate-ledger.md",
+      "sha256": "93764fee2239d21357e638a63cc3b064dfa764013ce1fa81ab25c69fe03a90b0"
+    }
+  ]
+}

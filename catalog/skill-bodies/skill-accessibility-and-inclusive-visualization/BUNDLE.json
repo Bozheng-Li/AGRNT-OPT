@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-accessibility-and-inclusive-visualization",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/build-web-data-visualization/skills/accessibility-and-inclusive-visualization",
+  "skillSha256": "fc052419e290f113b044b7abd7a5e809b6000b4dec03441e63796b02f474a2c8",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "a6d098767fea882a03cf98cac93b32e7219ec6f45b8855e4f4ffb554f6f57fb2"
+    },
+    {
+      "path": "references/color-contrast-and-redundant-encoding.md",
+      "sha256": "1dffb6850f6be38ae7cb5a5b80f2e38684683a2962f130df61506119e31d9507"
+    },
+    {
+      "path": "references/keyboard-screen-reader-and-export.md",
+      "sha256": "9478f105eccb0ac02efd91eba1361a3ea97e138ad61313e864d3e75c6e7425c5"
+    },
+    {
+      "path": "references/testing-and-review-workflow.md",
+      "sha256": "954264a80d58c138946511341cf8975afcb847dd172895d1c22d4c90d1dad5fe"
+    },
+    {
+      "path": "references/text-alternatives-and-complex-images.md",
+      "sha256": "5ba2d0490843283cf490ff76a42ec4eb23e56467401628f34ffd07f17a6d5c08"
+    }
+  ]
+}

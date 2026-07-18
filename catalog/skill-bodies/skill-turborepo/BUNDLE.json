@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-turborepo",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/vercel/skills/turborepo",
+  "skillSha256": "8a2b3ad8e259aa01a484d1d63cf53580fece2a9176119e07725d58a6785e3a04",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "add5d8c98332100252f8e68de12934305c5dd1fcbc899dab0e39d2018e63c4b3"
+    }
+  ]
+}

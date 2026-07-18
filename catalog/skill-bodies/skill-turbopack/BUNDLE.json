@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-turbopack",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/vercel/skills/turbopack",
+  "skillSha256": "3f665cf083c39d5f7d0ddd16c4a2f04c251e488de87c72bd9fadb04b804691f6",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "6dac3b1bb2a6fdd916bbd67c6d98088ee77d961d85af957cd0343aaf99918e37"
+    }
+  ]
+}

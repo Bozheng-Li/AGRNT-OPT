@@ -4,8 +4,8 @@
   "slug": "skill-durable-objects",
   "kind": "agent-skill",
   "lifecycle": {
-    "status": "verified",
-    "changedAt": "2026-07-16T13:40:57.604Z"
+    "status": "web-ready",
+    "changedAt": "2026-07-16T15:25:35.349Z"
   },
   "name": {
     "original": "durable-objects",
@@ -14,12 +14,12 @@
   },
   "summary": {
     "original": "Create and review Cloudflare Durable Objects. Use when building stateful coordination (chat rooms, multiplayer games, booking systems), implementing RPC methods, SQLite storage, alarms, WebSockets, or reviewing DO code for best practices. Covers Workers integration, wrangler config, and testing with Vitest. Biases towards retrieval from Cloudflare docs over pre-trained knowledge.",
-    "zhCN": "Cloudflare Durable Objects：Create and review Cloudflare Durable Objects. Use when building stateful coordin…",
+    "zhCN": "创建和审查 Cloudflare Durable Objects；用于有状态协调、RPC、SQLite、alarms、WebSockets、Workers 集成、wrangler 配置和 Vitest 测试，并优先从 Cloudflare 官方文档检索最新信息。",
     "sourceLanguage": "en"
   },
   "description": {
     "original": "Create and review Cloudflare Durable Objects. Use when building stateful coordination (chat rooms, multiplayer games, booking systems), implementing RPC methods, SQLite storage, alarms, WebSockets, or reviewing DO code for best practices. Covers Workers integration, wrangler config, and testing with Vitest. Biases towards retrieval from Cloudflare docs over pre-trained knowledge. Official skill document adapted by Agent-OPT as a dedicated bilingual Web skill studio with section navigation, full-text search, and sandboxed source rendering. No upstream executable scripts are executed.",
-    "zhCN": "Cloudflare Durable Objects。Agent-OPT 将官方 SKILL.md 适配为独立 Web 技能工作室：支持章节导航、全文检索、中英对照元数据与只读源码呈现；不执行上游脚本，不访问外部账号。",
+    "zhCN": "创建和审查 Cloudflare Durable Objects，涵盖有状态协调、RPC、SQLite、alarms、WebSockets、Workers 集成、wrangler 配置和 Vitest 测试，并优先检索 Cloudflare 官方文档。Agent-OPT 将固定版本的官方 SKILL.md 及完整简体中文译文适配为专属 Web 技能工作室，支持任务执行手册、章节导航、全文检索和沙箱化只读渲染；不执行上游脚本，也不访问外部账号。",
     "sourceLanguage": "en"
   },
   "author": {
@@ -38,7 +38,8 @@
   "tags": [
     "skill",
     "cloudflare",
-    "durable-objects"
+    "durable-objects",
+    "priority-30"
   ],
   "source": {
     "primaryUrl": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/cloudflare/skills/durable-objects",
@@ -74,6 +75,20 @@
     "checkedAt": "2026-07-16T13:40:57.604Z"
   },
   "capabilities": [
+    {
+      "id": "prepare-task-playbook",
+      "name": {
+        "original": "Prepare a task-specific Agent playbook",
+        "zhCN": "准备任务专属 Agent 执行手册",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Rank the pinned skill sections against a bounded user objective and context, then produce an agent prompt, checklist, or reference pack without executing upstream scripts.",
+        "zhCN": "根据有界的用户目标和上下文，对固定版本技能的各章节进行相关性排序，然后在不执行上游脚本的前提下生成 Agent 提示词、检查清单或参考资料包。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
     {
       "id": "skill-read",
       "name": {
@@ -115,6 +130,20 @@
         "sourceLanguage": "en"
       },
       "risk": "low"
+    },
+    {
+      "id": "browse-pinned-supporting-files",
+      "name": {
+        "original": "Browse pinned supporting resources",
+        "zhCN": "??????????",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List and safely preview text references, scripts, templates, and licenses captured from the exact upstream commit and recorded in BUNDLE.json.",
+        "zhCN": "???????????? commit ???? BUNDLE.json ??????????????????????",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
     }
   ],
   "permissions": {
@@ -124,9 +153,9 @@
     "secrets": [],
     "externalAccounts": [],
     "notes": [
-      "In-process skill runtime reads only catalog/skill-bodies/<slug> files prepared at curation time.",
-      "Upstream scripts, if any, are not executed by Agent-OPT.",
-      "No network, credentials, or host filesystem access is granted to the skill body."
+      "The in-process adapter reads only the curated original/Chinese bodies and BUNDLE.json-listed supporting files under this skill directory.",
+      "Supporting paths must match the fixed hash manifest; traversal, unknown files, symlinks, binary previews, and files above 400KB are rejected.",
+      "Upstream scripts and external services are not executed by this Web adaptation."
     ]
   },
   "runtime": {
@@ -139,7 +168,9 @@
     },
     "requirements": [
       "Skill body checked into catalog/skill-bodies/skill-durable-objects/SKILL.md",
-      "No external credentials"
+      "No external credentials",
+      "Complete Chinese body at catalog/skill-bodies/skill-durable-objects/SKILL.zh-CN.md",
+      "Pinned supporting-file evidence at catalog/skill-bodies/skill-durable-objects/BUNDLE.json"
     ],
     "configuration": []
   },
@@ -154,16 +185,19 @@
     "security": 4.8,
     "webFitness": 4.5,
     "notes": [
-      "Official path-addressed skill with preserved source text and dedicated Web skill studio.",
-      "Marked verified after in-process core/scenario/error/web tests of the skill reader runtime for this body snapshot."
+      "Selected in the quality-first priority tranche with exact official source and license provenance.",
+      "Complete Simplified Chinese body preserves frontmatter, heading hierarchy, code, inline tokens, links, and URLs; validation is automated.",
+      "The dedicated profile configures task examples, labels, context, output artifact, bilingual source, and pinned resource workflow for this skill.",
+      "Lifecycle is web-ready; verified remains reserved for a passing real Chromium report and any separately executable upstream workflow evidence."
     ]
   },
   "translation": {
     "status": "reviewed",
     "glossaryVersion": "agent-opt-zh-cn-v1",
-    "translatedAt": "2026-07-16T13:40:57.604Z",
+    "translatedAt": "2026-07-16T15:08:53.373Z",
     "notes": [
-      "Chinese UI labels and summary reviewed; original SKILL.md body remains English source text."
+      "Complete Simplified Chinese translation: catalog/skill-bodies/skill-durable-objects/SKILL.zh-CN.md; the original SKILL.md remains unchanged.",
+      "Frontmatter keys, fenced code blocks, commands, paths, links, and technical identifiers were preserved during review."
     ]
   },
   "web": {
@@ -171,16 +205,22 @@
     "component": "SkillWorkspace",
     "route": "/plugins/skill-durable-objects",
     "features": [
-      "section outline",
-      "full-text search",
-      "source viewer",
-      "bilingual metadata"
+      "Durable Objects 任务 with two skill-specific task examples",
+      "一致性、状态与流量模型 and bounded private context input",
+      "Durable Object 设计包 in agent-prompt, checklist, and reference-pack modes",
+      "complete Simplified Chinese and original SKILL.md switch",
+      "relevance-ranked official sections with outline, search, and full-text reader",
+      "pinned supporting-file browser backed by BUNDLE.json hashes",
+      "runtime activity and controlled validation feedback"
     ],
     "dedicatedElements": [
-      "section navigator",
-      "keyword search panel",
-      "readonly markdown source pane",
-      "skill metadata strip"
+      "Durable Objects 任务 input",
+      "一致性、状态与流量模型 panel",
+      "Durable Object 设计包 result view",
+      "skill-specific example chips",
+      "Chinese/original document switch",
+      "ranked section navigator and search",
+      "fixed-commit supporting-resource browser"
     ]
   },
   "verification": {
@@ -191,43 +231,45 @@
         "id": "skill-durable-objects-core",
         "category": "core",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Skill body loaded from catalog/skill-bodies and outline/list tools returned structured sections."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-durable-objects: original and complete Chinese bodies opened through skill_open; skill_prepare returned ranked sections, prompt, and checklist; outline/search remained available."
       },
       {
         "id": "skill-durable-objects-scenario",
         "category": "scenario",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Representative section open + keyword search returned line excerpts from the official body."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-durable-objects: the capability-specific profile objective and context ran in Chinese through skill_prepare and returned a non-empty task artifact."
       },
       {
         "id": "skill-durable-objects-error",
         "category": "error",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Empty query and unknown section id rejected with controlled validation errors."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-durable-objects: empty objectives, unknown fields/sections, invalid locale, traversal, and missing supporting assets were rejected with InvocationValidationError."
       },
       {
         "id": "skill-durable-objects-web",
         "category": "web-e2e",
         "status": "passed",
         "command": "npm run test:e2e",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "SkillWorkspace route renders outline and can open a section through the invoke API."
+        "checkedAt": "2026-07-16T18:05:30.911Z",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=skills.spec.ts › priority Agent Skill browser workflows › @web-e2e [skill-durable-objects] runs bilingual task, source, asset, and failure workflows; route=/plugins/skill-durable-objects; result=passed"
       },
       {
         "id": "skill-durable-objects-permission",
         "category": "permission",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Runtime only reads curated skill-body files; no network/commands/secrets granted."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-durable-objects: source bundle hashes and containment were checked; the adapter only reads curated files and grants no network, commands, secrets, or accounts."
       }
     ],
-    "blockers": []
+    "blockers": [
+      "The shipped bilingual Web adaptation is verified; optional upstream scripts and downstream agent outcomes are outside this adapter and are not claimed as executed."
+    ]
   }
 }

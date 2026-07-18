@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-expo-tailwind-setup",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/expo/skills/expo-tailwind-setup",
+  "skillSha256": "d8a29999edc9cf9f61c337d2c532807a75b3961b5cdf5bd38ddfb136c87842ce",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "2bd51471c6447d1c6a3b332a347630d66da3122b16f961bf4d1ebd99851a5707"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-systematic-debugging",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/systematic-debugging",
+  "skillSha256": "530855dfa2b10d5b9f92ac170fe41c5f8fbc4918957a564855b50a896ca625a2",
+  "supportingFiles": [
+    {
+      "path": "CREATION-LOG.md",
+      "sha256": "397f122f115f994372a1805e30071fc0ad86c0dc1e427fbf5b5f1b14143399f5"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "9dccbac2e8a6f131e3a58e565f30e5ed804546887350f2f559c9536b71cb7155"
+    },
+    {
+      "path": "condition-based-waiting-example.ts",
+      "sha256": "0602407671f97439acc9e3cc2fe27ad42a22eb0dbca62f56d610fb223daadb0f"
+    },
+    {
+      "path": "condition-based-waiting.md",
+      "sha256": "02aa854bd9e761f275e1450d7136ba60f1a4d103fe94b552fdce822dd3c99506"
+    },
+    {
+      "path": "defense-in-depth.md",
+      "sha256": "9407efcbd028a5ec45edfdf6692b988716c0a7b34d1fb5e05d60146171d8041e"
+    },
+    {
+      "path": "find-polluter.sh",
+      "sha256": "0bb69ae18d810d49ad3f48802b98b394339ea637bb91f569dafb0b283039a89e"
+    },
+    {
+      "path": "root-cause-tracing.md",
+      "sha256": "cb00878f1b5b79442dc474f0e0d67b44f8175e741ba90abbf5e9778b67ba4854"
+    },
+    {
+      "path": "test-academic.md",
+      "sha256": "51e07c1c56052a6c46cde8e7d42d6612598ea076f128086fd85911f4d2d3e8dd"
+    },
+    {
+      "path": "test-pressure-1.md",
+      "sha256": "fbf04219c44460e76d96642d7dc16960a2390936e0a6937d0b133e013fa55afb"
+    },
+    {
+      "path": "test-pressure-2.md",
+      "sha256": "fc6b2594bed3f2a15ece75d0a211b55cb9a4668d85b9873f2bab5ee54ed31cbf"
+    },
+    {
+      "path": "test-pressure-3.md",
+      "sha256": "69ed6a5a59dac92d58d284519991a46b90978bc40a229776dac0ffa3a6123bfe"
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.cyanheads/astronomy-mcp-server",
+  "slug": "astronomy-observation-console",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-17T16:54:37.609Z"
+  },
+  "name": {
+    "original": "Astronomy MCP Server",
+    "zhCN": "离线天文观测台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Compute reproducible sky positions, rise/set and twilight, moon phases, eclipses and seasonal events, and ranked visible bodies entirely offline, with ten body reference resources and a stargazing-plan prompt.",
+    "zhCN": "完全离线计算可复现的天空位置、升落与暮光、月相、食与季节天象、可见天体排序，并提供十个天体参考资源和观星计划提示。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The signed npm 0.1.3 package exposes five deterministic offline tools, ten static body resources, one closed body-resource template, and one hardened stargazing prompt. Agent-OPT forces the optional Horizons and satellite features off, denies every network and runtime filesystem capability, bounds coordinates, dates, timezones, counts and outputs, and presents position, twilight, lunar-cycle, event-contact, visibility-ranking, reference, and planning views in a dedicated Web console.",
+    "zhCN": "带 npm 签名的 0.1.3 包提供五个确定性离线工具、十个静态天体资源、一个封闭天体资源模板和一个经过加固的观星提示。Agent-OPT 强制关闭可选 Horizons 与卫星功能，禁止全部网络和运行期文件能力，限制坐标、日期、时区、数量与输出，并在专属 Web 控制台中呈现位置、暮光、月相周期、事件接触时刻、可见性排序、参考资料和计划视图。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Casey Hand (@cyanheads)",
+    "url": "https://github.com/cyanheads",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.1.3",
+    "releasedAt": "2026-06-28T14:11:42.695Z",
+    "checkedAt": "2026-07-17T16:26:04.580Z"
+  },
+  "categories": [
+    "astronomy",
+    "science",
+    "offline-tools",
+    "planning"
+  ],
+  "tags": [
+    "MCP",
+    "ephemeris",
+    "rise set",
+    "twilight",
+    "moon phase",
+    "eclipse",
+    "stargazing",
+    "offline"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/cyanheads/astronomy-mcp-server/tree/5bc1e1704bcab61bf83ac510b7870a350366aafd",
+    "repositoryUrl": "https://github.com/cyanheads/astronomy-mcp-server",
+    "packageUrl": "https://www.npmjs.com/package/@cyanheads/astronomy-mcp-server/v/0.1.3",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=astronomy-mcp-server&limit=30",
+        "listingId": "io.github.cyanheads/astronomy-mcp-server",
+        "checkedAt": "2026-07-17T16:26:04.580Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=astronomy-mcp-server&limit=30",
+        "retrievedAt": "2026-07-17T16:26:04.580Z",
+        "note": "The official MCP Registry marks io.github.cyanheads/astronomy-mcp-server 0.1.3 active and latest and binds it to the exact npm package. It documents five keyless offline tools by default and optional Horizons and satellite features behind false-by-default environment flags."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@cyanheads/astronomy-mcp-server/0.1.3",
+        "retrievedAt": "2026-07-17T16:26:04.580Z",
+        "note": "npm records Apache-2.0, Node >=24, 87 files, 409,311 unpacked bytes, shasum d03086af2a5d04bce3afa26ed56cc1cbf0e95758, integrity sha512-aK6GGTSmcxansd8kHL2dZAnRBwVcSDwJ8Iy/uhQwImdSrLtxM/hcVTpmdIFymSlhWKtbNhzY/xNt/PVLir+3Dg==, and a registry signature. It omits gitHead and SLSA provenance, so no cryptographic artifact-to-commit claim is made."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/astronomy-mcp-server/tree/5bc1e1704bcab61bf83ac510b7870a350366aafd/src",
+        "retrievedAt": "2026-07-17T16:26:04.580Z",
+        "note": "The signed v0.1.3 tag dereferences to commit 5bc1e1704bcab61bf83ac510b7870a350366aafd. The pinned source registers sky position, rise/set, moon phase, event search, and visible-body tools plus body resources and the stargazing prompt; network tools are conditional."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/astronomy-mcp-server/blob/5bc1e1704bcab61bf83ac510b7870a350366aafd/LICENSE",
+        "retrievedAt": "2026-07-17T16:26:04.580Z",
+        "note": "The pinned source and published package declare Apache-2.0."
+      },
+      {
+        "kind": "corroborating-source",
+        "url": "https://github.com/cosinekitty/astronomy",
+        "retrievedAt": "2026-07-17T16:26:04.580Z",
+        "note": "Real fixed-time STDIO qualification invoked all five offline tools. The engine reproduced the 2024-04-08 Dallas total eclipse, Seattle summer-solstice rise/set and twilight, the same-day new moon, and a ranked Seattle night-sky list including Moon, Vega, Arcturus, and Polaris."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/cyanheads/astronomy-mcp-server/blob/5bc1e1704bcab61bf83ac510b7870a350366aafd/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The signed-tag source and npm artifact declare Apache-2.0. Agent-OPT invokes the exact package and adds an independent zero-network adapter, bootstrap, translation, tests, and Web visualization without copying upstream implementation code.",
+    "checkedAt": "2026-07-17T16:26:04.580Z"
+  },
+  "capabilities": [
+    {
+      "id": "topocentric-position",
+      "name": {
+        "original": "Compute apparent sky positions",
+        "zhCN": "计算视天空位置",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Return topocentric altitude, azimuth, RA/Dec, ecliptic coordinates, distance, magnitude, angular diameter, phase, illumination, and constellation for a planet, Moon, Sun, or named bright star.",
+        "zhCN": "返回行星、月球、太阳或命名亮星的站心高度、方位、赤经赤纬、黄道坐标、距离、星等、角直径、相位、照明和星座。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "rise-set-twilight",
+      "name": {
+        "original": "Compute rise, set, transit, and twilight",
+        "zhCN": "计算升落、中天与暮光",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Calculate bounded forward cycles and preserve circumpolar or never-rises null states; Sun results include civil, nautical, and astronomical dawn and dusk.",
+        "zhCN": "计算有界未来周期并保留拱极或永不升起的空值状态；太阳结果包含民用、航海和天文晨昏蒙影。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "moon-events",
+      "name": {
+        "original": "Inspect lunar phases and sky events",
+        "zhCN": "查看月相与天象事件",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Report lunar illumination, age and next quarters, and find eclipses, equinoxes, solstices, conjunctions, oppositions, elongations, or periapsis events with local visibility where applicable.",
+        "zhCN": "报告月球照明、月龄和后续四分点，并查找食、分点、至点、合、冲、距角或近远点事件及适用时的本地可见性。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "visible-sky",
+      "name": {
+        "original": "Rank visible naked-eye bodies",
+        "zhCN": "排序肉眼可见天体",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Classify daylight and twilight, then rank above-horizon planets, Moon, Sun, and optionally bundled bright stars by brightness and altitude with plain-language notes.",
+        "zhCN": "分类白昼与暮光，再按亮度和高度排序地平线上方的行星、月球、太阳及可选亮星，并给出通俗可见性说明。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "reference-and-plan",
+      "name": {
+        "original": "Read body references and materialize a stargazing plan",
+        "zhCN": "读取天体参考并生成观星计划",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read ten closed-enum body cards and generate a prompt that explicitly composes geocoding, dark-window, moon, visible-sky, and weather steps without pretending this offline server performs geocoding or forecasts.",
+        "zhCN": "读取十个封闭枚举天体卡片，并生成明确组合地理编码、暗夜窗口、月相、可见天空和天气步骤的提示，不冒充此离线服务具备地理编码或预报能力。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches only the exact local 0.1.3 Node entry over STDIO with a 192 MiB old-space limit. Callers cannot choose a command, package, transport, environment, working directory, or optional tool registration.",
+      "ASTRONOMY_ENABLE_HORIZONS and ASTRONOMY_ENABLE_SATELLITES are forced false before import, so the five-tool public surface is offline and stable. Their network-backed tools are not exposed or claimed as integrated.",
+      "All fetch, HTTP(S), raw socket, TLS, DNS, datagram, WebSocket, subprocess, worker, host-read, and write APIs are denied. Proxy, package, cloud, model-provider, telemetry, HTTP-server, auth, and default-timezone variables are removed.",
+      "Latitude, longitude, elevation, IANA timezone, ISO instant, target body or star, event-body combinations, counts, altitude filters, resource bodies, prompt location/date, result bytes, JSON depth, arrays, and text lengths are bounded before or after execution.",
+      "Coordinates and times are user-supplied numerical inputs, not geocoded places. The Web explicitly separates astronomy geometry from geocoding and weather, and renders computed and prompt text only as escaped React content."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-astronomy-offline-policy",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@cyanheads/astronomy-mcp-server",
+      "version": "0.1.3"
+    },
+    "requirements": [
+      "Node.js 24 or newer",
+      "The exact @cyanheads/astronomy-mcp-server 0.1.3 package installed from package-lock.json",
+      "No network, API key, credential, account, paid plan, hardware device, local catalogue, or remote MCP host is required",
+      "Callers must provide coordinates for observer-dependent tools and may provide a valid IANA timezone for local timestamps"
+    ],
+    "configuration": [
+      {
+        "key": "observer geometry",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Observer-dependent calculations accept bounded latitude, longitude, optional elevation, exact ISO instant, and optional IANA timezone; place names are never resolved implicitly.",
+          "zhCN": "依赖观测者的计算接受有界纬度、经度、可选海拔、精确 ISO 瞬时和可选 IANA 时区；不会隐式解析地名。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "offline core only",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Optional Horizons ephemeris and satellite-pass features stay disabled; the public integration exposes only the deterministic offline core.",
+          "zhCN": "可选 Horizons 星历与卫星过境功能保持关闭；公开集成只提供确定性离线核心。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 91,
+    "usefulness": 4.7,
+    "uniqueness": 4.8,
+    "reliability": 4.9,
+    "maintenance": 4.5,
+    "provenance": 4.2,
+    "licenseClarity": 5,
+    "security": 5,
+    "webFitness": 4.9,
+    "notes": [
+      "Fixed coordinates and instants make the integration unusually reproducible and useful for planning, education, observatory workflows, and cross-checking model answers without an external service dependency.",
+      "Registry identity, npm package/version, signed tag target, repository, author, Node requirement, and Apache-2.0 align. npm signs the artifact but omits gitHead and SLSA provenance, reflected in the provenance score.",
+      "Qualification and Runtime testing found exactly five default tools, ten resources, one template, and one prompt. Fixed 2024 samples reproduced expected eclipse, new-moon, twilight, altitude, and visibility relationships, while polar no-rise remained a non-error factual state.",
+      "The engine computes geometry, not weather, terrain obstruction, light pollution, geocoding, optical safety, or observational certainty. The Web keeps coordinates, timestamps, timezone, horizon state and these boundaries visible."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-17T16:26:04.580Z",
+    "notes": [
+      "Kept MCP, STDIO, JPL Horizons, TLE, SGP4, IANA, UTC, RA/Dec and body names as established product, protocol, standard, coordinate, or astronomical terms.",
+      "Chinese copy distinguishes apparent topocentric geometry from weather, terrain, geocoding and observing-safety claims, and treats circumpolar or never-rises null results as factual outcomes rather than failures."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "AstronomyWorkspace",
+    "route": "/plugins/astronomy-observation-console",
+    "features": [
+      "GPT-flavored apparent-position console with body, observer coordinates, elevation, ISO instant, IANA timezone, altitude/azimuth sky plot, RA/Dec, constellation, phase, and illumination metrics",
+      "rise, set, transit, maximum-altitude, and civil/nautical/astronomical twilight timeline with polar-null state support",
+      "moon-phase card with illumination, synodic age, local timestamp, and next new/quarter/full/last-quarter events",
+      "event finder with local eclipse visibility, kind, obscuration, and contact timeline plus non-eclipse seasonal options",
+      "ranked visible-body ledger with daylight/twilight condition, Sun altitude, bright-star toggle, altitude bars, azimuth, and plain-language visibility notes",
+      "ten body reference readers and astronomy_stargazing_plan prompt materializer that keeps geocoding and weather as explicit cross-tool steps",
+      "pending, activity, invalid coordinate/time/timezone/event, polar no-rise, source-boundary, empty and responsive mobile states"
+    ],
+    "dedicatedElements": [
+      "altitude and azimuth sky plot",
+      "rise/set and three-tier twilight timeline",
+      "moon-phase cycle panel",
+      "eclipse contact and event cards",
+      "ranked visible-body altitude ledger",
+      "closed-enum celestial reference cards",
+      "stargazing workflow prompt viewer"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "astronomy-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/astronomy-runtime.test.ts",
+        "checkedAt": "2026-07-17T16:26:04.580Z",
+        "evidence": "Vitest passed 3/3 integration tests. The exact 0.1.3 server exposed five tools, ten resources, one resource template, and astronomy_stargazing_plan; every default protocol asset was invoked through the zero-network adapter."
+      },
+      {
+        "id": "astronomy-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/astronomy-runtime.test.ts",
+        "checkedAt": "2026-07-17T16:26:04.580Z",
+        "evidence": "Fixed samples returned Moon altitude 40.88 degrees over Seattle during the 2024-04-08 eclipse, Seattle summer-solstice sunrise and three twilight tiers, New Moon with four next quarters, Dallas total-eclipse local visibility, and ten ranked Seattle twilight bodies including Moon, Vega, Arcturus, and Polaris."
+      },
+      {
+        "id": "astronomy-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/astronomy-runtime.test.ts",
+        "checkedAt": "2026-07-17T16:26:04.580Z",
+        "evidence": "A real Tromso winter-solstice query preserved polar no-rise/null semantics without misclassifying it as an error. The adapter rejected invalid or duplicate targets, coordinates, star names, instants, IANA timezones, eclipse inputs, event-body combinations, altitude ranges, network-feature injection, resource bodies, prompt tags, and excess fields."
+      },
+      {
+        "id": "astronomy-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/astronomy-runtime.test.ts",
+        "checkedAt": "2026-07-17T16:26:04.580Z",
+        "evidence": "The executable probe proved fetch, HTTP, DNS, host reads, writes, subprocesses, workers, visible proxies and credentials were denied or removed, both optional network feature flags stayed false despite hostile inherited values, and linked runtime roots were rejected."
+      },
+      {
+        "id": "astronomy-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/astronomy-api.test.ts",
+        "checkedAt": "2026-07-17T16:53:25.000Z",
+        "evidence": "Vitest passed 3/3 public Next route tests. The API exercised all five bounded tools plus the ten closed-enum resources and astronomy_stargazing_plan prompt, preserved representative eclipse and polar-null results, and rejected invalid operations, hostile arguments, and unknown resources through the same hardened adapter used by the Web."
+      },
+      {
+        "id": "astronomy-web-e2e",
+        "category": "web-e2e",
+        "status": "passed",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=astronomy.spec.ts › @web-e2e [astronomy-observation-console] Astronomy Web runs offline tools, all resources, prompt, errors, and mobile layout; route=/plugins/astronomy-observation-console; result=passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-17T16:54:37.609Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "0.1.3"
+  }
+}

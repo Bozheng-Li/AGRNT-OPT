@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "id": "com.microsoft/markitdown-mcp",
+  "slug": "markitdown-document-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T16:58:19.666Z"
+  },
+  "name": {
+    "original": "Microsoft MarkItDown MCP",
+    "zhCN": "MarkItDown 文档工作室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Convert bounded local PDF, Office, HTML, CSV, JSON, Markdown, and text uploads into Markdown through Microsoft's official MCP tool.",
+    "zhCN": "通过 Microsoft 官方 MCP 工具，把经过边界检查的本地 PDF、Office、HTML、CSV、JSON、Markdown 和文本上传转换为 Markdown。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The official markitdown-mcp package exposes convert_to_markdown over STDIO, Streamable HTTP, and SSE for http, https, file, and data URIs. Agent-OPT pins the 0.0.1a4 tool implementation and MarkItDown 0.1.6, runs only STDIO with MCP SDK 1.28.1, and narrows the public surface to validated files created inside a dedicated upload sandbox.",
+    "zhCN": "官方 markitdown-mcp 包通过 STDIO、Streamable HTTP 和 SSE 暴露 convert_to_markdown，可接收 http、https、file 与 data URI。Agent-OPT 固定 0.0.1a4 工具实现和 MarkItDown 0.1.6，只以 MCP SDK 1.28.1 运行 STDIO，并把公开输入收窄为专属上传沙箱内由服务端创建且已校验的文件。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Microsoft",
+    "url": "https://github.com/microsoft",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.0.1a4",
+    "releasedAt": "2025-05-23T18:39:55.204Z",
+    "checkedAt": "2026-07-16T16:35:43.466Z"
+  },
+  "categories": [
+    "document-processing",
+    "productivity",
+    "data-extraction"
+  ],
+  "tags": [
+    "MCP",
+    "MarkItDown",
+    "Markdown",
+    "PDF",
+    "DOCX",
+    "PPTX",
+    "XLSX",
+    "local conversion"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/microsoft/markitdown/tree/9dc982a3b1eafc9f5deb3601c6ebe3c4e4e462b4/packages/markitdown-mcp",
+    "repositoryUrl": "https://github.com/microsoft/markitdown",
+    "packageUrl": "https://pypi.org/project/markitdown-mcp/0.0.1a4/",
+    "marketplaces": [],
+    "evidence": [
+      {
+        "kind": "package-registry",
+        "url": "https://pypi.org/pypi/markitdown-mcp/0.0.1a4/json",
+        "retrievedAt": "2026-07-16T16:35:43.466Z",
+        "note": "PyPI identifies 0.0.1a4 as the latest markitdown-mcp release, uploaded 2025-05-23, requiring Python 3.10+, markitdown[all] 0.1.x and mcp 1.8.x. The exact wheel is 5,185 bytes with SHA-256 7fb06fff7d722ec108d08752704dc8f313f7fd267e00dff546131ec229645230. PyPI exposes no PEP 740 integrity attestation for this release."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/microsoft/markitdown/blob/9dc982a3b1eafc9f5deb3601c6ebe3c4e4e462b4/packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
+        "retrievedAt": "2026-07-16T16:35:43.466Z",
+        "note": "The pinned Microsoft source registers exactly one FastMCP tool, convert_to_markdown(uri), and defaults to STDIO while also implementing unauthenticated localhost HTTP and deprecated SSE modes. The PyPI sdist source matches this commit apart from line endings; the commit predates the upload by fourteen seconds."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/microsoft/markitdown/blob/9dc982a3b1eafc9f5deb3601c6ebe3c4e4e462b4/packages/markitdown-mcp/pyproject.toml",
+        "retrievedAt": "2026-07-16T16:35:43.466Z",
+        "note": "The pinned package definition names Microsoft author Adam Fourney, declares MIT, Python 3.10+, the markitdown-mcp console entry point, markitdown[all]>=0.1.1,<0.2.0, and mcp~=1.8.0."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://pypi.org/pypi/markitdown/0.1.6/json",
+        "retrievedAt": "2026-07-16T16:35:43.466Z",
+        "note": "The independently pinned conversion core is markitdown 0.1.6, uploaded 2026-05-26. Its wheel SHA-256 is 07b2d5bf87b5c53e13a9f2fdc440df8ccc85e26f40c1e557781727b700049775 and the release adds current PDF and Office converter dependencies."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/microsoft/markitdown/tree/e144e0a2be95b34df17433bac904e635f2c5e551",
+        "retrievedAt": "2026-07-16T16:35:43.466Z",
+        "note": "The dereferenced v0.1.6 tag resolves to e144e0a2be95b34df17433bac904e635f2c5e551. Agent-OPT combines this fixed core with the official a4 MCP interface after real compatibility testing."
+      },
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=markitdown&limit=100",
+        "retrievedAt": "2026-07-16T16:35:43.466Z",
+        "note": "The official MCP Registry returned zero MarkItDown results. This negative evidence prevents Agent-OPT from claiming registry publication and makes Microsoft GitHub plus PyPI the primary provenance chain."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/microsoft/markitdown/blob/e144e0a2be95b34df17433bac904e635f2c5e551/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "Both the exact MCP package pyproject and the pinned MarkItDown repository release declare MIT. Agent-OPT invokes the upstream package through an independent security bootstrap and does not copy its conversion implementation.",
+    "checkedAt": "2026-07-16T16:35:43.466Z"
+  },
+  "capabilities": [
+    {
+      "id": "document-to-markdown",
+      "name": {
+        "original": "Convert common documents to Markdown",
+        "zhCN": "把常见文档转换为 Markdown",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Extract headings, paragraphs, links, lists and other readable structure from bounded PDF, DOCX, PPTX, HTML, Markdown, JSON and text uploads.",
+        "zhCN": "从经过大小限制的 PDF、DOCX、PPTX、HTML、Markdown、JSON 和文本上传中提取标题、段落、链接、列表等可读结构。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "tabular-document-extraction",
+      "name": {
+        "original": "Preserve spreadsheet and CSV tables",
+        "zhCN": "保留电子表格与 CSV 表格结构",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Convert bounded XLSX sheets and CSV data into Markdown tables suitable for copying, review, and downstream analysis.",
+        "zhCN": "把经过限制的 XLSX 工作表与 CSV 数据转换为 Markdown 表格，便于复制、复核和后续分析。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The Web API writes at most 8 MiB into a dedicated MarkItDown upload directory using a generated filename; clients never supply an upstream URI or host path.",
+      "Text uploads require valid UTF-8 without NUL bytes. PDF signatures are checked. DOCX, PPTX and XLSX containers are inspected for type markers, entry count, individual expansion, total expansion, encryption, traversal and compression ratio before storage and again before conversion.",
+      "The adapter resolves real paths beneath the sandbox, rejects symlink escapes and passes only the resulting file URI to the exact upstream tool. ZIP archives, audio, video, images, YouTube and Azure-backed converters are not exposed.",
+      "The security bootstrap removes Azure, OpenAI, proxy, ExifTool and plugin variables, denies the HTTP clients used by MarkItDown, and denies subprocess and os.system before serving tool calls.",
+      "Only STDIO is used. The vulnerable mcp 1.8.x dependency declared by the 2025 MCP release is deliberately overridden with the compatibility-tested mcp 1.28.1; HTTP and SSE code paths are never launched.",
+      "Normalized output accepts text blocks only and is capped at 2 MiB. Extracted Markdown is treated as untrusted document data and rendered as escaped source, never as raw HTML or agent instructions."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-markitdown-python-sandbox",
+    "transport": "stdio",
+    "package": {
+      "registry": "pypi",
+      "name": "markitdown-mcp",
+      "version": "0.0.1a4"
+    },
+    "requirements": [
+      "Python 3.10 or newer",
+      "An isolated .venv-markitdown environment created from requirements-markitdown-mcp.txt",
+      "markitdown 0.1.6 with PDF, DOCX, PPTX and XLSX converter groups",
+      "mcp 1.28.1 security override, verified compatible with the official a4 STDIO tool",
+      "No network, cloud account, credential, office application, browser extension or external command is required"
+    ],
+    "configuration": [
+      {
+        "key": "isolated upload sandbox",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Only generated files beneath var/runtime/markitdown can reach the upstream file-URI tool.",
+          "zhCN": "只有 var/runtime/markitdown 下由服务端生成的文件才能进入上游 file URI 工具。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "offline security bootstrap",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Network, subprocess, plugins, proxy and cloud credential paths are removed before the official MCP package is imported.",
+          "zhCN": "导入官方 MCP 包之前会移除网络、子进程、插件、代理和云凭据路径。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 90,
+    "usefulness": 5,
+    "uniqueness": 4.5,
+    "reliability": 4.5,
+    "maintenance": 4,
+    "provenance": 4.5,
+    "licenseClarity": 5,
+    "security": 4.5,
+    "webFitness": 5,
+    "notes": [
+      "MarkItDown provides a high-value bridge from common business and technical documents to LLM-friendly Markdown without requiring an external account.",
+      "Qualification exercised the real stdio server and HTML, CSV, DOCX, IPYNB, JSON, PDF, PPTX, XLSX and ZIP inputs. Agent-OPT intentionally exposes the useful document subset and excludes unsafe or network-dependent URI and converter paths.",
+      "The official MCP release has no Registry listing or PyPI provenance attestation and pins an old vulnerable MCP SDK. Source-to-sdist comparison, exact hashes, the current Microsoft core release, the secure STDIO-only override and compatibility tests compensate transparently without overstating provenance.",
+      "The shipped integration passed exact tool discovery, ten advertised document extensions across eight document families, malformed and hostile inputs, executable bootstrap controls, public API routes, and a real responsive Chromium workflow before promotion to verified."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T16:35:43.466Z",
+    "notes": [
+      "Kept MarkItDown, Markdown, MCP, STDIO, PDF, DOCX, PPTX, XLSX, URI and SDK as established technical terms.",
+      "The Chinese copy distinguishes upstream URI support from the narrower Agent-OPT upload-only boundary and does not claim official MCP Registry publication."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "MarkitdownWorkspace",
+    "route": "/plugins/markitdown-document-studio",
+    "features": [
+      "drag-and-drop or keyboard file selection with client and server size feedback",
+      "built-in HTML example for a credential-free first run",
+      "format, byte size and isolated-storage preflight feedback",
+      "escaped Markdown source view with copy and download actions",
+      "fixed upstream tool activity, pending state and structured upload or conversion failures",
+      "plain-language explanation of the URI, archive, network and subprocess security boundary"
+    ],
+    "dedicatedElements": [
+      "document dropzone with supported-format guidance",
+      "format and sandbox preflight facts card",
+      "Markdown-specific escaped source viewer",
+      "copy-Markdown and download-.md controls",
+      "document-conversion security boundary notice"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "markitdown-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/markitdown-runtime.test.ts",
+        "checkedAt": "2026-07-16T16:57:19.924Z",
+        "evidence": "The shipped adapter started the pinned official markitdown-mcp tool through the offline STDIO bootstrap, discovered exactly convert_to_markdown, and converted bounded HTML through the real MCP client path."
+      },
+      {
+        "id": "markitdown-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/markitdown-runtime.test.ts",
+        "checkedAt": "2026-07-16T16:57:19.924Z",
+        "evidence": "Real CSV, PDF, DOCX, PPTX, XLSX, JSON, Markdown and plain-text fixtures all passed through upload validation and the upstream MCP conversion tool with their expected content markers preserved."
+      },
+      {
+        "id": "markitdown-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/markitdown-runtime.test.ts",
+        "checkedAt": "2026-07-16T16:57:19.924Z",
+        "evidence": "Unsupported extensions, false PDF signatures, invalid UTF-8, missing files, unknown URI input, absolute/UNC/URL/traversal-shaped identifiers, oversized uploads and oversized converted output all produced controlled validation failures."
+      },
+      {
+        "id": "markitdown-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/markitdown-runtime.test.ts",
+        "checkedAt": "2026-07-16T16:57:19.924Z",
+        "evidence": "A real Windows junction escape, Office internal traversal, expansion bomb and extension confusion were rejected. The executable bootstrap probe proved MarkItDown HTTP calls and subprocess execution are denied while proxy, plugin, ExifTool, Azure and OpenAI variables are removed."
+      },
+      {
+        "id": "markitdown-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/api-route.integration.test.ts -t MarkItDown",
+        "checkedAt": "2026-07-16T16:57:19.924Z",
+        "evidence": "The public files route stored and listed a bounded HTML upload, the invoke route called the real MCP conversion and returned Markdown, and a direct loopback URI request was rejected with HTTP 400."
+      },
+      {
+        "id": "markitdown-dependency-audit",
+        "category": "security",
+        "status": "passed",
+        "command": "uvx pip-audit --path .venv-markitdown/Lib/site-packages --progress-spinner off",
+        "checkedAt": "2026-07-16T17:18:35.000Z",
+        "evidence": "pip-audit reported no known vulnerabilities in the shipped isolated MarkItDown site-packages after the deliberate MCP SDK 1.28.1 override. The upstream a4 metadata still declares ~=1.8.0; compatibility is covered by the real stdio suite rather than concealed."
+      },
+      {
+        "id": "markitdown-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=catalog-and-plugins.spec.ts › @web-e2e [markitdown-document-studio] MarkItDown Web uploads, converts, and reports unsafe formats; route=/plugins/markitdown-document-studio; result=passed",
+        "checkedAt": "2026-07-16T16:58:19.666Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "0.0.1a4"
+  }
+}

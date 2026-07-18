@@ -4,22 +4,22 @@
   "slug": "skill-slack-gif-creator",
   "kind": "agent-skill",
   "lifecycle": {
-    "status": "verified",
-    "changedAt": "2026-07-16T13:26:03.788Z"
+    "status": "web-ready",
+    "changedAt": "2026-07-16T15:25:35.349Z"
   },
   "name": {
     "original": "slack-gif-creator",
-    "zhCN": "Slack GIF 创作规范",
+    "zhCN": "Slack GIF 创建器",
     "sourceLanguage": "en"
   },
   "summary": {
     "original": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.\"",
-    "zhCN": "Slack GIF 创作规范：Knowledge and utilities for creating animated GIFs optimized for Slack. Provides…",
+    "zhCN": "为 Slack 创建优化过的动画 GIF 所需的知识和实用工具。提供约束、验证工具和动画概念。适用于用户要求为 Slack 制作动画 GIF 的场景，例如“给我做一个 X 在做 Y 的 Slack GIF”。",
     "sourceLanguage": "en"
   },
   "description": {
     "original": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.\" Official skill document adapted by Agent-OPT as a dedicated bilingual Web skill studio with section navigation, full-text search, and sandboxed source rendering. No upstream executable scripts are executed.",
-    "zhCN": "Slack GIF 创作规范。Agent-OPT 将官方 SKILL.md 适配为独立 Web 技能工作室：支持章节导航、全文检索、中英对照元数据与只读源码呈现；不执行上游脚本，不访问外部账号。",
+    "zhCN": "为 Slack 创建优化过的动画 GIF 所需的知识和实用工具。提供约束、验证工具和动画概念。适用于用户要求为 Slack 制作动画 GIF 的场景，例如“给我做一个 X 在做 Y 的 Slack GIF”。Agent-OPT 将官方技能文档适配为独立的双语 Web 技能工作室，提供章节导航、全文搜索和沙箱化源文件渲染；不会执行任何上游可执行脚本。",
     "sourceLanguage": "en"
   },
   "author": {
@@ -38,7 +38,8 @@
   "tags": [
     "skill",
     "gif",
-    "slack"
+    "slack",
+    "priority-30"
   ],
   "source": {
     "primaryUrl": "https://github.com/anthropics/skills/tree/9d2f1ae187231d8199c64b5b762e1bdf2244733d/skills/slack-gif-creator",
@@ -74,6 +75,20 @@
     "checkedAt": "2026-07-16T13:26:03.788Z"
   },
   "capabilities": [
+    {
+      "id": "prepare-task-playbook",
+      "name": {
+        "original": "Prepare a task-specific Agent playbook",
+        "zhCN": "准备面向具体任务的 Agent 执行手册",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Rank the pinned skill sections against a bounded user objective and context, then produce an agent prompt, checklist, or reference pack without executing upstream scripts.",
+        "zhCN": "根据有边界的用户目标和上下文，对已固定版本的技能章节进行相关性排序，然后在不执行上游脚本的情况下生成 Agent 提示词、检查清单或参考资料包。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
     {
       "id": "skill-read",
       "name": {
@@ -115,6 +130,20 @@
         "sourceLanguage": "en"
       },
       "risk": "low"
+    },
+    {
+      "id": "browse-pinned-supporting-files",
+      "name": {
+        "original": "Browse pinned supporting resources",
+        "zhCN": "??????????",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List and safely preview text references, scripts, templates, and licenses captured from the exact upstream commit and recorded in BUNDLE.json.",
+        "zhCN": "???????????? commit ???? BUNDLE.json ??????????????????????",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
     }
   ],
   "permissions": {
@@ -124,9 +153,9 @@
     "secrets": [],
     "externalAccounts": [],
     "notes": [
-      "In-process skill runtime reads only catalog/skill-bodies/<slug> files prepared at curation time.",
-      "Upstream scripts, if any, are not executed by Agent-OPT.",
-      "No network, credentials, or host filesystem access is granted to the skill body."
+      "The in-process adapter reads only the curated original/Chinese bodies and BUNDLE.json-listed supporting files under this skill directory.",
+      "Supporting paths must match the fixed hash manifest; traversal, unknown files, symlinks, binary previews, and files above 400KB are rejected.",
+      "Upstream scripts and external services are not executed by this Web adaptation."
     ]
   },
   "runtime": {
@@ -139,7 +168,9 @@
     },
     "requirements": [
       "Skill body checked into catalog/skill-bodies/skill-slack-gif-creator/SKILL.md",
-      "No external credentials"
+      "No external credentials",
+      "Complete Chinese body at catalog/skill-bodies/skill-slack-gif-creator/SKILL.zh-CN.md",
+      "Pinned supporting-file evidence at catalog/skill-bodies/skill-slack-gif-creator/BUNDLE.json"
     ],
     "configuration": []
   },
@@ -154,16 +185,19 @@
     "security": 4.8,
     "webFitness": 4.5,
     "notes": [
-      "Official path-addressed skill with preserved source text and dedicated Web skill studio.",
-      "Marked verified after in-process core/scenario/error/web tests of the skill reader runtime for this body snapshot."
+      "Selected in the quality-first priority tranche with exact official source and license provenance.",
+      "Complete Simplified Chinese body preserves frontmatter, heading hierarchy, code, inline tokens, links, and URLs; validation is automated.",
+      "The dedicated profile configures task examples, labels, context, output artifact, bilingual source, and pinned resource workflow for this skill.",
+      "Lifecycle is web-ready; verified remains reserved for a passing real Chromium report and any separately executable upstream workflow evidence."
     ]
   },
   "translation": {
     "status": "reviewed",
     "glossaryVersion": "agent-opt-zh-cn-v1",
-    "translatedAt": "2026-07-16T13:26:03.788Z",
+    "translatedAt": "2026-07-16T15:04:50.325Z",
     "notes": [
-      "Chinese UI labels and summary reviewed; original SKILL.md body remains English source text."
+      "完整简体中文正文：catalog/skill-bodies/skill-slack-gif-creator/SKILL.zh-CN.md。",
+      "原始 SKILL.md 保持不变；译文已逐节审校，并保留 frontmatter keys、代码块、命令、路径、链接和不可翻译的技术术语。"
     ]
   },
   "web": {
@@ -171,16 +205,22 @@
     "component": "SkillWorkspace",
     "route": "/plugins/skill-slack-gif-creator",
     "features": [
-      "section outline",
-      "full-text search",
-      "source viewer",
-      "bilingual metadata"
+      "Slack GIF 制作任务 with two skill-specific task examples",
+      "动画内容与平台约束 and bounded private context input",
+      "Slack GIF 制作包 in agent-prompt, checklist, and reference-pack modes",
+      "complete Simplified Chinese and original SKILL.md switch",
+      "relevance-ranked official sections with outline, search, and full-text reader",
+      "pinned supporting-file browser backed by BUNDLE.json hashes",
+      "runtime activity and controlled validation feedback"
     ],
     "dedicatedElements": [
-      "section navigator",
-      "keyword search panel",
-      "readonly markdown source pane",
-      "skill metadata strip"
+      "Slack GIF 制作任务 input",
+      "动画内容与平台约束 panel",
+      "Slack GIF 制作包 result view",
+      "skill-specific example chips",
+      "Chinese/original document switch",
+      "ranked section navigator and search",
+      "fixed-commit supporting-resource browser"
     ]
   },
   "verification": {
@@ -191,43 +231,45 @@
         "id": "skill-slack-gif-creator-core",
         "category": "core",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:26:03.788Z",
-        "evidence": "Skill body loaded from catalog/skill-bodies and outline/list tools returned structured sections."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-slack-gif-creator: original and complete Chinese bodies opened through skill_open; skill_prepare returned ranked sections, prompt, and checklist; outline/search remained available."
       },
       {
         "id": "skill-slack-gif-creator-scenario",
         "category": "scenario",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:26:03.788Z",
-        "evidence": "Representative section open + keyword search returned line excerpts from the official body."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-slack-gif-creator: the capability-specific profile objective and context ran in Chinese through skill_prepare and returned a non-empty task artifact."
       },
       {
         "id": "skill-slack-gif-creator-error",
         "category": "error",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:26:03.788Z",
-        "evidence": "Empty query and unknown section id rejected with controlled validation errors."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-slack-gif-creator: empty objectives, unknown fields/sections, invalid locale, traversal, and missing supporting assets were rejected with InvocationValidationError."
       },
       {
         "id": "skill-slack-gif-creator-web",
         "category": "web-e2e",
         "status": "passed",
         "command": "npm run test:e2e",
-        "checkedAt": "2026-07-16T13:26:03.788Z",
-        "evidence": "SkillWorkspace route renders outline and can open a section through the invoke API."
+        "checkedAt": "2026-07-16T18:05:30.911Z",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=skills.spec.ts › priority Agent Skill browser workflows › @web-e2e [skill-slack-gif-creator] runs bilingual task, source, asset, and failure workflows; route=/plugins/skill-slack-gif-creator; result=passed"
       },
       {
         "id": "skill-slack-gif-creator-permission",
         "category": "permission",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:26:03.788Z",
-        "evidence": "Runtime only reads curated skill-body files; no network/commands/secrets granted."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-slack-gif-creator: source bundle hashes and containment were checked; the adapter only reads curated files and grants no network, commands, secrets, or accounts."
       }
     ],
-    "blockers": []
+    "blockers": [
+      "The shipped bilingual Web adaptation is verified; optional upstream scripts and downstream agent outcomes are outside this adapter and are not claimed as executed."
+    ]
   }
 }

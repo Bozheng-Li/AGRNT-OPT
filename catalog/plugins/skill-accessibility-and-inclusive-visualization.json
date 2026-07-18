@@ -4,22 +4,22 @@
   "slug": "skill-accessibility-and-inclusive-visualization",
   "kind": "agent-skill",
   "lifecycle": {
-    "status": "verified",
-    "changedAt": "2026-07-16T13:26:03.788Z"
+    "status": "web-ready",
+    "changedAt": "2026-07-16T15:25:35.349Z"
   },
   "name": {
     "original": "accessibility-and-inclusive-visualization",
-    "zhCN": "无访问数据可视化",
+    "zhCN": "无障碍与包容性可视化",
     "sourceLanguage": "en"
   },
   "summary": {
     "original": "Make data visualizations accessible and inclusive. Use when the user needs chart or diagram accessibility guidance, text alternatives for complex visuals, color and contrast review, keyboard support, reduced-motion behavior for animation or parallax, or an accessibility QA workflow for exported figures, UML-like diagrams, and dashboards.",
-    "zhCN": "无访问数据可视化：Make data visualizations accessible and inclusive. Use when the user needs chart…",
+    "zhCN": "让数据可视化具备无障碍性与包容性。当用户需要图表或图示的无障碍指导、复杂视觉内容的文本替代方案、颜色与对比度审查、键盘支持、动画或视差的减少动态行为，或针对导出图形、类 UML 图示及仪表板的无障碍质量保证工作流时，请使用此技能。",
     "sourceLanguage": "en"
   },
   "description": {
     "original": "Make data visualizations accessible and inclusive. Use when the user needs chart or diagram accessibility guidance, text alternatives for complex visuals, color and contrast review, keyboard support, reduced-motion behavior for animation or parallax, or an accessibility QA workflow for exported figures, UML-like diagrams, and dashboards. Official skill document adapted by Agent-OPT as a dedicated bilingual Web skill studio with section navigation, full-text search, and sandboxed source rendering. No upstream executable scripts are executed.",
-    "zhCN": "无访问数据可视化。Agent-OPT 将官方 SKILL.md 适配为独立 Web 技能工作室：支持章节导航、全文检索、中英对照元数据与只读源码呈现；不执行上游脚本，不访问外部账号。",
+    "zhCN": "让数据可视化具备无障碍性与包容性。当用户需要图表或图示的无障碍指导、复杂视觉内容的文本替代方案、颜色与对比度审查、键盘支持、动画或视差的减少动态行为，或针对导出图形、类 UML 图示及仪表板的无障碍质量保证工作流时，请使用此技能。Agent-OPT 将官方技能文档适配为独立的双语 Web 技能工作室，支持章节导航、全文检索和沙箱化源文档呈现；不会执行任何上游可执行脚本。",
     "sourceLanguage": "en"
   },
   "author": {
@@ -38,7 +38,8 @@
   "tags": [
     "skill",
     "a11y",
-    "inclusive"
+    "inclusive",
+    "priority-30"
   ],
   "source": {
     "primaryUrl": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/build-web-data-visualization/skills/accessibility-and-inclusive-visualization",
@@ -75,6 +76,20 @@
   },
   "capabilities": [
     {
+      "id": "prepare-task-playbook",
+      "name": {
+        "original": "Prepare a task-specific Agent playbook",
+        "zhCN": "准备特定任务的 Agent 执行手册",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Rank the pinned skill sections against a bounded user objective and context, then produce an agent prompt, checklist, or reference pack without executing upstream scripts.",
+        "zhCN": "根据范围明确的用户目标和上下文，对固定版本的技能章节进行相关性排序，然后生成 Agent 提示、检查清单或参考资料包，且不执行上游脚本。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
       "id": "skill-read",
       "name": {
         "original": "Read skill guidance",
@@ -83,7 +98,7 @@
       },
       "description": {
         "original": "Open the full official skill document with structured sections.",
-        "zhCN": "以结构化章节打开完整官方技能文档。",
+        "zhCN": "以结构化章节打开完整的官方技能文档。",
         "sourceLanguage": "en"
       },
       "risk": "low"
@@ -92,12 +107,12 @@
       "id": "skill-search",
       "name": {
         "original": "Search skill text",
-        "zhCN": "检索技能正文",
+        "zhCN": "搜索技能正文",
         "sourceLanguage": "en"
       },
       "description": {
         "original": "Keyword search across the skill body with line-level excerpts.",
-        "zhCN": "在技能正文中做关键词检索并返回行级摘录。",
+        "zhCN": "在技能正文中执行关键词搜索，并返回行级摘录。",
         "sourceLanguage": "en"
       },
       "risk": "low"
@@ -106,12 +121,26 @@
       "id": "skill-outline",
       "name": {
         "original": "Navigate sections",
-        "zhCN": "章节导航",
+        "zhCN": "浏览章节",
         "sourceLanguage": "en"
       },
       "description": {
         "original": "Jump between markdown headings and inspect one section at a time.",
-        "zhCN": "在 Markdown 标题之间跳转，并按章节查看内容。",
+        "zhCN": "在 Markdown 标题之间跳转，并一次查看一个章节。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "browse-pinned-supporting-files",
+      "name": {
+        "original": "Browse pinned supporting resources",
+        "zhCN": "??????????",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List and safely preview text references, scripts, templates, and licenses captured from the exact upstream commit and recorded in BUNDLE.json.",
+        "zhCN": "???????????? commit ???? BUNDLE.json ??????????????????????",
         "sourceLanguage": "en"
       },
       "risk": "low"
@@ -124,9 +153,9 @@
     "secrets": [],
     "externalAccounts": [],
     "notes": [
-      "In-process skill runtime reads only catalog/skill-bodies/<slug> files prepared at curation time.",
-      "Upstream scripts, if any, are not executed by Agent-OPT.",
-      "No network, credentials, or host filesystem access is granted to the skill body."
+      "The in-process adapter reads only the curated original/Chinese bodies and BUNDLE.json-listed supporting files under this skill directory.",
+      "Supporting paths must match the fixed hash manifest; traversal, unknown files, symlinks, binary previews, and files above 400KB are rejected.",
+      "Upstream scripts and external services are not executed by this Web adaptation."
     ]
   },
   "runtime": {
@@ -139,7 +168,9 @@
     },
     "requirements": [
       "Skill body checked into catalog/skill-bodies/skill-accessibility-and-inclusive-visualization/SKILL.md",
-      "No external credentials"
+      "No external credentials",
+      "Complete Chinese body at catalog/skill-bodies/skill-accessibility-and-inclusive-visualization/SKILL.zh-CN.md",
+      "Pinned supporting-file evidence at catalog/skill-bodies/skill-accessibility-and-inclusive-visualization/BUNDLE.json"
     ],
     "configuration": []
   },
@@ -154,16 +185,19 @@
     "security": 4.8,
     "webFitness": 4.5,
     "notes": [
-      "Official path-addressed skill with preserved source text and dedicated Web skill studio.",
-      "Marked verified after in-process core/scenario/error/web tests of the skill reader runtime for this body snapshot."
+      "Selected in the quality-first priority tranche with exact official source and license provenance.",
+      "Complete Simplified Chinese body preserves frontmatter, heading hierarchy, code, inline tokens, links, and URLs; validation is automated.",
+      "The dedicated profile configures task examples, labels, context, output artifact, bilingual source, and pinned resource workflow for this skill.",
+      "Lifecycle is web-ready; verified remains reserved for a passing real Chromium report and any separately executable upstream workflow evidence."
     ]
   },
   "translation": {
     "status": "reviewed",
     "glossaryVersion": "agent-opt-zh-cn-v1",
-    "translatedAt": "2026-07-16T13:26:03.788Z",
+    "translatedAt": "2026-07-16T15:05:54.735Z",
     "notes": [
-      "Chinese UI labels and summary reviewed; original SKILL.md body remains English source text."
+      "Complete Simplified Chinese translation reviewed against the pinned original SKILL.md; code blocks, commands, paths, links, and technical terms are preserved.",
+      "Chinese body: catalog/skill-bodies/skill-accessibility-and-inclusive-visualization/SKILL.zh-CN.md"
     ]
   },
   "web": {
@@ -171,16 +205,22 @@
     "component": "SkillWorkspace",
     "route": "/plugins/skill-accessibility-and-inclusive-visualization",
     "features": [
-      "section outline",
-      "full-text search",
-      "source viewer",
-      "bilingual metadata"
+      "无障碍可视化任务 with two skill-specific task examples",
+      "图表、受众与合规约束 and bounded private context input",
+      "无障碍审查包 in agent-prompt, checklist, and reference-pack modes",
+      "complete Simplified Chinese and original SKILL.md switch",
+      "relevance-ranked official sections with outline, search, and full-text reader",
+      "pinned supporting-file browser backed by BUNDLE.json hashes",
+      "runtime activity and controlled validation feedback"
     ],
     "dedicatedElements": [
-      "section navigator",
-      "keyword search panel",
-      "readonly markdown source pane",
-      "skill metadata strip"
+      "无障碍可视化任务 input",
+      "图表、受众与合规约束 panel",
+      "无障碍审查包 result view",
+      "skill-specific example chips",
+      "Chinese/original document switch",
+      "ranked section navigator and search",
+      "fixed-commit supporting-resource browser"
     ]
   },
   "verification": {
@@ -191,43 +231,45 @@
         "id": "skill-accessibility-and-inclusive-visualization-core",
         "category": "core",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:26:03.788Z",
-        "evidence": "Skill body loaded from catalog/skill-bodies and outline/list tools returned structured sections."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-accessibility-and-inclusive-visualization: original and complete Chinese bodies opened through skill_open; skill_prepare returned ranked sections, prompt, and checklist; outline/search remained available."
       },
       {
         "id": "skill-accessibility-and-inclusive-visualization-scenario",
         "category": "scenario",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:26:03.788Z",
-        "evidence": "Representative section open + keyword search returned line excerpts from the official body."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-accessibility-and-inclusive-visualization: the capability-specific profile objective and context ran in Chinese through skill_prepare and returned a non-empty task artifact."
       },
       {
         "id": "skill-accessibility-and-inclusive-visualization-error",
         "category": "error",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:26:03.788Z",
-        "evidence": "Empty query and unknown section id rejected with controlled validation errors."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-accessibility-and-inclusive-visualization: empty objectives, unknown fields/sections, invalid locale, traversal, and missing supporting assets were rejected with InvocationValidationError."
       },
       {
         "id": "skill-accessibility-and-inclusive-visualization-web",
         "category": "web-e2e",
         "status": "passed",
         "command": "npm run test:e2e",
-        "checkedAt": "2026-07-16T13:26:03.788Z",
-        "evidence": "SkillWorkspace route renders outline and can open a section through the invoke API."
+        "checkedAt": "2026-07-16T18:05:30.911Z",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=skills.spec.ts › priority Agent Skill browser workflows › @web-e2e [skill-accessibility-and-inclusive-visualization] runs bilingual task, source, asset, and failure workflows; route=/plugins/skill-accessibility-and-inclusive-visualization; result=passed"
       },
       {
         "id": "skill-accessibility-and-inclusive-visualization-permission",
         "category": "permission",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:26:03.788Z",
-        "evidence": "Runtime only reads curated skill-body files; no network/commands/secrets granted."
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T15:25:35.349Z",
+        "evidence": "skill-accessibility-and-inclusive-visualization: source bundle hashes and containment were checked; the adapter only reads curated files and grants no network, commands, secrets, or accounts."
       }
     ],
-    "blockers": []
+    "blockers": [
+      "The shipped bilingual Web adaptation is verified; optional upstream scripts and downstream agent outcomes are outside this adapter and are not claimed as executed."
+    ]
   }
 }

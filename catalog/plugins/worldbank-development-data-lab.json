@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.cyanheads/worldbank-mcp-server",
+  "slug": "worldbank-development-data-lab",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-18T04:43:06.868Z"
+  },
+  "name": {
+    "original": "World Bank MCP Server",
+    "zhCN": "World Bank 发展数据实验室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Browse World Bank topics, data sources, countries and indicators, then compare bounded multi-country development time series and read indicator or country resources without credentials.",
+    "zhCN": "无需凭据即可浏览 World Bank 主题、数据源、国家与指标，对比有界的多国发展时间序列，并读取指标或国家资源。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The exact signed npm 0.1.14 package exposes seven read-only tools and two resource templates over the public World Bank API. Agent-OPT locks HTTPS GET access to https://api.worldbank.org/v2, removes endpoint overrides, proxies and credentials, caps catalogue pages and data queries, rejects all-country downloads, and works around a verified upstream defect by refusing keyword-only indicator search, which 0.1.14 silently treats as an unfiltered catalogue request. The dedicated Web lab requires a Topic or Source scope for keyword discovery and provides indicator definitions, multi-country charts, country profiles, catalogue browsers, resources, provenance and missing-value states.",
+    "zhCN": "精确锁定且带 npm 签名的 0.1.14 包通过公开 World Bank API 提供七个只读工具和两个资源模板。Agent-OPT 将 HTTPS GET 固定到 https://api.worldbank.org/v2，移除端点覆盖、代理与凭据，限制目录页和数据查询，拒绝全国家下载，并通过拒绝仅关键词检索来规避一个已验证的上游缺陷：0.1.14 会把该路径静默当成未过滤目录请求。专属 Web 实验室要求关键词同时绑定 Topic 或 Source，并提供指标定义、多国图表、国家画像、目录浏览、资源、来源和缺失值状态。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Casey Hand (@cyanheads)",
+    "url": "https://github.com/cyanheads",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.1.14",
+    "releasedAt": "2026-06-20T18:40:06.921Z",
+    "checkedAt": "2026-07-17T18:50:00.000Z"
+  },
+  "categories": [
+    "development-data",
+    "economics",
+    "public-data",
+    "statistics"
+  ],
+  "tags": [
+    "MCP",
+    "World Bank",
+    "World Development Indicators",
+    "countries",
+    "time series",
+    "GDP",
+    "public API",
+    "keyless"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/cyanheads/worldbank-mcp-server/tree/a89edf3905e744787579dd5e34749ba26df31473",
+    "repositoryUrl": "https://github.com/cyanheads/worldbank-mcp-server",
+    "packageUrl": "https://www.npmjs.com/package/@cyanheads/worldbank-mcp-server/v/0.1.14",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=worldbank-mcp-server&limit=30",
+        "listingId": "io.github.cyanheads/worldbank-mcp-server",
+        "checkedAt": "2026-07-17T18:50:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=worldbank-mcp-server&limit=30",
+        "retrievedAt": "2026-07-17T18:50:00.000Z",
+        "note": "The official MCP Registry marks io.github.cyanheads/worldbank-mcp-server 0.1.14 active and latest, published 2026-06-20, and binds it to @cyanheads/worldbank-mcp-server 0.1.14. Agent-OPT uses only the local STDIO package."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@cyanheads/worldbank-mcp-server/0.1.14",
+        "retrievedAt": "2026-07-17T18:50:00.000Z",
+        "note": "npm records Apache-2.0, Node >=24, 58 files, 192,588 unpacked bytes, shasum f11ee9e90bd07d250bd01a8e6511e8dd2bca7e74, integrity sha512-fK16aTh61/IXcfgkGM+qrmz/NFP7bkl44cx35Zg8A189Nq9mPh8U/1deqQt/8WdhaH9AjPqNExqu97x9jXuXZg==, and a registry signature. It has no gitHead or package-level attestation, so no tarball-to-commit SLSA claim is made."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/worldbank-mcp-server/tree/a89edf3905e744787579dd5e34749ba26df31473",
+        "retrievedAt": "2026-07-17T18:50:00.000Z",
+        "note": "Annotated v0.1.14 dereferences to commit a89edf3905e744787579dd5e34749ba26df31473 and reports 134 upstream tests passing. The tag contains an SSH signature whose signer identity was not independently verified in this environment."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/worldbank-mcp-server/blob/a89edf3905e744787579dd5e34749ba26df31473/LICENSE",
+        "retrievedAt": "2026-07-17T18:50:00.000Z",
+        "note": "The pinned source and npm package declare Apache-2.0. World Bank API data and third-party indicator series retain their own source and data-use terms; Agent-OPT does not bundle or relicense the dataset."
+      },
+      {
+        "kind": "official-documentation",
+        "url": "https://api.worldbank.org/v2/country/USA;CHN/indicator/NY.GDP.PCAP.CD?format=json&date=2020:2023&per_page=20",
+        "retrievedAt": "2026-07-17T18:50:00.000Z",
+        "note": "Real exact-package STDIO calls ran all seven tools and both resources. The fixed sample returned eight 2020–2023 GDP-per-capita observations for USA and China, indicator metadata from World Development Indicators, China country metadata, 21 topics, and 71 data sources."
+      },
+      {
+        "kind": "official-documentation",
+        "url": "https://api.worldbank.org/v2/indicator?format=json&searchterm=GDP%20per%20capita&page=1&per_page=5",
+        "retrievedAt": "2026-07-17T18:50:00.000Z",
+        "note": "Qualification proved the 0.1.14 keyword-only implementation is misleading: World Bank ignores searchterm on this endpoint and returns the unfiltered catalogue, including unrelated poverty indicators. Topic+query and source+query paths perform client-side filtering and returned NY.GDP.PCAP.CD correctly, so Agent-OPT rejects keyword-only calls before launch."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/cyanheads/worldbank-mcp-server/blob/a89edf3905e744787579dd5e34749ba26df31473/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The pinned v0.1.14 source and exact npm artifact declare Apache-2.0. Agent-OPT invokes the upstream package and adds an independent fixed-origin adapter, bootstrap, translation, tests and Web presentation without copying implementation code or bundling World Bank datasets.",
+    "checkedAt": "2026-07-17T18:50:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "catalog-browsing",
+      "name": {
+        "original": "Browse topics and data sources",
+        "zhCN": "浏览主题与数据源",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List all 21 thematic topics and bounded pages of 70+ World Bank data sources for scoped indicator discovery.",
+        "zhCN": "列出全部 21 个主题和 70 多个 World Bank 数据源的有界分页，用于限定指标发现范围。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "country-reference",
+      "name": {
+        "original": "Browse and inspect countries",
+        "zhCN": "浏览并查看国家",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List countries by official region or income group and open one country or aggregate with codes, capital, coordinates, lending type, region and income classification.",
+        "zhCN": "按官方地区或收入组列出国家，并打开单个国家或聚合体的代码、首都、坐标、贷款类型、地区和收入分类。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "scoped-indicator-discovery",
+      "name": {
+        "original": "Discover indicators within a Topic or Source",
+        "zhCN": "在 Topic 或 Source 内发现指标",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Search indicator names, IDs and notes only within an explicit Topic or Source scope; misleading keyword-only catalogue requests are disabled.",
+        "zhCN": "只在明确 Topic 或 Source 范围内检索指标名称、ID 和说明；会产生误导的仅关键词目录请求被关闭。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "indicator-metadata-and-series",
+      "name": {
+        "original": "Read indicator metadata and multi-country series",
+        "zhCN": "读取指标元数据与多国序列",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read source, definition, unit, organization and topics for an indicator, then fetch up to eight countries across at most 51 years or ten most-recent observations with missing-value status preserved.",
+        "zhCN": "读取指标的来源、定义、单位、组织和主题，再获取最多八个国家、最多 51 年或最近十期观测，并保留缺失值状态。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "reference-resources",
+      "name": {
+        "original": "Read country and indicator resources",
+        "zhCN": "读取国家与指标资源",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read validated worldbank://country and worldbank://indicator resource URIs as structured reference context.",
+        "zhCN": "读取经过校验的 worldbank://country 与 worldbank://indicator 资源 URI，作为结构化参考上下文。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches only the exact local @cyanheads/worldbank-mcp-server 0.1.14 Node entry over STDIO with a 256 MiB old-space limit. Callers cannot select commands, packages, transports, environments, working directories or remote MCP hosts.",
+      "The bootstrap forces HTTPS GET access to https://api.worldbank.org/v2 on closed topic, source, country, indicator and country-indicator paths. It rejects alternate origins, ports, credentials, fragments, Request objects, bodies, redirects, arbitrary headers and query keys.",
+      "WORLDBANK_API_BASE_URL is deleted and re-pinned. Proxy, package, cloud, model-provider, auth, telemetry and credential variables are removed; sockets, arbitrary DNS, HTTP clients, datagrams, WebSockets, subprocesses, workers and server creation are denied outside the authorized fetch scope.",
+      "Topic/source filters, keywords, identifiers, country codes, region and income enums, pages, row counts, countries, year spans, most-recent counts, resource URIs, response bytes, JSON depth, arrays and text lengths are bounded before or after execution. Public data queries reject countries=all and accept at most eight unique codes.",
+      "The 0.1.14 keyword-only searchterm path is rejected because live qualification showed it returns an unfiltered catalogue. Topic+query and Source+query remain exposed with an explicit scope and bounded output.",
+      "Remote descriptions and values are untrusted, revision-prone public data. The dedicated Web renders escaped text only, preserves source names, observation status and nulls, and does not present a World Bank indicator as universally comparable without reading its definition."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-worldbank-fixed-origin-scoped-search",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@cyanheads/worldbank-mcp-server",
+      "version": "0.1.14"
+    },
+    "requirements": [
+      "Node.js 24 or newer",
+      "The exact @cyanheads/worldbank-mcp-server 0.1.14 package installed from package-lock.json",
+      "Outbound TLS access to the fixed https://api.worldbank.org origin",
+      "No API key, credential, paid plan, external account, local data mirror, hardware device or remote MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "fixed World Bank network policy",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Origin, API paths, GET method, query keys, redirect mode, timeouts and response limits are adapter-controlled and cannot be selected by Web callers.",
+          "zhCN": "来源、API 路径、GET 方法、查询键、重定向模式、超时和响应限制由适配器控制，Web 调用方不能选择。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "scoped and bounded data request",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Keyword discovery requires a Topic or Source ID; data requests contain one indicator, up to eight validated country codes, and a bounded year range or most-recent count.",
+          "zhCN": "关键词发现必须提供 Topic 或 Source ID；数据请求包含一个指标、最多八个经过校验的国家代码，以及有界年份范围或最近期数。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 91,
+    "usefulness": 4.9,
+    "uniqueness": 4.7,
+    "reliability": 4.6,
+    "maintenance": 4.5,
+    "provenance": 4.1,
+    "licenseClarity": 4.8,
+    "security": 4.9,
+    "webFitness": 5,
+    "notes": [
+      "The integration offers broad, credential-free access to development statistics, country metadata, indicator definitions and reproducible historical comparisons through an official public API.",
+      "Registry identity, exact npm package, repository, annotated release tag, author, Node requirement, code license and protocol surface align. npm signs the artifact, but gitHead/SLSA provenance is absent and the SSH tag signer was not independently verified, reflected in the provenance score.",
+      "Qualification ran all seven tools and both resources. Fixed GDP-per-capita samples returned eight 2020–2023 observations for USA and China, while country, indicator, topic and source metadata were internally consistent.",
+      "Live qualification also found a material defect: keyword-only indicator search is not honored by the World Bank endpoint and returns unrelated rows. Agent-OPT disables only that misleading mode, tests the scoped alternatives, and records the limitation rather than claiming the full upstream surface.",
+      "World Bank indicators may be revised, carry source-specific licenses and methodologies, and contain null observations. The Web makes definition, source, observation status and null counts visible."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-17T18:50:00.000Z",
+    "notes": [
+      "Kept World Bank, World Development Indicators, MCP, STDIO, Topic ID, Source ID, Indicator ID, ISO2/ISO3, aggregate and observation status as established organization, protocol and statistical catalogue terms.",
+      "Chinese copy distinguishes current-price, constant-price, PPP, percentage and count indicators, and directs users to read each indicator definition before comparison."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "WorldBankWorkspace",
+    "route": "/plugins/worldbank-development-data-lab",
+    "features": [
+      "GPT-flavored scoped indicator discovery requiring Topic or Source, with effective-query, source, definition preview and indicator drill-down",
+      "indicator metadata profile for definition, source, organization, unit and topics",
+      "multi-country time-series workflow for up to eight countries and 51 years with SVG comparison chart, exact observation table and null count",
+      "regional country browser and country/aggregate profile with ISO codes, capital, coordinates, region, income group and lending type",
+      "21-topic and paged data-source catalogues that feed indicator discovery",
+      "worldbank://indicator and worldbank://country MCP resource readers",
+      "pending, activity, no-match, null observation, upstream error, keyword-only rejection, invalid identifier/range, source-boundary and responsive mobile states"
+    ],
+    "dedicatedElements": [
+      "scoped indicator result ledger",
+      "indicator methodology profile",
+      "multi-country SVG time-series chart",
+      "exact observation table",
+      "country profile cards",
+      "topic and source catalogue browsers",
+      "indicator and country resource cards"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "worldbank-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/worldbank-runtime.test.ts",
+        "checkedAt": "2026-07-17T18:50:00.000Z",
+        "evidence": "Vitest passed 3/3 integration tests. The exact 0.1.14 STDIO package exposed seven read-only tools, zero static resources, two resource templates and zero prompts; every tool and both templates were invoked through the fixed-origin adapter."
+      },
+      {
+        "id": "worldbank-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/worldbank-runtime.test.ts",
+        "checkedAt": "2026-07-17T18:50:00.000Z",
+        "evidence": "The real workflow listed 21 topics and 71 sources, found China in EAS and loaded its profile, found NY.GDP.PCAP.CD through Topic 3 plus keyword, loaded its WDI definition, returned eight 2020–2023 USA/China observations, and read both country and indicator resources."
+      },
+      {
+        "id": "worldbank-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/worldbank-runtime.test.ts",
+        "checkedAt": "2026-07-17T18:50:00.000Z",
+        "evidence": "A real missing country remained a controlled country_not_found error and a scoped no-match remained a non-error empty result with notice. The adapter rejected keyword-only search, conflicting scopes, all-country downloads, excess countries, excessive or conflicting year requests, malformed identifiers, invalid enums/pages/resources, extra baseUrl fields and oversized or malformed results."
+      },
+      {
+        "id": "worldbank-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/worldbank-runtime.test.ts",
+        "checkedAt": "2026-07-17T18:50:00.000Z",
+        "evidence": "The executable probe proved exact package pinning, fixed api.worldbank.org origin, redirect and Request-object denial, custom host/path/keyword-only/all-country and credential-header rejection, linked-root denial, host-read/write/subprocess/worker denial, forced base URL, and removal of proxies and credentials."
+      },
+      {
+        "id": "worldbank-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/worldbank-api.test.ts",
+        "checkedAt": "2026-07-18T04:42:39.013Z",
+        "evidence": "Vitest passed 2/2 public-route integration tests. The Next API exposed the exact seven tools and two resource templates, completed Topic- and Source-bound indicator discovery, indicator metadata, USA/China 2020–2023 observations, country and catalogue workflows, and both resource reads; it rejected keyword-only search, all-country downloads, conflicting scopes, malformed identifiers and invalid resource URIs."
+      },
+      {
+        "id": "worldbank-web-e2e",
+        "category": "web-e2e",
+        "status": "passed",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=worldbank.spec.ts › @web-e2e [worldbank-development-data-lab] World Bank Web runs seven tools, two resources, guarded errors, and mobile layout; route=/plugins/worldbank-development-data-lab; result=passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-18T04:43:06.868Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "0.1.14"
+  }
+}

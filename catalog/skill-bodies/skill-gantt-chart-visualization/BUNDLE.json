@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-gantt-chart-visualization",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/build-web-data-visualization/skills/gantt-chart-visualization",
+  "skillSha256": "d207d3a674d0aca0a3cec35b68cf5cf80c968e9c70a08f393d7bf555dc6a97f1",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "cc045541456c41ef6269a69f1fdfb4abd4a6eaf1823e63bd3a822463867d2657"
+    },
+    {
+      "path": "references/gantt-accessibility-export-and-testing.md",
+      "sha256": "7d20ffb122effae36fdee3e9c5ab5aa0c4b92cb240c80598a83af3f2c4caf69d"
+    },
+    {
+      "path": "references/gantt-api-and-export-format-ingestion.md",
+      "sha256": "b6cfcd1620b7312b90a67a8ca8e6681e7545b58bdbb5d1295d69b45c37e45d78"
+    },
+    {
+      "path": "references/gantt-chart-design-and-use-cases.md",
+      "sha256": "4d9a1d00f61074898556a15f33cd39bd1f3fd9e326f0e221f937d3a1996446c2"
+    },
+    {
+      "path": "references/gantt-data-contracts-and-integrations.md",
+      "sha256": "88bee1863d32504dd60fb4646e6cfb121a10627170f6f07375c62d8c20ed53d3"
+    },
+    {
+      "path": "references/gantt-interaction-patterns.md",
+      "sha256": "4dcad4cdc96c36f474829eed8b85efb04a6c56f1673604cc4bd5c6a5a20dde1c"
+    },
+    {
+      "path": "references/gantt-performance-and-rendering.md",
+      "sha256": "99536dab2de1cde15e7a65964331aad9c5860738b59f7cafd0567189af42f4ea"
+    }
+  ]
+}

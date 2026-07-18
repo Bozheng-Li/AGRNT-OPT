@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-grammar-of-graphics-and-declarative-visualization",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/build-web-data-visualization/skills/grammar-of-graphics-and-declarative-visualization",
+  "skillSha256": "5e0feec02c4ae815013c983481c10611af02aa55a59786e86ee53e4c8ffeb1ff",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "464e3590b1dc7e977050473e275d783c4ce52b9da436fd08b7b9d1ac9ecb639c"
+    },
+    {
+      "path": "references/observable-plot.md",
+      "sha256": "7f56b5b624fe3c1dacec05039c3d395094b1e341decf05f45e4f413c3fbe6450"
+    },
+    {
+      "path": "references/vega-lite-and-vega.md",
+      "sha256": "f6ad6b02737f81a532e985d12d93e52392ef8ba81bca0a0e476dc66d35f7202e"
+    },
+    {
+      "path": "references/when-to-stay-declarative.md",
+      "sha256": "2bcf3ec22f114cdcdb0cd7324883270cda607927c73b899cac5c1ee0cde32145"
+    }
+  ]
+}

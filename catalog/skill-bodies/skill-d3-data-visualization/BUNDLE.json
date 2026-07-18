@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-d3-data-visualization",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/build-web-data-visualization/skills/d3-data-visualization",
+  "skillSha256": "7e333c70eed27846d5772034afbec21675c6c3e907a634eb560750c62edf3946",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "31e69bcf994568fc8b5a12e2dff7207c22159b806c25b819a63b1b0319d8db3d"
+    },
+    {
+      "path": "references/d3-architecture-patterns.md",
+      "sha256": "8dea034c1777d04ca6622951126f0796c8cb8dd886a840eccafcf01ee994abe6"
+    },
+    {
+      "path": "references/d3-interaction-and-annotation.md",
+      "sha256": "9fbd79a3ead366053efdc3e0071895af05ac62b639514f4e119a70ef7cd0cc6e"
+    },
+    {
+      "path": "references/d3-module-map.md",
+      "sha256": "5ae3764b669695ba2dfff11b0c8fd4f63cf23b759b451632fb8cd85460273a6d"
+    },
+    {
+      "path": "references/d3-pitfalls-and-scale-limits.md",
+      "sha256": "36c8a61eac374887b487548c51b38bf84e3597e80a72eceb2f92e63e64b259fc"
+    },
+    {
+      "path": "references/svg-polish-and-crispness.md",
+      "sha256": "7b64a334c91a180d7be54adeb0eb98ea42fe0afb977dd2feae9a453f97f0f0d3"
+    }
+  ]
+}

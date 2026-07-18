@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-building-native-ui",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/expo/skills/building-native-ui",
+  "skillSha256": "d7c3bd3f5709e3c5ee7cc9cda3889f069132469aa0a91d61d3bc5881c5827907",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "8fd1944ce7d02d53bf760f344f8fc341e9eb10f8afc7905a3c85b119cfecc4ca"
+    },
+    {
+      "path": "references/animations.md",
+      "sha256": "e52361d8926f6f178f82f7fd5cdfc52554e13fd79a2f4719e9a5414cc085c8a7"
+    },
+    {
+      "path": "references/controls.md",
+      "sha256": "f82883ef6f2a9f44475ca7a6e1e2b2703029245c4057a1c78a1cf654d070d8bf"
+    },
+    {
+      "path": "references/form-sheet.md",
+      "sha256": "f9935982a9dc6f0c926602e30b8deef9e271d5d58db2a8031ca18a690affcc90"
+    },
+    {
+      "path": "references/gradients.md",
+      "sha256": "e401012d5255dd762fd936fd1a01f21a59032494a476c1de4bdcf4e9e958803b"
+    },
+    {
+      "path": "references/icons.md",
+      "sha256": "0d0c82586164b78b324d8bb329c6915dc1000177ca44b46a6d4c5ff6d697079c"
+    },
+    {
+      "path": "references/media.md",
+      "sha256": "146f26c198254fee525f04a71aacb398789461db1c87d79bb38aa747226b1401"
+    },
+    {
+      "path": "references/route-structure.md",
+      "sha256": "80992ea08d16c0151dffacd4f31ce1b1cd553e01f4f941bd36d991a978ce274c"
+    },
+    {
+      "path": "references/search.md",
+      "sha256": "317fd181c7ff9783a0a738630042fc662a483f9eccff23aa5eb2ade4195c9e73"
+    },
+    {
+      "path": "references/storage.md",
+      "sha256": "62d6a91f458a7f59eb81ca5279d7d022407749a12e95d70e2046a217230e17c7"
+    },
+    {
+      "path": "references/tabs.md",
+      "sha256": "5ec9f4a60dfcc42039ae369a90c4710255bd8fd91cf751ba6679a76aab38a4d5"
+    },
+    {
+      "path": "references/toolbar-and-headers.md",
+      "sha256": "7bdd70b3f48b9a5b79c24ee1861bf3d078ec39e93f5db7756e695ff92d244760"
+    },
+    {
+      "path": "references/visual-effects.md",
+      "sha256": "920346e657f74906ee30d9b95bb8007cbac56261c06d269593d1bef3da3cadaa"
+    },
+    {
+      "path": "references/webgpu-three.md",
+      "sha256": "4e8b7eae87c9537eab2b28d43c2a718027825ead675a7477ddadaccd74dfebf6"
+    },
+    {
+      "path": "references/zoom-transitions.md",
+      "sha256": "4fddef8ee52e45e64c35f6cc45965d05678b135b26b5eddb116ef1b1fe0527ac"
+    }
+  ]
+}

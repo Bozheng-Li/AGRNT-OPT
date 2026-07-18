@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.7
 
-FROM node:22-bookworm-slim AS base
+FROM node:24-bookworm-slim AS base
 WORKDIR /app
 
 RUN apt-get update \
@@ -49,7 +49,7 @@ RUN mkdir -p /opt/dotnet /app/var/runtime \
   && rm /tmp/dotnet-install.sh \
   && /opt/dotnet/dotnet --version
 
-COPY package.json package-lock.json requirements-mcp.txt next.config.ts tsconfig.json ./
+COPY package.json package-lock.json requirements-mcp.txt requirements-markitdown-mcp.txt next.config.ts tsconfig.json ./
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 COPY catalog ./catalog
@@ -60,6 +60,10 @@ COPY public ./public
 RUN python3 -m venv /app/.venv \
   && /app/.venv/bin/pip install --upgrade pip \
   && /app/.venv/bin/pip install -r requirements-mcp.txt \
+  && python3 -m venv /app/.venv-markitdown \
+  && /app/.venv-markitdown/bin/pip install --upgrade pip \
+  && /app/.venv-markitdown/bin/pip install -r requirements-markitdown-mcp.txt \
+  && /app/.venv-markitdown/bin/pip install --no-deps markitdown-mcp==0.0.1a4 \
   && mkdir -p /app/var/runtime \
   && chown -R node:node /app
 

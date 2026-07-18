@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "id": "dev.e18e/e18e",
+  "slug": "e18e-dependency-advisor",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T17:33:04.208Z"
+  },
+  "name": {
+    "original": "e18e MCP",
+    "zhCN": "e18e 依赖性能顾问",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Review npm install text and JavaScript imports against e18e's fixed replacement knowledge base, then explore migration guides without installing or executing packages.",
+    "zhCN": "用 e18e 固定替代知识库审查 npm 安装文本和 JavaScript 导入，再浏览迁移指南；全程不安装也不执行被检查的包。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The official @e18e/mcp 0.0.9 STDIO server exposes three real tools: npm-i-checker, code-checker, and the README-omitted lookup-replacement, plus 117 bundled replacement documents through e18e://docs/{slug} and a task prompt. Agent-OPT keeps that protocol surface, narrows every public input to bounded text, and denies network, subprocess, path, package-install, and credential semantics.",
+    "zhCN": "官方 @e18e/mcp 0.0.9 STDIO 服务实际提供 npm-i-checker、code-checker 与 README 漏列的 lookup-replacement 三个工具，并通过 e18e://docs/{slug} 提供 117 篇内置替代指南及一个 task 提示。Agent-OPT 保留这套真实协议面，把公开输入收窄为有界文本，并禁止网络、子进程、路径、包安装和凭据语义。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "e18e Community",
+    "url": "https://github.com/e18e",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.0.9",
+    "releasedAt": "2026-07-09T16:47:55.745Z",
+    "checkedAt": "2026-07-16T17:18:35.405Z"
+  },
+  "categories": [
+    "developer-tools",
+    "dependency-analysis",
+    "performance",
+    "documentation"
+  ],
+  "tags": [
+    "MCP",
+    "e18e",
+    "npm",
+    "dependency alternatives",
+    "JavaScript imports",
+    "migration guides",
+    "local static analysis"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/e18e/mcp/tree/0423c22356ae4ef4ddddcfb04a26e6e71ec36cce/packages/stdio",
+    "repositoryUrl": "https://github.com/e18e/mcp",
+    "packageUrl": "https://www.npmjs.com/package/@e18e/mcp/v/0.0.9",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=e18e&limit=100",
+        "listingId": "dev.e18e/e18e",
+        "checkedAt": "2026-07-16T17:18:35.405Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=e18e&limit=100",
+        "retrievedAt": "2026-07-16T17:18:35.405Z",
+        "note": "The official MCP Registry marks dev.e18e/e18e 0.0.9 as latest and active, binds it to GitHub repository e18e/mcp subfolder packages/stdio, identifies @e18e/mcp 0.0.9 as the npm STDIO package, and also records an optional remote transport that Agent-OPT does not use."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@e18e/mcp/0.0.9",
+        "retrievedAt": "2026-07-16T17:18:35.405Z",
+        "note": "npm records 0.0.9 as the latest release, published 2026-07-09 by GitHub Actions, with MCP name dev.e18e/e18e, 49 package files, 212,802 unpacked bytes, and SHA-512 integrity VjB5J+bNf6zDdp7a2DJnNhR5ph3uxocIUzjdk256dYzraMpmWfdiL3nreKxn54NCxT1GdDyU51yMj4pLzd4bAw==."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/@e18e%2fmcp@0.0.9",
+        "retrievedAt": "2026-07-16T17:18:35.405Z",
+        "note": "The npm Sigstore/SLSA provenance attestation binds @e18e/mcp 0.0.9 to the e18e/mcp GitHub Actions release workflow on refs/heads/main and exact source commit 0423c22356ae4ef4ddddcfb04a26e6e71ec36cce."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/e18e/mcp/blob/0423c22356ae4ef4ddddcfb04a26e6e71ec36cce/packages/stdio/src/index.ts",
+        "retrievedAt": "2026-07-16T17:18:35.405Z",
+        "note": "The pinned official source configures STDIO MCP tools, resources, prompts, and completions. Real protocol discovery against the published package found code-checker, lookup-replacement, npm-i-checker, 117 listed resources, replacement-docs at e18e://docs/{slug}, and the task prompt."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/e18e/mcp/blob/0423c22356ae4ef4ddddcfb04a26e6e71ec36cce/packages/stdio/README.md",
+        "retrievedAt": "2026-07-16T17:18:35.405Z",
+        "note": "The pinned README documents npm-i-checker, code-checker, replacement-docs, and task, but omits lookup-replacement even though the published dist/setup registers it. Agent-OPT follows the executable 0.0.9 protocol and explicitly preserves this documentation discrepancy."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/e18e/mcp/blob/0423c22356ae4ef4ddddcfb04a26e6e71ec36cce/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The exact provenance commit contains the MIT License with copyright e18e 2025, and the published npm tarball includes the same LICENSE. Agent-OPT invokes the fixed package and does not copy its tool or documentation implementation.",
+    "checkedAt": "2026-07-16T17:18:35.405Z"
+  },
+  "capabilities": [
+    {
+      "id": "install-text-review",
+      "name": {
+        "original": "Review npm install command text",
+        "zhCN": "审查 npm 安装命令文本",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Parse a bounded npm, pnpm, yarn, or bun install line as inert text and return curated alternatives for recognized packages.",
+        "zhCN": "把有界的 npm、pnpm、yarn 或 bun 安装行作为惰性文本解析，为命中的包返回经整理的替代建议。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "source-import-review",
+      "name": {
+        "original": "Review JavaScript and TypeScript imports",
+        "zhCN": "审查 JavaScript 与 TypeScript 导入",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Parse bounded JS, TS, JSX, or TSX source text with es-module-lexer and report imports with preferred replacements.",
+        "zhCN": "用 es-module-lexer 解析有界的 JS、TS、JSX 或 TSX 源码文本，报告存在首选替代方案的导入。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "replacement-exploration",
+      "name": {
+        "original": "Search replacement knowledge",
+        "zhCN": "检索替代方案知识库",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Search native APIs, micro-utility snippets, and preferred packages by bounded package name, replacement text, or topic.",
+        "zhCN": "按有界包名、替代文本或主题检索原生 API、微型工具片段和首选包。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "bundled-migration-guides",
+      "name": {
+        "original": "Read bundled migration guides",
+        "zhCN": "读取内置迁移指南",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List and read fixed text/plain migration documents through the replacement-docs MCP resource template.",
+        "zhCN": "通过 replacement-docs MCP 资源模板列出并读取固定的 text/plain 迁移文档。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "task-prompt-assembly",
+      "name": {
+        "original": "Assemble an e18e task prompt",
+        "zhCN": "装配 e18e Agent 任务提示",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Use the real task prompt to wrap a bounded user objective with instructions to invoke the install and code checkers.",
+        "zhCN": "通过真实 task 提示，把有界用户目标装配为会调用安装与代码检查器的 Agent 工作指令。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-read",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The only launched command is the fixed local Node.js bootstrap for the exactly installed @e18e/mcp 0.0.9 STDIO entry; user text never becomes command arguments.",
+      "The upstream package reads only its own fixed dist/docs/docs.json artifact. It receives no user path and runs with a dedicated HOME and temporary directory beneath var/runtime/e18e-mcp.",
+      "Install input accepts only four known runner/verb forms plus 1–12 bare package names. Flags, versions, local paths, URLs, registries, shell operators, and arbitrary commands are rejected before process launch.",
+      "Source input is parsed as bounded text and path-shaped values are rejected. Replacement queries cannot contain URL, traversal, backslash, control, or shell syntax.",
+      "The security bootstrap removes proxy and package-registry credential variables and denies fetch, WebSocket, HTTP(S), sockets, datagrams, TLS, and child-process APIs before importing the upstream server.",
+      "Resource reads must first match e18e://docs/<fixed-slug>.md and then appear in the current upstream resources/list response. Results, documents, prompts, and indexes each have explicit byte limits and are rendered as escaped text."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-e18e-bounded-text",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@e18e/mcp",
+      "version": "0.0.9"
+    },
+    "requirements": [
+      "Node.js 18 or newer",
+      "The exact @e18e/mcp 0.0.9 package installed from package-lock.json",
+      "No package manager execution, project file access, network, credential, account, paid service, or external daemon is required"
+    ],
+    "configuration": [
+      {
+        "key": "bounded text-only adapter",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Only validated install text, source text, replacement queries, fixed resource URIs, and bounded task text reach the upstream protocol.",
+          "zhCN": "只有经校验的安装文本、源码文本、替代检索词、固定资源 URI 与有界任务文本能够进入上游协议。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "offline fixed-process bootstrap",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Network and subprocess APIs are denied before the fixed npm package starts, while package-owned migration data remains readable.",
+          "zhCN": "固定 npm 包启动前会禁用网络与子进程 API，同时保留对包内迁移数据的只读访问。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 92,
+    "usefulness": 4.5,
+    "uniqueness": 4.5,
+    "reliability": 4.5,
+    "maintenance": 4.5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 5,
+    "webFitness": 5,
+    "notes": [
+      "The package turns a maintained ecosystem-performance dataset into actionable dependency and import review without needing credentials or executing third-party packages.",
+      "The npm provenance is unusually strong: the attestation fixes the exact GitHub Actions workflow and commit, while the official MCP Registry independently identifies the same package and version.",
+      "Real discovery showed a richer surface than the README: three tools, 117 resources, one resource template, completion support, and one task prompt. The Web adaptation exposes the executable truth and documents the mismatch.",
+      "The result is advisory rather than a vulnerability scanner or proof of performance. The UI preserves that boundary and never applies replacement advice automatically.",
+      "The shipped revision passed real STDIO, representative scenario, failure, security-bootstrap, public API, and Chromium Web verification before lifecycle promotion."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T17:18:35.405Z",
+    "notes": [
+      "Kept e18e, MCP, STDIO, npm, pnpm, yarn, bun, JS, TS, JSX, TSX, URI, prompt and text/plain as established technical terms.",
+      "The Chinese copy consistently says review or advice, not automatic optimization, installation, migration, security scanning, or verified performance improvement.",
+      "The README omission of lookup-replacement is disclosed in both languages rather than silently translating an incomplete capability list."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "E18eWorkspace",
+    "route": "/plugins/e18e-dependency-advisor",
+    "features": [
+      "GPT-flavored install-text advisor with explicit inert-text and no-install feedback",
+      "JS, TS, JSX and TSX import review editor with capability-specific examples",
+      "structured native, micro-utility and preferred replacement search cards",
+      "real MCP resource index, fixed-URI migration document reader and escaped source presentation",
+      "real task-prompt builder that presents generated Agent instructions as non-executing context",
+      "pending, activity, empty, no-match, upstream failure and security-boundary feedback"
+    ],
+    "dedicatedElements": [
+      "four-runner bounded install-command text reviewer",
+      "source import editor and recognized-replacement suggestion stack",
+      "typed replacement explorer with expandable bundled documentation",
+      "117-document MCP resource browser with URI-template facts",
+      "Agent task prompt assembler using the upstream prompt protocol",
+      "offline and non-installation boundary notice"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.0.9",
+    "tests": [
+      {
+        "id": "e18e-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/e18e-runtime.test.ts",
+        "checkedAt": "2026-07-16T17:30:02.049Z",
+        "evidence": "The real 0.0.9 STDIO server exposed exactly code-checker, lookup-replacement and npm-i-checker with their fixed input/output schemas. All three tools were called through the shipped adapter; resources/list returned 117 documents, resources/templates exposed e18e://docs/{slug}, resources/read returned moment.md, prompts/list exposed task, prompts/get returned its message, and template completion returned moment.md."
+      },
+      {
+        "id": "e18e-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/e18e-runtime.test.ts",
+        "checkedAt": "2026-07-16T17:30:02.049Z",
+        "evidence": "Representative install and source checks identified lodash, moment and chalk; filter search returned native, micro-utility and preferred results; a no-match package remained empty; moment.md preserved migration examples; and the task prompt included both checker instructions plus the supplied objective."
+      },
+      {
+        "id": "e18e-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/e18e-runtime.test.ts",
+        "checkedAt": "2026-07-16T17:30:02.049Z",
+        "evidence": "A real malformed-import call surfaced the upstream parser error, while unknown tools and prompts, absent or foreign resource URIs, oversized code and task text, and invalid request shapes produced controlled adapter validation failures."
+      },
+      {
+        "id": "e18e-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/e18e-runtime.test.ts",
+        "checkedAt": "2026-07-16T17:30:02.049Z",
+        "evidence": "Table-driven tests rejected install versions, flags, local paths, URLs, shell operators and arbitrary commands; path-shaped source, query URL/traversal/control syntax and a junction runtime root were denied. An executable child-process probe proved fetch, HTTP and subprocess access are blocked and proxy plus npm registry tokens are removed before upstream import."
+      },
+      {
+        "id": "e18e-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/api-route.integration.test.ts -t e18e",
+        "checkedAt": "2026-07-16T17:30:02.049Z",
+        "evidence": "The public Next route invoked all three upstream tools, listed protocol assets, read the real moment resource, obtained the real task prompt, returned plugin id dev.e18e/e18e, and rejected a shell-shaped install string and file URI with HTTP 400."
+      },
+      {
+        "id": "e18e-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=catalog-and-plugins.spec.ts › @web-e2e [e18e-dependency-advisor] e18e Web runs every tool, a migration resource, and the task prompt; route=/plugins/e18e-dependency-advisor; result=passed",
+        "checkedAt": "2026-07-16T17:33:04.208Z"
+      }
+    ],
+    "blockers": []
+  }
+}

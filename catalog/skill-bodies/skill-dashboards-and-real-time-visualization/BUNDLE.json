@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-dashboards-and-real-time-visualization",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/build-web-data-visualization/skills/dashboards-and-real-time-visualization",
+  "skillSha256": "a13d4fb8b466f05746e8c7f63baa041a8ad3246a9b0ffc258bb663b3048c3a37",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "ca92f4da620948f8e96d3f7649fd759823d1b1b78bbf2b5edbc66bf3613b65e3"
+    },
+    {
+      "path": "references/interaction-patterns.md",
+      "sha256": "d966d484666c27b74fbb19b8a478eb0baf767315efa28fb751f52c6150a9a08c"
+    },
+    {
+      "path": "references/monitoring-vs-analysis.md",
+      "sha256": "bdf8e09d8b5eb420b341b3537a081cdaf4cf7f225358a3dc857bfb7f0d11639e"
+    },
+    {
+      "path": "references/performance-and-degradation.md",
+      "sha256": "ef775ed3308f3d13c35a27695f273003aa01ef5b484239d65745dda5b2c04a75"
+    },
+    {
+      "path": "references/streaming-data-pipelines.md",
+      "sha256": "1c4aeb89dec12a69ed3749a7a5f86a734e0cd39fa83bceb61f069b1f0000040d"
+    }
+  ]
+}

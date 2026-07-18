@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-durable-objects",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/cloudflare/skills/durable-objects",
+  "skillSha256": "8ecddfec282cdc8f964dbe577bdc176a5b5a490b3d7ddd68cb4b34cbafb0b177",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "c2b8f568aad77818ba141e0145b8d83a6678765991b16dcccf159aaeb07d41ee"
+    },
+    {
+      "path": "references/rules.md",
+      "sha256": "44559ded9a770e4d18838b287c4763d0fd3c530d170f3c59fe01ee713fd0c80c"
+    },
+    {
+      "path": "references/testing.md",
+      "sha256": "21009dcd4c22a15fdac3b61d542a7a0a43a8a7e1ef8fbd0abe2623c0e679cadd"
+    },
+    {
+      "path": "references/workers.md",
+      "sha256": "f81ba83b1fbbc8f7bcea2c744787497eed8424dd97b3de7be330978f92aacaa9"
+    }
+  ]
+}

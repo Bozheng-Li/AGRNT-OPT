@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.usejunior/safe-docx",
+  "slug": "safe-docx-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-17T04:59:51.313Z"
+  },
+  "name": {
+    "original": "Safe Docx",
+    "zhCN": "Safe DOCX 编辑台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Surgically read, search, edit, and export Word .docx and OpenDocument .odt files inside a local sandbox without credentials or Google Docs.",
+    "zhCN": "在本地沙箱中对 Word .docx 与 OpenDocument .odt 进行读取、检索、段落级编辑与导出，无需凭据或 Google Docs。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The official @usejunior/safe-docx 0.15.0 STDIO package (implementation in @usejunior/docx-mcp) exposes twenty-three document tools for brownfield DOCX/ODT editing with formatting preservation. Agent-OPT pins that exact package, launches it through a fixed security bootstrap, restricts SAFE_DOCX_ALLOWED_ROOTS to one upload/output sandbox, and narrows the public Web surface to eight tools: read_file, grep, replace_text, insert_paragraph, export, save, get_file_status, and close_file. Google Docs IDs, host paths, multi-file batch paths, and unrestricted tracked-change comparison are not exposed.",
+    "zhCN": "官方 @usejunior/safe-docx 0.15.0 STDIO 包（实现位于 @usejunior/docx-mcp）提供二十三个文档工具，面向保留格式的存量 DOCX/ODT 编辑。Agent-OPT 固定该版本，经安全引导进程启动，把 SAFE_DOCX_ALLOWED_ROOTS 限制为单一上传/输出沙箱，并把公开 Web 面收窄为八个工具：read_file、grep、replace_text、insert_paragraph、export、save、get_file_status 与 close_file。不开放 Google Docs ID、宿主路径、多文件批处理路径，以及不受限的修订对比。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "UseJunior",
+    "url": "https://github.com/UseJunior",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.15.0",
+    "releasedAt": "2026-07-01T00:00:00.000Z",
+    "checkedAt": "2026-07-17T05:00:00.000Z"
+  },
+  "categories": [
+    "document-processing",
+    "productivity",
+    "developer-tools"
+  ],
+  "tags": [
+    "MCP",
+    "DOCX",
+    "ODT",
+    "Word",
+    "document editing",
+    "redline",
+    "local"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/UseJunior/safe-docx",
+    "repositoryUrl": "https://github.com/UseJunior/safe-docx",
+    "packageUrl": "https://www.npmjs.com/package/@usejunior/safe-docx/v/0.15.0",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=safe-docx&limit=100",
+        "listingId": "io.github.usejunior/safe-docx",
+        "checkedAt": "2026-07-17T05:00:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@usejunior/safe-docx/0.15.0",
+        "retrievedAt": "2026-07-17T05:00:00.000Z",
+        "note": "npm records @usejunior/safe-docx 0.15.0 as Apache-2.0 with a bin entry re-exporting @usejunior/docx-mcp and mcpName io.github.UseJunior/safe-docx (catalog id normalized to lowercase)."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/UseJunior/safe-docx",
+        "retrievedAt": "2026-07-17T05:00:00.000Z",
+        "note": "Upstream monorepo documents brownfield DOCX/ODT editing, tracked changes, comments, footnotes, and SAFE_DOCX_ALLOWED_ROOTS path policy."
+      },
+      {
+        "kind": "corroborating-source",
+        "url": "https://www.npmjs.com/package/@usejunior/docx-mcp",
+        "retrievedAt": "2026-07-17T05:00:00.000Z",
+        "note": "Real STDIO qualification of 0.15.0 discovered exactly 23 tools, no resources or prompts. read_file and grep against a minimal Service Agreement DOCX returned Payment due in thirty days and paragraph IDs."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/UseJunior/safe-docx/blob/main/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The published npm artifact and repository declare Apache-2.0. Agent-OPT invokes the upstream package through an independent adapter, bootstrap, tests, and Web presentation without copying its implementation.",
+    "checkedAt": "2026-07-17T05:00:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "docx-structure-read",
+      "name": {
+        "original": "Read DOCX/ODT structure",
+        "zhCN": "读取 DOCX/ODT 结构",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Load a sandboxed document and return bounded paragraph structure with stable paragraph IDs.",
+        "zhCN": "加载沙箱内文档，返回带稳定段落 ID 的有界段落结构。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "docx-paragraph-search",
+      "name": {
+        "original": "Search paragraphs with regex",
+        "zhCN": "用正则检索段落",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Search a single sandboxed document with a bounded regex and return matching paragraph contexts.",
+        "zhCN": "在单个沙箱文档上执行有界正则检索，并返回匹配段落上下文。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "docx-surgical-edit",
+      "name": {
+        "original": "Replace or insert paragraph text",
+        "zhCN": "替换或插入段落文本",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Apply paragraph-id-targeted text replacement or insertion while preserving supported formatting.",
+        "zhCN": "按段落 ID 做文本替换或插入，并在支持范围内保留格式。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "docx-export",
+      "name": {
+        "original": "Export to Markdown/HTML/text",
+        "zhCN": "导出为 Markdown/HTML/文本",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Write a portable rendering into the sandbox outputs directory.",
+        "zhCN": "把可移植渲染结果写入沙箱输出目录。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "Web callers upload only base64 DOCX/ODT payloads. Absolute paths, Google Doc IDs, multi-file arrays, and unknown host path fields fail closed before the upstream process receives arguments.",
+      "Uploads are validated as non-ZIP64 Office/ODF containers up to 8 MiB with path-safe internal entries and decompression budgets.",
+      "SAFE_DOCX_ALLOWED_ROOTS is forced to the per-run sandbox root. The bootstrap removes proxy and credential-shaped environment variables and denies fetch, HTTP(S), DNS, sockets, workers, and child processes.",
+      "Only eight of twenty-three upstream tools are exposed on the public Web surface. Tracked-change comparison, comments, footnotes, batch plans, and Google Docs remain unavailable in this adaptation.",
+      "Document text is treated as untrusted evidence and is never executed as agent instructions or rendered as raw HTML."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-safe-docx-node",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@usejunior/safe-docx",
+      "version": "0.15.0"
+    },
+    "requirements": [
+      "Node.js 18 or newer",
+      "The exact npm package installed from the project lockfile",
+      "No credential, paid account, Google account, or external network service is required"
+    ],
+    "configuration": [
+      {
+        "key": "sandboxed document path",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "A relative path returned by the Safe DOCX upload API inside the private sandbox; host paths and Google Doc IDs are not configuration options.",
+          "zhCN": "Safe DOCX 上传接口返回的私有沙箱相对路径；宿主路径与 Google Doc ID 不是可配置项。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 88,
+    "usefulness": 4.8,
+    "uniqueness": 4.6,
+    "reliability": 4.3,
+    "maintenance": 4.5,
+    "provenance": 4.2,
+    "licenseClarity": 5,
+    "security": 4.6,
+    "webFitness": 4.5,
+    "notes": [
+      "This is a real local document-editing capability rather than a cloud wrapper: one sandboxed DOCX becomes readable, searchable, surgically editable, and exportable without credentials.",
+      "Official package identity, Apache-2.0, and server.json mcpName agree; the public Web deliberately exposes a safer subset of the 23-tool surface.",
+      "Qualification against the published 0.15.0 package discovered exactly twenty-three tools and successfully read and grepped a Service Agreement fixture.",
+      "Google Docs, host filesystem roots, and multi-document batch tools remain intentionally blocked rather than half-integrated."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-17T05:00:00.000Z",
+    "notes": [
+      "Kept DOCX, ODT, MCP, STDIO, OOXML, and paragraph ID as established technical terms.",
+      "Chinese copy emphasizes sandbox boundaries and the absence of Google Docs access."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "SafeDocxWorkspace",
+    "route": "/plugins/safe-docx-studio",
+    "features": [
+      "DOCX/ODT upload with structural ZIP validation and a Service Agreement example",
+      "read structured paragraphs, grep matches, paragraph-id text replacement, and Markdown export",
+      "pending, activity, local validation, upstream error, and responsive feedback",
+      "no Google Docs, host paths, or multi-file batch controls"
+    ],
+    "dedicatedElements": [
+      "document upload dropzone",
+      "read/grep/replace/export tabs",
+      "paragraph ID and text replacement fields",
+      "sandbox file facts strip",
+      "structured result cards and JSON output"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.15.0",
+    "tests": [
+      {
+        "id": "safe-docx-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/safe-docx-runtime.test.ts",
+        "checkedAt": "2026-07-17T04:59:07.000Z",
+        "evidence": "The installed 0.15.0 package exposed the curated eight-tool Web surface. Real read_file on the Service Agreement fixture returned Service Agreement and Payment due in thirty days with paragraph structure."
+      },
+      {
+        "id": "safe-docx-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/safe-docx-runtime.test.ts",
+        "checkedAt": "2026-07-17T04:59:07.000Z",
+        "evidence": "Representative path: grep Payment → replace_text thirty days to fifteen days by paragraph id → export markdown into sandbox outputs."
+      },
+      {
+        "id": "safe-docx-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/safe-docx-runtime.test.ts",
+        "checkedAt": "2026-07-17T04:59:07.000Z",
+        "evidence": "Adapter rejected path traversal file names, google_doc_id, and non-exported tools such as accept_changes before launch."
+      },
+      {
+        "id": "safe-docx-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/safe-docx-runtime.test.ts",
+        "checkedAt": "2026-07-17T04:59:07.000Z",
+        "evidence": "Security probe asserted packagePinned, allowedRootsPinned, credentialRemoved, networkDenied, httpDenied, subprocessDenied, and workerDenied for the fixed 0.15.0 bootstrap."
+      },
+      {
+        "id": "safe-docx-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/safe-docx-api.test.ts",
+        "checkedAt": "2026-07-17T04:59:07.000Z",
+        "evidence": "Public upload and invoke routes stored a sandboxed DOCX, ran real read_file and grep, and rejected host-path-shaped file arguments with HTTP 400."
+      },
+      {
+        "id": "safe-docx-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-17T04:59:51.313Z",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=safe-docx.spec.ts › @web-e2e [safe-docx-studio] Safe DOCX Web uploads example, reads, greps, and fails safely; route=/plugins/safe-docx-studio; result=passed"
+      }
+    ],
+    "blockers": []
+  }
+}

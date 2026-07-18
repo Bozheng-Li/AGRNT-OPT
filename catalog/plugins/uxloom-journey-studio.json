@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.uxloom-dev/uxloom",
+  "slug": "uxloom-journey-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-17T03:19:46.990Z"
+  },
+  "name": {
+    "original": "UXLoom",
+    "zhCN": "UXLoom 旅程与状态设计台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Model product journeys as state machines, register screen-state contracts, and detect missing states, broken flows, WCAG contrast failures, undersized targets, and localization risks before implementation.",
+    "zhCN": "用状态机建模产品旅程，登记屏幕状态契约，并在实现前发现缺失状态、断裂流程、WCAG 对比度失败、触控目标过小与本地化风险。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The provenance-backed uxloom 0.1.3 STDIO server exposes eight MCP tools for project initialization, structured brief collection, journey and screen registration, full-project validation, scoped screen critique, and state-coverage reporting. Agent-OPT preserves the file-backed workflow inside one UUID-bound project file per Web session, removes caller-selected paths, and renders the critic evidence as a dedicated design-contract workspace.",
+    "zhCN": "带有可验证 provenance 的 uxloom 0.1.3 STDIO 服务提供八个 MCP 工具，覆盖项目初始化、结构化简报、旅程与屏幕登记、全项目验证、单屏审查和状态覆盖报告。Agent-OPT 将原有文件工作流限制在每个 Web 会话唯一的 UUID 项目文件内，移除调用方自选路径，并用专属设计契约工作台呈现 critic 证据。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Divyaman",
+    "url": "https://github.com/uxloom-dev",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.1.3",
+    "releasedAt": "2026-07-13T09:04:04.413Z",
+    "checkedAt": "2026-07-17T03:09:38.888Z"
+  },
+  "categories": [
+    "ux-design",
+    "design-systems",
+    "accessibility",
+    "product-development"
+  ],
+  "tags": [
+    "MCP",
+    "JourneyGraph",
+    "state machines",
+    "screen states",
+    "WCAG",
+    "touch targets",
+    "design critique",
+    "coverage"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/uxloom-dev/uxloom/tree/9580095653e62098626ec7981daad31013bdfcbd",
+    "repositoryUrl": "https://github.com/uxloom-dev/uxloom",
+    "packageUrl": "https://www.npmjs.com/package/uxloom/v/0.1.3",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.uxloom-dev%2Fuxloom&limit=10",
+        "listingId": "io.github.uxloom-dev/uxloom",
+        "checkedAt": "2026-07-17T03:09:38.888Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.uxloom-dev%2Fuxloom&limit=10",
+        "retrievedAt": "2026-07-17T03:09:38.888Z",
+        "note": "The official MCP Registry marks io.github.uxloom-dev/uxloom 0.1.3 as the latest active release, binds it to the uxloom-dev/uxloom repository, and declares the exact uxloom 0.1.3 npm package over STDIO with an optional UXLOOM_PROJECT path."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/uxloom/0.1.3",
+        "retrievedAt": "2026-07-17T03:09:38.888Z",
+        "note": "npm records MIT, Node >=20, 24 files, 45,469 unpacked bytes, integrity sha512-G0tn3Uu9A2AyOmguR/X4hfbg+4Voao9DQ/gNnFmIOFqt8xpgIA+cfe37SmY9WZ277DLGhm4LdRMYPOanyRqJsA==, gitHead 9580095653e62098626ec7981daad31013bdfcbd, a registry signature, and SLSA provenance."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/uxloom@0.1.3",
+        "retrievedAt": "2026-07-17T03:09:38.888Z",
+        "note": "The npm Sigstore/SLSA attestation binds the published artifact to the GitHub Actions release on refs/tags/v0.1.3 and resolves the source dependency to commit 9580095653e62098626ec7981daad31013bdfcbd. npm audit signatures reported no invalid or missing signatures."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/uxloom-dev/uxloom/blob/9580095653e62098626ec7981daad31013bdfcbd/apps/mcp/src/server.ts",
+        "retrievedAt": "2026-07-17T03:09:38.888Z",
+        "note": "The provenance-pinned server registers exactly project_init, brief_start, brief_answer, journey_define, screen_register, project_validate, screen_critique, and coverage_report. Real package discovery confirmed those eight tools and no resources or prompts."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/uxloom-dev/uxloom/blob/9580095653e62098626ec7981daad31013bdfcbd/packages/journeygraph/src/schema.ts",
+        "retrievedAt": "2026-07-17T03:09:38.888Z",
+        "note": "JourneyGraph 0.1 defines strict projects, journey state machines, target refs, screen required/designed states, semantic components, platform scopes, colors, target sizes, labels, and documented exemptions."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/uxloom-dev/uxloom/blob/9580095653e62098626ec7981daad31013bdfcbd/packages/critics/src/index.ts",
+        "retrievedAt": "2026-07-17T03:09:38.888Z",
+        "note": "The pinned critic pipeline runs journey completeness, state coverage, WCAG contrast, touch-target, and text-expansion checks, returning stable finding codes, severities, locations, messages, fixes, and coverage totals."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/uxloom-dev/uxloom/blob/9580095653e62098626ec7981daad31013bdfcbd/LICENSE",
+        "retrievedAt": "2026-07-17T03:09:38.888Z",
+        "note": "The provenance-pinned source and published package declare the MIT License."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/uxloom-dev/uxloom/blob/9580095653e62098626ec7981daad31013bdfcbd/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The exact provenance commit and npm artifact declare MIT. Agent-OPT invokes the pinned upstream package and adds an independent adapter, runtime sandbox, translation, tests, and Web presentation without copying its implementation.",
+    "checkedAt": "2026-07-17T03:09:38.888Z"
+  },
+  "capabilities": [
+    {
+      "id": "structured-design-brief",
+      "name": {
+        "original": "Compile an assumption-aware design brief",
+        "zhCN": "编译带假设账本的设计简报",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Generate the fixed five-question product questionnaire, distinguish context-inferable questions from human taste decisions, apply researched defaults, and return an auditable assumption ledger.",
+        "zhCN": "生成固定的五问题产品问卷，区分可从上下文推断的问题与需要用户判断的品味决策，应用研究型默认值，并返回可审计的假设账本。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "journey-state-machine-contract",
+      "name": {
+        "original": "Model journeys and screen-state contracts",
+        "zhCN": "建模旅程与屏幕状态契约",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Persist bounded journey state machines and screen contracts with required states, designed states, platforms, semantic components, label limits, colors, target sizes, and exemptions.",
+        "zhCN": "持久化有界旅程状态机和屏幕契约，包括必需状态、已设计状态、平台、语义组件、标签长度、颜色、目标尺寸与豁免。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "multicritic-design-validation",
+      "name": {
+        "original": "Run project and screen design critics",
+        "zhCN": "运行项目级与单屏设计审查",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Detect unreachable states, dead ends, broken transitions, missing screens and states, happy-path-only contracts, WCAG contrast failures, undersized touch targets, and text-expansion risks with concrete fixes.",
+        "zhCN": "检测不可达状态、死路、断裂跳转、缺失屏幕和状态、仅覆盖顺利路径的契约、WCAG 对比度失败、过小触控目标与文本扩展风险，并给出具体修复建议。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "state-coverage-report",
+      "name": {
+        "original": "Report required-state coverage",
+        "zhCN": "报告必需状态覆盖率",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Compare required and designed states for every registered screen, list exact gaps, preserve happy-path-only warnings, and summarize project errors and warnings.",
+        "zhCN": "逐屏比较必需状态与已设计状态，列出精确缺口，保留仅顺利路径警告，并汇总项目错误与警告。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "Every public tool requires a server-validated UUID. The UUID maps only to var/runtime/uxloom/sessions/{uuid}/uxloom.project.json; callers cannot provide UXLOOM_PROJECT, paths, working directories, commands, environment variables, or transport settings.",
+      "Each tool invocation launches the exact upstream 0.1.3 STDIO server in an ephemeral process. The single project file persists between invocations, while the adapter rejects linked roots and project files, limits projects to 512 KiB, caps sessions at sixteen journeys and forty screens, and removes inactive UUID session directories after 24 hours.",
+      "The bootstrap grants read-only access to the installed node_modules tree for module loading and read/write access only to the exact current project file. All other filesystem reads and writes, directory mutation, links, working-directory changes, network APIs, DNS, sockets, subprocesses, and worker threads are denied.",
+      "Proxy, registry, cloud, model-provider, telemetry, and UXLOOM_PROJECT variables are removed before the upstream server is created. The fixed project path is passed directly to the public ProjectStore constructor rather than inherited from caller-controlled environment state.",
+      "UUIDs, identifiers, prompts, answers, journey state and event counts, screens, states, components, labels, colors, target sizes, exemptions, input bytes, project bytes, result schemas, and output bytes are bounded. Unknown fields and caller-selected host semantics fail closed before process launch.",
+      "Upstream finding, prompt, rationale, label, and fix strings are untrusted data rendered only as escaped React text. The Web does not execute HTML, Markdown, links, commands, generated code, or automated design changes."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-uxloom-uuid-project-sandbox",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "uxloom",
+      "version": "0.1.3"
+    },
+    "requirements": [
+      "Node.js 20 or newer",
+      "The exact uxloom 0.1.3 package and transitive dependencies installed from package-lock.json",
+      "A project-owned var/runtime directory for UUID-scoped project files",
+      "No credential, network, paid service, external account, design application, source repository, or remote MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "UUID-bound project session",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Every Web call carries one validated UUID that resolves to one exact project file inside the project-owned runtime root; host paths and cross-session access are unavailable.",
+          "zhCN": "每次 Web 调用携带一个经过校验的 UUID，并仅解析到项目运行根目录内的一个固定项目文件；宿主路径与跨会话访问均不可用。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "bounded JourneyGraph input",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Public schemas expose the eight upstream capabilities with strict limits on projects, briefs, journeys, screens, states, transitions, components, labels, colors, target sizes, exemptions, and output.",
+          "zhCN": "公开 schema 覆盖八项上游能力，同时严格限制项目、简报、旅程、屏幕、状态、跳转、组件、标签、颜色、目标尺寸、豁免和输出。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 92,
+    "usefulness": 4.8,
+    "uniqueness": 4.8,
+    "reliability": 4.5,
+    "maintenance": 4.2,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 4.9,
+    "notes": [
+      "UXLoom addresses a concrete failure mode in generated interfaces: screen counts can look complete while error, empty, loading, localization, accessibility, or transition states are absent. Its plain-data results are reviewable without an account or model call.",
+      "The official Registry, npm metadata, registry signature, SLSA provenance, v0.1.3 tag, gitHead, and resolved source commit align exactly. The installed production dependency graph reports zero known vulnerabilities.",
+      "Qualification and integration discovery found exactly eight tools and no resources or prompts. Real calls preserved one project across ephemeral processes and produced missing-screen, three undesigned-state, happy-path-contract, 4.48:1 contrast, and 32px target evidence for the representative checkout fixture.",
+      "The critic is deterministic but still depends on the completeness and honesty of the declared contract. The Web presents findings as design evidence, keeps documented exemptions visible, and never claims that zero findings proves usability or accessibility compliance."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-17T03:09:38.888Z",
+    "notes": [
+      "Kept UXLoom, MCP, STDIO, JourneyGraph, UUID, Web, WCAG, JSON, critic, requiredStates and designedStates as product, protocol, schema, or established technical terms.",
+      "Chinese copy consistently distinguishes a declared design contract from an implemented interface and avoids presenting deterministic findings as usability certification or accessibility compliance."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "UxloomWorkspace",
+    "route": "/plugins/uxloom-journey-studio",
+    "features": [
+      "GPT-flavored UUID project session with product and platform initialization plus explicit reset",
+      "five-question brief workflow separating agent-inferable context from human brand decisions and presenting the assumption ledger",
+      "bounded journey state-machine editor with entry, states, screens, events, final states, and target refs",
+      "screen contract editor with required and designed states, platforms, semantic components, colors, target sizes, labels, and documented exemptions",
+      "project findings grouped by critic and severity with exact location, stable code, message, and escaped fix text",
+      "single-screen critique and per-screen required-state coverage matrix with missing-state summary",
+      "pending, activity, uninitialized-session error, local JSON validation, clean, empty, reset, responsive, and sandbox boundary states"
+    ],
+    "dedicatedElements": [
+      "UUID-bound product and platform initializer",
+      "questionnaire and reversible assumption-ledger presentation",
+      "JourneyGraph state-machine JSON editor",
+      "screen contract and component constraint editor with incomplete and repaired fixtures",
+      "critic-grouped error and warning evidence cards",
+      "screen-scoped critique selector",
+      "required-versus-designed state coverage matrix"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.1.3",
+    "tests": [
+      {
+        "id": "uxloom-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/uxloom-runtime.test.ts",
+        "checkedAt": "2026-07-17T03:09:38.888Z",
+        "evidence": "The installed 0.1.3 server exposed exactly eight tools and no resources or prompts. Real project_init, brief_start, brief_answer, journey_define, screen_register, project_validate, screen_critique, and coverage_report calls succeeded through separate STDIO processes while one UUID project persisted."
+      },
+      {
+        "id": "uxloom-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/uxloom-runtime.test.ts",
+        "checkedAt": "2026-07-17T03:09:38.888Z",
+        "evidence": "A checkout journey and incomplete payment screen produced three state-undesigned errors, a happy-path-only warning, the measured 4.48:1 WCAG failure, and the measured 32px touch-target failure. Updating the same screen with complete states, accessible colors, a 48px target, and a documented empty-state exemption cleared its scoped findings."
+      },
+      {
+        "id": "uxloom-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/uxloom-runtime.test.ts",
+        "checkedAt": "2026-07-17T03:09:38.888Z",
+        "evidence": "A real project_validate call before initialization preserved the upstream project_init guidance without leaking a host path. Adapter tests rejected invalid UUIDs, caller paths and UXLOOM_PROJECT, unknown and prototype-related fields, empty journeys, non-contract designed states, non-hex colors, unsafe screen IDs, and oversized prompts before launch."
+      },
+      {
+        "id": "uxloom-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/uxloom-runtime.test.ts",
+        "checkedAt": "2026-07-17T03:09:38.888Z",
+        "evidence": "The adapter rejected a Windows directory-junction runtime root. The executable bootstrap probe proved exact project read/write and module loading work while host reads, non-project writes, oversized project writes, fetch, HTTP, DNS, subprocesses, workers, proxies, and npm/model credentials are denied or removed."
+      },
+      {
+        "id": "uxloom-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/uxloom-api.test.ts",
+        "checkedAt": "2026-07-17T03:16:23.000Z",
+        "evidence": "The public Next route preserved one UUID project across all eight real tools, returned sanitized structured results and exact critic evidence, and rejected caller-selected UXLOOM_PROJECT plus an unsafe screen identifier with HTTP 400."
+      },
+      {
+        "id": "uxloom-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=uxloom.spec.ts › @web-e2e [uxloom-journey-studio] UXLoom runs all eight tools, reset error, and responsive workflow; route=/plugins/uxloom-journey-studio; result=passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-17T03:19:46.990Z"
+      }
+    ],
+    "blockers": []
+  }
+}

@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "agent-opt.local/csv-json",
   "slug": "local-csv-json",
-  "kind": "mcp-server",
+  "kind": "plugin",
   "lifecycle": {
     "status": "verified",
-    "changedAt": "2026-07-16T13:46:11.919Z"
+    "changedAt": "2026-07-16T14:51:11.954Z"
   },
   "name": {
     "original": "CSV ↔ JSON",
@@ -18,8 +18,8 @@
     "sourceLanguage": "en"
   },
   "description": {
-    "original": "Convert simple CSV tables to JSON arrays. Agent-OPT ships this as a first-party in-process MCP-compatible tool surface with dedicated Web controls, deterministic validation, and no external network or credentials.",
-    "zhCN": "把简单 CSV 表转换为 JSON 数组。 Agent-OPT 将其作为一等公民的进程内 MCP 兼容工具面：专属 Web 控件、确定性校验，且不访问外网、不需要凭证。",
+    "original": "Convert simple CSV tables to JSON arrays. Agent-OPT ships this as a first-party in-process Web plugin surface with capability-configured Web controls, deterministic validation, and no external network or credentials. It is not counted as an upstream MCP server.",
+    "zhCN": "把简单 CSV 表转换为 JSON 数组。 Agent-OPT 将其作为一等公民的进程内 MCP 兼容工具面：专属 Web 控件、确定性校验，且不访问外网、不需要凭证。 ?????? MCP Server ???",
     "sourceLanguage": "en"
   },
   "author": {
@@ -37,7 +37,7 @@
     "developer-tools"
   ],
   "tags": [
-    "MCP",
+    "first-party-plugin",
     "csv",
     "json",
     "local"
@@ -58,7 +58,7 @@
         "kind": "official-repository",
         "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/local-mcp-tools.ts",
         "retrievedAt": "2026-07-16T13:46:11.919Z",
-        "note": "First-party in-process MCP tool implementation for slug local-csv-json with tools: csv_to_json"
+        "note": "First-party in-process plugin implementation for slug local-csv-json with tools: csv_to_json"
       },
       {
         "kind": "official-repository",
@@ -84,7 +84,7 @@
         "sourceLanguage": "en"
       },
       "description": {
-        "original": "Local MCP tool csv_to_json executed in-process.",
+        "original": "Local plugin tool csv_to_json executed in-process.",
         "zhCN": "进程内执行本地 MCP 工具 csv_to_json。",
         "sourceLanguage": "en"
       },
@@ -98,12 +98,12 @@
     "secrets": [],
     "externalAccounts": [],
     "notes": [
-      "In-process first-party MCP surface; no child process, host FS, or network access.",
+      "In-process first-party plugin surface; no child process, host FS, or network access.",
       "Inputs are schema-validated and size-bounded before execution."
     ]
   },
   "runtime": {
-    "adapter": "local-mcp-in-process",
+    "adapter": "local-plugin-in-process",
     "transport": "in-process",
     "package": {
       "registry": "source",
@@ -126,8 +126,9 @@
     "security": 4.8,
     "webFitness": 4.6,
     "notes": [
-      "First-party local MCP tool with dedicated Web form and real invoke tests.",
-      "Marked verified after core/scenario/error/web evidence on the in-process adapter path."
+      "First-party local plugin with a capability-configured Web form and bounded in-process adapter.",
+      "It is intentionally classified as plugin, not mcp-server, because it does not expose an MCP protocol transport.",
+      "Verification remains not-run until the current Vitest matrix and a real per-slug Chromium workflow pass."
     ]
   },
   "translation": {
@@ -156,49 +157,49 @@
   },
   "verification": {
     "overall": "passed",
-    "testedVersion": "1.0.0",
     "tests": [
       {
         "id": "local-csv-json-core",
         "category": "core",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:46:11.919Z",
-        "evidence": "Primary tool of local-csv-json executed through invokePluginTool and returned non-error content."
+        "command": "npm test -- tests/local-mcp-runtime.test.ts",
+        "evidence": "local-csv-json: all exposed tools ran through invokePluginTool with valid fixtures and returned non-error content plus structuredContent; the matrix covered 42 plugins and 51 tools.",
+        "checkedAt": "2026-07-16T14:49:26.865Z"
       },
       {
         "id": "local-csv-json-scenario",
         "category": "scenario",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:46:11.919Z",
-        "evidence": "Representative valid input produced structured output for local-csv-json."
+        "command": "npm test -- tests/local-mcp-runtime.test.ts",
+        "evidence": "local-csv-json: every exposed tool completed through the real Next POST /api/plugins/[slug]/invoke handler with HTTP 200 and the expected plugin identity.",
+        "checkedAt": "2026-07-16T14:49:26.865Z"
       },
       {
         "id": "local-csv-json-error",
         "category": "error",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:46:11.919Z",
-        "evidence": "Invalid input rejected with InvocationValidationError before unsafe work."
+        "command": "npm test -- tests/local-mcp-runtime.test.ts",
+        "evidence": "local-csv-json: every tool rejected a non-object payload, unknown tools were rejected, representative semantic failures were controlled, and the HTTP route returned 400 for invalid input.",
+        "checkedAt": "2026-07-16T14:49:26.865Z"
       },
       {
         "id": "local-csv-json-web",
         "category": "web-e2e",
         "status": "passed",
         "command": "npm run test:e2e",
-        "checkedAt": "2026-07-16T13:46:11.919Z",
-        "evidence": "LocalMcpWorkspace route and invoke API path cover local-csv-json."
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=local-plugins.spec.ts › first-party local MCP browser coverage › @web-e2e [local-csv-json] runs every UI tool and renders a controlled failure; route=/plugins/local-csv-json; result=passed",
+        "checkedAt": "2026-07-16T14:51:11.954Z"
       },
       {
         "id": "local-csv-json-permission",
         "category": "permission",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:46:11.919Z",
-        "evidence": "Adapter is in-process with filesystem/network/commands none."
+        "command": "npm test -- tests/local-mcp-runtime.test.ts",
+        "checkedAt": "2026-07-16T14:49:26.865Z",
+        "evidence": "local-csv-json: registration asserted in-process mode; manifest permissions remain filesystem/network/commands none with no secrets or external accounts."
       }
     ],
-    "blockers": []
+    "blockers": [],
+    "testedVersion": "1.0.0"
   }
 }

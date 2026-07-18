@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-web-artifacts-builder",
+  "sourceId": "anthropic-agent-skills",
+  "sourceCommit": "9d2f1ae187231d8199c64b5b762e1bdf2244733d",
+  "sourcePath": "skills/web-artifacts-builder",
+  "skillSha256": "fed403699c30a8dfc91b43bc82e76c06a0e935e86395cab943644767878a48d4",
+  "supportingFiles": [
+    {
+      "path": "LICENSE.txt",
+      "sha256": "52b223c318576d65c32f70cb745f31352730e9f4c2c2c2570a66ce700f4f5a64"
+    },
+    {
+      "path": "scripts/bundle-artifact.sh",
+      "sha256": "8415e4453b50f38e899f9e513d7ea477b6a9f13d7404ab30a5b967d0cbcdc8ea"
+    },
+    {
+      "path": "scripts/init-artifact.sh",
+      "sha256": "33c69d29a9d0cce95df7c1fa2e39e556b3c0c5c984c3a408894031456f842977"
+    },
+    {
+      "path": "scripts/shadcn-components.tar.gz",
+      "sha256": "1296f069e825de7933de7e8ac63672495cacce3f88f2dc45554dbcddbcbca60f"
+    }
+  ]
+}

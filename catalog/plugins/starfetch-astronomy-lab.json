@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.starfetch-js/starfetch",
+  "slug": "starfetch-astronomy-lab",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-17T13:44:29.805Z"
+  },
+  "name": {
+    "original": "Starfetch",
+    "zhCN": "Starfetch 天文目录实验室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Inspect public Virtual Observatory TAP metadata and run bounded, reproducible ADQL queries across Gaia, SIMBAD, VizieR, NASA Exoplanet Archive, and IRSA catalogs.",
+    "zhCN": "检查公共虚拟天文台 TAP 元数据，并在 Gaia、SIMBAD、VizieR、NASA Exoplanet Archive 与 IRSA 目录上执行有界、可复现的 ADQL 查询。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The provenance-backed Starfetch 0.2.3 STDIO server exposes twelve MCP tools, five guidance resources, and four prompts for TAP preset and registry discovery, VOSI availability/capabilities/table/column inspection, bounded synchronous queries, and explicit asynchronous job lifecycle control. Agent-OPT removes arbitrary URLs, credentials, uploads, absolute job URLs, and unbounded ADQL; its network bootstrap permits only six fixed public HTTPS origins and renders metadata, catalog rows, query diagnostics, and remote job state in a dedicated astronomy workflow.",
+    "zhCN": "带可验证 provenance 的 Starfetch 0.2.3 STDIO 服务提供 12 个 MCP 工具、5 个指南资源和 4 个提示，覆盖 TAP 预设与注册表发现、VOSI 可用性/能力/表/列检查、有界同步查询及显式异步作业生命周期控制。Agent-OPT 移除任意 URL、凭据、upload、绝对作业 URL 与无界 ADQL；网络启动沙箱只允许 6 个固定公共 HTTPS 来源，并在专属天文工作流中呈现元数据、目录行、查询诊断和远程作业状态。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Starfetch contributors",
+    "url": "https://github.com/starfetch-js",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.2.3",
+    "releasedAt": "2026-07-13T18:45:02.940Z",
+    "checkedAt": "2026-07-17T13:12:27.258Z"
+  },
+  "categories": [
+    "astronomy",
+    "scientific-data",
+    "research",
+    "catalog-search"
+  ],
+  "tags": [
+    "MCP",
+    "TAP",
+    "ADQL",
+    "Gaia",
+    "SIMBAD",
+    "VizieR",
+    "exoplanets",
+    "Virtual Observatory",
+    "async jobs"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/starfetch-js/starfetch/tree/5169c9e9b9b52410c80f7cc8452fffb97ed27164/packages/mcp",
+    "repositoryUrl": "https://github.com/starfetch-js/starfetch",
+    "packageUrl": "https://www.npmjs.com/package/@starfetch-js/mcp/v/0.2.3",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=starfetch&limit=30",
+        "listingId": "io.github.starfetch-js/starfetch",
+        "checkedAt": "2026-07-17T13:12:27.258Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=starfetch&limit=30",
+        "retrievedAt": "2026-07-17T13:12:27.258Z",
+        "note": "The official MCP Registry marks io.github.starfetch-js/starfetch 0.2.3 active and latest, binds it to starfetch-js/starfetch, and declares the exact @starfetch-js/mcp 0.2.3 npm package over STDIO."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@starfetch-js%2fmcp/0.2.3",
+        "retrievedAt": "2026-07-17T13:12:27.258Z",
+        "note": "npm records MIT, Node >=22, five package files, 1,057,242 unpacked bytes, shasum ec2596293450d5855faa288d431aa2d4ff360918, integrity sha512-2ICWZbzS6QFklh8YJR3kD+HWsFZQoSMBE/2hpO/TQuA5YGGqT9SoPilDNBa93+QZYw7FV3pq7kCDn3Ky06iGIQ==, a registry signature, gitHead 5169c9e9b9b52410c80f7cc8452fffb97ed27164, and SLSA provenance."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/@starfetch-js%2fmcp@0.2.3",
+        "retrievedAt": "2026-07-17T13:12:27.258Z",
+        "note": "The npm Sigstore publish and SLSA attestations bind the artifact to the GitHub Actions v0.2.3 release and exact commit 5169c9e9b9b52410c80f7cc8452fffb97ed27164. The signed v0.2.3 tag dereferences to that commit."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/starfetch-js/starfetch/blob/5169c9e9b9b52410c80f7cc8452fffb97ed27164/packages/mcp/src/server.ts",
+        "retrievedAt": "2026-07-17T13:12:27.258Z",
+        "note": "The provenance-pinned server registers twelve tools for preset and RegTAP discovery, availability, capabilities, tables, columns, sync query, async submit/status/wait/fetch/delete; it also registers five static guidance resources and four workflow prompts."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/starfetch-js/starfetch/blob/5169c9e9b9b52410c80f7cc8452fffb97ed27164/packages/core/src/tap-http.ts",
+        "retrievedAt": "2026-07-17T13:12:27.258Z",
+        "note": "The pinned TAP transport constructs GET, POST, and DELETE requests, parses service errors, supports bounded MAXREC query bodies, and handles anonymous VOSI/TAP endpoints without credentials."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/starfetch-js/starfetch/blob/5169c9e9b9b52410c80f7cc8452fffb97ed27164/packages/core/src/async-job-submit.ts",
+        "retrievedAt": "2026-07-17T13:12:27.258Z",
+        "note": "The pinned async implementation explicitly submits and starts UWS jobs, reads status, waits with timeout/backoff, fetches results, and deletes remote jobs using a caller-supplied abort signal and no hidden background worker."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/starfetch-js/starfetch/blob/5169c9e9b9b52410c80f7cc8452fffb97ed27164/LICENSE",
+        "retrievedAt": "2026-07-17T13:12:27.258Z",
+        "note": "The exact provenance commit and all three published Starfetch packages used by the MCP integration declare MIT."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/starfetch-js/starfetch/blob/5169c9e9b9b52410c80f7cc8452fffb97ed27164/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The provenance-pinned source and npm artifacts declare MIT. Agent-OPT invokes the exact packages and adds an independent fixed-origin adapter, runtime sandbox, translation, tests, and Web presentation without copying upstream implementation code.",
+    "checkedAt": "2026-07-17T13:12:27.258Z"
+  },
+  "capabilities": [
+    {
+      "id": "tap-service-discovery",
+      "name": {
+        "original": "Discover public TAP services",
+        "zhCN": "发现公共 TAP 服务",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List five curated astronomy service presets or search the fixed German Virtual Observatory RegTAP registry with a bounded text query.",
+        "zhCN": "列出 5 个精选天文服务预设，或使用有界文本查询检索固定的 German Virtual Observatory RegTAP 注册表。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "vosi-metadata-inspection",
+      "name": {
+        "original": "Inspect VOSI metadata before querying",
+        "zhCN": "查询前检查 VOSI 元数据",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read availability, anonymous-auth status, output formats, ADQL languages, public tables, and exact column names, datatypes, units, UCDs, and descriptions.",
+        "zhCN": "读取可用性、匿名认证状态、输出格式、ADQL 语言、公共表，以及精确列名、数据类型、单位、UCD 和描述。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "bounded-adql-query",
+      "name": {
+        "original": "Run bounded reproducible ADQL",
+        "zhCN": "运行有界可复现 ADQL",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Execute a synchronous metadata-backed SELECT TOP query, return up to fifty catalog rows, and preserve the exact service, query, effective limit, target, and format diagnostics.",
+        "zhCN": "执行基于元数据的同步 SELECT TOP 查询，返回最多 50 条目录记录，并保留精确服务、查询、有效限制、目标与格式诊断。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "tap-async-job-lifecycle",
+      "name": {
+        "original": "Control TAP asynchronous jobs",
+        "zhCN": "控制 TAP 异步作业生命周期",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Submit a bounded Gaia UWS job, inspect and wait for phases, fetch the final result, and explicitly delete the remote job with no background execution.",
+        "zhCN": "提交有界 Gaia UWS 作业，检查并等待阶段、取回最终结果，再显式删除远程作业；不启动后台执行。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "astronomy-guidance-assets",
+      "name": {
+        "original": "Read astronomy guides and workflow prompts",
+        "zhCN": "读取天文指南与工作流提示",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Expose five static ADQL, metadata, Gaia, SIMBAD, and proper-motion resources plus four prompts for catalog planning, service exploration, cone search, and query troubleshooting.",
+        "zhCN": "提供 5 个静态 ADQL、元数据、Gaia、SIMBAD 与自行运动资源，以及 4 个用于目录规划、服务探索、锥形检索和查询排障的提示。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "none",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The public adapter exposes every upstream tool but replaces service-or-url unions with one of five exact preset names. Arbitrary TAP URLs, registryUrl, absolute job URLs, credentials, HTTP headers, uploads, local files, environment, commands, transport settings, and background execution are unavailable.",
+      "Registry search is fixed to https://dc.g-vo.org/tap. Preset operations are fixed to exact HTTPS origins and TAP roots for NASA Exoplanet Archive, ESA Gaia Archive, NASA/IPAC IRSA, SIMBAD, and VizieR. The child bootstrap rejects all other origins, paths, ports, protocols, credentials, fragments, methods, and headers.",
+      "ADQL must be a single comment-free, semicolon-free SELECT TOP 1..50 statement; MAXREC is 1..50, query and RUNID sizes are bounded, and TAP uploads are disabled. TAP is a read-only query protocol, but expensive public queries remain possible, so the Web keeps limits and exact diagnostics visible.",
+      "Async job tools accept only a safe bare job ID and the fixed Gaia preset in the dedicated Web flow. Wait intervals are 500..5000 ms with a maximum 60-second timeout; job submission and deletion are explicit user actions, and interrupted tests attempt remote cleanup.",
+      "The bootstrap allows GET, POST, and DELETE only within fixed TAP path prefixes, forces manual redirects, strips proxy and credential variables after Node startup, denies direct HTTP(S), sockets, arbitrary DNS, WebSocket, filesystem access, subprocesses, and workers, and limits each response to 16 MiB and a process chain to 32 MiB.",
+      "Catalog metadata, descriptions, query rows, diagnostics, job URLs, resource text, and prompt text are untrusted remote or upstream data rendered only as escaped React text. Agent-OPT never executes returned HTML, links, ADQL, Markdown, code, or interpretations and does not claim scientific authority."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-starfetch-fixed-tap-policy",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@starfetch-js/mcp",
+      "version": "0.2.3"
+    },
+    "requirements": [
+      "Node.js 22 or newer",
+      "The exact @starfetch-js/mcp, @starfetch-js/core, and @starfetch-js/skill 0.2.3 packages installed from package-lock.json",
+      "Outbound TLS access to six fixed public TAP/RegTAP origins; an optional credential-free deployment HTTPS_PROXY origin may be used at process startup",
+      "No API key, credential, account, paid plan, local data file, shell command, or remote MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "fixed public TAP service",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Choose one of five curated anonymous TAP presets; callers cannot submit a URL or credential.",
+          "zhCN": "从 5 个精选匿名 TAP 预设中选择；调用方不能提交 URL 或凭据。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "bounded ADQL",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Queries must begin SELECT TOP 1..50 and pass strict byte, comment, semicolon, format, and MAXREC limits.",
+          "zhCN": "查询必须以 SELECT TOP 1..50 开头，并通过严格的字节、注释、分号、格式与 MAXREC 限制。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "optional deployment egress proxy",
+        "required": false,
+        "secret": false,
+        "description": {
+          "original": "A credential-free http/https HTTPS_PROXY origin may be inherited from deployment and used by Node at startup; the Web cannot set it and visible proxy variables are removed before upstream code runs.",
+          "zhCN": "部署可继承一个无凭据的 http/https HTTPS_PROXY 来源，由 Node 在启动时使用；Web 不能设置它，且上游代码运行前会移除可见代理变量。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 95,
+    "usefulness": 4.8,
+    "uniqueness": 4.9,
+    "reliability": 4.6,
+    "maintenance": 4.7,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 4.9,
+    "notes": [
+      "Starfetch makes a metadata-first scientific workflow concrete: it separates service availability and schema inspection from query execution, preserves exact ADQL and effective limits, and treats service errors as failures rather than empty scientific results.",
+      "Official Registry identity, npm package metadata, signatures, SLSA provenance, gitHead, signed tag target, source commit, package versions, and MIT license align exactly. The installed production dependency graph reports zero known vulnerabilities.",
+      "Qualification and integration discovered exactly twelve tools, five static resources, and four prompts. Real Exoplanet Archive calls returned 46 tables, 355 columns for ps, and current catalog rows; a real Gaia async job traversed EXECUTING to COMPLETED, returned a source_id row, and deleted successfully.",
+      "External TAP services can be slow, temporarily unavailable, incomplete, differently compliant, or rate-limited. The Web shows source, phase, format, query, and diagnostics, never equates empty results with non-existence, and does not provide astrophysical interpretation as fact."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-17T13:12:27.258Z",
+    "notes": [
+      "Kept Starfetch, MCP, STDIO, TAP, VOSI, RegTAP, ADQL, MAXREC, TOP, UWS, Gaia, SIMBAD, VizieR, IRSA, UCD and job ID as product, protocol, standard, catalog, or schema terms.",
+      "Chinese copy distinguishes catalog metadata from scientific interpretation, service failure from an empty result, and remote job mutation from local or background execution."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "StarfetchWorkspace",
+    "route": "/plugins/starfetch-astronomy-lab",
+    "features": [
+      "GPT-flavored service discovery workspace for five fixed presets and bounded RegTAP results with source URLs and direct handoff to metadata inspection",
+      "availability, capabilities, tables, and exact-column modes with anonymous-auth, format, language, datatype, unit, UCD, schema, and description presentation",
+      "bounded ADQL editor with Exoplanet Archive and Gaia cone-search examples, fixed service selector, parsed row table, and expandable exact query diagnostics",
+      "Gaia async job console exposing submit, status, explicit wait, fetch, and delete with captured job ID, observed phases, result rows, and remote cleanup state",
+      "five static MCP resource readers and four prompt-template materializers for query planning, service exploration, cone search, and ADQL troubleshooting",
+      "pending, activity, network error, invalid ADQL, missing job ID, empty rows, horizontal data-table scroll, fixed-origin boundary, and responsive mobile states"
+    ],
+    "dedicatedElements": [
+      "preset and RegTAP service discovery ledger",
+      "VOSI metadata inspector with table-to-column drilldown",
+      "bounded ADQL editor and catalog row table",
+      "remote UWS job lifecycle console",
+      "TAP query diagnostics inspector",
+      "astronomy resource and prompt browser"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "starfetch-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/starfetch-runtime.test.ts",
+        "checkedAt": "2026-07-17T13:12:27.258Z",
+        "evidence": "The exact 0.2.3 server exposed twelve expected tools, five exact static resources, and four prompts. Every tool, resource, and prompt was invoked against real upstream protocol handlers through ephemeral STDIO processes under the fixed network adapter."
+      },
+      {
+        "id": "starfetch-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/starfetch-runtime.test.ts",
+        "checkedAt": "2026-07-17T13:12:27.258Z",
+        "evidence": "The fixed registry returned Gaia results; NASA Exoplanet Archive reported available anonymous ADQL, 46 tables, 355 ps columns, and three bounded planet rows. A real Gaia job was submitted, inspected, waited through EXECUTING to COMPLETED, fetched as JSON, and explicitly deleted."
+      },
+      {
+        "id": "starfetch-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/starfetch-runtime.test.ts",
+        "checkedAt": "2026-07-17T13:12:27.258Z",
+        "evidence": "A real missing-table ADQL query returned controlled MCP isError. Adapter tests rejected arbitrary service and registry URLs, missing TOP, TOP 51, semicolons, comments, uploads, absolute job URLs, unsafe table names, invalid wait timing, excess fields, and credentials before network launch."
+      },
+      {
+        "id": "starfetch-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/starfetch-runtime.test.ts",
+        "checkedAt": "2026-07-17T13:12:27.258Z",
+        "evidence": "Proxy validation rejected credentials and conflicting variables. The executable bootstrap probe accepted only a fixed Gaia TAP URL while proving custom hosts and paths, HTTP, credential headers, host reads, writes, subprocesses, workers, visible proxies, npm tokens, and model credentials are denied or removed."
+      },
+      {
+        "id": "starfetch-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/starfetch-api.test.ts",
+        "checkedAt": "2026-07-17T13:43:52.800Z",
+        "evidence": "Vitest passed 3/3 public-route tests in 109.51 seconds. The Next API invoked all twelve real Starfetch tools, read all five resources, materialized all four prompts, completed and deleted a Gaia job, preserved a real TAP failure, and returned HTTP 400 for arbitrary URLs, uploads, absolute job URLs, unsafe table names, unbounded ADQL, unknown resources, and excess prompt fields."
+      },
+      {
+        "id": "starfetch-web-e2e",
+        "category": "web-e2e",
+        "status": "passed",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=starfetch.spec.ts › @web-e2e [starfetch-astronomy-lab] Starfetch completes discovery, TAP query, job, asset, error, and responsive workflows; route=/plugins/starfetch-astronomy-lab; result=passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-17T13:44:29.805Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "0.2.3"
+  }
+}

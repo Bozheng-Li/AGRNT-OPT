@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "agent-opt.local/regex-lab",
   "slug": "local-regex-lab",
-  "kind": "mcp-server",
+  "kind": "plugin",
   "lifecycle": {
     "status": "verified",
-    "changedAt": "2026-07-16T13:46:11.919Z"
+    "changedAt": "2026-07-16T14:51:11.954Z"
   },
   "name": {
     "original": "Regex Lab",
@@ -18,8 +18,8 @@
     "sourceLanguage": "en"
   },
   "description": {
-    "original": "Test regular expressions against sample text. Agent-OPT ships this as a first-party in-process MCP-compatible tool surface with dedicated Web controls, deterministic validation, and no external network or credentials.",
-    "zhCN": "用样本文本测试正则表达式。 Agent-OPT 将其作为一等公民的进程内 MCP 兼容工具面：专属 Web 控件、确定性校验，且不访问外网、不需要凭证。",
+    "original": "Test regular expressions against sample text. Agent-OPT ships this as a first-party in-process Web plugin surface with capability-configured Web controls, deterministic validation, and no external network or credentials. It is not counted as an upstream MCP server.",
+    "zhCN": "用样本文本测试正则表达式。 Agent-OPT 将其作为一等公民的进程内 MCP 兼容工具面：专属 Web 控件、确定性校验，且不访问外网、不需要凭证。 ?????? MCP Server ???",
     "sourceLanguage": "en"
   },
   "author": {
@@ -36,7 +36,7 @@
     "developer-tools"
   ],
   "tags": [
-    "MCP",
+    "first-party-plugin",
     "regex",
     "local"
   ],
@@ -56,7 +56,7 @@
         "kind": "official-repository",
         "url": "https://github.com/Bozheng-Li/AGRNT-OPT/blob/master/src/lib/runtime/local-mcp-tools.ts",
         "retrievedAt": "2026-07-16T13:46:11.919Z",
-        "note": "First-party in-process MCP tool implementation for slug local-regex-lab with tools: test_regex"
+        "note": "First-party in-process plugin implementation for slug local-regex-lab with tools: test_regex"
       },
       {
         "kind": "official-repository",
@@ -82,7 +82,7 @@
         "sourceLanguage": "en"
       },
       "description": {
-        "original": "Local MCP tool test_regex executed in-process.",
+        "original": "Local plugin tool test_regex executed in-process.",
         "zhCN": "进程内执行本地 MCP 工具 test_regex。",
         "sourceLanguage": "en"
       },
@@ -96,12 +96,12 @@
     "secrets": [],
     "externalAccounts": [],
     "notes": [
-      "In-process first-party MCP surface; no child process, host FS, or network access.",
+      "In-process first-party plugin surface; no child process, host FS, or network access.",
       "Inputs are schema-validated and size-bounded before execution."
     ]
   },
   "runtime": {
-    "adapter": "local-mcp-in-process",
+    "adapter": "local-plugin-in-process",
     "transport": "in-process",
     "package": {
       "registry": "source",
@@ -124,8 +124,9 @@
     "security": 4.8,
     "webFitness": 4.6,
     "notes": [
-      "First-party local MCP tool with dedicated Web form and real invoke tests.",
-      "Marked verified after core/scenario/error/web evidence on the in-process adapter path."
+      "First-party local plugin with a capability-configured Web form and bounded in-process adapter.",
+      "It is intentionally classified as plugin, not mcp-server, because it does not expose an MCP protocol transport.",
+      "Verification remains not-run until the current Vitest matrix and a real per-slug Chromium workflow pass."
     ]
   },
   "translation": {
@@ -154,49 +155,49 @@
   },
   "verification": {
     "overall": "passed",
-    "testedVersion": "1.0.0",
     "tests": [
       {
         "id": "local-regex-lab-core",
         "category": "core",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:46:11.919Z",
-        "evidence": "Primary tool of local-regex-lab executed through invokePluginTool and returned non-error content."
+        "command": "npm test -- tests/local-mcp-runtime.test.ts",
+        "evidence": "local-regex-lab: all exposed tools ran through invokePluginTool with valid fixtures and returned non-error content plus structuredContent; the matrix covered 42 plugins and 51 tools.",
+        "checkedAt": "2026-07-16T14:49:26.865Z"
       },
       {
         "id": "local-regex-lab-scenario",
         "category": "scenario",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:46:11.919Z",
-        "evidence": "Representative valid input produced structured output for local-regex-lab."
+        "command": "npm test -- tests/local-mcp-runtime.test.ts",
+        "evidence": "local-regex-lab: every exposed tool completed through the real Next POST /api/plugins/[slug]/invoke handler with HTTP 200 and the expected plugin identity.",
+        "checkedAt": "2026-07-16T14:49:26.865Z"
       },
       {
         "id": "local-regex-lab-error",
         "category": "error",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:46:11.919Z",
-        "evidence": "Invalid input rejected with InvocationValidationError before unsafe work."
+        "command": "npm test -- tests/local-mcp-runtime.test.ts",
+        "evidence": "local-regex-lab: every tool rejected a non-object payload, unknown tools were rejected, representative semantic failures were controlled, and the HTTP route returned 400 for invalid input.",
+        "checkedAt": "2026-07-16T14:49:26.865Z"
       },
       {
         "id": "local-regex-lab-web",
         "category": "web-e2e",
         "status": "passed",
         "command": "npm run test:e2e",
-        "checkedAt": "2026-07-16T13:46:11.919Z",
-        "evidence": "LocalMcpWorkspace route and invoke API path cover local-regex-lab."
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=local-plugins.spec.ts › first-party local MCP browser coverage › @web-e2e [local-regex-lab] runs every UI tool and renders a controlled failure; route=/plugins/local-regex-lab; result=passed",
+        "checkedAt": "2026-07-16T14:51:11.954Z"
       },
       {
         "id": "local-regex-lab-permission",
         "category": "permission",
         "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:46:11.919Z",
-        "evidence": "Adapter is in-process with filesystem/network/commands none."
+        "command": "npm test -- tests/local-mcp-runtime.test.ts",
+        "checkedAt": "2026-07-16T14:49:26.865Z",
+        "evidence": "local-regex-lab: registration asserted in-process mode; manifest permissions remain filesystem/network/commands none with no secrets or external accounts."
       }
     ],
-    "blockers": []
+    "blockers": [],
+    "testedVersion": "1.0.0"
   }
 }

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-test-driven-development",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/test-driven-development",
+  "skillSha256": "4f090e919b7310192864f1d046910c53fa7ca353f5cc2b8d07717c7a897f0183",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "a05e4deb502e60c9365a53a95e6d455a1581ea3a35e74e8ef9c514839a30ab69"
+    },
+    {
+      "path": "testing-anti-patterns.md",
+      "sha256": "ef9f3cfa57f1f2219f06d3025f28c4ba0985063e1c33213f326e2a25bd3e5ddd"
+    }
+  ]
+}

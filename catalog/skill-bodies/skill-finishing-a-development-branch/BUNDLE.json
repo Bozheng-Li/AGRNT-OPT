@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-finishing-a-development-branch",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/finishing-a-development-branch",
+  "skillSha256": "604aedd210874565f91207829226305819f3b6cadc323e3de813a2d9d20aeafe",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "94b79074af8e56845dd9ab0652626ecbd231d9f00a91923f4a2f2bf174b3097b"
+    }
+  ]
+}

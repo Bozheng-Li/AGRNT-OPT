@@ -4,8 +4,10 @@
   "slug": "skill-expo-ui-swift-ui",
   "kind": "agent-skill",
   "lifecycle": {
-    "status": "verified",
-    "changedAt": "2026-07-16T13:40:57.604Z"
+    "status": "blocked",
+    "lastProvenStatus": "qualified",
+    "reason": "Representative execution requires macOS, Xcode, and Apple platform runtime access unavailable on this host.",
+    "changedAt": "2026-07-16T14:39:44.203Z"
   },
   "name": {
     "original": "expo-ui-swift-ui",
@@ -38,7 +40,8 @@
   "tags": [
     "skill",
     "expo",
-    "swiftui"
+    "swiftui",
+    "candidate-deferred"
   ],
   "source": {
     "primaryUrl": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/expo/skills/expo-ui-swift-ui",
@@ -74,6 +77,20 @@
     "checkedAt": "2026-07-16T13:40:57.604Z"
   },
   "capabilities": [
+    {
+      "id": "prepare-task-playbook",
+      "name": {
+        "original": "Prepare a task-specific Agent playbook",
+        "zhCN": "?????? Agent ???",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Rank the pinned skill sections against a bounded user objective and context, then produce an agent prompt, checklist, or reference pack without executing upstream scripts.",
+        "zhCN": "??????????????????? Skill ???????????? Agent ?????????????????????",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
     {
       "id": "skill-read",
       "name": {
@@ -126,7 +143,9 @@
     "notes": [
       "In-process skill runtime reads only catalog/skill-bodies/<slug> files prepared at curation time.",
       "Upstream scripts, if any, are not executed by Agent-OPT.",
-      "No network, credentials, or host filesystem access is granted to the skill body."
+      "No network, credentials, or host filesystem access is granted to the skill body.",
+      "Blocked capability note: Representative execution requires macOS, Xcode, and Apple platform runtime access unavailable on this host.",
+      "The current local reader/playbook adapter does not execute or claim verification of the blocked upstream workflow."
     ]
   },
   "runtime": {
@@ -159,75 +178,78 @@
     ]
   },
   "translation": {
-    "status": "reviewed",
+    "status": "draft",
     "glossaryVersion": "agent-opt-zh-cn-v1",
-    "translatedAt": "2026-07-16T13:40:57.604Z",
+    "translatedAt": "2026-07-16T14:39:44.203Z",
     "notes": [
-      "Chinese UI labels and summary reviewed; original SKILL.md body remains English source text."
+      "Original SKILL.md is preserved exactly; the current Chinese metadata is partial and must not be treated as a complete skill translation.",
+      "Deferred candidate; translation review is not scheduled until higher-priority skills pass the full gate."
     ]
   },
   "web": {
-    "status": "ready",
+    "status": "in-progress",
     "component": "SkillWorkspace",
     "route": "/plugins/skill-expo-ui-swift-ui",
     "features": [
+      "task objective and bounded context input",
+      "agent prompt, checklist, and reference-pack modes",
+      "relevance-ranked sections from the pinned SKILL.md",
       "section outline",
       "full-text search",
-      "source viewer",
-      "bilingual metadata"
+      "readonly source viewer",
+      "bilingual catalog metadata"
     ],
     "dedicatedElements": [
+      "skill-specific task objective panel",
+      "output-mode and reference-depth controls",
+      "ranked official-section chips",
+      "generated GPT/Agent execution pack",
       "section navigator",
       "keyword search panel",
-      "readonly markdown source pane",
-      "skill metadata strip"
+      "readonly source pane"
     ]
   },
   "verification": {
-    "overall": "passed",
-    "testedVersion": "11c74d6ba24d",
+    "overall": "blocked",
     "tests": [
       {
         "id": "skill-expo-ui-swift-ui-core",
         "category": "core",
-        "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Skill body loaded from catalog/skill-bodies and outline/list tools returned structured sections."
+        "status": "blocked",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "evidence": "skill-expo-ui-swift-ui: not verified because Representative execution requires macOS, Xcode, and Apple platform runtime access unavailable on this host."
       },
       {
         "id": "skill-expo-ui-swift-ui-scenario",
         "category": "scenario",
-        "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Representative section open + keyword search returned line excerpts from the official body."
+        "status": "blocked",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "evidence": "skill-expo-ui-swift-ui: not verified because Representative execution requires macOS, Xcode, and Apple platform runtime access unavailable on this host."
       },
       {
         "id": "skill-expo-ui-swift-ui-error",
         "category": "error",
-        "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Empty query and unknown section id rejected with controlled validation errors."
+        "status": "blocked",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "evidence": "skill-expo-ui-swift-ui: not verified because Representative execution requires macOS, Xcode, and Apple platform runtime access unavailable on this host."
       },
       {
         "id": "skill-expo-ui-swift-ui-web",
         "category": "web-e2e",
-        "status": "passed",
-        "command": "npm run test:e2e",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "SkillWorkspace route renders outline and can open a section through the invoke API."
+        "status": "blocked",
+        "command": "npm run test:e2e -- tests/e2e/skills.spec.ts",
+        "evidence": "skill-expo-ui-swift-ui: not verified because Representative execution requires macOS, Xcode, and Apple platform runtime access unavailable on this host."
       },
       {
         "id": "skill-expo-ui-swift-ui-permission",
         "category": "permission",
-        "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Runtime only reads curated skill-body files; no network/commands/secrets granted."
+        "status": "blocked",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "evidence": "skill-expo-ui-swift-ui: not verified because Representative execution requires macOS, Xcode, and Apple platform runtime access unavailable on this host."
       }
     ],
-    "blockers": []
+    "blockers": [
+      "Representative execution requires macOS, Xcode, and Apple platform runtime access unavailable on this host."
+    ]
   }
 }

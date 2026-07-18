@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-subagent-driven-development",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/subagent-driven-development",
+  "skillSha256": "6bd8b947bad82cd59bd440b64a6f2a2e92e7c89282cf26187e6ea3ba44f1b199",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "950280dea36a23edaccfe318dfd11177dcf049ea288d12bcbeb94a2af6e4b0bb"
+    },
+    {
+      "path": "code-quality-reviewer-prompt.md",
+      "sha256": "c1d73cac66b03b917f56925f3d4d36e5fe15ff6dc18dff52d7bfca9d27307149"
+    },
+    {
+      "path": "implementer-prompt.md",
+      "sha256": "b6965edc0caa74ea541aa91548369d822bf320ca12ba97d610da1f12dcf6bcbc"
+    },
+    {
+      "path": "spec-reviewer-prompt.md",
+      "sha256": "1519af8d7120ce6769929fc5df9487e8ffc6514a79f96b62399e250928d69de8"
+    }
+  ]
+}

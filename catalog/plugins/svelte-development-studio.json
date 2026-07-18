@@ -5,7 +5,7 @@
   "kind": "mcp-server",
   "lifecycle": {
     "status": "verified",
-    "changedAt": "2026-07-16T08:30:22.581Z"
+    "changedAt": "2026-07-16T14:37:02.714Z"
   },
   "name": {
     "original": "Svelte MCP",
@@ -170,7 +170,7 @@
     "externalAccounts": [],
     "notes": [
       "The adapter launches the exact @sveltejs/mcp 0.1.25 package through a fixed Node bootstrap with a 512 MiB old-space limit and project-owned home and temporary directories.",
-      "The bootstrap permits fetch only for https://svelte.dev/docs/experimental/sections.json and same-host /docs/.../llms.txt paths and rejects redirects; Web callers cannot choose URLs, hosts, proxies, commands, or environment variables.",
+      "The bootstrap uses a unit-tested fixed-origin policy: GET requests are limited to the exact https://svelte.dev origin, the official sections index, and bounded /docs/.../llms.txt paths. Credentials, custom ports, query strings, fragments, encoded traversal, other paths or origins, non-GET methods, and redirects are rejected; Web callers cannot choose URLs, proxies, commands, or environment variables.",
       "Agent-OPT accepts autofixer input only as bounded source text. Absolute paths, drive paths, existing relative paths, path-like filenames, NUL bytes, unknown fields, and a Svelte 4 async combination are rejected before launch.",
       "Playground inputs require App.svelte, 1-12 safe root-level source filenames, at most 75,000 characters per file and 100,000 bytes total. Returned URLs must use the exact official Svelte Playground prefix; upstream HTML/resource payloads are removed from the public API result.",
       "Documentation requests accept at most eight bounded title or section-path values, while all normalized results stay below 1.5 MiB."
@@ -237,7 +237,7 @@
       "The official server combines framework-grounded documentation, deterministic code diagnostics, migration guidance, and runnable multi-file examples in one workflow; no existing catalog entry provides Svelte-specific semantics.",
       "The exact release exposes four tools. Qualification through the shipped package returned 195 official sections, 9,482 characters for $state, two correct Svelte 5 migration diagnostics, and a valid official Playground URL.",
       "The upstream stdio package intentionally accepts a file path in its code field and emits an MCP UI resource. Agent-OPT closes both public-boundary risks by source-only validation and result normalization.",
-      "Formal verification passed through shipped adapter runtime suites, HTTP invoke route coverage, and dedicated Playwright Web workflows for diagnostics, docs, and Playground."
+      "Formal verification passed through shipped adapter runtime suites, HTTP invoke route coverage, and dedicated Playwright Web workflows for diagnostics, unique-path documentation selection, structured failures, multi-file Playground editing, and narrow mobile layout."
     ]
   },
   "translation": {
@@ -255,7 +255,7 @@
     "route": "/plugins/svelte-development-studio",
     "features": [
       "Svelte 4/5 source editor with filename, async mode, issue and suggestion diagnostics",
-      "official Svelte/SvelteKit section index with title, path, use-case search and multi-select retrieval",
+      "official Svelte/SvelteKit section index with title, unique path-backed selection, use-case search and multi-select retrieval",
       "formatted official llms.txt documentation reader",
       "bounded multi-file Playground editor with safe add, switch, edit, and remove controls",
       "official Playground link, embed preview, and source-fragment privacy feedback",
@@ -279,36 +279,43 @@
         "id": "svelte-core",
         "category": "core",
         "status": "passed",
-        "command": "npm test -- tests/runtime.integration.test.ts",
-        "evidence": "Shipped invokePluginTool path lists four tools, list-sections returns 195 official sections, get-documentation returns $state markdown, svelte-autofixer returns Svelte 5 migration issues, playground-link returns official svelte.dev URL."
+        "command": "npm test -- tests/runtime.integration.test.ts -t Svelte",
+        "evidence": "Shipped invokePluginTool path lists four tools, list-sections returns the official section catalog, get-documentation returns $state markdown, svelte-autofixer returns Svelte 5 migration issues, and playground-link returns an official svelte.dev URL."
       },
       {
         "id": "svelte-scenario",
         "category": "scenario",
         "status": "passed",
-        "command": "npm test -- tests/runtime.integration.test.ts",
-        "evidence": "Representative Svelte 4/5 diagnostic scenario and multi-file Playground export exercised through the adapter."
+        "command": "npm test -- tests/runtime.integration.test.ts -t Svelte",
+        "evidence": "Real Svelte 4 and Svelte 5 diagnostic scenarios pass; duplicate Overview titles are distinguished with the unique svelte/overview path; and a multi-file Playground export is exercised through the adapter."
       },
       {
         "id": "svelte-error",
         "category": "error",
         "status": "passed",
-        "command": "npm test -- tests/runtime.integration.test.ts",
-        "evidence": "Invalid docs URL, section count bound, missing App.svelte, path-like filenames, and Svelte 4 async mismatch rejected with InvocationValidationError."
+        "command": "npm test -- tests/runtime.integration.test.ts -t Svelte",
+        "evidence": "Unknown fields, invalid versions and docs URLs, section/source/file-count/per-file/total-size bounds, missing App.svelte, path-like filenames, and the Svelte 4 async mismatch are rejected with InvocationValidationError."
       },
       {
         "id": "svelte-security",
         "category": "security",
         "status": "passed",
-        "command": "npm test -- tests/runtime.integration.test.ts",
-        "evidence": "Absolute/relative path autofixer inputs rejected; bootstrap restricts fetch to svelte.dev docs; non-official Playground URLs and oversized results rejected in normalizeResult."
+        "command": "npm test -- tests/runtime.integration.test.ts -t Svelte",
+        "evidence": "Absolute/relative host paths and a symlink runtime root are rejected. Executable policy tests reject other origins, custom ports, credentials, query strings, fragments, encoded traversal, non-whitelisted paths, non-GET methods, and redirects. Playground MCP UI resources are stripped, while non-official URLs and oversized results are rejected in normalizeResult."
+      },
+      {
+        "id": "svelte-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/api-route.integration.test.ts -t Svelte",
+        "evidence": "The public HTTP invoke route calls the pinned Svelte adapter with validated source text and returns structured autofixer diagnostics."
       },
       {
         "id": "svelte-web",
         "category": "web-e2e",
         "status": "passed",
-        "command": "npm run test:e2e -- tests/e2e/catalog-and-plugins.spec.ts",
-        "evidence": "Dedicated /plugins/svelte-development-studio page runs diagnostics, docs retrieval, and Playground generation with structured UI output."
+        "command": "npm run test:e2e -- --grep \"Svelte Web\"",
+        "evidence": "Dedicated /plugins/svelte-development-studio diagnostics show structured failures and real results; duplicate documentation titles remain independently selectable by path and retrieve the intended Svelte page; Playground files can be added, edited, generated, and removed; and the workflow has no horizontal overflow at a 390 px viewport."
       }
     ],
     "blockers": []

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-slack-gif-creator",
+  "sourceId": "anthropic-agent-skills",
+  "sourceCommit": "9d2f1ae187231d8199c64b5b762e1bdf2244733d",
+  "sourcePath": "skills/slack-gif-creator",
+  "skillSha256": "561c85ffeab639a1e84bb51cfc49f66e868a2a4c4b8945bf77b7bdaeca145a7d",
+  "supportingFiles": [
+    {
+      "path": "LICENSE.txt",
+      "sha256": "52b223c318576d65c32f70cb745f31352730e9f4c2c2c2570a66ce700f4f5a64"
+    },
+    {
+      "path": "core/easing.py",
+      "sha256": "241adbc2d649a1e762615fe5f4e56593b3b5a52e28f6c9dda492588d7e02d653"
+    },
+    {
+      "path": "core/frame_composer.py",
+      "sha256": "0b3e5561b238fa804b8443af8a65c3b6cb8e5286e83f7ae611217ea5c2388fae"
+    },
+    {
+      "path": "core/gif_builder.py",
+      "sha256": "a47a2cda9505e5e7f25cd0dd1c53a0bdb88193ddb1eea2161f87541c1fb390f2"
+    },
+    {
+      "path": "core/validators.py",
+      "sha256": "83d43a5884187fc7a1e309acfd3b91ccfb4b7e70581b855718f1cdb6e9ebbece"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "46f28d66846632623a1a83ad36613fa241c96abef1fe514e6496de99306a0d33"
+    }
+  ]
+}

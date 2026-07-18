@@ -244,10 +244,13 @@ export function validateManifestBusinessRules(manifest: PluginManifest): string[
     errors.push("public entries require a resolved redistribution decision");
   }
 
+  if (manifest.kind === "mcp-server" && manifest.runtime.transport === "in-process") {
+    errors.push("mcp-server entries require an MCP protocol transport; classify in-process capabilities as plugin");
+  }
+
   return errors;
 }
 
 export function isPublicManifest(manifest: PluginManifest): boolean {
   return manifest.lifecycle.status === "web-ready" || manifest.lifecycle.status === "verified";
 }
-

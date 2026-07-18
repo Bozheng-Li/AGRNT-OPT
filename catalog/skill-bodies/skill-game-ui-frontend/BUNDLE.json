@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-game-ui-frontend",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/game-studio/skills/game-ui-frontend",
+  "skillSha256": "9847c0dead3981ffdd6fee4e50eabacb537da93228044bcc58523b2c6c67b9b6",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "eceb81ebeccbd4a8eb317849ea0eb37e9015951e9e672b639454635d038d826e"
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.cseperkepapp/design-constraint-validator",
+  "slug": "design-constraint-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T17:53:55.394Z"
+  },
+  "name": {
+    "original": "Design Constraint Validator",
+    "zhCN": "设计约束验证台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Validate design-token accessibility and mathematical relationships, trace aliases, inspect dependency graphs, explain violations, and calculate read-only fixes.",
+    "zhCN": "验证设计 Token 的无障碍与数学关系，追溯别名，检查依赖图，解释违规，并计算只读修复建议。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Design Constraint Validator 2.3.0 is a provenance-backed MCP server for DTCG, Style Dictionary and Tokens Studio data. Its six read-only tools validate WCAG and threshold policies, explain token provenance and relationships, enumerate active constraints, explain a violation and derive a satisfying value without writing files.",
+    "zhCN": "Design Constraint Validator 2.3.0 是带 npm provenance 的 MCP 服务，面向 DTCG、Style Dictionary 与 Tokens Studio 数据。六个只读工具可验证 WCAG 和阈值策略、解释 Token 来源与关系、列出有效约束、解释违规，并在不写文件的前提下推导满足约束的值。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Cseperke Papp",
+    "url": "https://github.com/CseperkePapp",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "2.3.0",
+    "releasedAt": "2026-06-14T08:24:19.887Z",
+    "checkedAt": "2026-07-16T17:13:32.776Z"
+  },
+  "categories": [
+    "design-systems",
+    "accessibility",
+    "developer-tools",
+    "code-quality"
+  ],
+  "tags": [
+    "MCP",
+    "design tokens",
+    "DTCG",
+    "WCAG",
+    "contrast",
+    "thresholds",
+    "dependency graph",
+    "accessibility"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/CseperkePapp/design-constraint-validator/tree/b0cb2d52cf60d9fcde8d0ec012a3d3561a13e5bf",
+    "repositoryUrl": "https://github.com/CseperkePapp/design-constraint-validator",
+    "packageUrl": "https://www.npmjs.com/package/design-constraint-validator/v/2.3.0",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.CseperkePapp%2Fdesign-constraint-validator&limit=10",
+        "listingId": "io.github.CseperkePapp/design-constraint-validator",
+        "checkedAt": "2026-07-16T17:13:32.776Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.CseperkePapp%2Fdesign-constraint-validator&limit=10",
+        "retrievedAt": "2026-07-16T17:13:32.776Z",
+        "note": "The official MCP Registry marks 2.3.0 as the latest active listing and binds the GitHub repository to the exact design-constraint-validator 2.3.0 npm package over stdio."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/design-constraint-validator/2.3.0",
+        "retrievedAt": "2026-07-16T17:13:32.776Z",
+        "note": "npm metadata declares MIT, Node >=18, three executable names including dcv-mcp, 212 files, 633,174 unpacked bytes, integrity sha512-Qt7j1ILVOYUjD9p5PhhrtKJGUlXnpCs11Uv6ZTjEcxke2ItKb+MqdWjucoWZUjmJQQH1a+2TdvtRxLcInbBuVw==, and gitHead b0cb2d52cf60d9fcde8d0ec012a3d3561a13e5bf."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/design-constraint-validator@2.3.0",
+        "retrievedAt": "2026-07-16T17:13:32.776Z",
+        "note": "The npm SLSA provenance attestation binds the published 2.3.0 artifact to the upstream GitHub Actions release at the recorded gitHead."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/CseperkePapp/design-constraint-validator/blob/b0cb2d52cf60d9fcde8d0ec012a3d3561a13e5bf/mcp/tools.ts",
+        "retrievedAt": "2026-07-16T17:13:32.776Z",
+        "note": "The pinned MCP implementation registers six tools: validate, why, graph, list-constraints, explain and suggest-fix. It supports inline data and optional filesystem paths; Agent-OPT exposes only the inline branches."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/CseperkePapp/design-constraint-validator/blob/b0cb2d52cf60d9fcde8d0ec012a3d3561a13e5bf/mcp/contracts.ts",
+        "retrievedAt": "2026-07-16T17:13:32.776Z",
+        "note": "The pinned contracts define DTCG token objects, WCAG and threshold constraints, JSON graph output, token explanations, violation explanations and read-only fix suggestions, plus tokensPath/configPath/constraintsDir options that the Web adapter rejects."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/CseperkePapp/design-constraint-validator/blob/b0cb2d52cf60d9fcde8d0ec012a3d3561a13e5bf/LICENSE",
+        "retrievedAt": "2026-07-16T17:13:32.776Z",
+        "note": "The pinned repository contains the MIT License with 2025 Cseperke Papp copyright."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/CseperkePapp/design-constraint-validator/blob/b0cb2d52cf60d9fcde8d0ec012a3d3561a13e5bf/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The exact npm artifact declares MIT and contains the same MIT license as the provenance-bound v2.3.0 source. Agent-OPT invokes the upstream package and adds independent validation and Web code.",
+    "checkedAt": "2026-07-16T17:13:32.776Z"
+  },
+  "capabilities": [
+    {
+      "id": "design-token-policy-validation",
+      "name": {
+        "original": "Validate accessibility and threshold policies",
+        "zhCN": "验证无障碍与阈值策略",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Evaluate inline design tokens against explicit WCAG contrast pairs and numeric min/max thresholds with structured violations.",
+        "zhCN": "依据明确的 WCAG 对比度组合与数值上下限，评估内联设计 Token，并返回结构化违规。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "token-provenance-graph",
+      "name": {
+        "original": "Trace token aliases and dependency graphs",
+        "zhCN": "追溯 Token 别名与依赖图",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Explain one token's value provenance, aliases, dependencies and dependents, or return the complete directed dependency graph.",
+        "zhCN": "解释单个 Token 的值来源、别名、依赖与被依赖关系，或返回完整有向依赖图。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "constraint-explanation-and-fix",
+      "name": {
+        "original": "Explain violations and derive verified fixes",
+        "zhCN": "解释违规并推导可验证修复",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List active constraints, translate a violation into plain-language facts, and calculate a satisfying WCAG or threshold value without changing the source tokens.",
+        "zhCN": "列出有效约束，把违规转换为易读事实，并在不修改源 Token 的情况下计算满足 WCAG 或阈值的值。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "none",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "A fixed Agent-OPT bootstrap launches the exact upstream Node entry point with a fixed memory limit in a project-owned empty working directory; Web callers cannot choose a command, environment variable or working directory.",
+      "The bootstrap removes proxy, registry and cloud credential variables and denies fetch, WebSocket, HTTP(S), raw sockets, datagrams and child-process APIs before importing the upstream server.",
+      "All six tools receive inline token JSON. tokensPath, configPath and constraintsDir are absent from strict public schemas, so upstream filesystem parsing and custom constraint discovery cannot be activated.",
+      "Nested JSON is limited to 180 KiB, fourteen levels, 4,000 nodes and keys, 1,000 array items and 4,000 characters per string; prototype-related keys are rejected.",
+      "WCAG ratios are bounded to the specification range, rule and violation arrays are capped, identifiers are character-limited, unknown fields fail closed, and normalized results cannot exceed 1.5 MiB.",
+      "The public surface is read-only: suggest-fix returns candidates but Agent-OPT does not expose the upstream CLI set or patch commands."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-design-constraint-node",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "design-constraint-validator",
+      "version": "2.3.0"
+    },
+    "requirements": [
+      "Node.js 18 or newer",
+      "Project dependencies installed from package-lock.json",
+      "No external account, credential, network, design application or filesystem input is required"
+    ],
+    "configuration": [
+      {
+        "key": "inline token boundary",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Every workflow supplies bounded token and policy JSON directly; path-based upstream inputs are unavailable.",
+          "zhCN": "所有工作流都直接提供有界 Token 与策略 JSON；上游基于路径的输入不可用。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 92,
+    "usefulness": 5,
+    "uniqueness": 5,
+    "reliability": 4.5,
+    "maintenance": 4.5,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.5,
+    "webFitness": 5,
+    "notes": [
+      "DCV checks mathematical and accessibility relationships rather than duplicating schema-only JSON validators or the catalog's basic color utility.",
+      "The six-tool loop is coherent: validate, inspect provenance and graph, enumerate the governing rules, explain one violation, then calculate a non-mutating candidate fix.",
+      "The Registry, npm artifact, npm provenance, release tag and repository source all agree on 2.3.0 and the exact commit.",
+      "The exact npm package is installed from package-lock.json; all six upstream tools, representative design-token scenarios, public API, bounded-input and runtime-root security controls, and the dedicated Chromium workflow passed."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T17:13:32.776Z",
+    "notes": [
+      "Kept MCP, DTCG, Style Dictionary, Tokens Studio, WCAG, Token, JSON and alias as established terms.",
+      "The Chinese copy distinguishes read-only calculated suggestions from automatic source modification."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "DesignConstraintWorkspace",
+    "route": "/plugins/design-constraint-studio",
+    "features": [
+      "six capability tabs covering the complete upstream tool surface",
+      "side-by-side bounded DTCG token and WCAG or threshold policy editors",
+      "failing and passing design-system examples",
+      "validation metrics, token provenance, dependency node view and active-constraint cards",
+      "violation handoff into explanation and read-only fix calculation",
+      "runtime activity, structured output, responsive layout and controlled error feedback"
+    ],
+    "dedicatedElements": [
+      "DTCG token JSON editor",
+      "WCAG and threshold policy editor",
+      "six-stage design review tool strip",
+      "violation summary metrics",
+      "token dependency graph node explorer",
+      "constraint explanation and fix result flow"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "dcv-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/design-constraint-runtime.test.ts",
+        "checkedAt": "2026-07-16T17:53:55.394Z",
+        "evidence": "The installed 2.3.0 STDIO server exposed exactly validate, why, graph, list-constraints, explain and suggest-fix; one coherent review loop invoked all six and validated their structured results."
+      },
+      {
+        "id": "dcv-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/design-constraint-runtime.test.ts",
+        "checkedAt": "2026-07-16T17:53:55.394Z",
+        "evidence": "Real upstream validation distinguished failing and passing DTCG token sets across explicit WCAG contrast and numeric threshold policies."
+      },
+      {
+        "id": "dcv-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/design-constraint-runtime.test.ts",
+        "checkedAt": "2026-07-16T17:53:55.394Z",
+        "evidence": "Strict schemas rejected every upstream path option and unknown field; excessive nesting and prototype-related keys returned controlled validation errors before launch."
+      },
+      {
+        "id": "dcv-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/design-constraint-runtime.test.ts",
+        "checkedAt": "2026-07-16T17:53:55.394Z",
+        "evidence": "Tests rejected tokensPath, configPath, constraintsDir, prototype pollution, over-deep JSON and a junction/symlink runtime root; an executable probe also proved the fixed bootstrap denies network and subprocess APIs and removes proxy and credential variables."
+      },
+      {
+        "id": "dcv-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/design-constraint-api.test.ts",
+        "checkedAt": "2026-07-16T17:53:55.394Z",
+        "evidence": "The public invoke route executed the real validator and returned structured WCAG violations; a filesystem-shaped payload was rejected with HTTP 400."
+      },
+      {
+        "id": "dcv-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=design-constraint.spec.ts › @web-e2e [design-constraint-studio] Design Constraint Web exercises all six tools and failures; route=/plugins/design-constraint-studio; result=passed",
+        "checkedAt": "2026-07-16T17:53:55.394Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "2.3.0"
+  }
+}

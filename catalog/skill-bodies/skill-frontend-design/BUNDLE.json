@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-frontend-design",
+  "sourceId": "anthropic-agent-skills",
+  "sourceCommit": "9d2f1ae187231d8199c64b5b762e1bdf2244733d",
+  "sourcePath": "skills/frontend-design",
+  "skillSha256": "35c43b9d10c2388dbb228047ad028c989a14033750812125f351c85aa42c7a4a",
+  "supportingFiles": [
+    {
+      "path": "LICENSE.txt",
+      "sha256": "eb3d7b5485466acbd81f2b496f595ab637d2792e268206b27d99e793bdb67549"
+    }
+  ]
+}

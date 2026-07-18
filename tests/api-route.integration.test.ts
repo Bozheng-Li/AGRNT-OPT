@@ -14,6 +14,17 @@ async function invoke(slug: string, tool: string, args: Record<string, unknown>)
   );
 }
 
+async function invokeOperation(slug: string, body: Record<string, unknown>) {
+  return POST(
+    new Request(`http://localhost/api/plugins/${slug}/invoke`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }),
+    { params: Promise.resolve({ slug }) },
+  );
+}
+
 describe("Next plugin invocation route", () => {
   afterAll(async () => {
     await closePluginSessions();
@@ -112,6 +123,64 @@ describe("Next plugin invocation route", () => {
     expect(JSON.stringify(payload.result.structuredContent ?? payload.result.content)).toMatch(
       /on:click|event_directive_deprecated|\$state|non_reactive/i,
     );
+  }, 120_000);
+
+  it("calls every e18e tool plus its resources and prompt through the public HTTP route", async () => {
+    const install = await invoke("e18e-dependency-advisor", "npm-i-checker", {
+      command: "pnpm add lodash moment",
+    });
+    expect(install.status).toBe(200);
+    const installPayload = await install.json();
+    expect(installPayload.plugin).toBe("dev.e18e/e18e");
+    expect(installPayload.operation).toBe("tool");
+    expect(installPayload.result.structuredContent.suggestions).toHaveLength(2);
+
+    const source = await invoke("e18e-dependency-advisor", "code-checker", {
+      code: "import moment from 'moment';\nimport chalk from 'chalk';\n",
+    });
+    expect(source.status).toBe(200);
+    expect((await source.json()).result.structuredContent.suggestions).toHaveLength(2);
+
+    const lookup = await invoke("e18e-dependency-advisor", "lookup-replacement", { query: "left-pad" });
+    expect(lookup.status).toBe(200);
+    expect(JSON.stringify((await lookup.json()).result.structuredContent.results)).toContain("String.prototype.padStart");
+
+    const assets = await invokeOperation("e18e-dependency-advisor", { operation: "capabilities" });
+    expect(assets.status).toBe(200);
+    const assetsPayload = await assets.json();
+    expect(assetsPayload.result.resources).toHaveLength(117);
+    expect(assetsPayload.result.resourceTemplates).toEqual([
+      expect.objectContaining({ name: "replacement-docs", uriTemplate: "e18e://docs/{slug}" }),
+    ]);
+    expect(assetsPayload.result.prompts).toEqual([expect.objectContaining({ name: "task" })]);
+
+    const resource = await invokeOperation("e18e-dependency-advisor", {
+      operation: "resource",
+      uri: "e18e://docs/moment.md",
+    });
+    expect(resource.status).toBe(200);
+    expect((await resource.json()).result.contents[0].text).toContain("Replacements for `Moment.js`");
+
+    const prompt = await invokeOperation("e18e-dependency-advisor", {
+      operation: "prompt",
+      prompt: "task",
+      arguments: { task: "Review this API dependency" },
+    });
+    expect(prompt.status).toBe(200);
+    expect((await prompt.json()).result.messages[0].content.text).toContain("Review this API dependency");
+
+    const unsafe = await invoke("e18e-dependency-advisor", "npm-i-checker", {
+      command: "npm i lodash && calc.exe",
+    });
+    expect(unsafe.status).toBe(400);
+    expect((await unsafe.json()).error).toMatch(/不接受旗标|安装命令文本/);
+
+    const unsafeResource = await invokeOperation("e18e-dependency-advisor", {
+      operation: "resource",
+      uri: "file:///etc/passwd",
+    });
+    expect(unsafeResource.status).toBe(400);
+    expect((await unsafeResource.json()).error).toContain("e18e://docs");
   }, 120_000);
 
   it("calls the defluff MCP adapter through the HTTP route", async () => {
@@ -239,6 +308,44 @@ describe("Next plugin invocation route", () => {
     );
     expect(invalidUpload.status).toBe(400);
   });
+
+  it("uploads and converts a MarkItDown document through both public routes", async () => {
+    const upload = await filesPOST(
+      new Request("http://localhost/api/plugins/markitdown-document-studio/files", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "route-check.html",
+          data: Buffer.from("<h1>Route conversion</h1><p>Public API evidence</p>", "utf8").toString("base64"),
+        }),
+      }),
+      { params: Promise.resolve({ slug: "markitdown-document-studio" }) },
+    );
+    expect(upload.status).toBe(200);
+    const uploaded = await upload.json();
+    expect(uploaded.file.path).toMatch(/^uploads\/.+\.html$/);
+
+    const converted = await invoke("markitdown-document-studio", "convert_to_markdown", {
+      file: uploaded.file.path,
+    });
+    expect(converted.status).toBe(200);
+    const payload = await converted.json();
+    expect(payload.plugin).toBe("com.microsoft/markitdown-mcp");
+    expect(payload.result.isError).toBe(false);
+    expect(JSON.stringify(payload.result.content)).toContain("Route conversion");
+
+    const listed = await filesGET(
+      new Request("http://localhost/api/plugins/markitdown-document-studio/files"),
+      { params: Promise.resolve({ slug: "markitdown-document-studio" }) },
+    );
+    expect(listed.status).toBe(200);
+    expect(JSON.stringify((await listed.json()).files)).toContain(uploaded.file.path);
+
+    const directUri = await invoke("markitdown-document-studio", "convert_to_markdown", {
+      uri: "http://127.0.0.1/private",
+    });
+    expect(directUri.status).toBe(400);
+  }, 120_000);
 
   it("calls BumpGuard through the HTTP route and rejects unsafe coordinates", async () => {
     const languages = await invoke("bumpguard-dependency-lab", "list_languages", {});

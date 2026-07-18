@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-evaluate-plugin",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/plugin-eval/skills/evaluate-plugin",
+  "skillSha256": "cf170bc718fb87d8bf0f38b08d61b371f74ad7f9447b3d0887d224a5c6cc5dcc",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "a9b4531e9344ec8994dfd5113d383d844f7adfc8124fba56c61c3eeade9bbd73"
+    }
+  ]
+}

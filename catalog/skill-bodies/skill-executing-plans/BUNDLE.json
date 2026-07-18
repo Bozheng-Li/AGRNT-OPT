@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-executing-plans",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/executing-plans",
+  "skillSha256": "f24e0fdbcdb973b34f81ab481d10be0e494b5809d9e11f00fcf646a3e268c7a2",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "ce0e14ec8b43fb3dca69969e9c93c30c9fc00ed5bcdbb2754955b71b41110d6a"
+    }
+  ]
+}

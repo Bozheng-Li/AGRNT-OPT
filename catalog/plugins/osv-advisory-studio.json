@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.cyanheads/osv-advisory-mcp-server",
+  "slug": "osv-advisory-studio",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T18:26:08.822Z"
+  },
+  "name": {
+    "original": "OSV Advisory MCP Server",
+    "zhCN": "OSV 漏洞公告研判台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Query the public OSV.dev database for one package, audit a bounded dependency batch, inspect full advisories, and discover exact ecosystem identifiers.",
+    "zhCN": "查询公开 OSV.dev 数据库中的单个软件包，以有界批次审计依赖，查看完整公告，并发现大小写精确的生态标识。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The official 0.1.12 STDIO package exposes four read-only MCP tools: a static 50-ecosystem catalog, package-version lookup, bounded batch lookup, and full advisory retrieval. Agent-OPT keeps that real protocol surface while fixing outbound access to https://api.osv.dev, rejecting redirects and caller-selected hosts, narrowing batch size, and presenting advisory data as untrusted evidence rather than an automatic safety verdict.",
+    "zhCN": "官方 0.1.12 STDIO 包提供四个只读 MCP 工具：包含 50 个生态的静态目录、软件包版本查询、有界批量查询和完整公告读取。Agent-OPT 保留这套真实协议能力，同时把出站访问固定为 https://api.osv.dev，拒绝重定向与调用方自选主机，收紧批量规模，并把公告数据作为不受信任的证据呈现，而不是自动给出安全结论。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Casey Hand (@cyanheads)",
+    "url": "https://github.com/cyanheads",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.1.12",
+    "releasedAt": "2026-07-11T20:24:05.347Z",
+    "checkedAt": "2026-07-16T17:55:41.572Z"
+  },
+  "categories": [
+    "security",
+    "dependency-analysis",
+    "developer-tools",
+    "vulnerability-intelligence"
+  ],
+  "tags": [
+    "MCP",
+    "OSV.dev",
+    "vulnerability",
+    "dependency audit",
+    "CVE",
+    "GHSA",
+    "SBOM",
+    "keyless API"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/cyanheads/osv-advisory-mcp-server/tree/35055d34fa42742c7b2c14885dd4b246550df315",
+    "repositoryUrl": "https://github.com/cyanheads/osv-advisory-mcp-server",
+    "packageUrl": "https://www.npmjs.com/package/@cyanheads/osv-advisory-mcp-server/v/0.1.12",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=osv-advisory&limit=100",
+        "listingId": "io.github.cyanheads/osv-advisory-mcp-server",
+        "checkedAt": "2026-07-16T17:55:41.572Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=osv-advisory&limit=100",
+        "retrievedAt": "2026-07-16T17:55:41.572Z",
+        "note": "The official MCP Registry marks io.github.cyanheads/osv-advisory-mcp-server 0.1.12 as latest and active, binds it to the cyanheads GitHub repository and exact npm package, and declares local STDIO plus local and hosted Streamable HTTP transports. Agent-OPT deliberately uses only the locally installed STDIO package."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@cyanheads/osv-advisory-mcp-server/0.1.12",
+        "retrievedAt": "2026-07-16T17:55:41.572Z",
+        "note": "npm records 0.1.12 as latest, published 2026-07-11 by cyanheads, with MCP name io.github.cyanheads/osv-advisory-mcp-server, Apache-2.0, Node >=24, 57 files, 233,260 unpacked bytes, SHA-512 integrity fTKXNHVHvYKQGSJfnKFJMfeegtbcpwglv1dZ0+xyuvDUqzJEY+rlrC2PwNsKoP02LdeW50FbeGT7GSt8rZa9jg==, and a registry ECDSA signature."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/%40cyanheads%2fosv-advisory-mcp-server@0.1.12",
+        "retrievedAt": "2026-07-16T17:55:41.572Z",
+        "note": "The npm attestation endpoint returned 404 for 0.1.12, and the version metadata contains no gitHead. Agent-OPT therefore does not claim SLSA provenance; it records the registry signature and independently checks the signed release metadata against the dereferenced official tag."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/osv-advisory-mcp-server/tree/35055d34fa42742c7b2c14885dd4b246550df315",
+        "retrievedAt": "2026-07-16T17:55:41.572Z",
+        "note": "The dereferenced official v0.1.12 tag resolves to commit 35055d34fa42742c7b2c14885dd4b246550df315. The npm tarball and this commit have byte-identical package.json, server.json, README.md, LICENSE, and 0.1.12 changelog files, providing a reviewable release binding without overstating the absent npm provenance attestation."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/osv-advisory-mcp-server/blob/35055d34fa42742c7b2c14885dd4b246550df315/src/index.ts",
+        "retrievedAt": "2026-07-16T17:55:41.572Z",
+        "note": "The pinned entry registers exactly osv_list_ecosystems, osv_query_package, osv_get_vulnerability, and osv_query_batch, with no resources or prompts. Real tools/list against the published tarball confirmed the same four-tool surface; resources/list and prompts/list were empty."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/osv-advisory-mcp-server/blob/35055d34fa42742c7b2c14885dd4b246550df315/src/services/osv-api/osv-api-service.ts",
+        "retrievedAt": "2026-07-16T17:55:41.572Z",
+        "note": "The pinned service fixes its REST origin to https://api.osv.dev, implements per-request timeout, three-attempt 5xx backoff, pagination caps, full-record normalization, and bounded worker concurrency. Agent-OPT adds a stricter process-level origin, path, method, redirect, credential-header, byte, and total-response policy."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/osv-advisory-mcp-server/blob/35055d34fa42742c7b2c14885dd4b246550df315/LICENSE",
+        "retrievedAt": "2026-07-16T17:55:41.572Z",
+        "note": "The exact tagged source and published npm artifact contain the same Apache License 2.0 text with the 2025 Casey Hand @cyanheads notice."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/cyanheads/osv-advisory-mcp-server/blob/35055d34fa42742c7b2c14885dd4b246550df315/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "Both the exact npm artifact and dereferenced v0.1.12 source commit contain the same Apache-2.0 license. Agent-OPT invokes the upstream package and adds an independent adapter, bootstrap, tests, and Web presentation without copying its implementation.",
+    "checkedAt": "2026-07-16T17:55:41.572Z"
+  },
+  "capabilities": [
+    {
+      "id": "ecosystem-discovery",
+      "name": {
+        "original": "Discover OSV ecosystem identifiers",
+        "zhCN": "发现 OSV 生态标识",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Return the package ecosystem strings accepted by this release, preserving their case-sensitive spelling and the upstream currency warning.",
+        "zhCN": "返回此版本接受的软件包生态字符串，保留其大小写精确拼写和上游时效性提示。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "package-vulnerability-query",
+      "name": {
+        "original": "Check one exact package version",
+        "zhCN": "检查单个精确软件包版本",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Query OSV.dev for one exact package, ecosystem, and version tuple and return advisory IDs, aliases, ranges, severity data, and known fixed versions.",
+        "zhCN": "按一个精确的软件包、生态和版本三元组查询 OSV.dev，并返回公告 ID、别名、影响范围、严重性数据和已知修复版本。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "bounded-dependency-audit",
+      "name": {
+        "original": "Audit a bounded package batch",
+        "zhCN": "审计有界软件包批次",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Check up to twelve explicit package tuples with positional results and distinguish vulnerable, confirmed-clean, truncated, and failed rows.",
+        "zhCN": "检查最多十二个显式软件包三元组，以位置对应的结果区分存在漏洞、确认未命中、被截断和失败的条目。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "full-advisory-record",
+      "name": {
+        "original": "Inspect a full OSV advisory",
+        "zhCN": "查看完整 OSV 公告",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Retrieve an advisory by OSV ID with details, aliases, affected packages and ranges, withdrawal state, weakness IDs, and reference text.",
+        "zhCN": "按 OSV ID 获取公告详情、别名、受影响软件包与范围、撤回状态、弱点 ID 和参考资料文本。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches only the exact local 0.1.12 Node entry through a fixed STDIO bootstrap with a 256 MiB old-space limit; callers cannot choose commands, arguments, environment variables, transport, or working directories.",
+      "The bootstrap permits only HTTPS requests to the exact api.osv.dev origin and the fixed /v1/query or single-segment /v1/vulns/{id} paths. It rejects custom ports, credentials, queries, fragments, methods, credential headers, Request objects, other origins or paths, and all redirects.",
+      "OSV request bodies are revalidated before network access, each response is limited to 1.5 MiB, cumulative response bytes are limited to 6 MiB per process, normalized MCP output is limited to 1.5 MiB, and batch input is reduced from upstream's 1,000 rows to twelve with concurrency three and two result pages.",
+      "A deployment-level HTTPS_PROXY is optional for controlled egress. The adapter reads it only from the host process, rejects conflicting case variants and anything except a credential-free http/https origin, and enables Node's startup proxy dispatcher; Web input cannot supply or alter it. The bootstrap retains only the validated proxy hostname in private process state and immediately removes visible proxy and NODE_USE_ENV_PROXY variables.",
+      "Package, cloud, model-provider, telemetry-exporter, HTTP-server, auth, and custom OSV endpoint variables are removed. Direct HTTP(S), raw sockets, arbitrary DNS APIs, datagrams, WebSockets, worker threads, and subprocess APIs are denied; low-level DNS/socket/TLS access is temporarily available only inside the AsyncLocalStorage scope of an already authorized OSV fetch and may resolve only api.osv.dev or the fixed deployment proxy host.",
+      "The framework receives only a dedicated project-owned HOME, temp, and log directory. Web callers cannot provide file paths, log paths, lockfiles, SBOM files, URLs, API keys, or account configuration.",
+      "Advisory summary, details, and reference values are untrusted remote data. The dedicated Web renders them as escaped React text and never executes Markdown, raw HTML, links, commands, package upgrades, or remediation steps.",
+      "An empty, non-truncated result means only that OSV.dev returned no known matching advisory at query time; it is not proof that a package is safe, and Agent-OPT preserves upstream truncation and withdrawal signals."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-osv-advisory-fixed-origin",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@cyanheads/osv-advisory-mcp-server",
+      "version": "0.1.12"
+    },
+    "requirements": [
+      "Node.js 24 or newer",
+      "The exact @cyanheads/osv-advisory-mcp-server 0.1.12 package installed from package-lock.json",
+      "Outbound TLS access to the fixed https://api.osv.dev origin for package and advisory queries",
+      "Optional deployment egress through a host-configured, credential-free HTTPS_PROXY origin; callers cannot configure the proxy",
+      "No API key, credential, paid plan, external account, local repository, lockfile parser, or remote MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "fixed OSV.dev network policy",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "The bootstrap fixes origin, paths, methods, redirect mode, request and response sizes, timeout, pagination, and concurrency; none are caller-selectable.",
+          "zhCN": "启动引导固定来源、路径、方法、重定向模式、请求与响应大小、超时、分页和并发；调用方不能选择这些参数。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "bounded tuple-only input",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Web requests contain only validated package tuples or one advisory ID; host, URL, path, credential, command, and arbitrary request options are unavailable.",
+          "zhCN": "Web 请求只包含校验后的软件包三元组或一个公告 ID；主机、URL、路径、凭据、命令和任意请求选项均不可用。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "optional deployment egress proxy",
+        "required": false,
+        "secret": false,
+        "description": {
+          "original": "A credential-free http/https HTTPS_PROXY origin may be inherited from the deployment before process startup; the Web API cannot set it, and visible proxy variables are removed before upstream import.",
+          "zhCN": "部署可在进程启动前继承一个无凭据的 http/https HTTPS_PROXY 来源；Web API 不能设置它，上游导入前会移除可见代理变量。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 89,
+    "usefulness": 4.8,
+    "uniqueness": 4.3,
+    "reliability": 4.3,
+    "maintenance": 4.6,
+    "provenance": 4.2,
+    "licenseClarity": 5,
+    "security": 4.6,
+    "webFitness": 4.8,
+    "notes": [
+      "The integration answers a common, high-value dependency question across fifty ecosystems without credentials and preserves exact advisory IDs for deeper investigation.",
+      "Official Registry publication, a registry-signed npm artifact, a fixed official tag, and byte-identical release metadata provide strong reviewability, but the absent npm provenance attestation is explicitly reflected in the provenance score.",
+      "Qualification against the published tarball discovered exactly four tools and no resources or prompts. Real calls returned five known lodash 4.17.20 advisories, a clean non-truncated is-number 7.0.0 result, a mixed batch, and the complete GHSA-29mw-wpgm-hmr9 record.",
+      "The upstream MCP handshake reports framework version 0.10.14 instead of package version 0.1.12. In addition, its not-found tool error carries structured content that violates the declared success output schema, so the current MCP SDK rejects it before adapter normalization. Agent-OPT records both protocol defects instead of treating them as successful behavior.",
+      "OSV data is valuable evidence but can be incomplete, delayed, withdrawn, or truncated. The Web adaptation emphasizes those boundaries and does not claim vulnerability absence, exploitability, or automatic remediation."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T17:55:41.572Z",
+    "notes": [
+      "Kept OSV.dev, MCP, STDIO, CVE, GHSA, SBOM, CVSS, CWE, npm, PyPI and GIT as established technical terms.",
+      "The Chinese copy distinguishes no known matching advisory from a safety guarantee and preserves truncated and withdrawn semantics.",
+      "The absence of npm SLSA provenance and the misleading upstream handshake version are disclosed rather than silently normalized."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "OsvAdvisoryWorkspace",
+    "route": "/plugins/osv-advisory-studio",
+    "features": [
+      "GPT-flavored single-package vulnerability triage with vulnerable and no-known-match examples",
+      "bounded tuple editor for dependency batches with vulnerable, clean, truncated and failed-row presentation",
+      "full advisory inspector with withdrawal, aliases, affected-package, range, CWE and reference evidence",
+      "case-sensitive 50-ecosystem directory using the real upstream static tool",
+      "severity, known-fix and result-completeness cards without automatic remediation claims",
+      "pending, activity, upstream error, local validation, empty, responsive and network-boundary feedback"
+    ],
+    "dedicatedElements": [
+      "exact package, ecosystem and version query form",
+      "twelve-row ecosystem | package | version batch editor",
+      "vulnerability finding cards with advisory handoff",
+      "batch audit outcome matrix and completeness metrics",
+      "full OSV advisory evidence viewer",
+      "case-sensitive ecosystem chip directory",
+      "fixed api.osv.dev and no-safety-guarantee boundary notice"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "osv-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/osv-advisory-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:24:25.468Z",
+        "evidence": "The installed 0.1.12 STDIO server exposed exactly four tools and returned the real 50-ecosystem list, known lodash advisories, a complete GHSA record and structured fixed-version data."
+      },
+      {
+        "id": "osv-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/osv-advisory-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:24:25.468Z",
+        "evidence": "Real OSV.dev calls distinguished a vulnerable lodash release, a no-known-match is-number release and a mixed two-package batch without treating absence as a safety guarantee."
+      },
+      {
+        "id": "osv-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/osv-advisory-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:24:25.468Z",
+        "evidence": "A real missing advisory exposed the upstream not-found structured-output defect as a controlled SDK failure; invalid ecosystems, URLs, shell syntax, ranges, unknown network options, traversal IDs and oversized batches were rejected."
+      },
+      {
+        "id": "osv-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/osv-advisory-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:24:25.468Z",
+        "evidence": "The executable probe proved fixed api.osv.dev origin and redirect policy, custom host/path and credential-header denial, HTTP/subprocess denial, deployment-proxy validation and visible credential cleanup; output caps and a linked runtime root were also rejected."
+      },
+      {
+        "id": "osv-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/osv-advisory-api.test.ts",
+        "checkedAt": "2026-07-16T18:24:25.468Z",
+        "evidence": "The public route executed real ecosystem, single-package and mixed-batch tools and returned HTTP 400 for a caller-selected baseUrl."
+      },
+      {
+        "id": "osv-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=osv-advisory.spec.ts › @web-e2e [osv-advisory-studio] OSV Web exercises all four tools, errors, and responsive layout; route=/plugins/osv-advisory-studio; result=passed",
+        "checkedAt": "2026-07-16T18:26:08.822Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "0.1.12"
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.cyanheads/crossref-mcp-server",
+  "slug": "crossref-scholarly-metadata-lab",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-17T17:52:19.871Z"
+  },
+  "name": {
+    "original": "Crossref MCP Server",
+    "zhCN": "Crossref 学术元数据台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Resolve DOIs, search scholarly works, inspect outgoing references, journals and funders, and analyze publisher members and DOI-prefix ownership through the public Crossref REST API.",
+    "zhCN": "通过公开 Crossref REST API 解析 DOI、检索学术作品、查看出站参考文献、期刊与基金方，并分析出版成员及 DOI Prefix 归属。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The exact signed npm 0.2.0 package exposes seven read-only MCP tools and no resources, templates, or prompts. Agent-OPT locks every request to HTTPS GET calls under https://api.crossref.org, removes the upstream CROSSREF_BASE_URL override and ambient credentials, rejects redirects and caller-selected request options, narrows search and output bounds, and presents work discovery, DOI evidence, reference lists, journal and funder discovery, and Prefix-to-Member deposit coverage in a dedicated Web research desk.",
+    "zhCN": "精确锁定且带 npm 签名的 0.2.0 包提供七个只读 MCP 工具，不包含资源、资源模板或 Prompt。Agent-OPT 将所有请求锁定为 https://api.crossref.org 下的 HTTPS GET，移除上游 CROSSREF_BASE_URL 覆盖及环境凭据，拒绝重定向和调用方自选请求选项，收紧检索与输出边界，并在专属 Web 研究台中呈现作品发现、DOI 证据、参考文献表、期刊与基金方检索，以及 Prefix 到 Member 的元数据存储覆盖分析。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Casey Hand (@cyanheads)",
+    "url": "https://github.com/cyanheads",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.2.0",
+    "releasedAt": "2026-07-13T18:38:56.436Z",
+    "checkedAt": "2026-07-17T17:15:12.477Z"
+  },
+  "categories": [
+    "research",
+    "scholarly-metadata",
+    "citations",
+    "publishing"
+  ],
+  "tags": [
+    "MCP",
+    "Crossref",
+    "DOI",
+    "references",
+    "journals",
+    "funders",
+    "publishers",
+    "keyless API"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/cyanheads/crossref-mcp-server/tree/425640826fcff705b0f0bb4697ee99fe9e5c7b20",
+    "repositoryUrl": "https://github.com/cyanheads/crossref-mcp-server",
+    "packageUrl": "https://www.npmjs.com/package/@cyanheads/crossref-mcp-server/v/0.2.0",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=crossref-mcp-server&limit=30",
+        "listingId": "io.github.cyanheads/crossref-mcp-server",
+        "checkedAt": "2026-07-17T17:15:12.477Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=crossref-mcp-server&limit=30",
+        "retrievedAt": "2026-07-17T17:15:12.477Z",
+        "note": "The official MCP Registry marks io.github.cyanheads/crossref-mcp-server 0.2.0 active and latest, published 2026-07-13, and binds the listing to @cyanheads/crossref-mcp-server 0.2.0 over STDIO and HTTP. Agent-OPT uses only the local STDIO package."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@cyanheads/crossref-mcp-server/0.2.0",
+        "retrievedAt": "2026-07-17T17:15:12.477Z",
+        "note": "npm records Apache-2.0, Node >=24, 75 files, 317,482 unpacked bytes, shasum 295897b90de73da6f04436852dad9602ebb5ed61, integrity sha512-PpKDz+d21UEiqn2ic2jrMYdCOOQ7UioFWh3w+0F4JNHC1R8iS1ei+oDv+WlSiN3/UB4EHwfTzWlZnNfPncZG7A==, and a registry signature. It provides no gitHead or package-level attestation, so no tarball-to-commit SLSA claim is made."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/crossref-mcp-server/tree/425640826fcff705b0f0bb4697ee99fe9e5c7b20",
+        "retrievedAt": "2026-07-17T17:15:12.477Z",
+        "note": "Annotated v0.2.0 dereferences to commit 425640826fcff705b0f0bb4697ee99fe9e5c7b20 and registers seven read-only tools. The tag contains an SSH signature, but its signer identity was not independently verified in this environment. The MCP handshake incorrectly reports framework version 0.10.14; the curated version is taken from the exact package lock and release tag."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/crossref-mcp-server/blob/425640826fcff705b0f0bb4697ee99fe9e5c7b20/LICENSE",
+        "retrievedAt": "2026-07-17T17:15:12.477Z",
+        "note": "The pinned repository and npm package declare Apache-2.0."
+      },
+      {
+        "kind": "corroborating-source",
+        "url": "https://api.crossref.org/works/10.1038%2Fnature12373",
+        "retrievedAt": "2026-07-17T17:15:12.477Z",
+        "note": "Real anonymous STDIO qualification invoked all seven tools against the official Crossref REST API: DOI 10.1038/nature12373, Array programming with NumPy, ISSN 1476-4687, Funder DOI 10.13039/100000001, member 297, and prefix 10.1038 all returned structured records."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/cyanheads/crossref-mcp-server/blob/425640826fcff705b0f0bb4697ee99fe9e5c7b20/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The pinned v0.2.0 source and exact npm artifact declare Apache-2.0. Agent-OPT invokes the upstream package and adds an independent fixed-origin adapter, bootstrap, translation, tests, and Web presentation without copying implementation code.",
+    "checkedAt": "2026-07-17T17:15:12.477Z"
+  },
+  "capabilities": [
+    {
+      "id": "work-search",
+      "name": {
+        "original": "Search scholarly works",
+        "zhCN": "检索学术作品",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Search Crossref works by bounded free text or title fields with selected metadata, sorting, filters, and shallow pagination.",
+        "zhCN": "按有界全文或标题字段检索 Crossref 作品，并使用受限元数据字段、排序、过滤和浅分页。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "doi-and-references",
+      "name": {
+        "original": "Resolve DOI records and outgoing references",
+        "zhCN": "解析 DOI 记录与出站参考文献",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read a work's deposited title, authors, abstract, publication, license, funding, link and citation-count metadata, plus its publisher-deposited outgoing reference list.",
+        "zhCN": "读取作品存储的标题、作者、摘要、发表、许可、资助、链接和被引次数元数据，以及出版方存储的出站参考文献表。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "journal-and-funder-discovery",
+      "name": {
+        "original": "Discover journals and funders",
+        "zhCN": "发现期刊与基金方",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Resolve journals by ISSN or title with a bounded recent-work sample, and resolve funders by Registry DOI or name.",
+        "zhCN": "按 ISSN 或标题解析期刊并返回有界的近期作品样本，按 Registry DOI 或名称解析基金方。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "publisher-coverage",
+      "name": {
+        "original": "Analyze Prefix ownership and member coverage",
+        "zhCN": "分析 Prefix 归属与成员覆盖",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Resolve a DOI Prefix to its Crossref member, then inspect registered DOI totals, work-type distribution, and current/backfile metadata deposit coverage.",
+        "zhCN": "将 DOI Prefix 解析到 Crossref 成员，再查看注册 DOI 总量、作品类型分布，以及当前和回溯元数据存储覆盖率。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches only the exact local 0.2.0 Node entry over STDIO with a bounded memory budget; callers cannot choose a command, package, transport, environment, working directory, or remote MCP endpoint.",
+      "The bootstrap removes CROSSREF_BASE_URL and forces HTTPS GET requests to https://api.crossref.org on closed Crossref REST paths. It rejects alternate origins, ports, credentials, fragments, request bodies, credential headers, Request objects, and redirects.",
+      "CROSSREF_MAILTO is intentionally unset, so this public integration uses anonymous Crossref access and makes no polite-pool identity claim. Proxy, package, cloud, model-provider, auth, telemetry, server, and credential variables are removed from the upstream environment.",
+      "DOIs, ISSNs, funder DOIs, member IDs, prefixes, queries, filters, selected fields, sort options, rows, offsets, cursors, object counts, string lengths, arrays, JSON depth, and total result bytes are bounded before or after execution. Empty work searches that could enumerate the corpus are rejected.",
+      "The upstream 0.2.0 crossref_search_funders include_works=true path emits structuredContent that violates its own declared output schema. Agent-OPT rejects that optional mode before launch and exposes the stable funder-record path only; it is not counted as an integrated capability.",
+      "Remote titles, abstracts, names, affiliations, citations, publishers, funders, and URLs are untrusted metadata. The dedicated Web renders them only as escaped React text and never follows returned links or executes HTML, Markdown, scripts, or commands."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-crossref-fixed-origin",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@cyanheads/crossref-mcp-server",
+      "version": "0.2.0"
+    },
+    "requirements": [
+      "Node.js 24 or newer",
+      "The exact @cyanheads/crossref-mcp-server 0.2.0 package installed from package-lock.json",
+      "Outbound TLS access to the fixed https://api.crossref.org origin",
+      "No API key, credential, paid plan, external account, local corpus, hardware device, or remote MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "fixed Crossref network policy",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Origin, paths, GET method, redirect mode, headers, timeouts and response bounds are adapter-controlled and cannot be selected by Web callers.",
+          "zhCN": "来源、路径、GET 方法、重定向模式、请求头、超时和响应边界由适配器控制，Web 调用方不能选择。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "bounded scholarly query",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Requests contain only validated Crossref identifiers or bounded query, filter, field, sort and paging values.",
+          "zhCN": "请求只包含校验后的 Crossref 标识符，或有界查询、过滤、字段、排序和分页值。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 90,
+    "usefulness": 4.9,
+    "uniqueness": 4.5,
+    "reliability": 4.6,
+    "maintenance": 4.6,
+    "provenance": 4.1,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 4.9,
+    "notes": [
+      "Crossref is a high-value public metadata source for DOI resolution, literature discovery, reference inspection, funder normalization, and publisher deposit-quality analysis without a credential barrier.",
+      "Registry identity, exact npm package, repository, release tag, author, Node requirement, license, and seven-tool surface align. npm signs the artifact, but package-level gitHead/SLSA provenance is absent and the upstream handshake misreports the framework version, reflected in the provenance score.",
+      "Qualification ran every tool against fixed real examples and verified that the server exposes no resources, templates, or prompts. Crossref records can be incomplete because publishers choose which abstracts, references, ORCIDs, funding, licenses, and links they deposit.",
+      "The optional funder include_works mode is disabled because exact 0.2.0 fails MCP output-schema validation on that path. The stable funder lookup itself remains available and verified; the defect is documented instead of being normalized into a false success.",
+      "Crossref's isReferencedByCount is a count, not an incoming-citation graph; outgoing references may also be missing. The Web keeps those coverage limits explicit and does not treat search results as an exhaustive scholarly index."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-17T17:15:12.477Z",
+    "notes": [
+      "Kept Crossref, MCP, STDIO, DOI, ISSN, ORCID, Prefix, Member, current and backfile as established product, protocol, identifier, or registry terms where a forced translation would reduce precision.",
+      "Chinese copy distinguishes deposited metadata from verified publication facts, outgoing references from incoming citation graphs, and a public identifier lookup from DOI resolution or full-text access."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "CrossrefWorkspace",
+    "route": "/plugins/crossref-scholarly-metadata-lab",
+    "features": [
+      "GPT-flavored title or general work search with bounded fields, citation counts, DOI drill-down, and previous/next offset pagination",
+      "DOI detail panel for authors, publication, publisher, abstract, funders, licenses, links, subjects, reference count, and citation-count caveats",
+      "outgoing reference ledger with resolved DOI, author, year, journal, deposited citation text, and publisher-coverage warning",
+      "ISSN journal lookup with a bounded recent-work strip and stable Funder Registry DOI/name discovery",
+      "DOI Prefix ownership card that chains into a member profile with DOI totals, work-type distribution, prefixes, and current/backfile metadata coverage bars",
+      "pending, activity, no-result, upstream error, local validation, source-boundary, incomplete-deposit, pagination, and responsive mobile states"
+    ],
+    "dedicatedElements": [
+      "scholarly work result ledger",
+      "DOI evidence profile",
+      "outgoing-reference table",
+      "journal and funder discovery cards",
+      "Prefix-to-Member workflow",
+      "publisher work-type and metadata-coverage dashboard"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "crossref-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/crossref-runtime.test.ts",
+        "checkedAt": "2026-07-17T17:50:00.000Z",
+        "evidence": "Vitest passed 3/3 integration tests. The exact 0.2.0 STDIO package exposed seven read-only tools and zero resources, resource templates, or prompts; every tool was invoked through the fixed-origin adapter."
+      },
+      {
+        "id": "crossref-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/crossref-runtime.test.ts",
+        "checkedAt": "2026-07-17T17:50:00.000Z",
+        "evidence": "The real chain found Array programming with NumPy (10.1038/s41586-020-2649-2), resolved 10.1038/nature12373 and its deposited references, loaded Nature by ISSN 1476-4687, resolved NSF funder DOI 10.13039/100000001, mapped prefix 10.1038 to member 297, and rendered the member's DOI counts, work types, and deposit coverage."
+      },
+      {
+        "id": "crossref-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/crossref-runtime.test.ts",
+        "checkedAt": "2026-07-17T17:50:00.000Z",
+        "evidence": "A real missing DOI and invalid Crossref filter remained controlled errors. The adapter rejected empty enumeration, URL-prefixed work DOIs, unknown fields, excessive rows, filters, offsets and cursors, conflicting selectors, malformed identifiers, extra baseUrl fields, and the known-broken 0.2.0 funder include_works mode before launch."
+      },
+      {
+        "id": "crossref-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/crossref-runtime.test.ts",
+        "checkedAt": "2026-07-17T17:50:00.000Z",
+        "evidence": "The executable probe proved exact package pinning, fixed api.crossref.org origin, GET-only requests, redirect and Request-object denial, custom host/path/query and credential-header rejection, linked runtime-root rejection, host-read/write/subprocess/worker denial, forced base URL, and removal of mailto, proxies, and credentials."
+      },
+      {
+        "id": "crossref-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/crossref-api.test.ts",
+        "checkedAt": "2026-07-17T17:50:00.000Z",
+        "evidence": "Vitest passed 2/2 public Next route tests. The API ran the real seven-tool scholarly and publisher workflow and returned HTTP 400 for empty enumeration, excessive rows, caller-selected origins, malformed prefixes, and the disabled schema-invalid funder mode."
+      },
+      {
+        "id": "crossref-web-e2e",
+        "category": "web-e2e",
+        "status": "passed",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=crossref.spec.ts › @web-e2e [crossref-scholarly-metadata-lab] Crossref Web runs seven tools, pagination, errors, and responsive layout; route=/plugins/crossref-scholarly-metadata-lab; result=passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-17T17:52:19.871Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "0.2.0"
+  }
+}

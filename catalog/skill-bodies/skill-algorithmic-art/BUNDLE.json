@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-algorithmic-art",
+  "sourceId": "anthropic-agent-skills",
+  "sourceCommit": "9d2f1ae187231d8199c64b5b762e1bdf2244733d",
+  "sourcePath": "skills/algorithmic-art",
+  "skillSha256": "6688fc81bb2051d3f234385b50ce160834eb0b0510ed8a5816cc412c1d28c352",
+  "supportingFiles": [
+    {
+      "path": "LICENSE.txt",
+      "sha256": "52b223c318576d65c32f70cb745f31352730e9f4c2c2c2570a66ce700f4f5a64"
+    },
+    {
+      "path": "templates/generator_template.js",
+      "sha256": "d4a1d449cbfb92b96009c8f2ad3b1c6cf6215d6ce75d68cf44a1aa7681077e88"
+    },
+    {
+      "path": "templates/viewer.html",
+      "sha256": "281d5559d06b93ff5c55a69163dd235fa91b8dab52870cd3260e4a9fccd46480"
+    }
+  ]
+}

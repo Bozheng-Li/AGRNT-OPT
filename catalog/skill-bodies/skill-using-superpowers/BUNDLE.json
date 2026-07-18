@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-using-superpowers",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/using-superpowers",
+  "skillSha256": "8052a1248970aee7ddd272bf27e9873aec08177d5065b75ba8c53d9b68d89d5f",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "e8ebb4b45c75c134ce06a01b482e72e6269cea1421f4fedeb59f805870eb58ee"
+    },
+    {
+      "path": "references/codex-tools.md",
+      "sha256": "970177e33f8d9551b5021a09b3b258273c36835f09303c45a1ff7f649d5cddab"
+    },
+    {
+      "path": "references/copilot-tools.md",
+      "sha256": "18c0692f6985aea0a218929aeceadbbed189c3829c2007fd902f14b222b82592"
+    },
+    {
+      "path": "references/gemini-tools.md",
+      "sha256": "8fbaac8efd02965659384638e164835d22c564323d4ac3e3a0c7191cd4311516"
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.raccioly/docguard",
+  "slug": "docguard-drift-lab",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-17T12:34:18.363Z"
+  },
+  "name": {
+    "original": "DocGuard",
+    "zhCN": "DocGuard 文档漂移实验室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Detect drift between canonical documentation and code, score documentation maturity, extract semantic claims, explain stable finding codes, diagnose repairs, and generate integrity-stamped compliance evidence.",
+    "zhCN": "检测规范文档与代码之间的漂移，评估文档成熟度，提取待核验语义声明，解释稳定 finding code，生成修复诊断与带完整性指纹的合规证据。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The official DocGuard 0.33.1 STDIO server exposes six read-only MCP tools: guard, score, explain, verify-claims, report, and diagnose. Agent-OPT converts caller-supplied text files into a one-call virtual project, denies the upstream package all writes, network access, workers, subprocesses, and host filesystem reads, and renders each result as a dedicated documentation-drift workflow instead of exposing projectDir.",
+    "zhCN": "官方 DocGuard 0.33.1 STDIO 服务提供六个只读 MCP 工具：guard、score、explain、verify-claims、report 与 diagnose。Agent-OPT 将调用方提交的文本文件转换为单次调用有效的虚拟项目，禁止上游包执行写入、联网、Worker、子进程和宿主文件读取，并按文档漂移工作流专门呈现每类结果，不向用户开放 projectDir。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Ricardo Accioly",
+    "url": "https://github.com/raccioly",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.33.1",
+    "releasedAt": "2026-07-16T18:21:53.531Z",
+    "checkedAt": "2026-07-17T12:11:04.354Z"
+  },
+  "categories": [
+    "documentation",
+    "developer-tools",
+    "code-quality",
+    "compliance"
+  ],
+  "tags": [
+    "MCP",
+    "CDD",
+    "documentation drift",
+    "maturity score",
+    "semantic claims",
+    "finding codes",
+    "compliance evidence",
+    "ALCOA+"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/raccioly/docguard/tree/fe12d13dc0737a60e6540e937b29dfeb9c6aeb6f",
+    "repositoryUrl": "https://github.com/raccioly/docguard",
+    "packageUrl": "https://www.npmjs.com/package/docguard-cli/v/0.33.1",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.raccioly%2Fdocguard&limit=10",
+        "listingId": "io.github.raccioly/docguard",
+        "checkedAt": "2026-07-17T12:11:04.354Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.raccioly%2Fdocguard&limit=10",
+        "retrievedAt": "2026-07-17T12:11:04.354Z",
+        "note": "The official MCP Registry marks io.github.raccioly/docguard 0.33.1 active and latest, binds it to raccioly/docguard, and declares the exact docguard-cli 0.33.1 npm package with the positional mcp command over STDIO."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/docguard-cli/0.33.1",
+        "retrievedAt": "2026-07-17T12:11:04.354Z",
+        "note": "npm records MIT, Node >=18, one pinned runtime dependency, 178 package files, 1,643,735 unpacked bytes, shasum e048b119672e0871b0298a91861cc7a4b23f8346, integrity sha512-E+RgEzGcBfNOCAzrl6Ts5HIYSAlDkqkAvVUeoxEnjVqwgjTb5ajMp3Bt7heKzEvK6ivHg408p6dioyLDutu5CQ==, registry signature, gitHead fe12d13dc0737a60e6540e937b29dfeb9c6aeb6f, and SLSA provenance."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/docguard-cli@0.33.1",
+        "retrievedAt": "2026-07-17T12:11:04.354Z",
+        "note": "The npm Sigstore bundle contains publish and SLSA provenance attestations. The provenance resolves the GitHub Actions release dependency to exact commit fe12d13dc0737a60e6540e937b29dfeb9c6aeb6f."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/raccioly/docguard/blob/fe12d13dc0737a60e6540e937b29dfeb9c6aeb6f/cli/commands/mcp.mjs",
+        "retrievedAt": "2026-07-17T12:11:04.354Z",
+        "note": "The provenance-pinned MCP implementation registers exactly docguard_guard, docguard_score, docguard_explain, docguard_verify_claims, docguard_report, and docguard_diagnose with read-only, non-destructive, idempotent, closed-world annotations and per-call configuration loading."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/raccioly/docguard/blob/fe12d13dc0737a60e6540e937b29dfeb9c6aeb6f/cli/scanners/semantic-claims.mjs",
+        "retrievedAt": "2026-07-17T12:11:04.354Z",
+        "note": "The pinned semantic scanner deterministically extracts bounded numeric, rate, count, duration, and enum claims from canonical Markdown, associates nearby cited code, and emits verification tasks while leaving semantic judgment to the calling agent."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/raccioly/docguard/blob/fe12d13dc0737a60e6540e937b29dfeb9c6aeb6f/cli/commands/report.mjs",
+        "retrievedAt": "2026-07-17T12:11:04.354Z",
+        "note": "The pinned report builder combines guard state, score categories, project identity, optional git state, fix history, and ALCOA+ attributes, then produces a deterministic sha256 integrity field over the stable payload."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/raccioly/docguard/blob/fe12d13dc0737a60e6540e937b29dfeb9c6aeb6f/LICENSE",
+        "retrievedAt": "2026-07-17T12:11:04.354Z",
+        "note": "The exact provenance commit and published npm artifact declare the MIT License, copyright 2026 Ricardo Accioly."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "MIT",
+    "url": "https://github.com/raccioly/docguard/blob/fe12d13dc0737a60e6540e937b29dfeb9c6aeb6f/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The provenance-pinned source and npm package both contain the MIT license. Agent-OPT invokes the exact package and adds an independent adapter, security bootstrap, Chinese translation, tests, and Web presentation without copying the upstream implementation.",
+    "checkedAt": "2026-07-17T12:11:04.354Z"
+  },
+  "capabilities": [
+    {
+      "id": "documentation-guard",
+      "name": {
+        "original": "Guard canonical documentation against code",
+        "zhCN": "以代码校验规范文档",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Run all enabled deterministic validators and return PASS, WARN, or FAIL with stable finding codes, locations, suggestions, coverage, semantic-claim count, and per-validator evidence.",
+        "zhCN": "运行全部已启用的确定性校验器，返回 PASS、WARN 或 FAIL，并给出稳定 finding code、位置、修复建议、覆盖范围、语义声明数与逐校验器证据。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "cdd-maturity-score",
+      "name": {
+        "original": "Score CDD maturity",
+        "zhCN": "评估 CDD 文档成熟度",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Calculate a 0-100 score, letter grade, and category breakdown for structure, documentation quality, testing, security, environment, drift, changelog, and architecture.",
+        "zhCN": "针对结构、文档质量、测试、安全、环境、漂移、变更日志与架构计算 0-100 分、字母等级和分类明细。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "semantic-claim-tasks",
+      "name": {
+        "original": "Extract semantic claims to verify",
+        "zhCN": "提取待核验语义声明",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Turn documented durations, limits, rates, counts, and enum sets into bounded agent-readable verification tasks with document lines, sections, and nearby cited code.",
+        "zhCN": "将文档中的时长、限制、速率、数量与枚举集合转换成有界、适合 Agent 执行的核验任务，并保留文档行号、章节及邻近代码引用。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "finding-explanation-diagnosis",
+      "name": {
+        "original": "Explain findings and diagnose repairs",
+        "zhCN": "解释发现并诊断修复路径",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Explain stable finding codes and return only failing or warning validators, structured findings, locations, suggestions, and next actions for an agent to repair.",
+        "zhCN": "解释稳定 finding code，并仅返回失败或警告校验器、结构化发现、位置、建议与适合 Agent 执行的下一步。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "integrity-evidence-report",
+      "name": {
+        "original": "Generate integrity-stamped compliance evidence",
+        "zhCN": "生成带完整性指纹的合规证据",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Bundle project identity, guard verdict, findings, maturity score, ALCOA+ attributes, optional source-control state, and a reproducible sha256 integrity value without acting as a deployment gate.",
+        "zhCN": "汇总项目身份、守卫结论、发现、成熟度评分、ALCOA+ 属性、可选版本控制状态与可复算 sha256 完整性值，但不将证据报告冒充部署门禁。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-read",
+    "network": "none",
+    "commands": "none",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "Every project-scoped Web call accepts one to thirty-two UTF-8 text files using safe relative paths, with at most six path levels, 96,000 characters per file, and 512 KiB total input. Caller projectDir, .git, node_modules, absolute paths, drive semantics, traversal, duplicate case-folded paths, environment, commands, and transport settings are rejected before launch.",
+      "The adapter writes submitted files into a cryptographically random, one-call project directory beneath var/runtime/docguard and sends only that fixed projectDir to the exact upstream 0.33.1 STDIO process. The run directory is removed after result normalization; stale interrupted runs are bounded and cleaned later.",
+      "The child bootstrap permits reads only inside the exact virtual project and pinned node_modules tree. It denies all filesystem writes and mutation, host reads, network APIs, DNS, sockets, server creation, subprocesses, worker threads, and caller proxy or credential variables before importing the upstream MCP server.",
+      "DocGuard labels its MCP tools read-only, but some validators can attempt git or Python subprocesses when available. Agent-OPT deliberately denies those commands; unsupported git-dependent evidence becomes unavailable rather than expanding permissions, while the deterministic file validators, scoring, claim extraction, diagnosis, explanations, and report still run.",
+      "Structured output is limited to 3 MiB, validated against tool-specific 0.33.1 result envelopes, recursively sanitized for runtime paths, and rendered as escaped React text. Finding messages, documentation, code, suggestions, commands, and report values are untrusted data and are never executed or injected as HTML."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-docguard-inline-readonly-project",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "docguard-cli",
+      "version": "0.33.1"
+    },
+    "requirements": [
+      "Node.js 18 or newer; Agent-OPT currently verifies with Node.js 24",
+      "The exact docguard-cli 0.33.1 and @babel/parser 7.29.7 dependency tree installed from package-lock.json with install scripts disabled",
+      "A project-owned var/runtime directory for ephemeral virtual projects",
+      "No credential, account, network access, paid service, Python runtime, git repository, or external MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "bounded virtual project files",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Submit one to thirty-two bounded UTF-8 files using validated project-relative paths; Agent-OPT materializes and destroys the project for each call.",
+          "zhCN": "使用经校验的项目相对路径提交 1-32 个有界 UTF-8 文件；Agent-OPT 为每次调用单独创建并销毁虚拟项目。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "finding code",
+        "required": false,
+        "secret": false,
+        "description": {
+          "original": "The explanation tool accepts one stable alphabetic-prefix plus three-digit code such as STR001 or ENV003 and does not require project files.",
+          "zhCN": "解释工具接受一个稳定的“字母前缀 + 三位数字”代码，例如 STR001 或 ENV003，且不需要项目文件。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 94,
+    "usefulness": 4.9,
+    "uniqueness": 4.7,
+    "reliability": 4.7,
+    "maintenance": 4.8,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 4.9,
+    "notes": [
+      "DocGuard addresses a high-value agent failure mode: documentation can be structurally complete yet contradict routes, environment variables, limits, enums, tests, or architecture in code. Its deterministic findings and explicit requires-human claim tasks preserve the boundary between detection and judgment.",
+      "Official Registry identity, npm metadata, registry signature, gitHead, SLSA provenance, v0.33.1 tag commit, source commit, package contents, author, version, runtime dependency, and MIT license align. The installed production dependency graph reports no known vulnerabilities.",
+      "Qualification discovered exactly six tools and no resources or prompts. Real calls on the official drift fixture returned WARN, a 67/B maturity score, twenty-three warnings, eight repair groups, stable code explanations, and a sha256 evidence report; an unknown code returned a controlled MCP isError without killing the server.",
+      "Agent-OPT tests the package with all command execution denied. This intentionally omits git commit/branch evidence and Python AST enrichment when they would require subprocess permission, and the Web does not overstate report completeness or treat a score as proof that documentation is correct."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-17T12:11:04.354Z",
+    "notes": [
+      "Kept DocGuard, MCP, STDIO, CDD, PASS/WARN/FAIL, finding code, ALCOA+, sha256, projectDir and Web as product, protocol, schema, evidence, or established technical terms.",
+      "Chinese copy distinguishes deterministic extraction from semantic verification, evidence reporting from policy gating, and unavailable git/Python enrichment from a fully verified result."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "DocGuardWorkspace",
+    "route": "/plugins/docguard-drift-lab",
+    "features": [
+      "GPT-flavored virtual project editor with drift and minimal presets, bounded file inventory, active-file editing, safe file creation, deletion, byte meter, and explicit ephemeral security state",
+      "six capability tabs mapped one-to-one to guard, score, verify-claims, report, diagnose, and explain rather than a generic JSON request surface",
+      "guard verdict metrics and escaped finding ledger with stable code, validator, severity, message, location, and remediation text",
+      "CDD maturity score hero and per-category progress breakdown",
+      "semantic-claim verification queue with claim text, document line, section context, cited code, and agent instruction",
+      "integrity evidence view with sha256 fingerprint, guard, CDD, ALCOA+, tool version, and inspectable structured bundle",
+      "repair queue grouped by failing or warning validator plus dedicated finding-code explanation and suppression state",
+      "pending, activity, upstream isError, API validation, input-limit, empty, preset-reset, and responsive mobile states"
+    ],
+    "dedicatedElements": [
+      "ephemeral multi-file documentation and source project editor",
+      "guard finding ledger with stable remediation evidence",
+      "CDD category score bars",
+      "semantic-claim verification task queue",
+      "sha256 and ALCOA+ compliance evidence inspector",
+      "validator-grouped repair diagnosis",
+      "finding-code explanation console"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "docguard-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/docguard-runtime.test.ts",
+        "checkedAt": "2026-07-17T12:11:04.354Z",
+        "evidence": "The exact 0.33.1 server exposed six read-only tools and no resources or prompts. Real guard, score, verify-claims, report, diagnose, and explain calls completed through independent upstream STDIO processes and returned tool-specific normalized structures."
+      },
+      {
+        "id": "docguard-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/docguard-runtime.test.ts",
+        "checkedAt": "2026-07-17T12:11:04.354Z",
+        "evidence": "A bounded ledger API fixture documented 3 retries, 40 connections, 100 requests/min, and PENDING/SETTLED/FAILED while code declared different limits and an extra route. Guard produced actionable findings, score returned a category breakdown, claim extraction returned at least three tasks, diagnose grouped repair work, report returned an exact-version sha256 bundle, and STR001 returned its stable structure explanation."
+      },
+      {
+        "id": "docguard-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/docguard-runtime.test.ts",
+        "checkedAt": "2026-07-17T12:11:04.354Z",
+        "evidence": "A real unknown BAD999 code returned upstream MCP isError without a host-path leak, and the following valid ENV003 call succeeded. The adapter rejected traversal, absolute paths, .git, node_modules, case-folded duplicate paths, caller projectDir, unknown fields, malformed codes, oversized files, and invalid explain extras."
+      },
+      {
+        "id": "docguard-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/docguard-runtime.test.ts",
+        "checkedAt": "2026-07-17T12:11:04.354Z",
+        "evidence": "The adapter rejected a Windows directory-junction runtime root. The executable bootstrap probe proved virtual-project and fixed-module reads while host reads, project writes, fetch, HTTP, DNS, subprocesses, workers, proxies, npm tokens, and model credentials were denied or removed."
+      },
+      {
+        "id": "docguard-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/docguard-api.test.ts",
+        "checkedAt": "2026-07-17T12:25:00.000Z",
+        "evidence": "The public Next route ran all six real upstream tools, returned the official plugin identity and sanitized capability-specific structures, preserved a controlled upstream BAD999 isError, and rejected caller projectDir, traversal, .git, and case-folded duplicate paths with HTTP 400 responses."
+      },
+      {
+        "id": "docguard-web-e2e",
+        "category": "web-e2e",
+        "status": "passed",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=docguard.spec.ts › @web-e2e [docguard-drift-lab] DocGuard runs all six tools, editor controls, errors, and responsive workflow; route=/plugins/docguard-drift-lab; result=passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-17T12:34:18.363Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "0.33.1"
+  }
+}

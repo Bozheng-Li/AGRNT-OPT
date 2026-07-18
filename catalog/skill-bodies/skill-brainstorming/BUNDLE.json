@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-brainstorming",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/brainstorming",
+  "skillSha256": "4625fbfaafb229d41364b77a3591f9559e0d9d73ab0ed3589bb8e3c63f0cb734",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "f8aecd72b8158839b37abcb6f7a2abf0895a43ae99a14fceb735502fd53a23e6"
+    },
+    {
+      "path": "scripts/frame-template.html",
+      "sha256": "7c3a788b6fe3f66c4e87db0e756f0f60bce14d58585e3fc6a8d835cde701bfad"
+    },
+    {
+      "path": "scripts/helper.js",
+      "sha256": "78b365dc45d6be506d2254ebde69f7f73f6d32176093fe2381afd03e34dedf6b"
+    },
+    {
+      "path": "scripts/server.cjs",
+      "sha256": "4b951e038fdf624b4b2b4afa9ea4eec0c49a0fea253ed9c5e305b57eb3be495d"
+    },
+    {
+      "path": "scripts/start-server.sh",
+      "sha256": "b6dc56c960ddf83cde2c6f5099364c0f5876dfb87f1ad0137c51e36ac810d948"
+    },
+    {
+      "path": "scripts/stop-server.sh",
+      "sha256": "03fafa5cbfe3cd1d37094bbcd7b443cae7f4bb431652c8cd3bd0f65a520ab717"
+    },
+    {
+      "path": "spec-document-reviewer-prompt.md",
+      "sha256": "845c53bf548472622150cb03708a6abbcc3c11cf86b7d7131e41e6789c334574"
+    },
+    {
+      "path": "visual-companion.md",
+      "sha256": "50ad6b6de86deee5ce86a92c006c7cb40d413ab47a8f971d7942ef39da1a9b7f"
+    }
+  ]
+}

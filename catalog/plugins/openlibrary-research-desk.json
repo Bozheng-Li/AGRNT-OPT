@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.cyanheads/openlibrary-mcp-server",
+  "slug": "openlibrary-research-desk",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-17T11:46:03.075Z"
+  },
+  "name": {
+    "original": "Open Library MCP Server",
+    "zhCN": "Open Library 书目研究台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Search Open Library works and authors, fetch editions, browse subjects, resolve cover URLs, and read work/author resource templates without credentials.",
+    "zhCN": "无需凭据即可检索 Open Library 作品与作者、读取版本、浏览主题、生成封面 URL，并读取作品/作者资源模板。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The official 0.1.18 STDIO package exposes nine read-only MCP tools and two resource templates against Open Library. Agent-OPT keeps that real protocol surface while fixing outbound access to https://openlibrary.org specified paths, accepting only a validated deployment HTTPS_PROXY at process startup and removing it from the visible upstream environment, rejecting redirects and caller-selected hosts, narrowing pagination, and presenting bibliographic text as untrusted evidence.",
+    "zhCN": "官方 0.1.18 STDIO 包提供九个只读 MCP 工具和两个资源模板，对接 Open Library。Agent-OPT 保留这套真实协议能力，同时把出站访问固定为 https://openlibrary.org 指定路径，在清除凭据后仅重放已校验的部署 HTTPS_PROXY，拒绝重定向与调用方自选主机，收紧分页，并把书目文本作为不受信任的证据呈现。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Casey Hand (@cyanheads)",
+    "url": "https://github.com/cyanheads",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.1.18",
+    "releasedAt": "2026-07-13T18:34:10.223Z",
+    "checkedAt": "2026-07-17T04:30:00.000Z"
+  },
+  "categories": [
+    "research",
+    "books",
+    "knowledge",
+    "developer-tools"
+  ],
+  "tags": [
+    "MCP",
+    "Open Library",
+    "catalog",
+    "bibliographic",
+    "covers",
+    "keyless API"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/cyanheads/openlibrary-mcp-server/tree/c3f254b9cf6af9101dd25b46780300b1d13fe993",
+    "repositoryUrl": "https://github.com/cyanheads/openlibrary-mcp-server",
+    "packageUrl": "https://www.npmjs.com/package/@cyanheads/openlibrary-mcp-server/v/0.1.18",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=openlibrary&limit=100",
+        "listingId": "io.github.cyanheads/openlibrary-mcp-server",
+        "checkedAt": "2026-07-17T04:30:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@cyanheads/openlibrary-mcp-server/0.1.18",
+        "retrievedAt": "2026-07-17T04:30:00.000Z",
+        "note": "npm records 0.1.18 as Apache-2.0 with Node >=24, integrity sha512-rOeddSNOm9aI+YAAhRrMk10CHKzgm8x3e/iJ6NLOxhwcHhbZcksspmbcTQOeYWmXNKqFv1dyvRAB3hkQI0AZug==, and no gitHead. Agent-OPT therefore does not claim SLSA provenance from the registry alone."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/openlibrary-mcp-server",
+        "retrievedAt": "2026-07-17T04:30:00.000Z",
+        "note": "Upstream README documents 9 tools and 2 resources for Open Library search, works, editions, authors, subjects, and covers."
+      },
+      {
+        "kind": "corroborating-source",
+        "url": "https://openlibrary.org/search.json?q=The%20Hobbit&limit=2&fields=key,title",
+        "retrievedAt": "2026-07-17T04:30:00.000Z",
+        "note": "Real STDIO qualification through the fixed bootstrap returned OL27482W for The Hobbit, work/author/subject/cover tools, and openlibrary://works/OL27482W resource text. Upstream error structuredContent may violate success output schemas and is recorded as a controlled failure."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/cyanheads/openlibrary-mcp-server/blob/main/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The published npm artifact declares Apache-2.0. Agent-OPT invokes the upstream package and adds an independent adapter, bootstrap, tests, and Web presentation without copying its implementation.",
+    "checkedAt": "2026-07-17T04:30:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "book-search",
+      "name": {
+        "original": "Search works",
+        "zhCN": "检索作品",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Full-text and field-filtered work search with bounded pagination.",
+        "zhCN": "全文与字段过滤的作品检索，分页有界。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "work-edition-author",
+      "name": {
+        "original": "Inspect works, editions, and authors",
+        "zhCN": "查看作品、版本与作者",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Fetch work, edition, author, author-works, and subject records by Open Library identifiers.",
+        "zhCN": "按 Open Library 标识读取作品、版本、作者、作者作品与主题记录。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "cover-url",
+      "name": {
+        "original": "Resolve cover URLs",
+        "zhCN": "生成封面 URL",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Construct fixed covers.openlibrary.org URLs without proxying image bytes.",
+        "zhCN": "生成固定 covers.openlibrary.org URL，不代抓图片字节。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "resource-templates",
+      "name": {
+        "original": "Read work and author resources",
+        "zhCN": "读取作品与作者资源",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read openlibrary-work and openlibrary-author MCP resource templates for injectable catalog context.",
+        "zhCN": "读取 openlibrary-work 与 openlibrary-author MCP 资源模板，作为可注入的书目上下文。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches only the exact local 0.1.18 Node entry through a fixed STDIO bootstrap with a 256 MiB old-space limit; callers cannot choose commands, arguments, environment variables, transport, or working directories.",
+      "The bootstrap permits only HTTPS GET requests to https://openlibrary.org on fixed search, works, books, authors, subjects, isbn, and /api/books paths. It rejects custom ports, credentials, fragments, credential headers, Request objects, other origins or paths, and all redirects.",
+      "Cover tools only construct https://covers.openlibrary.org URLs; the bootstrap does not fetch cover image bytes on behalf of callers.",
+      "A deployment-level HTTPS_PROXY is optional for controlled egress. The adapter validates a credential-free http/https origin and passes it only at process startup; Node initializes the proxy dispatcher before the bootstrap removes visible proxy variables and other credentials.",
+      "Package, cloud, model-provider, telemetry-exporter, HTTP-server, auth, and custom Open Library endpoint variables are removed. Direct HTTP(S), raw sockets, arbitrary DNS APIs, datagrams, WebSockets, worker threads, and subprocess APIs are denied outside the authorized fetch scope.",
+      "Web input is limited to validated queries, OL identifiers, subjects, cover identifiers, and resource URIs. Host, URL, path, credential, command, and arbitrary request options are unavailable.",
+      "Bibliographic titles, descriptions, bios, and notes are untrusted remote data. The dedicated Web renders them as escaped React text and never executes Markdown, raw HTML, links, or commands."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-openlibrary-fixed-origin",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@cyanheads/openlibrary-mcp-server",
+      "version": "0.1.18"
+    },
+    "requirements": [
+      "Node.js 24 or newer",
+      "The exact @cyanheads/openlibrary-mcp-server 0.1.18 package installed from package-lock.json",
+      "Outbound TLS access to the fixed https://openlibrary.org origin for catalog queries",
+      "Optional deployment egress through a host-configured, credential-free HTTPS_PROXY origin; callers cannot configure the proxy",
+      "No API key, credential, paid plan, external account, or remote MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "fixed Open Library network policy",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "The bootstrap fixes origin, paths, methods, redirect mode, and response sizes; none are caller-selectable.",
+          "zhCN": "启动引导固定来源、路径、方法、重定向模式和响应大小；调用方不能选择这些参数。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "bounded bibliographic input",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Web requests contain only validated search fields, OL identifiers, subjects, cover identifiers, or resource URIs.",
+          "zhCN": "Web 请求只包含校验后的检索字段、OL 标识、主题、封面标识或资源 URI。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "optional deployment egress proxy",
+        "required": false,
+        "secret": false,
+        "description": {
+          "original": "A credential-free http/https HTTPS_PROXY origin may be inherited from the deployment; the Web API cannot set it.",
+          "zhCN": "部署可继承一个无凭据的 http/https HTTPS_PROXY 来源；Web API 不能设置它。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 86,
+    "usefulness": 4.6,
+    "uniqueness": 4.4,
+    "reliability": 4.1,
+    "maintenance": 4.4,
+    "provenance": 3.8,
+    "licenseClarity": 5,
+    "security": 4.5,
+    "webFitness": 4.7,
+    "notes": [
+      "The integration answers a common bibliographic research need without credentials and preserves exact OL IDs for deeper investigation.",
+      "Official package identity and Apache-2.0 are clear, but the absent npm gitHead/provenance attestation is reflected in the provenance score.",
+      "Qualification against the published tarball discovered exactly nine tools and two resource templates. Real calls returned The Hobbit (OL27482W), Tolkien author data, science-fiction subjects, and fixed cover URLs.",
+      "Upstream not-found or network error structuredContent may violate the declared success output schema; Agent-OPT records that as a controlled failure instead of treating it as success.",
+      "Open Library data can be incomplete or delayed. The Web adaptation does not claim completeness of the global catalog."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-17T04:30:00.000Z",
+    "notes": [
+      "Kept Open Library, MCP, STDIO, OL Work/Author/Edition IDs, ISBN, OCLC, LCCN as established technical terms.",
+      "Chinese copy distinguishes catalog evidence from a completeness guarantee.",
+      "The deployment proxy is validated before process launch and removed from the visible environment before the upstream package is imported."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "OpenLibraryWorkspace",
+    "route": "/plugins/openlibrary-research-desk",
+    "features": [
+      "GPT-flavored work search with The Hobbit example",
+      "work detail, author lookup/search, subject browse, and cover URL generation",
+      "MCP resource template reader for work and author URIs",
+      "pending, activity, upstream error, local validation, empty and responsive feedback",
+      "fixed openlibrary.org and no-catalog-completeness boundary notice"
+    ],
+    "dedicatedElements": [
+      "work search form",
+      "OL Work/Author ID forms",
+      "subject browser",
+      "cover URL card",
+      "resource URI reader",
+      "result cards for works and authors"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "0.1.18",
+    "tests": [
+      {
+        "id": "openlibrary-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/openlibrary-runtime.test.ts",
+        "checkedAt": "2026-07-17T04:40:24.000Z",
+        "evidence": "The installed 0.1.18 STDIO server exposed exactly nine tools and two resource templates (openlibrary-work, openlibrary-author). Real openlibrary_search_books for The Hobbit returned OL27482W; openlibrary_get_work returned the Hobbit work title; openlibrary_get_cover_url returned https://covers.openlibrary.org/b/id/14627509-M.jpg."
+      },
+      {
+        "id": "openlibrary-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/openlibrary-runtime.test.ts",
+        "checkedAt": "2026-07-17T04:40:24.000Z",
+        "evidence": "Representative Hobbit path: search → work OL27482W → openlibrary://works/OL27482W resource text → openlibrary_get_subject science fiction with bounded works. Cover URL generation used fixed covers.openlibrary.org host."
+      },
+      {
+        "id": "openlibrary-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/openlibrary-runtime.test.ts",
+        "checkedAt": "2026-07-17T04:40:24.000Z",
+        "evidence": "Adapter rejected invalid work IDs, path-traversal author IDs, oversized limits, caller-selected hosts, unsafe cover identifiers, and non-openlibrary resource URIs before launch. Credential-bearing HTTPS_PROXY values are rejected by validatedOpenLibraryProxy."
+      },
+      {
+        "id": "openlibrary-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/openlibrary-runtime.test.ts",
+        "checkedAt": "2026-07-17T11:35:45.000Z",
+        "evidence": "Security probe with AGENT_OPT_OPENLIBRARY_SECURITY_PROBE=1 asserted fixedOriginAccepted, redirectForced, customHostDenied, customPathDenied, credentialHeaderDenied, httpDenied, subprocessDenied, proxyRemoved, and credentialRemoved. The real nine-tool network chain passed after visible proxy variables were removed; credential-bearing proxies are denied."
+      },
+      {
+        "id": "openlibrary-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/openlibrary-api.test.ts",
+        "checkedAt": "2026-07-17T04:40:24.000Z",
+        "evidence": "Public Next route ran real search (OL27482W), work detail, and openlibrary://works/OL27482W resource read. Caller-selected baseUrl was rejected with HTTP 400."
+      },
+      {
+        "id": "openlibrary-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=openlibrary.spec.ts › @web-e2e [openlibrary-research-desk] OpenLibrary Web runs nine tools, two resources, errors, and responsive layout; route=/plugins/openlibrary-research-desk; result=passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-17T11:46:03.075Z"
+      }
+    ],
+    "blockers": []
+  }
+}

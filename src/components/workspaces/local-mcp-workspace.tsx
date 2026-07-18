@@ -65,7 +65,7 @@ export function LocalMcpWorkspace({
           <Wrench size={14} />
           {title}
         </div>
-        <span className="badge low">本地进程内 MCP · 无外网</span>
+        <span className="badge low">第一方进程内插件 · 无外网</span>
       </div>
       <div className="workspace-body">
         <div className="control-panel">
@@ -138,7 +138,7 @@ export function LocalMcpWorkspace({
             <Play size={13} />
             {runtime.pending ? "运行中…" : "运行工具"}
           </button>
-          <div className="privacy-notice">Agent-OPT 进程内本地 MCP：不启动子进程、不访问外网、不读写主机任意路径。</div>
+          <div className="privacy-notice">Agent-OPT 第一方本地插件：不启动子进程、不访问外网、不读写主机任意路径；不计入上游 MCP Server 数量。</div>
         </div>
 
         <ResultView
@@ -146,7 +146,7 @@ export function LocalMcpWorkspace({
           error={runtime.error}
           pending={runtime.pending}
           activity={runtime.activity}
-          emptyTitle="运行本地 MCP 工具"
+          emptyTitle="运行本地插件工具"
           emptyDescription="选择工具并填写参数。所有计算在 Agent-OPT 进程内完成。"
         />
       </div>

@@ -1,5 +1,6 @@
 node_modules/
 .venv/
+.venv-markitdown/
 .next/
 coverage/
 playwright-report/
@@ -11,4 +12,3 @@ var/
 *.tsbuildinfo
 __pycache__/
 *.pyc
-

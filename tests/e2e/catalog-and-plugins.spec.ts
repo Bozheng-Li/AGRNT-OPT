@@ -1,29 +1,42 @@
 import { expect, test } from "@playwright/test";
+import { readFileSync, readdirSync } from "node:fs";
+import path from "node:path";
+
+const publicManifests = readdirSync(path.join(process.cwd(), "catalog", "plugins"))
+  .filter((file) => file.endsWith(".json"))
+  .map((file) => JSON.parse(readFileSync(path.join(process.cwd(), "catalog", "plugins", file), "utf8")) as {
+    slug: string;
+    lifecycle: { status: string };
+    name: { zhCN: string };
+  })
+  .filter((manifest) => ["web-ready", "verified"].includes(manifest.lifecycle.status));
+const publicCount = publicManifests.length;
+const publicName = (slug: string) => publicManifests.find((manifest) => manifest.slug === slug)?.name.zhCN ?? slug;
 
 test("catalog exposes the Web-ready integrations", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: /把真正有用的 Agent 能力/ })).toBeVisible();
-  // Public verified MCP + skill studios (exact count comes from catalog manifests).
-  const publicCount = 115;
+  // Exact count comes from current web-ready / verified manifests.
   await expect(page.getByRole("link", { name: /打开 Web/ })).toHaveCount(publicCount);
   await expect(page.getByRole("heading", { name: "文件系统工作台" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "知识图谱记忆库" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Svelte 开发工作室" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "前端视觉设计指南" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "结构化头脑风暴" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: publicName("skill-frontend-design") })).toBeVisible();
+  await expect(page.getByRole("heading", { name: publicName("skill-brainstorming") })).toBeVisible();
   await expect(page.getByRole("heading", { name: "JSON 实验室" })).toBeVisible();
-  await expect(page.getByText("115 个符合质量门槛的 Web 适配")).toBeVisible();
+  await expect(page.getByText(`${publicCount} 个符合质量门槛的 Web 适配`)).toBeVisible();
 });
 
-test("skill studio opens a curated Anthropic skill section", async ({ page }) => {
+test("skill studio runs a curated bilingual Anthropic task workflow", async ({ page }) => {
   await page.goto("/plugins/skill-frontend-design");
   await expect(page.getByText("Skill 工作室")).toBeVisible();
-  await expect(page.getByTestId("skill-outline")).toBeVisible({ timeout: 15_000 });
-  await page.getByTestId("skill-open-section").click();
-  await expect(page.getByTestId("result-output")).not.toHaveText("", { timeout: 15_000 });
+  await expect(page.getByTestId("skill-locale-zh")).toHaveClass(/active/, { timeout: 15_000 });
+  await page.getByTestId("skill-example-0").click();
+  await page.getByTestId("skill-prepare-run").click();
+  await expect(page.getByTestId("skill-playbook")).toContainText("前端设计执行包", { timeout: 15_000 });
 });
 
-test("local MCP workspace runs JSON format tool", async ({ page }) => {
+test("first-party local plugin workspace runs JSON format tool", async ({ page }) => {
   await page.goto("/plugins/local-json-lab");
   await expect(page.getByRole("heading", { name: "JSON 实验室" })).toBeVisible();
   await page.getByTestId("local-mcp-run").click();
@@ -87,6 +100,85 @@ test("fetch Web extracts a public page and rejects localhost", async ({ page }) 
   await page.getByTestId("fetch-url").fill("http://127.0.0.1/");
   await page.getByTestId("fetch-run").click();
   await expect(page.getByTestId("invoke-error")).toContainText(/不允许访问|私有|回环/);
+});
+
+test("@web-e2e [markitdown-document-studio] MarkItDown Web uploads, converts, and reports unsafe formats", async ({ page }) => {
+  test.setTimeout(120_000);
+  await page.goto("/plugins/markitdown-document-studio");
+  await expect(page.getByRole("heading", { name: "MarkItDown 文档工作室" })).toBeVisible();
+
+  await page.getByTestId("markitdown-file").setInputFiles({
+    name: "unsafe.exe",
+    mimeType: "application/octet-stream",
+    buffer: Buffer.from("MZ unsafe", "utf8"),
+  });
+  await page.getByTestId("markitdown-run").click();
+  await expect(page.getByTestId("invoke-error")).toContainText(/支持 PDF|文档上传失败/, { timeout: 15_000 });
+
+  await page.getByTestId("markitdown-file").setInputFiles({
+    name: "browser-evidence.html",
+    mimeType: "text/html",
+    buffer: Buffer.from(
+      "<!doctype html><html><body><h1>Browser conversion evidence</h1><p>Real Chromium upload and MCP invocation.</p></body></html>",
+      "utf8",
+    ),
+  });
+  await page.getByTestId("markitdown-run").click();
+  await expect(page.getByTestId("markitdown-file-facts")).toContainText("HTML", { timeout: 30_000 });
+  await expect(page.getByTestId("markitdown-output")).toContainText("Browser conversion evidence", { timeout: 60_000 });
+  await expect(page.getByTestId("markitdown-output")).toContainText("Real Chromium upload");
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByTestId("markitdown-dropzone")).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+});
+
+test("@web-e2e [e18e-dependency-advisor] e18e Web runs every tool, a migration resource, and the task prompt", async ({ page }) => {
+  test.setTimeout(120_000);
+  await page.goto("/plugins/e18e-dependency-advisor");
+  await expect(page.getByRole("heading", { name: "e18e 依赖性能顾问" })).toBeVisible();
+  await expect(page.getByText("GPT 风味 · 本地静态知识库 · 不安装依赖")).toBeVisible();
+
+  await page.getByTestId("e18e-install-command").fill("pnpm add lodash moment chalk");
+  await page.getByTestId("e18e-run").click();
+  await expect(page.getByTestId("e18e-suggestions")).toContainText("moment", { timeout: 30_000 });
+  await expect(page.getByTestId("e18e-suggestions")).toContainText("chalk");
+
+  await page.getByTestId("e18e-tab-source").click();
+  await page.getByTestId("e18e-code").fill("import chalk from 'chalk';\nimport moment from 'moment';\n");
+  await page.getByTestId("e18e-run").click();
+  await expect(page.getByTestId("e18e-suggestions")).toContainText("chalk", { timeout: 30_000 });
+
+  await page.getByTestId("e18e-tab-lookup").click();
+  await page.getByTestId("e18e-query").fill("filter");
+  await page.getByTestId("e18e-run").click();
+  await expect(page.getByTestId("e18e-lookup-results")).toContainText("Array.prototype.filter", { timeout: 30_000 });
+  await expect(page.getByTestId("e18e-lookup-results")).toContainText("micro-utility");
+  await expect(page.getByTestId("e18e-lookup-results")).toContainText("preferred");
+
+  await page.getByTestId("e18e-tab-assets").click();
+  await page.getByTestId("e18e-load-assets").click();
+  await expect(page.getByTestId("e18e-resource-count")).toContainText("117 篇指南", { timeout: 30_000 });
+  await expect(page.getByTestId("e18e-resource-count")).toContainText("e18e://docs/{slug}");
+  await page.getByTestId("e18e-resource-filter").fill("moment");
+  await page.getByTestId("e18e-resource-moment.md").click();
+  await expect(page.getByTestId("e18e-doc-output")).toContainText("Replacements for `Moment.js`", { timeout: 30_000 });
+  await expect(page.getByTestId("e18e-doc-output")).toContainText("date-fns");
+
+  await page.getByTestId("e18e-task").fill("Browser evidence: review dependencies before proposing code");
+  await page.getByTestId("e18e-build-prompt").click();
+  await expect(page.getByTestId("e18e-prompt-output")).toContainText("Browser evidence: review dependencies before proposing code", { timeout: 30_000 });
+  await expect(page.getByTestId("e18e-prompt-output")).toContainText("npm-i-checker");
+
+  await page.getByTestId("e18e-tab-install").click();
+  await page.getByTestId("e18e-install-command").fill("npm i lodash && calc.exe");
+  await page.getByTestId("e18e-run").click();
+  await expect(page.getByTestId("invoke-error")).toContainText(/不接受旗标|安装命令文本/, { timeout: 15_000 });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByTestId("e18e-tab-install")).toBeVisible();
+  await expect(page.getByTestId("e18e-tab-assets")).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
 });
 
 test("git Web reports sandbox repository status", async ({ page }) => {
@@ -254,9 +346,13 @@ test("BumpGuard Web exercises providers, upgrade, diff, snippet, import, symbols
 });
 
 test("Svelte Web diagnoses code, retrieves docs, and generates a Playground link", async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await page.goto("/plugins/svelte-development-studio");
   await expect(page.getByRole("heading", { name: "Svelte 开发工作室" })).toBeVisible();
+
+  await page.getByTestId("svelte-filename").fill("../Counter.svelte");
+  await page.getByTestId("svelte-run").click();
+  await expect(page.getByTestId("invoke-error")).toContainText(/文件名必须|无路径/, { timeout: 15_000 });
 
   await page.getByTestId("svelte-example-s5legacy").click();
   await page.getByTestId("svelte-run").click();
@@ -268,13 +364,41 @@ test("Svelte Web diagnoses code, retrieves docs, and generates a Playground link
   await expect(page.getByTestId("svelte-section-list")).toContainText("Overview", { timeout: 45_000 });
   await page.getByTestId("svelte-section-query").fill("$state");
   await expect(page.getByTestId("svelte-section-list")).toContainText("$state", { timeout: 15_000 });
-  await page.getByTestId("svelte-section-$state").check();
+  await expect(page.getByTestId("svelte-section-svelte/$state")).toBeChecked();
   await page.getByTestId("svelte-run").click();
   await expect(page.getByTestId("svelte-markdown")).toContainText(/\$state|reactive/i, { timeout: 45_000 });
 
+  await page.getByTestId("svelte-section-svelte/$state").uncheck();
+  await page.getByTestId("svelte-section-query").fill("Overview");
+  const aiOverview = page.getByTestId("svelte-section-ai/overview");
+  const svelteOverview = page.getByTestId("svelte-section-svelte/overview");
+  await expect(aiOverview).not.toBeChecked();
+  await svelteOverview.check();
+  await expect(svelteOverview).toBeChecked();
+  await expect(aiOverview).not.toBeChecked();
+  await page.getByTestId("svelte-run").click();
+  await expect(page.getByTestId("svelte-markdown")).toContainText(
+    "Svelte is a framework for building user interfaces",
+    { timeout: 45_000 },
+  );
+  await expect(page.getByTestId("svelte-markdown")).not.toContainText(
+    "There are four tools, designed to help your agent",
+  );
+
   await page.getByTestId("svelte-tab-playground").click();
+  await page.getByTestId("svelte-new-file").fill("utils.js");
+  await page.getByTestId("svelte-add-file").click();
+  await expect(page.getByTestId("svelte-file-tab-utils.js")).toHaveClass(/active/);
+  await page.getByTestId("svelte-playground-code").fill("export const answer = 42;\n");
   await page.getByTestId("svelte-run").click();
   await expect(page.getByTestId("svelte-playground-result")).toBeVisible({ timeout: 45_000 });
   await expect(page.getByTestId("svelte-playground-url")).toContainText("https://svelte.dev/playground#");
   await expect(page.getByTestId("svelte-playground-open")).toHaveAttribute("href", /^https:\/\/svelte\.dev\/playground#/);
+  await page.getByTestId("svelte-file-remove-utils.js").click();
+  await expect(page.getByTestId("svelte-file-tab-utils.js")).toHaveCount(0);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByTestId("svelte-tab-diagnostics")).toBeVisible();
+  await expect(page.getByTestId("svelte-tab-playground")).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
 });

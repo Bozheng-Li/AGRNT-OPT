@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.counterpoint-studio/audio-file-mcp-app",
+  "slug": "audio-file-inspector",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-16T18:33:50.173Z"
+  },
+  "name": {
+    "original": "Audio File MCP App",
+    "zhCN": "音频文件检查台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Inspect a bounded local audio upload with playback context, format metadata, loudness views, waveform, spectrogram, regions, and annotation lanes.",
+    "zhCN": "检查有界的本地音频上传，提供播放上下文、格式元数据、响度视图、波形、频谱、选区和标注轨道。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Audio File MCP App 1.1.0 is a local stdio MCP App for displaying one audio file and returning the file state, initial playhead, selected region, and inline timeline annotations. Its bundled MCP App renders playback, metadata, EBU R128 loudness, a spectrally coloured waveform, reassigned spectrogram and annotation lanes. Agent-OPT keeps the exact upstream display_audio_file tool while replacing arbitrary host paths with opaque upload tokens and an independent Chinese Web workflow.",
+    "zhCN": "Audio File MCP App 1.1.0 是本地 stdio MCP App，用于展示单个音频文件，并返回文件状态、初始播放位置、选区和内联时间线标注。其原生 MCP App 可呈现播放、元数据、EBU R128 响度、按频谱着色的波形、重分配频谱图与标注轨道。Agent-OPT 保留上游原始 display_audio_file 工具，同时用不透明上传 token 取代任意宿主路径，并提供独立中文 Web 工作流。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Tero Parviainen / Counterpoint Studio Oy",
+    "url": "https://github.com/counterpoint-studio",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "1.1.0",
+    "releasedAt": "2026-07-09T17:37:01.098Z",
+    "checkedAt": "2026-07-16T18:10:00.000Z"
+  },
+  "categories": [
+    "audio",
+    "media-analysis",
+    "creative-tools",
+    "accessibility"
+  ],
+  "tags": [
+    "MCP App",
+    "audio playback",
+    "waveform",
+    "spectrogram",
+    "loudness",
+    "metadata",
+    "timeline annotations",
+    "local files"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/counterpoint-studio/audio-file-mcp-app/tree/43d39bcd268fc3cb4c412c08a3a5ab05993445dd",
+    "repositoryUrl": "https://github.com/counterpoint-studio/audio-file-mcp-app",
+    "packageUrl": "https://www.npmjs.com/package/@counterpoint-studio/audio-file-mcp-app/v/1.1.0",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.counterpoint-studio%2Faudio-file-mcp-app&version=latest&limit=10",
+        "listingId": "io.github.counterpoint-studio/audio-file-mcp-app",
+        "checkedAt": "2026-07-16T18:10:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.counterpoint-studio%2Faudio-file-mcp-app&version=latest&limit=10",
+        "retrievedAt": "2026-07-16T18:10:00.000Z",
+        "note": "The official MCP Registry exposes one active latest listing at 1.1.0, identifies the counterpoint-studio GitHub repository, and binds it to @counterpoint-studio/audio-file-mcp-app@1.1.0 over stdio."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@counterpoint-studio/audio-file-mcp-app/1.1.0",
+        "retrievedAt": "2026-07-16T18:10:00.000Z",
+        "note": "npm metadata declares ISC, Node >=20, the audio-file-mcp-app executable, five production dependencies, 14 published files, 1,516,541 unpacked bytes, tarball SHA-1 b979b1158507d5bac40b2e35efbd8eb19759bbc5 and integrity sha512-Rzz2l7wPAOkdqOGUvPuCzq8Ru8mRwz1x4X3qd0wQY/BDtekXc76ztPtfocPurSH1GWs1K+UFDfNqsJvP8x2RcQ==. The artifact has an npm registry signature but does not publish a gitHead or SLSA attestation."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/counterpoint-studio/audio-file-mcp-app/blob/43d39bcd268fc3cb4c412c08a3a5ab05993445dd/src/server/app.ts",
+        "retrievedAt": "2026-07-16T18:10:00.000Z",
+        "note": "The pinned v1.1.0 implementation registers exactly display_audio_file, the static ui://ctpt.co/audio-file/mcp-app.html resource, and the audiofile-range byte resource template. It registers no prompts. The native schemas also expose path and annotationsPath, which Agent-OPT deliberately replaces or removes."
+      },
+      {
+        "kind": "official-documentation",
+        "url": "https://github.com/counterpoint-studio/audio-file-mcp-app/blob/43d39bcd268fc3cb4c412c08a3a5ab05993445dd/README.md",
+        "retrievedAt": "2026-07-16T18:10:00.000Z",
+        "note": "The pinned documentation describes local stdio operation, playback, global and instantaneous loudness, waveform spectral colouring, reassigned spectrogram, looping selection, annotation lanes and model-visible playback state."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/counterpoint-studio/audio-file-mcp-app/blob/43d39bcd268fc3cb4c412c08a3a5ab05993445dd/LICENSE",
+        "retrievedAt": "2026-07-16T18:10:00.000Z",
+        "note": "The exact v1.1.0 source contains the ISC License and 2026 Counterpoint Studio Oy copyright notice."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "ISC",
+    "url": "https://github.com/counterpoint-studio/audio-file-mcp-app/blob/43d39bcd268fc3cb4c412c08a3a5ab05993445dd/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The tagged repository and published npm package both declare ISC. Agent-OPT invokes the pinned package and supplies independent validation and Web code; it does not copy the upstream MCP App implementation into the repository.",
+    "checkedAt": "2026-07-16T18:10:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "audio-playback-context",
+      "name": {
+        "original": "Open audio with playback and region context",
+        "zhCN": "携带播放与选区上下文打开音频",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Display a validated local audio upload with an optional initial playhead and looping region, then preserve that state for model follow-up.",
+        "zhCN": "展示已验证的本地音频上传，可设置初始播放位置与循环选区，并保留状态供模型后续使用。",
+        "sourceLanguage": "en"
+      },
+      "risk": "medium"
+    },
+    {
+      "id": "audio-metadata-and-loudness",
+      "name": {
+        "original": "Inspect format, signal level and loudness",
+        "zhCN": "检查格式、信号电平与响度",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Surface container and stream metadata alongside peak, RMS and loudness measurements suitable for audio review workflows.",
+        "zhCN": "并列呈现容器与音频流元数据，以及适合音频审阅工作流的峰值、RMS 与响度测量。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "audio-waveform-spectrogram-annotations",
+      "name": {
+        "original": "Review waveform, spectrum and timeline annotations",
+        "zhCN": "审阅波形、频谱与时间线标注",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Connect time-domain and frequency-domain views with bounded labelled spans and envelopes on the audio timeline.",
+        "zhCN": "把时域与频域视图和有界的标签区间、包络连接到同一条音频时间线上。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-read",
+    "network": "none",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "Web callers supply only an opaque upload token. Absolute paths, relative paths, file URIs, URLs, annotationsPath and unknown fields fail closed before the upstream process starts.",
+      "The upload boundary accepts only structurally validated WAV, MP3, FLAC, Ogg Vorbis and Opus files, up to 8 MiB, five minutes and 24 million decoded channel-samples, and revalidates the immutable sandbox file before every invocation.",
+      "The fixed bootstrap verifies the package name and version, limits reads to the real upload directory plus the exact bundled MCP App HTML, rejects symlink escapes, and denies all filesystem writes.",
+      "The bootstrap clears proxy and credential-shaped environment variables and disables fetch, WebSocket, HTTP(S), DNS, raw sockets, datagrams, workers and child-process APIs before importing the exact upstream server.",
+      "Agent-OPT does not publish the upstream audiofile-range resource template because its native URI accepts a path. The dedicated Web plays the user's selected File object locally and never receives the server's absolute sandbox path.",
+      "Inline annotations are capped at 12 lanes, 64 ordered spans per lane, 128 ordered envelope points, safe hex colours and a 64 KiB total request; normalized output is capped at 256 KiB and removes the absolute path."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-audio-file-node",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@counterpoint-studio/audio-file-mcp-app",
+      "version": "1.1.0"
+    },
+    "requirements": [
+      "Node.js 20 or newer",
+      "The exact npm package installed from the project lockfile",
+      "A modern browser with Web Audio and native playback support for the selected format",
+      "No credential, paid account, external network service, audio device input or native media command is required"
+    ],
+    "configuration": [
+      {
+        "key": "audio upload token",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "A server-issued token for one validated file in the private audio upload directory; host paths and URLs are not configuration options.",
+          "zhCN": "由服务端为私有音频上传目录中的单个已验证文件签发的 token；宿主路径与 URL 不是可配置项。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 91,
+    "usefulness": 5,
+    "uniqueness": 5,
+    "reliability": 4.5,
+    "maintenance": 4.5,
+    "provenance": 4.3,
+    "licenseClarity": 5,
+    "security": 4.5,
+    "webFitness": 5,
+    "notes": [
+      "This is a cohesive audio-review capability rather than an API-key wrapper: one local file becomes playable, measurable, visually inspectable and annotatable without a cloud service.",
+      "The official Registry, npm package, repository, v1.1.0 tag and server constants agree on the current version and identity; provenance is discounted because npm publishes no gitHead or SLSA attestation.",
+      "The exact published package has no known production dependency vulnerabilities in the 2026-07-16 npm audit performed in the isolated qualification install.",
+      "Real MCP qualification discovered one tool, one static UI resource, one byte-range resource template and no prompt method, then invoked display_audio_file with a small PCM WAV, playhead, region and inline annotation lane.",
+      "The pinned root package, sandboxed adapter, upload API and dedicated Web passed the complete runtime, security, public-route and real Chromium workflow."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T18:10:00.000Z",
+    "notes": [
+      "Kept MCP App, WAV, MP3, FLAC, Ogg, Opus, EBU R128, LUFS, RMS, dBFS, waveform, spectrogram and Web Audio as established technical terms.",
+      "The Chinese Web labels its browser-computed LUFS value as an approximation and does not misrepresent it as the upstream gated EBU R128 implementation."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "AudioFileWorkspace",
+    "route": "/plugins/audio-file-inspector",
+    "features": [
+      "drag-and-drop audio upload with size, duration and decoded-sample budgets plus an embedded one-second 440 Hz WAV example",
+      "initial playhead, loop-region and bounded annotation-lane controls",
+      "local browser audio playback without exposing the server sandbox path",
+      "decoded duration, sample rate, channel count, peak, RMS and clearly labelled approximate LUFS metrics",
+      "time-domain waveform and logarithmic frequency-band overview",
+      "upstream MCP confirmation, runtime activity, controlled failures and responsive layout"
+    ],
+    "dedicatedElements": [
+      "audio upload dropzone with supported-format and duration limits",
+      "playhead and loop-region editor",
+      "annotation-lane JSON editor",
+      "native audio playback transport",
+      "audio level metric strip",
+      "waveform and spectral overview panels"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "testedVersion": "1.1.0",
+    "tests": [
+      {
+        "id": "audio-qualification-core",
+        "category": "core",
+        "status": "passed",
+        "command": "node var/qualification/audio-file-probe.mjs",
+        "checkedAt": "2026-07-16T18:10:00.000Z",
+        "evidence": "An isolated install of the exact 1.1.0 npm package exposed exactly display_audio_file and successfully returned structured file state for a 17,718-byte PCM WAV."
+      },
+      {
+        "id": "audio-qualification-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "node var/qualification/audio-file-probe.mjs",
+        "checkedAt": "2026-07-16T18:10:00.000Z",
+        "evidence": "The real upstream tool preserved a 0.03-second playhead, a 0.01-to-0.05-second region and one labelled inline annotation lane."
+      },
+      {
+        "id": "audio-runtime",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/audio-file-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:20:00.000Z",
+        "evidence": "Five direct adapter tests passed against the exact upstream package: malformed signatures, unsupported extensions, oversize, over-duration and over-decoded-sample inputs, host paths, URLs, file URIs, annotationsPath, unknown fields and timeline values beyond duration all failed before upstream access."
+      },
+      {
+        "id": "audio-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/audio-file-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:20:00.000Z",
+        "evidence": "The suite rejected symlinked runtime roots, a junction token escaping uploads and a forged upstream result path. The executable bootstrap probe denied fetch, subprocesses, host reads and writes while removing proxies and credential-shaped variables."
+      },
+      {
+        "id": "audio-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/audio-file-api.test.ts",
+        "checkedAt": "2026-07-16T18:33:28.487Z",
+        "evidence": "Two public-route tests uploaded a bounded PCM WAV, invoked the exact upstream tool with playhead, region and annotations, removed absolute paths, and returned controlled HTTP 400 errors for malformed audio and host-path-shaped input."
+      },
+      {
+        "id": "audio-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=audio-file.spec.ts › @web-e2e [audio-file-inspector] Audio File Web uploads, plays, visualizes, annotates and fails safely; route=/plugins/audio-file-inspector; result=passed",
+        "checkedAt": "2026-07-16T18:33:50.173Z"
+      }
+    ],
+    "blockers": []
+  }
+}

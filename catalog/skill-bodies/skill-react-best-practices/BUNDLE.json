@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-react-best-practices",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/vercel/skills/react-best-practices",
+  "skillSha256": "78e7bb6698085d75207fec61616b12e162bb96114b81bc2a89a2a137eb1f1bc6",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "6a7781d8ca71c85ca0e2c71aea38940fa92acc35994e7ff0890c3ea05a82f2f1"
+    }
+  ]
+}

@@ -124,7 +124,7 @@ export function SvelteWorkspace() {
 
   const [sections, setSections] = useState<DocSection[]>([]);
   const [sectionQuery, setSectionQuery] = useState("");
-  const [selectedSections, setSelectedSections] = useState<string[]>([]);
+  const [selectedSectionPaths, setSelectedSectionPaths] = useState<string[]>([]);
   const [markdown, setMarkdown] = useState("");
   const [docsLoaded, setDocsLoaded] = useState(false);
 
@@ -178,23 +178,25 @@ export function SvelteWorkspace() {
     const next = asSections(resultJson(result)?.sections);
     setSections(next);
     setDocsLoaded(true);
-    if (selectedSections.length === 0 && next.length > 0) {
+    if (selectedSectionPaths.length === 0 && next.length > 0) {
       const preferred = next.find((section) => section.title === "$state") ?? next[0];
-      setSelectedSections([preferred.title]);
+      setSelectedSectionPaths([preferred.path]);
     }
   }
 
-  function toggleSection(title: string) {
-    setSelectedSections((current) =>
-      current.includes(title) ? current.filter((item) => item !== title) : [...current, title].slice(0, 8),
+  function toggleSection(sectionPath: string) {
+    setSelectedSectionPaths((current) =>
+      current.includes(sectionPath)
+        ? current.filter((item) => item !== sectionPath)
+        : [...current, sectionPath].slice(0, 8),
     );
   }
 
   async function retrieveDocs() {
-    if (selectedSections.length === 0) return;
+    if (selectedSectionPaths.length === 0) return;
     setPlaygroundUrl(null);
     const result = await runtime
-      .invoke("get-documentation", { section: selectedSections })
+      .invoke("get-documentation", { section: selectedSectionPaths })
       .catch(() => null);
     if (!result || result.isError) return;
     const nextMarkdown = String(resultJson(result)?.markdown ?? "");
@@ -375,7 +377,7 @@ export function SvelteWorkspace() {
                   <BookOpenText size={12} />
                   {docsLoaded ? "刷新章节索引" : "加载官方章节"}
                 </button>
-                <span>{selectedSections.length}/8 已选 · 共 {sections.length} 章</span>
+                <span>{selectedSectionPaths.length}/8 已选 · 共 {sections.length} 章</span>
               </div>
 
               <div className="svelte-section-list" data-testid="svelte-section-list" role="list">
@@ -385,7 +387,7 @@ export function SvelteWorkspace() {
                   </div>
                 ) : (
                   filteredSections.map((section) => {
-                    const checked = selectedSections.includes(section.title);
+                    const checked = selectedSectionPaths.includes(section.path);
                     return (
                       <label
                         key={`${section.path}-${section.title}`}
@@ -394,9 +396,9 @@ export function SvelteWorkspace() {
                       >
                         <input
                           type="checkbox"
-                          data-testid={`svelte-section-${section.title}`}
+                          data-testid={`svelte-section-${section.path}`}
                           checked={checked}
-                          onChange={() => toggleSection(section.title)}
+                          onChange={() => toggleSection(section.path)}
                         />
                         <span>
                           <strong>{section.title}</strong>
@@ -513,7 +515,7 @@ export function SvelteWorkspace() {
             data-testid="svelte-run"
             type="button"
             onClick={() => void run()}
-            disabled={runtime.pending || (tab === "docs" && docsLoaded && selectedSections.length === 0)}
+            disabled={runtime.pending || (tab === "docs" && docsLoaded && selectedSectionPaths.length === 0)}
           >
             {tab === "diagnostics" ? <Wrench size={13} /> : tab === "docs" ? <BookOpenText size={13} /> : <FileCode2 size={13} />}
             {runtime.pending
@@ -584,7 +586,7 @@ export function SvelteWorkspace() {
                 <BookOpenText size={14} />
                 <div>
                   <strong>官方文档</strong>
-                  <span>{markdown.length.toLocaleString("zh-CN")} 字符 · {selectedSections.join(", ")}</span>
+                  <span>{markdown.length.toLocaleString("zh-CN")} 字符 · {selectedSectionPaths.join(", ")}</span>
                 </div>
               </div>
               <pre className="svelte-markdown" data-testid="svelte-markdown">{markdown}</pre>

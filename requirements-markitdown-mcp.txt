@@ -1,0 +1,6 @@
+# Isolated because markitdown-mcp 0.0.1a4 pins mcp~=1.8.0 while the other
+# Python integrations intentionally follow newer reference-server releases.
+# Agent-OPT exposes only bounded local files, so install only the converter
+# groups used by the Web surface rather than cloud/audio/YouTube extras.
+mcp==1.28.1
+markitdown[pdf,docx,pptx,xlsx]==0.1.6

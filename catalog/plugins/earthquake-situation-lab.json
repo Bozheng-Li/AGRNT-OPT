@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.cyanheads/earthquake-mcp-server",
+  "slug": "earthquake-situation-lab",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-17T18:17:53.017Z"
+  },
+  "name": {
+    "original": "Earthquake MCP Server",
+    "zhCN": "全球地震态势实验室",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Inspect bounded USGS real-time feeds, search and count historical USGS or EMSC earthquakes, and open detailed USGS event impact records without credentials.",
+    "zhCN": "无需凭据即可查看有界 USGS 实时 feed、检索与计数 USGS 或 EMSC 历史地震，并打开详细 USGS 事件影响记录。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The exact signed npm 0.1.16 package exposes four read-only tools, twenty upstream feed resources, and two resource templates. Agent-OPT fixes outbound HTTPS access to the official USGS and EMSC FDSN endpoints, removes base-URL overrides, proxies and credentials, limits searches to 100 events, and publicly exposes fifteen feed combinations that fit the Web response budget while rejecting five low-magnitude long-window feeds that can exceed safe output bounds. A dedicated Web lab combines map/list exploration, event impact metrics, source comparison, resource reads, and explicit non-alerting guidance.",
+    "zhCN": "精确锁定且带 npm 签名的 0.1.16 包提供四个只读工具、二十个上游 feed 资源和两个资源模板。Agent-OPT 将出站 HTTPS 固定到官方 USGS 与 EMSC FDSN 端点，移除 Base URL 覆盖、代理和凭据，把检索限制为最多 100 条，并公开十五个符合 Web 响应预算的 feed 组合；五个可能超过安全输出边界的低震级长窗口 feed 会被拒绝。专属 Web 实验室结合地图与列表探索、事件影响指标、来源对照、资源读取，并明确声明它不是预警产品。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Casey Hand (@cyanheads)",
+    "url": "https://github.com/cyanheads",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "0.1.16",
+    "releasedAt": "2026-07-02T13:06:14.000Z",
+    "checkedAt": "2026-07-17T18:10:00.000Z"
+  },
+  "categories": [
+    "earth-science",
+    "public-data",
+    "geospatial",
+    "monitoring"
+  ],
+  "tags": [
+    "MCP",
+    "USGS",
+    "EMSC",
+    "earthquake",
+    "FDSN",
+    "seismic",
+    "map",
+    "keyless API"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/cyanheads/earthquake-mcp-server/tree/f1c3962d4d0359901e0f7785bc319ba81aaac414",
+    "repositoryUrl": "https://github.com/cyanheads/earthquake-mcp-server",
+    "packageUrl": "https://www.npmjs.com/package/@cyanheads/earthquake-mcp-server/v/0.1.16",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=earthquake-mcp-server&limit=30",
+        "listingId": "io.github.cyanheads/earthquake-mcp-server",
+        "checkedAt": "2026-07-17T18:10:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=earthquake-mcp-server&limit=30",
+        "retrievedAt": "2026-07-17T18:10:00.000Z",
+        "note": "The official MCP Registry marks io.github.cyanheads/earthquake-mcp-server 0.1.16 active and latest, published 2026-07-02, and binds the listing to @cyanheads/earthquake-mcp-server 0.1.16. Agent-OPT uses the local STDIO package rather than the author-hosted remote."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@cyanheads/earthquake-mcp-server/0.1.16",
+        "retrievedAt": "2026-07-17T18:10:00.000Z",
+        "note": "npm records Apache-2.0, Node >=24, 58 files, 204,813 unpacked bytes, shasum 5c72adff764bbc4712631c0adf4836331239aa0e, integrity sha512-S54CDH/dh2HYxjPEw7yiDT6tnSw3Q+GIH25oL3Plr3Hsd8kYYuPQ6nbBDeLv6kYvWYfU0U3KIKKmxbVoP5/KTA==, and a registry signature. It has no gitHead or package-level attestation, so no tarball-to-commit SLSA claim is made."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/earthquake-mcp-server/tree/f1c3962d4d0359901e0f7785bc319ba81aaac414",
+        "retrievedAt": "2026-07-17T18:10:00.000Z",
+        "note": "Annotated v0.1.16 dereferences to commit f1c3962d4d0359901e0f7785bc319ba81aaac414 and fixes source-consistent default windows, truncation counts, nullable magnitudes, and feed errors. The tag contains an SSH signature whose signer identity was not independently verified here."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/earthquake-mcp-server/blob/f1c3962d4d0359901e0f7785bc319ba81aaac414/LICENSE",
+        "retrievedAt": "2026-07-17T18:10:00.000Z",
+        "note": "The pinned repository and npm artifact declare Apache-2.0."
+      },
+      {
+        "kind": "corroborating-source",
+        "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2024-01-01&endtime=2024-01-08&minmagnitude=6",
+        "retrievedAt": "2026-07-17T18:10:00.000Z",
+        "note": "Real exact-package STDIO qualification found two USGS M6+ events for 2024-01-01 through 2024-01-08, including the reviewed M7.5 Noto event us6000m0xl with red PAGER and tsunami flag; get_event and count reproduced the same record and total."
+      },
+      {
+        "kind": "corroborating-source",
+        "url": "https://www.seismicportal.eu/fdsnws/event/1/query?format=json&starttime=2024-01-01&endtime=2024-01-08&minmagnitude=6",
+        "retrievedAt": "2026-07-17T18:10:00.000Z",
+        "note": "The same historical query returned three EMSC matches; a two-row search carried an explicit truncation notice and totalCount while count returned three. Repeated runs preserved the same historical IDs and counts."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/cyanheads/earthquake-mcp-server/blob/f1c3962d4d0359901e0f7785bc319ba81aaac414/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The pinned v0.1.16 source and npm artifact declare Apache-2.0. Agent-OPT invokes the upstream package and adds an independent fixed-source bootstrap, adapter, translation, tests, and Web presentation without copying implementation code.",
+    "checkedAt": "2026-07-17T18:10:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "bounded-live-feeds",
+      "name": {
+        "original": "Read bounded USGS earthquake feeds",
+        "zhCN": "读取有界 USGS 地震 feed",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read fifteen safe magnitude/time-window combinations across all, M1.0+, M2.5+, M4.5+, and significant-event feeds; five oversized low-magnitude long windows remain intentionally unavailable.",
+        "zhCN": "读取全部、M1.0+、M2.5+、M4.5+ 和显著事件中的十五个安全震级/时间窗口组合；五个过大的低震级长窗口被有意关闭。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "historical-and-radius-search",
+      "name": {
+        "original": "Search USGS or EMSC events",
+        "zhCN": "检索 USGS 或 EMSC 事件",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Search bounded date, magnitude, depth, location-radius and source filters, with USGS-only alert, felt and significance filters and explicit truncation metadata.",
+        "zhCN": "按有界日期、震级、深度、位置半径和来源过滤检索；USGS 额外支持警报、感知与显著性过滤，并明确返回截断元数据。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "usgs-event-impact",
+      "name": {
+        "original": "Inspect USGS event impact",
+        "zhCN": "查看 USGS 事件影响",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Open one USGS event with reviewed status, magnitude, depth, coordinates, PAGER alert, DYFI felt/CDI, MMI, significance, tsunami flag and fixed USGS URLs when deposited.",
+        "zhCN": "打开单个 USGS 事件，查看复核状态、震级、深度、坐标、PAGER 警报、DYFI 感知/CDI、MMI、显著性、海啸标记及存储的固定 USGS URL。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "source-count-comparison",
+      "name": {
+        "original": "Count and compare source coverage",
+        "zhCN": "计数并对照来源覆盖",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Count matches without downloading event rows and compare USGS with EMSC under the same bounded historical filters.",
+        "zhCN": "无需下载事件行即可计数，并在同一有界历史过滤条件下对照 USGS 与 EMSC。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "feed-and-event-resources",
+      "name": {
+        "original": "Read MCP feed and event resources",
+        "zhCN": "读取 MCP feed 与 event 资源",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read validated earthquake://feed and earthquake://event resource URIs through two upstream resource templates.",
+        "zhCN": "通过两个上游资源模板读取经过校验的 earthquake://feed 与 earthquake://event 资源 URI。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches only the exact local @cyanheads/earthquake-mcp-server 0.1.16 Node entry over STDIO with a 256 MiB old-space limit. Callers cannot choose commands, packages, transports, environments, working directories, or remote MCP hosts.",
+      "The bootstrap forces HTTPS GET access to only https://earthquake.usgs.gov and https://www.seismicportal.eu on closed feed and FDSN query/count paths. It rejects custom origins, ports, credentials, fragments, Request objects, bodies, redirects, arbitrary headers and query keys.",
+      "USGS_BASE_URL and EMSC_BASE_URL are deleted and re-pinned; proxy, package, cloud, model-provider, auth, telemetry and credential variables are removed. Raw sockets, arbitrary DNS, HTTP clients, datagrams, WebSockets, subprocesses, workers and server creation are denied outside the authorized fetch scope.",
+      "Dates, spans, magnitudes, depths, coordinates, radius, alert/felt/significance filters, source, order, limits, event IDs, resource URIs, response bytes, event counts, JSON depth, arrays and string lengths are bounded before or after execution.",
+      "The upstream package advertises twenty feed resources, but Agent-OPT exposes fifteen. all/month, all/week, 1.0/week, 1.0/month and 2.5/month are denied because their dynamic payloads can exceed the public Web's safe memory and response budget.",
+      "Remote place names, titles and URLs are untrusted public data. The Web renders escaped text only, does not auto-open returned URLs, and labels the product as an analysis interface rather than an emergency-alert or safety-decision system."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-earthquake-two-fixed-origins",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@cyanheads/earthquake-mcp-server",
+      "version": "0.1.16"
+    },
+    "requirements": [
+      "Node.js 24 or newer",
+      "The exact @cyanheads/earthquake-mcp-server 0.1.16 package installed from package-lock.json",
+      "Outbound TLS access to the fixed USGS earthquake and EMSC Seismic Portal origins",
+      "No API key, credential, paid plan, external account, local catalogue, hardware sensor, or remote MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "fixed two-source network policy",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Origins, FDSN/feed paths, GET method, query keys, redirects, timeouts and response limits are adapter-controlled and cannot be selected by Web callers.",
+          "zhCN": "来源、FDSN/feed 路径、GET 方法、查询键、重定向、超时和响应限制由适配器控制，Web 调用方不能选择。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "bounded event query",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Web requests contain only validated feed enums, dates, seismic filters, source choice, USGS event IDs, or resource URIs.",
+          "zhCN": "Web 请求只包含校验后的 feed 枚举、日期、地震过滤器、来源选择、USGS Event ID 或资源 URI。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 92,
+    "usefulness": 4.9,
+    "uniqueness": 4.8,
+    "reliability": 4.7,
+    "maintenance": 4.6,
+    "provenance": 4.1,
+    "licenseClarity": 5,
+    "security": 4.9,
+    "webFitness": 5,
+    "notes": [
+      "Official USGS and EMSC data, stable historical samples, source comparison, spatial filtering and impact metrics make this unusually useful for research, education, journalism and operational context without a credential barrier.",
+      "Registry identity, exact npm package, repository, annotated release tag, author, Node requirement, license, and protocol surface align. npm signs the artifact, but gitHead/SLSA provenance is absent and the SSH tag signer was not independently verified, reflected in the provenance score.",
+      "Qualification ran all four tools, both resource templates, USGS and EMSC historical paths, a live feed, a real not-found case, and upstream 221-test suite. Dynamic live-feed assertions use shape and safety bounds rather than frozen event IDs.",
+      "USGS and EMSC may differ because their station networks, aggregation, de-duplication, review state and publication timing differ. PAGER, DYFI, ShakeMap-style impact fields and event detail remain USGS-only and are not inferred for EMSC.",
+      "Five large feed combinations are intentionally not integrated. The public catalogue describes the fifteen tested, bounded feeds rather than counting every upstream URI as usable."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-17T18:10:00.000Z",
+    "notes": [
+      "Kept USGS, EMSC, FDSN, MCP, STDIO, PAGER, DYFI, MMI, CDI, Event ID and feed as established agency, protocol, impact-scale, identifier or data-product terms.",
+      "Chinese copy distinguishes a catalogue event, reported/estimated intensity, felt reports, a tsunami flag and an actual warning, and explicitly avoids presenting this interface as an emergency-alert service."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "EarthquakeWorkspace",
+    "route": "/plugins/earthquake-situation-lab",
+    "features": [
+      "GPT-flavored real-time USGS feed selector covering fifteen response-bounded magnitude/time-window combinations",
+      "USGS or EMSC historical search with date, magnitude and optional center-radius inputs, query-source label, truncation state, coordinate plot and linked event list",
+      "USGS event impact profile for magnitude, depth, time, place, review state, PAGER alert, MMI, CDI/DYFI felt count, significance and tsunami flag",
+      "same-filter USGS versus EMSC count comparison with an explanation of catalogue differences",
+      "feed and event MCP resource readers using both upstream resource templates",
+      "pending, activity, no-event, upstream failure, invalid time/location/event, disabled-heavy-feed, source-boundary, non-alerting and responsive mobile states"
+    ],
+    "dedicatedElements": [
+      "longitude/latitude event plot",
+      "magnitude and depth event ledger",
+      "PAGER/DYFI/MMI/CDI impact dashboard",
+      "USGS versus EMSC count cards",
+      "bounded feed selector",
+      "feed and event resource viewer"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "earthquake-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/earthquake-runtime.test.ts",
+        "checkedAt": "2026-07-17T18:10:00.000Z",
+        "evidence": "Vitest passed 3/3 integration tests. The exact 0.1.16 server exposed four tools, twenty upstream static feed resources, two resource templates and no prompts; Agent-OPT accepted fifteen bounded public feed URIs and invoked every tool plus both template types."
+      },
+      {
+        "id": "earthquake-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/earthquake-runtime.test.ts",
+        "checkedAt": "2026-07-17T18:10:00.000Z",
+        "evidence": "The live M4.5/week feed returned current shaped events. Fixed 2024 USGS search/count/detail reproduced two M6+ events and Noto us6000m0xl M7.5/red/tsunami; EMSC returned two rows with truncation metadata and a total count of three. Feed and event resources returned structured JSON."
+      },
+      {
+        "id": "earthquake-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/earthquake-runtime.test.ts",
+        "checkedAt": "2026-07-17T18:10:00.000Z",
+        "evidence": "A real fake USGS event produced a controlled not_found result. The adapter rejected invalid dates, spans, partial or excessive radius inputs, reversed magnitude/depth ranges, EMSC-only filter conflicts, excessive limits, proxy/header/baseUrl injection, unsafe event IDs, invalid resource URIs, oversized outputs, and five heavy feed combinations."
+      },
+      {
+        "id": "earthquake-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/earthquake-runtime.test.ts",
+        "checkedAt": "2026-07-17T18:10:00.000Z",
+        "evidence": "The executable probe proved both official origins were accepted while custom hosts, paths, arbitrary query keys, credentials, Request objects, HTTP clients, DNS, host reads, writes, subprocesses, workers, linked runtime roots and server creation were denied; proxies and credentials were removed and both base URLs remained pinned."
+      },
+      {
+        "id": "earthquake-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/earthquake-api.test.ts",
+        "checkedAt": "2026-07-17T18:20:00.000Z",
+        "evidence": "Vitest passed 2/2 public Next route tests. The API ran all four tools across USGS and EMSC, read both feed and event resource templates, reproduced the fixed Noto detail/count scenario, and rejected heavy feeds, custom origins, unsafe event IDs, and unapproved resource URIs."
+      },
+      {
+        "id": "earthquake-web-e2e",
+        "category": "web-e2e",
+        "status": "passed",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=earthquake.spec.ts › @web-e2e [earthquake-situation-lab] Earthquake Web runs four tools, two resources, both sources, errors, and responsive layout; route=/plugins/earthquake-situation-lab; result=passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-17T18:17:53.017Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "0.1.16"
+  }
+}

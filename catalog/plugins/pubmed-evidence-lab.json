@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.cyanheads/pubmed-mcp-server",
+  "slug": "pubmed-evidence-lab",
+  "kind": "mcp-server",
+  "lifecycle": {
+    "status": "verified",
+    "changedAt": "2026-07-17T14:49:16.102Z"
+  },
+  "name": {
+    "original": "PubMed MCP Server",
+    "zhCN": "PubMed 生物医学证据台",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Search PubMed and Europe PMC, inspect article metadata and open full text, trace related literature, format or resolve citations, explore MeSH, convert identifiers, and generate research-plan prompts without credentials.",
+    "zhCN": "无需凭据即可检索 PubMed 与 Europe PMC、查看文章元数据和开放全文、追踪关联文献、格式化或反查引用、探索 MeSH、转换标识符并生成研究计划提示。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "The signed npm 2.9.8 package exposes ten read-only tools, one live PubMed database resource, and one biomedical research-plan prompt. Agent-OPT retains the complete protocol surface while narrowing all result sets, fixing outbound traffic to exact NCBI, PMC, Europe PMC, and OpenAlex HTTPS paths, disabling credential and Unpaywall-email modes, and presenting article metadata, full text, citations, identifiers, controlled vocabulary, and source state in a dedicated evidence workflow.",
+    "zhCN": "带 npm 签名的 2.9.8 包提供十个只读工具、一个实时 PubMed 数据库资源和一个生物医学研究计划提示。Agent-OPT 保留完整协议面，同时收紧全部结果集，把出站流量固定到 NCBI、PMC、Europe PMC 与 OpenAlex 的精确 HTTPS 路径，禁用凭据和 Unpaywall 邮箱模式，并在专属证据工作流中呈现文章元数据、全文、引用、标识符、受控词表和来源状态。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Casey Hand (@cyanheads)",
+    "url": "https://github.com/cyanheads",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "2.9.8",
+    "releasedAt": "2026-06-30T19:56:14.198Z",
+    "checkedAt": "2026-07-17T14:20:00.000Z"
+  },
+  "categories": [
+    "biomedical-research",
+    "literature-search",
+    "citations",
+    "scientific-data"
+  ],
+  "tags": [
+    "MCP",
+    "PubMed",
+    "Europe PMC",
+    "NCBI",
+    "MeSH",
+    "PMID",
+    "PMCID",
+    "DOI",
+    "open access"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/cyanheads/pubmed-mcp-server/tree/ef0be2c0cf71164460243834e871391d3632b51d",
+    "repositoryUrl": "https://github.com/cyanheads/pubmed-mcp-server",
+    "packageUrl": "https://www.npmjs.com/package/@cyanheads/pubmed-mcp-server/v/2.9.8",
+    "marketplaces": [
+      {
+        "sourceId": "official-mcp-registry",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=pubmed-mcp-server&limit=30",
+        "listingId": "io.github.cyanheads/pubmed-mcp-server",
+        "checkedAt": "2026-07-17T14:20:00.000Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "registry-api",
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers?search=pubmed-mcp-server&limit=30",
+        "retrievedAt": "2026-07-17T14:20:00.000Z",
+        "note": "The official MCP Registry marks io.github.cyanheads/pubmed-mcp-server 2.9.8 active and latest, binds it to cyanheads/pubmed-mcp-server, and declares the exact @cyanheads/pubmed-mcp-server 2.9.8 npm package over STDIO. Anonymous NCBI use is supported; API-key and email variables are optional upstream modes that this public adapter removes."
+      },
+      {
+        "kind": "package-registry",
+        "url": "https://registry.npmjs.org/@cyanheads/pubmed-mcp-server/2.9.8",
+        "retrievedAt": "2026-07-17T14:20:00.000Z",
+        "note": "npm records Apache-2.0, Node >=24, 159 files, 895,207 unpacked bytes, shasum c4c155797cf9ed5dce42d14199f65cd90ad4783d, integrity sha512-UvOul/XSFTb7rQ7ouh+Mdm6k8UrJJ0NMqpeMGK3hLBT/NVWkK02j5NG9Rcj0o10YzrfnNxhnrvaFEgoZMfFT5w==, and a registry signature. It does not publish gitHead or SLSA provenance, so Agent-OPT does not claim cryptographic artifact-to-commit provenance."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/pubmed-mcp-server/blob/ef0be2c0cf71164460243834e871391d3632b51d/src/index.ts",
+        "retrievedAt": "2026-07-17T14:20:00.000Z",
+        "note": "The signed v2.9.8 tag dereferences to ef0be2c0cf71164460243834e871391d3632b51d. Its server entry registers ten tools, one database-info resource, one research_plan prompt, and NCBI, Europe PMC, OpenAlex, and optional Unpaywall services."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/pubmed-mcp-server/blob/ef0be2c0cf71164460243834e871391d3632b51d/src/services/ncbi/api-client.ts",
+        "retrievedAt": "2026-07-17T14:20:00.000Z",
+        "note": "The pinned NCBI client constructs bounded GET/POST E-utilities requests, adds optional credentials only from environment, applies abort deadlines, and exposes the separate PMC ID Converter path. Agent-OPT clears all credential variables and validates every outbound method, host, path, query, header, redirect, and response size."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/cyanheads/pubmed-mcp-server/blob/ef0be2c0cf71164460243834e871391d3632b51d/LICENSE",
+        "retrievedAt": "2026-07-17T14:20:00.000Z",
+        "note": "The provenance-pinned repository and published package declare Apache-2.0."
+      },
+      {
+        "kind": "corroborating-source",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=10.1093%2Fnar%2Fgks1195%5Bdoi%5D&retmode=xml",
+        "retrievedAt": "2026-07-17T14:20:00.000Z",
+        "note": "Real fixed-sandbox STDIO qualification invoked all ten tools. PMID 23193287, PMCID PMC3531190, and DOI 10.1093/nar/gks1195 resolved consistently across PubMed search, article metadata, PMC full text, citation formatting, related articles, citation lookup, ID conversion, and Europe PMC; live MeSH and database metadata also returned current records."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/cyanheads/pubmed-mcp-server/blob/ef0be2c0cf71164460243834e871391d3632b51d/LICENSE",
+    "redistribution": "allowed",
+    "evidence": "The signed-tag source and npm artifact declare Apache-2.0. Agent-OPT invokes the exact package and adds an independent adapter, fixed-origin bootstrap, translation, tests, and Web presentation without copying upstream implementation code.",
+    "checkedAt": "2026-07-17T14:20:00.000Z"
+  },
+  "capabilities": [
+    {
+      "id": "biomedical-discovery",
+      "name": {
+        "original": "Search PubMed and Europe PMC",
+        "zhCN": "检索 PubMed 与 Europe PMC",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Run bounded PubMed syntax searches with summaries or broaden to Europe PMC preprints and open-access records with exact source diagnostics.",
+        "zhCN": "运行带摘要的有界 PubMed 语法检索，或扩展到 Europe PMC 预印本与开放获取记录，并保留精确来源诊断。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "article-evidence",
+      "name": {
+        "original": "Inspect article metadata, full text, and relationships",
+        "zhCN": "检查文章元数据、全文与关系",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Fetch abstracts, authors, journals, MeSH, bounded structured PMC sections, and similar, citing, or referenced literature.",
+        "zhCN": "读取摘要、作者、期刊、MeSH、有界 PMC 结构化章节，以及相似、引用本文或本文引用的文献。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "citation-resolution",
+      "name": {
+        "original": "Format and resolve citations and identifiers",
+        "zhCN": "格式化并解析引用与标识符",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Generate APA, MLA, Vancouver, BibTeX, or RIS; deterministically match partial citations; and convert DOI, PMID, and PMCID records.",
+        "zhCN": "生成 APA、MLA、Vancouver、BibTeX 或 RIS；确定性反查部分引用；转换 DOI、PMID 与 PMCID。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "controlled-vocabulary",
+      "name": {
+        "original": "Refine queries with spelling, MeSH, and database fields",
+        "zhCN": "用拼写、MeSH 与数据库字段优化检索",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Read NCBI spelling suggestions, MeSH descriptors and scope notes, plus the live PubMed field inventory and record count.",
+        "zhCN": "读取 NCBI 拼写建议、MeSH 描述词与范围说明，以及实时 PubMed 字段清单与记录数。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "research-plan-prompt",
+      "name": {
+        "original": "Materialize a biomedical research plan",
+        "zhCN": "生成生物医学研究计划",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Generate the upstream two-message research_plan prompt with project goal, keywords, organism, reproducibility phases, and PubMed agent guidance.",
+        "zhCN": "生成上游双消息 research_plan 提示，包含项目目标、关键词、物种、可复现阶段与 PubMed Agent 指引。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-write",
+    "network": "restricted",
+    "commands": "fixed",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The adapter launches only the exact local 2.9.8 Node entry through a fixed STDIO bootstrap with a 256 MiB old-space limit. Callers cannot select commands, arguments, environment, transport, package paths, or working directories.",
+      "The bootstrap permits only HTTPS requests to exact E-utilities, PMC ID Converter, Europe PMC search/fullTextXML/citation/reference, and OpenAlex work paths. It rejects custom ports, credentials, fragments, Request objects, other origins or paths, unsupported methods, redirects, and unexpected content types.",
+      "NCBI API key, admin email, Europe PMC email, OpenAlex email, and Unpaywall email modes are removed. Unpaywall network access is intentionally denied; open full text remains available from PMC and Europe PMC without credentials.",
+      "Search results are limited to ten, article and citation batches to five, full-text batches to two and ten sections, related results to ten, and identifier batches to ten. Input text, dates, cursors, citation fields, arrays, response bytes, total process bytes, JSON depth, and node counts are bounded.",
+      "The fixed package and its sanitization dependency are loaded before runtime filesystem APIs are disabled. During tool execution, host reads, writes, subprocesses, workers, datagrams, WebSockets, raw network APIs, arbitrary DNS, and credential-bearing requests are denied.",
+      "A deployment-level HTTPS_PROXY is optional for controlled egress. It must be a credential-free http/https origin, is used only by Node at startup, and is removed from the environment before upstream code runs.",
+      "Article titles, abstracts, full text, author names, citations, MeSH descriptions, prompt text, links, and upstream error text are untrusted evidence rendered only as escaped React text. Agent-OPT does not execute returned HTML, Markdown, code, links, or clinical recommendations."
+    ]
+  },
+  "runtime": {
+    "adapter": "mcp-stdio-pubmed-fixed-biomedical-policy",
+    "transport": "stdio",
+    "package": {
+      "registry": "npm",
+      "name": "@cyanheads/pubmed-mcp-server",
+      "version": "2.9.8"
+    },
+    "requirements": [
+      "Node.js 24 or newer",
+      "The exact @cyanheads/pubmed-mcp-server 2.9.8 package installed from package-lock.json",
+      "Outbound TLS access to fixed NCBI, PMC, Europe PMC, and OpenAlex public origins",
+      "Optional deployment egress through a host-configured, credential-free HTTPS_PROXY origin; callers cannot configure it",
+      "No API key, contact email, credential, external account, paid plan, local corpus, or remote MCP host is required"
+    ],
+    "configuration": [
+      {
+        "key": "bounded biomedical query",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "The Web accepts only validated PubMed or Europe PMC queries, small identifier batches, structured citation fields, vocabulary terms, or research-plan fields.",
+          "zhCN": "Web 只接受校验后的 PubMed 或 Europe PMC 检索式、小批量标识符、结构化引用字段、词表词条或研究计划字段。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "fixed public biomedical sources",
+        "required": true,
+        "secret": false,
+        "description": {
+          "original": "Host, path, method, redirects, credential parameters, headers, response types, and byte limits are fixed by the bootstrap and cannot be selected by callers.",
+          "zhCN": "主机、路径、方法、重定向、凭据参数、请求头、响应类型和字节上限均由启动沙箱固定，调用方不能选择。",
+          "sourceLanguage": "en"
+        }
+      },
+      {
+        "key": "optional deployment egress proxy",
+        "required": false,
+        "secret": false,
+        "description": {
+          "original": "A credential-free http/https HTTPS_PROXY origin may be inherited from deployment; the Web API cannot set or observe it.",
+          "zhCN": "部署可继承一个无凭据的 http/https HTTPS_PROXY 来源；Web API 不能设置或读取它。",
+          "sourceLanguage": "en"
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 92,
+    "usefulness": 4.9,
+    "uniqueness": 4.7,
+    "reliability": 4.6,
+    "maintenance": 4.8,
+    "provenance": 4.2,
+    "licenseClarity": 5,
+    "security": 4.8,
+    "webFitness": 4.9,
+    "notes": [
+      "The integration supports a real evidence workflow rather than a single keyword search: strategy refinement, metadata and open full text, relationship traversal, citation resolution, controlled vocabulary, identifier reconciliation, live database state, and research planning.",
+      "The official Registry identity, npm name/version, signed v2.9.8 tag, repository, author, Node requirement, and Apache-2.0 license align. npm signs the artifact but omits gitHead and SLSA provenance, which is reflected in the provenance score.",
+      "Qualification and Runtime testing discovered exactly ten tools, one resource, and one prompt. All were invoked against real NCBI and Europe PMC handlers; the known GenBank article resolved consistently across PMID, PMCID, DOI, metadata, full text, citation, relation, MeSH, and Europe PMC paths.",
+      "PubMed, PMC, Europe PMC, and OpenAlex can be delayed, incomplete, rate-limited, or differently indexed. The Web keeps identifiers, source, access status, query, and empty results visible and does not claim that absence is proof of non-existence or that bibliographic metadata is clinical advice."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-17T14:20:00.000Z",
+    "notes": [
+      "Kept PubMed, Europe PMC, NCBI, OpenAlex, Unpaywall, MCP, STDIO, PMID, PMCID, DOI, MeSH, JATS, APA, MLA, Vancouver, BibTeX, RIS and research_plan as product, protocol, identifier, vocabulary, format, or prompt names.",
+      "Chinese copy distinguishes bibliographic evidence from clinical advice, open full text from all full text, an empty result from non-existence, and deterministic identifier matching from scientific validity."
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "PubmedWorkspace",
+    "route": "/plugins/pubmed-evidence-lab",
+    "features": [
+      "GPT-flavored PubMed and Europe PMC discovery workspace with exact DOI and thematic examples, bounded summaries, identifiers, source, dates, authors, and open-access state",
+      "article evidence area separating abstract/metadata, bounded structured PMC or Europe PMC full text, and similar, citing, or referenced literature",
+      "citation console for APA, MLA, Vancouver, BibTeX, and RIS rendering, structured citation-to-PMID matching, and DOI/PMID/PMCID conversion",
+      "query refinement area for NCBI spelling, MeSH descriptors/tree numbers/scope notes, and live pubmed://database/info field inventory",
+      "research_plan prompt materializer with project title, goal, keywords, organism, reproducibility phases, and optional agent guidance",
+      "pending, activity, upstream error, invalid identifier, no-result, source-boundary, horizontally scrollable data, and responsive mobile states"
+    ],
+    "dedicatedElements": [
+      "dual-source biomedical search ledger",
+      "article abstract and identifier evidence cards",
+      "bounded structured full-text reader",
+      "citation relationship browser",
+      "citation formatter and deterministic lookup console",
+      "DOI, PMID, and PMCID crosswalk table",
+      "MeSH and PubMed field inspectors",
+      "biomedical research-plan prompt viewer"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "pubmed-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/pubmed-runtime.test.ts",
+        "checkedAt": "2026-07-17T14:20:00.000Z",
+        "evidence": "Vitest passed 3/3 integration tests. The exact 2.9.8 STDIO server exposed ten tools, pubmed://database/info, and research_plan. Every tool, resource, and prompt was invoked through the fixed adapter against real upstream handlers."
+      },
+      {
+        "id": "pubmed-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/pubmed-runtime.test.ts",
+        "checkedAt": "2026-07-17T14:20:00.000Z",
+        "evidence": "PMID 23193287, PMCID PMC3531190, and DOI 10.1093/nar/gks1195 formed a complete evidence chain: exact search, full metadata and MeSH, two structured full-text sections, APA/BibTeX, two similar papers, citation-to-PMID match, identifier conversion, and Europe PMC open-access confirmation."
+      },
+      {
+        "id": "pubmed-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/pubmed-runtime.test.ts",
+        "checkedAt": "2026-07-17T14:20:00.000Z",
+        "evidence": "A real nonexistent DOI produced an explicit zero-result response. The adapter rejected caller-selected URLs, oversized results, invalid PMID/PMCID/DOI values, mixed full-text identifier types, unsafe cursors and terms, incomplete citations, unknown resource URIs, unknown prompts, and excess fields before launch."
+      },
+      {
+        "id": "pubmed-security",
+        "category": "security",
+        "status": "passed",
+        "command": "npm test -- tests/pubmed-runtime.test.ts",
+        "checkedAt": "2026-07-17T14:20:00.000Z",
+        "evidence": "The executable bootstrap probe accepted a fixed NCBI path and proved redirect enforcement plus denial of custom hosts, paths, Unpaywall, credential parameters and headers, host reads, writes, subprocesses, workers, visible proxies, NCBI keys, Unpaywall email, and model credentials. Proxy credentials, conflicting proxy values, and linked runtime roots were rejected."
+      },
+      {
+        "id": "pubmed-api",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/pubmed-api.test.ts",
+        "checkedAt": "2026-07-17T14:48:05.776Z",
+        "evidence": "Vitest passed 3/3 public-route tests in 21.70 seconds. The Next API invoked all ten real tools, read pubmed://database/info, materialized research_plan, preserved a real nonexistent-DOI empty result, and returned HTTP 400 for caller-selected URLs, oversized result requests, invalid identifiers, mixed full-text inputs, unsafe Europe PMC options, unknown resources, and excess prompt fields."
+      },
+      {
+        "id": "pubmed-web-e2e",
+        "category": "web-e2e",
+        "status": "passed",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=pubmed.spec.ts › @web-e2e [pubmed-evidence-lab] PubMed Web runs ten tools, resource, prompt, errors, and responsive workflow; route=/plugins/pubmed-evidence-lab; result=passed",
+        "command": "npm run test:e2e",
+        "checkedAt": "2026-07-17T14:49:16.102Z"
+      }
+    ],
+    "blockers": [],
+    "testedVersion": "2.9.8"
+  }
+}

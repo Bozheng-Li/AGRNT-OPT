@@ -28,7 +28,7 @@ export function ResultView({
         <h3>运行结果</h3>
         <span className="workspace-status">
           {pending ? <LoaderCircle size={11} className="spin" /> : <Activity size={11} />}
-          {pending ? "正在连接上游 MCP…" : "调用记录保留在当前页面"}
+          {pending ? "正在调用安全运行时…" : "调用记录保留在当前页面"}
         </span>
       </div>
 

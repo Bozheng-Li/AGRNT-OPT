@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-writing-plans",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/writing-plans",
+  "skillSha256": "cd8550405fc7fd224489f0b993fce822f69626fc0c612b3c9829d991cb4314c6",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "28a392839b558645d3ecb0586f8e2a91b7f1826dd938078f1986182b4ffcac76"
+    },
+    {
+      "path": "plan-document-reviewer-prompt.md",
+      "sha256": "f934889f4f40f85782e703042edb28217169853df3eaf285586a5ab4e5ea5403"
+    }
+  ]
+}

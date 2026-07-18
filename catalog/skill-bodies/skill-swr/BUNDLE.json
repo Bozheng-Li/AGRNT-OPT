@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-swr",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/vercel/skills/swr",
+  "skillSha256": "c22a1535fd6950df4f046c43700471f415d60d5fb046cf90b64b9d77d4e4aea4",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "eba7d5da7df20d2ce370d6beeadd3b678aecfec6f42c5c2e862e994c660c13aa"
+    }
+  ]
+}

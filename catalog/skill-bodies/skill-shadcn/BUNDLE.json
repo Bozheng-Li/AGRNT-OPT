@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-shadcn",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/vercel/skills/shadcn",
+  "skillSha256": "3acfc1f7f1f0cc19380d641a894db8b54552f0bd47c97a786e85ae74f748e6e0",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "8f565792e18f494c04a6660d6c2d187586c2161a7b4939316b3a0020b337d685"
+    }
+  ]
+}

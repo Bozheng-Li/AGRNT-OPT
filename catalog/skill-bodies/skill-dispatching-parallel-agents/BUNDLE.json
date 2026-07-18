@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-dispatching-parallel-agents",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/dispatching-parallel-agents",
+  "skillSha256": "ee429867974830f3fa1dc2a3b0cf5c98c742a1c33ec0fb156ac3727a255d24b5",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "3c995554a301bcafdd91b8bf66aae4ff4d8607eaf9f30cb81a40c3b54adf0b16"
+    }
+  ]
+}

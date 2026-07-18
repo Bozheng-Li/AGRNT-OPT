@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-writing-skills",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/writing-skills",
+  "skillSha256": "4d99cd4e235947d27d58241335dfd5ca89b4e873af5051b19ae32a3ac92851ea",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "15cb7f5489d1fad1d23a946d2ba371110b1966eff5f78cd7ecf3a6afce55256e"
+    },
+    {
+      "path": "anthropic-best-practices.md",
+      "sha256": "82c80c7c6a42f504fe528dfa80a151c933bd07fce9dec284904cf8bacaba15a5"
+    },
+    {
+      "path": "examples/CLAUDE_MD_TESTING.md",
+      "sha256": "3648a10c414546fdea2eae3a8f21345cda2234aca54a084042e5f933a6b332ca"
+    },
+    {
+      "path": "graphviz-conventions.dot",
+      "sha256": "b18a02773875f6c7b92f2a260e88550c92a62549b0009df9d680f7e9541d0ecc"
+    },
+    {
+      "path": "persuasion-principles.md",
+      "sha256": "6de5db1834b08293748c5d18f7d55ab2f73c12624a33ba8d1be18707da0398b0"
+    },
+    {
+      "path": "render-graphs.js",
+      "sha256": "cfecc22868bcf1bcfebd7463a2f5b6c4092d6c68fdba17fb72d0b8619b654032"
+    },
+    {
+      "path": "testing-skills-with-subagents.md",
+      "sha256": "134a5d0f695d717f6d34609dff44ec9316a593c2f6db981ec94a61750fcce1bb"
+    }
+  ]
+}

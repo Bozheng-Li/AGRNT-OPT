@@ -1,6 +1,7 @@
 import { mkdir, mkdtemp, readFile, readdir, rm, symlink, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { getPluginAdapter } from "../src/lib/runtime/adapters";
 import { InvocationValidationError } from "../src/lib/runtime/errors";
@@ -14,6 +15,21 @@ function textOf(result: Awaited<ReturnType<typeof invokePluginTool>>) {
 
 function structuredOf(result: Awaited<ReturnType<typeof invokePluginTool>>): Record<string, unknown> {
   return result.structuredContent ?? {};
+}
+
+type SvelteNetworkPolicyModule = {
+  assertSvelteNetworkRequest(input: string | URL | Request, init?: RequestInit): URL;
+  createSvelteNetworkFetch(
+    fetchImplementation: (
+      input: string | URL | Request,
+      init?: RequestInit,
+    ) => Promise<Response | { redirected?: boolean }>,
+  ): (input: string | URL | Request, init?: RequestInit) => Promise<Response | { redirected?: boolean }>;
+};
+
+async function loadSvelteNetworkPolicy(): Promise<SvelteNetworkPolicyModule> {
+  const moduleUrl = pathToFileURL(path.join(process.cwd(), "scripts", "svelte-network-policy.mjs")).href;
+  return await import(/* @vite-ignore */ moduleUrl) as SvelteNetworkPolicyModule;
 }
 
 describe("real MCP stdio integrations", () => {
@@ -1669,6 +1685,44 @@ describe("real MCP stdio integrations", () => {
     const url = String(structuredOf(playground).url ?? "");
     expect(url.startsWith("https://svelte.dev/playground#")).toBe(true);
     expect(url.length).toBeGreaterThan("https://svelte.dev/playground#".length);
+    expect(playground.content).toHaveLength(1);
+    expect(playground.content[0]).toMatchObject({ type: "text" });
+    expect(JSON.stringify(playground.content)).not.toMatch(/ui:\/\/svelte|resource/i);
+  }, 180_000);
+
+  it("retrieves a duplicate-title Svelte document by its unique path and accepts valid Svelte 4 code", async () => {
+    const context = { svelteRoot: path.join(temporaryRoot, "svelte-path-and-v4") };
+
+    const sectionsResult = await invokePluginTool("svelte-development-studio", "list-sections", {}, context);
+    const sections = structuredOf(sectionsResult).sections as Array<{ title: string; path: string }>;
+    const overviewPaths = sections.filter((section) => section.title === "Overview").map((section) => section.path);
+    expect(overviewPaths).toContain("ai/overview");
+    expect(overviewPaths).toContain("svelte/overview");
+
+    const docs = await invokePluginTool(
+      "svelte-development-studio",
+      "get-documentation",
+      { section: ["svelte/overview"] },
+      context,
+    );
+    const markdown = String(structuredOf(docs).markdown ?? "");
+    expect(docs.isError).toBe(false);
+    expect(markdown).toContain("Svelte is a framework for building user interfaces");
+    expect(markdown).not.toContain("There are four tools, designed to help your agent");
+
+    const diagnostics = await invokePluginTool(
+      "svelte-development-studio",
+      "svelte-autofixer",
+      {
+        code: '<script>\n  export let name = "Svelte";\n</script>\n\n<h1>Hello {name}!</h1>\n',
+        desired_svelte_version: 4,
+        filename: "Greeting.svelte",
+      },
+      context,
+    );
+    expect(diagnostics.isError).toBe(false);
+    expect(structuredOf(diagnostics).issues).toEqual([]);
+    expect(structuredOf(diagnostics).suggestions).toEqual([]);
   }, 180_000);
 
   it("rejects Svelte autofixer path-like input, Svelte 4 async mode, oversized docs, and invalid Playground files before launch", async () => {
@@ -1698,9 +1752,88 @@ describe("real MCP stdio integrations", () => {
         "svelte-development-studio",
         "svelte-autofixer",
         {
+          code: "<h1>Hello</h1>",
+          desired_svelte_version: 5,
+          filename: "Component.svelte",
+          unexpected: true,
+        },
+        context,
+      ),
+    ).rejects.toBeInstanceOf(InvocationValidationError);
+
+    await expect(
+      invokePluginTool(
+        "svelte-development-studio",
+        "svelte-autofixer",
+        {
+          code: "x".repeat(200_001),
+          desired_svelte_version: 5,
+          filename: "Component.svelte",
+        },
+        context,
+      ),
+    ).rejects.toBeInstanceOf(InvocationValidationError);
+
+    await expect(
+      invokePluginTool(
+        "svelte-development-studio",
+        "svelte-autofixer",
+        {
+          code: "<h1>Hello</h1>",
+          desired_svelte_version: 6,
+          filename: "Component.svelte",
+        },
+        context,
+      ),
+    ).rejects.toBeInstanceOf(InvocationValidationError);
+
+    await expect(
+      invokePluginTool(
+        "svelte-development-studio",
+        "svelte-autofixer",
+        {
           code: "Component.svelte",
           desired_svelte_version: 5,
           filename: "Component.svelte",
+        },
+        context,
+      ),
+    ).rejects.toBeInstanceOf(InvocationValidationError);
+
+    await expect(
+      invokePluginTool(
+        "svelte-development-studio",
+        "playground-link",
+        {
+          name: "too-many-files",
+          files: Object.fromEntries([
+            ["App.svelte", "<h1>app</h1>"],
+            ...Array.from({ length: 12 }, (_, index) => [`file-${index}.js`, ""]),
+          ]),
+        },
+        context,
+      ),
+    ).rejects.toBeInstanceOf(InvocationValidationError);
+
+    await expect(
+      invokePluginTool(
+        "svelte-development-studio",
+        "playground-link",
+        {
+          name: "oversized-file",
+          files: { "App.svelte": "x".repeat(75_001) },
+        },
+        context,
+      ),
+    ).rejects.toBeInstanceOf(InvocationValidationError);
+
+    await expect(
+      invokePluginTool(
+        "svelte-development-studio",
+        "playground-link",
+        {
+          name: "oversized-total",
+          files: { "App.svelte": "x".repeat(50_000), "data.js": "y".repeat(50_000) },
         },
         context,
       ),
@@ -1786,11 +1919,19 @@ describe("real MCP stdio integrations", () => {
       NO_COLOR: "1",
     });
 
+    const outside = path.join(temporaryRoot, "svelte-outside");
+    const linkedRoot = path.join(temporaryRoot, "svelte-linked-root");
+    await mkdir(outside, { recursive: true });
+    await symlink(outside, linkedRoot, process.platform === "win32" ? "junction" : "dir");
+    await expect(adapter!.prepare({ svelteRoot: linkedRoot })).rejects.toBeInstanceOf(InvocationValidationError);
+
     const bootstrap = await readFile(path.join(process.cwd(), "scripts", "svelte-mcp-entry.mjs"), "utf8");
-    expect(bootstrap).toContain("svelte.dev");
-    expect(bootstrap).toContain("sections.json");
-    expect(bootstrap).toContain("llms.txt");
-    expect(bootstrap).toContain('redirect: "error"');
+    const networkPolicy = await readFile(path.join(process.cwd(), "scripts", "svelte-network-policy.mjs"), "utf8");
+    expect(bootstrap).toContain("createSvelteNetworkFetch");
+    expect(networkPolicy).toContain("https://svelte.dev");
+    expect(networkPolicy).toContain("sections.json");
+    expect(networkPolicy).toContain("llms.txt");
+    expect(networkPolicy).toContain('redirect: "error"');
 
     await expect(
       adapter!.normalizeResult!(
@@ -1816,4 +1957,38 @@ describe("real MCP stdio integrations", () => {
       ),
     ).rejects.toBeInstanceOf(InvocationValidationError);
   }, 60_000);
+
+  it("enforces the executable Svelte fixed-origin network policy and redirect rejection", async () => {
+    const { assertSvelteNetworkRequest, createSvelteNetworkFetch } = await loadSvelteNetworkPolicy();
+    const sectionsUrl = "https://svelte.dev/docs/experimental/sections.json";
+    const documentationUrl = "https://svelte.dev/docs/svelte/overview/llms.txt";
+
+    expect(assertSvelteNetworkRequest(sectionsUrl).href).toBe(sectionsUrl);
+    expect(assertSvelteNetworkRequest(documentationUrl).href).toBe(documentationUrl);
+
+    for (const denied of [
+      "https://evil.example/docs/svelte/overview/llms.txt",
+      "https://svelte.dev:444/docs/svelte/overview/llms.txt",
+      "https://user:secret@svelte.dev/docs/svelte/overview/llms.txt",
+      "https://svelte.dev/docs/svelte/overview/llms.txt?format=raw",
+      "https://svelte.dev/docs/svelte/overview/llms.txt#fragment",
+      "https://svelte.dev/playground",
+      "https://svelte.dev/docs/svelte/overview",
+      "https://svelte.dev/docs/%2e%2e/private/llms.txt",
+    ]) {
+      expect(() => assertSvelteNetworkRequest(denied)).toThrow(/not allowed/i);
+    }
+    expect(() => assertSvelteNetworkRequest(documentationUrl, { method: "POST" })).toThrow(/GET-only/i);
+
+    let forwardedInit: RequestInit | undefined;
+    const fixedFetch = createSvelteNetworkFetch(async (_input, init) => {
+      forwardedInit = init;
+      return new Response("ok");
+    });
+    await fixedFetch(documentationUrl, { redirect: "follow" });
+    expect(forwardedInit?.redirect).toBe("error");
+
+    const redirectedFetch = createSvelteNetworkFetch(async () => ({ redirected: true }));
+    await expect(redirectedFetch(documentationUrl)).rejects.toThrow(/redirects are not allowed/i);
+  });
 });

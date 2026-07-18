@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-internal-comms",
+  "sourceId": "anthropic-agent-skills",
+  "sourceCommit": "9d2f1ae187231d8199c64b5b762e1bdf2244733d",
+  "sourcePath": "skills/internal-comms",
+  "skillSha256": "c5c061ab25b33fab2358a9be53a5cc0d528ec7c3e8a29285a041ffc95d0d8947",
+  "supportingFiles": [
+    {
+      "path": "LICENSE.txt",
+      "sha256": "52b223c318576d65c32f70cb745f31352730e9f4c2c2c2570a66ce700f4f5a64"
+    },
+    {
+      "path": "examples/3p-updates.md",
+      "sha256": "5ea581bce7bc7030e5d9b5f65c192fd9aa05db8460837c485057ee9ad1b4e736"
+    },
+    {
+      "path": "examples/company-newsletter.md",
+      "sha256": "408275de740b7a849df557abd2136dc4f689c9aaa35a76fe5549a745bcc1df09"
+    },
+    {
+      "path": "examples/faq-answers.md",
+      "sha256": "02808d0a5dc3c0fe03c6b03a4e291fbda51dfc970a91cc4f28a82faa62d16251"
+    },
+    {
+      "path": "examples/general-comms.md",
+      "sha256": "c30fa95415e6b03b7501b9dcfbf4aa5a37494408c3b7bd8ae2a72e750dc456d2"
+    }
+  ]
+}

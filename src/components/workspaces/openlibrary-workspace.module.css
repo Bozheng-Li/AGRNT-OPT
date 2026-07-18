@@ -1,0 +1,44 @@
+.workspace { min-width: 0; }
+.tabs { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-bottom: 1px solid var(--border); background: #f7f9f8; }
+.tabs button { min-width: 0; display: flex; align-items: center; justify-content: center; gap: 5px; padding: 10px 6px; color: var(--muted); background: transparent; border: 0; border-right: 1px solid var(--border); font-size: 9px; font-weight: 700; }
+.tabs button:last-child { border-right: 0; }
+.tabs .active { color: #214f72; background: white; box-shadow: inset 0 -2px 0 #3d789f; }
+.layout { grid-template-columns: minmax(320px, 390px) minmax(0, 1fr); min-height: 650px; }
+.controls { max-height: 790px; overflow: auto; }
+.segmented, .sizeChoices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.segmented button, .sizeChoices button { padding: 7px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 7px; font-size: 9px; }
+.segmented button[aria-pressed="true"], .sizeChoices button[aria-pressed="true"] { color: #214f72; background: #eaf3f8; border-color: #8eb4cc; font-weight: 750; }
+.compactGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.results, .editionList, .authorList { display: grid; gap: 10px; min-width: 0; }
+.resultHeader { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px; color: #31566d; background: #edf4f7; border-radius: 8px; }
+.resultHeader strong { font-size: 11px; }
+.resultHeader span { color: var(--muted); font-size: 8px; }
+.bookGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.bookGrid article { min-width: 0; display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 10px; padding: 10px; background: white; border: 1px solid var(--border); border-radius: 9px; }
+.coverImage, .coverPlaceholder { width: 72px; height: 104px; object-fit: cover; background: #e9eef0; border: 1px solid #d9e1e5; border-radius: 5px; }
+.coverPlaceholder { display: grid; place-items: center; color: #82949e; }
+.bookGrid h4, .detail h3, .authorDetail h3 { margin: 0 0 5px; font-size: 11px; line-height: 1.4; }
+.bookGrid code, .detail code, .editionList code, .authorList code, .authorDetail code, .coverResult code { display: block; overflow-wrap: anywhere; color: #49626f; font-size: 8px; }
+.bookGrid p, .detail p, .authorList p, .authorDetail p, .coverResult p { margin: 6px 0; color: var(--muted); font-size: 8px; line-height: 1.5; }
+.bookGrid button, .editionList button, .authorList button { padding: 5px 7px; color: #285a76; background: #edf5f8; border: 0; border-radius: 6px; font-size: 8px; font-weight: 700; }
+.detail, .resource { min-width: 0; display: grid; gap: 10px; }
+.detailHero, .authorDetail, .coverResult { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 12px; padding: 12px; background: white; border: 1px solid var(--border); border-radius: 9px; }
+.detailHero .coverImage, .detailHero .coverPlaceholder, .authorDetail .coverImage, .authorDetail .coverPlaceholder, .coverResult .coverImage, .coverResult .coverPlaceholder { width: 88px; height: 128px; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chips span { padding: 4px 6px; color: #426174; background: #edf4f7; border-radius: 999px; font-size: 8px; }
+.editionList article, .authorList article { min-width: 0; display: flex; align-items: center; gap: 10px; padding: 10px; background: white; border: 1px solid var(--border); border-radius: 8px; }
+.editionList article > div, .authorList article > div { min-width: 0; flex: 1; }
+.editionList article span { color: var(--muted); font-size: 8px; }
+.detail dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin: 0; }
+.detail dl div { padding: 9px; background: #f4f7f8; border-radius: 7px; }
+.detail dt { color: var(--muted); font-size: 8px; }
+.detail dd { margin: 4px 0 0; overflow-wrap: anywhere; font-size: 9px; }
+.authorDetail span { color: #4e6875; font-size: 9px; }
+.coverResult { grid-template-columns: 120px minmax(0, 1fr); }
+.coverResult .coverImage, .coverResult .coverPlaceholder { width: 120px; height: 174px; }
+.coverResult code { margin: 8px 0; padding: 7px; background: #f1f5f6; border-radius: 6px; }
+.resource header { display: flex; align-items: center; gap: 7px; color: #31566d; }
+.resource header strong { overflow-wrap: anywhere; font-size: 10px; }
+.resource pre { max-height: 520px; margin: 0; padding: 12px; overflow: auto; color: #dbe7e3; background: #18201d; border-radius: 8px; font: 9px/1.55 var(--font-mono), Consolas, monospace; white-space: pre-wrap; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .controls { max-height: none; } .tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .tabs, .bookGrid, .detail dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bookGrid { grid-template-columns: 1fr; } .editionList article, .authorList article { align-items: flex-start; flex-direction: column; } .coverResult { grid-template-columns: 1fr; } }

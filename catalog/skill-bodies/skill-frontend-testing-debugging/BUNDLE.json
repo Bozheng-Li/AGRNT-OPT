@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-frontend-testing-debugging",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/build-web-apps/skills/frontend-testing-debugging",
+  "skillSha256": "150c376701a76b4f09f731f0844099a3b0eab1c60e042a2af0f9db9affb2540c",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "7d9f0756da68c80d951c1b1e914f65f2b93f6767399e6fec22b8226c57977c73"
+    }
+  ]
+}

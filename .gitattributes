@@ -1,0 +1,2 @@
+# Preserve byte-exact upstream Skill bundles; their hashes are catalog evidence.
+catalog/skill-bodies/** -whitespace

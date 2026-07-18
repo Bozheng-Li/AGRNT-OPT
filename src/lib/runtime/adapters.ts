@@ -6,11 +6,35 @@ import { InvocationValidationError } from "./errors";
 import { resolveSandboxPath } from "./sandbox";
 import { localMcpCatalog, listLocalMcpSlugs } from "./local-mcp-tools";
 import {
+  buildSkillPlaybook,
+  loadSkillBundle,
   loadSkillIndex,
+  readSkillAsset,
   readSkillDocument,
   searchSkillText,
 } from "./skill-runtime";
 import { validatePublicHttpUrl } from "./url-safety";
+import {
+  defaultMarkitdownRoot,
+  ensureMarkitdownSandbox,
+  MARKITDOWN_OUTPUT_LIMIT,
+  resolveMarkitdownFileUri,
+} from "./markitdown-files";
+import { designConstraintAdapter } from "./design-constraint-adapter";
+import { osvAdvisoryAdapter } from "./osv-advisory-adapter";
+import { audioFileAdapter } from "./audio-file-adapter";
+import { bouncerAdapter } from "./bouncer-adapter";
+import { uxloomAdapter } from "./uxloom-adapter";
+import { openLibraryAdapter } from "./openlibrary-adapter";
+import { safeDocxAdapter } from "./safe-docx-adapter";
+import { docguardAdapter } from "./docguard-adapter";
+import { starfetchAdapter } from "./starfetch-adapter";
+import { pubmedAdapter } from "./pubmed-adapter";
+import { astronomyAdapter } from "./astronomy-adapter";
+import { crossrefAdapter } from "./crossref-adapter";
+import { earthquakeAdapter } from "./earthquake-adapter";
+import { worldBankAdapter } from "./worldbank-adapter";
+import { nhtsaAdapter } from "./nhtsa-adapter";
 
 export type AdapterContext = {
   filesystemRoot?: string;
@@ -23,6 +47,26 @@ export type AdapterContext = {
   oxidizeRoot?: string;
   bumpguardRoot?: string;
   svelteRoot?: string;
+  markitdownRoot?: string;
+  e18eRoot?: string;
+  designConstraintRoot?: string;
+  osvAdvisoryRoot?: string;
+  audioFileRoot?: string;
+  bouncerRoot?: string;
+  uxloomRoot?: string;
+  openLibraryRoot?: string;
+  safeDocxRoot?: string;
+  docguardRoot?: string;
+  starfetchPackageRoot?: string;
+  pubmedRoot?: string;
+  astronomyRoot?: string;
+  crossrefRoot?: string;
+  crossrefPackageRoot?: string;
+  earthquakeRoot?: string;
+  worldBankRoot?: string;
+  worldBankPackageRoot?: string;
+  nhtsaRoot?: string;
+  nhtsaPackageRoot?: string;
 };
 
 export type AdapterLaunch = {
@@ -35,6 +79,9 @@ export type AdapterLaunch = {
 export type PluginAdapter = {
   slug: string;
   allowedTools: readonly string[];
+  allowedResourceTemplates?: readonly string[];
+  requireListedResource?: boolean;
+  allowedPrompts?: readonly string[];
   /** stdio MCP child process (default) or in-process skill/document runtime. */
   mode?: "stdio" | "in-process";
   requestTimeoutMs?(tool: string): number;
@@ -44,6 +91,12 @@ export type PluginAdapter = {
   };
   prepare(context: AdapterContext): Promise<AdapterLaunch>;
   validateAndTransform(tool: string, input: unknown, context: AdapterContext): Promise<Record<string, unknown>>;
+  validateResourceUri?(uri: unknown, context: AdapterContext): Promise<string>;
+  validatePromptAndTransform?(
+    prompt: string,
+    input: unknown,
+    context: AdapterContext,
+  ): Promise<Record<string, unknown>>;
   invokeInProcess?(
     tool: string,
     input: Record<string, unknown>,
@@ -187,6 +240,18 @@ const fetchSchema = z.object({
   start_index: z.number().int().min(0).max(10_000_000).default(0),
   raw: z.boolean().default(false),
 });
+
+const markitdownSchema = z
+  .object({
+    file: z
+      .string()
+      .trim()
+      .min(1)
+      .max(260)
+      .regex(/^[A-Za-z0-9][A-Za-z0-9._/-]*$/, "文件标识包含不允许的字符。")
+      .refine((value) => !value.split("/").some((segment) => segment === "." || segment === ".."), "文件标识不能穿越工作区。"),
+  })
+  .strict();
 
 const sandboxRelativePath = z
   .string()
@@ -783,6 +848,84 @@ const svelteSchemas = {
     .strict(),
 } satisfies Record<string, z.ZodType>;
 
+const e18ePackageName = /^(?:@[a-z0-9][a-z0-9._-]*\/)?[a-z0-9][a-z0-9._-]*$/;
+
+function parseE18eInstallCommand(value: string): { runner: string; verb: string; packages: string[] } | null {
+  const parts = value.trim().split(/\s+/);
+  if (parts.length < 3) return null;
+  const [runner, verb, ...packages] = parts;
+  const validPrefix =
+    (runner === "npm" && (verb === "i" || verb === "install")) ||
+    (runner === "pnpm" && verb === "add") ||
+    (runner === "yarn" && verb === "add") ||
+    (runner === "bun" && (verb === "i" || verb === "add"));
+  if (!validPrefix || packages.length === 0 || packages.length > 12) return null;
+  if (!packages.every((item) => e18ePackageName.test(item))) return null;
+  return { runner, verb, packages };
+}
+
+const e18eInstallCommand = z
+  .string()
+  .trim()
+  .min(1)
+  .max(500)
+  .refine(
+    (value) => parseE18eInstallCommand(value) !== null,
+    "只接受 npm i/install、pnpm add、yarn add 或 bun i/add 加 1–12 个裸 npm 包名；不接受旗标、版本、路径、URL 或 shell 运算符。",
+  );
+
+const e18eSource = z
+  .string()
+  .min(1)
+  .max(100_000)
+  .refine((value) => !value.includes("\0"), "源码不能包含 NUL 字符。")
+  .refine((value) => {
+    const trimmed = value.trim();
+    if (trimmed.includes("\n") || trimmed.includes("\r") || /\s/.test(trimmed)) return true;
+    return !(
+      path.isAbsolute(trimmed) ||
+      /^[A-Za-z]:[\\/]/.test(trimmed) ||
+      /^(?:\\\\|\.\.?[\\/]|[\\/])/.test(trimmed) ||
+      /\.[cm]?[jt]sx?$/.test(trimmed)
+    );
+  }, "源码检查只接受文件内容，不接受宿主文件路径。" );
+
+const e18eLookupQuery = z
+  .string()
+  .trim()
+  .min(1)
+  .max(80)
+  .refine((value) => !/[\x00-\x1f\x7f]/.test(value), "检索词不能包含控制字符。")
+  .refine((value) => !value.includes("://") && !value.includes("\\") && !value.includes(".."), "检索词不能包含 URL 或路径语义。")
+  .refine((value) => /^[A-Za-z0-9@._/ -]+$/.test(value), "检索词只能包含包名、英文主题词、空格、点、连字符和作用域符号。")
+  .refine(
+    (value) => !value.includes("/") || /^@[A-Za-z0-9._-]+\/[A-Za-z0-9._-]+$/.test(value),
+    "斜杠只允许出现在完整的作用域 npm 包名中。",
+  );
+
+const e18eSchemas = {
+  "npm-i-checker": z.object({ command: e18eInstallCommand }).strict(),
+  "code-checker": z.object({ code: e18eSource }).strict(),
+  "lookup-replacement": z.object({ query: e18eLookupQuery }).strict(),
+} satisfies Record<string, z.ZodType>;
+
+const e18eTaskPromptSchema = z
+  .object({
+    task: z
+      .string()
+      .trim()
+      .min(1)
+      .max(2_000)
+      .refine((value) => !value.includes("\0"), "任务不能包含 NUL 字符。"),
+  })
+  .strict();
+
+const e18eResourceUri = z
+  .string()
+  .trim()
+  .max(160)
+  .regex(/^e18e:\/\/docs\/[a-z0-9][a-z0-9-]*\.md$/, "只允许读取上游列出的 e18e://docs/*.md 迁移指南。");
+
 const gitSchemas = {
   git_status: z.object({}),
   git_diff_unstaged: z.object({
@@ -853,6 +996,30 @@ const pythonEntryPoint = path.join(
   ".venv",
   process.platform === "win32" ? "Scripts" : "bin",
   process.platform === "win32" ? "python.exe" : "python",
+);
+const markitdownPythonEntryPoint = path.join(
+  /* turbopackIgnore: true */ process.cwd(),
+  ".venv-markitdown",
+  process.platform === "win32" ? "Scripts" : "bin",
+  process.platform === "win32" ? "python.exe" : "python",
+);
+const markitdownBootstrap = path.join(
+  /* turbopackIgnore: true */ process.cwd(),
+  "scripts",
+  "markitdown-mcp-entry.py",
+);
+const e18eBootstrap = path.join(
+  /* turbopackIgnore: true */ process.cwd(),
+  "scripts",
+  "e18e-mcp-entry.mjs",
+);
+const e18ePackageEntryPoint = path.join(
+  /* turbopackIgnore: true */ process.cwd(),
+  "node_modules",
+  "@e18e",
+  "mcp",
+  "dist",
+  "run.js",
 );
 
 function parseWithFriendlyError(schema: z.ZodType, input: unknown): Record<string, unknown> {
@@ -984,6 +1151,65 @@ const fetchAdapter: PluginAdapter = {
     const parsed = parseWithFriendlyError(fetchSchema, input);
     parsed.url = await validatePublicHttpUrl(String(parsed.url));
     return parsed;
+  },
+};
+
+const markitdownAdapter: PluginAdapter = {
+  slug: "markitdown-document-studio",
+  allowedTools: ["convert_to_markdown"],
+  requestTimeoutMs() {
+    return 120_000;
+  },
+  async prepare(context) {
+    try {
+      await Promise.all([access(markitdownPythonEntryPoint), access(markitdownBootstrap)]);
+    } catch {
+      throw new InvocationValidationError("MarkItDown MCP 隔离运行环境尚未安装，请执行 npm run runtime:setup:markitdown。");
+    }
+    const sandbox = await ensureMarkitdownSandbox(context.markitdownRoot ?? defaultMarkitdownRoot());
+    return {
+      command: markitdownPythonEntryPoint,
+      args: [markitdownBootstrap],
+      cwd: sandbox.root,
+      env: {
+        HOME: sandbox.home,
+        USERPROFILE: sandbox.home,
+        TMPDIR: sandbox.temporary,
+        TEMP: sandbox.temporary,
+        TMP: sandbox.temporary,
+        PYTHONUNBUFFERED: "1",
+        PYTHONDONTWRITEBYTECODE: "1",
+        PYTHONNOUSERSITE: "1",
+        PYTHONSAFEPATH: "1",
+        PYTHONPATH: "",
+      },
+    };
+  },
+  async validateAndTransform(tool, input, context) {
+    if (tool !== "convert_to_markdown") throw new InvocationValidationError(`Web 适配未开放工具：${tool}`);
+    const parsed = parseWithFriendlyError(markitdownSchema, input);
+    return {
+      uri: await resolveMarkitdownFileUri(
+        String(parsed.file),
+        context.markitdownRoot ?? defaultMarkitdownRoot(),
+      ),
+    };
+  },
+  async normalizeResult(_tool, result) {
+    const content = result.content.flatMap((block) => {
+      if (!block || typeof block !== "object") return [];
+      const candidate = block as { type?: unknown; text?: unknown };
+      return candidate.type === "text" && typeof candidate.text === "string"
+        ? [{ type: "text", text: candidate.text }]
+        : [];
+    });
+    if (content.length === 0 && !result.isError) {
+      throw new InvocationValidationError("MarkItDown MCP 未返回 Markdown 文本。");
+    }
+    if (Buffer.byteLength(JSON.stringify(content), "utf8") > MARKITDOWN_OUTPUT_LIMIT) {
+      throw new InvocationValidationError("MarkItDown 输出超过 2 MiB 安全上限。");
+    }
+    return { content, isError: result.isError };
   },
 };
 
@@ -1715,19 +1941,169 @@ const svelteAdapter: PluginAdapter = {
   },
 };
 
-const skillTools = ["skill_outline", "skill_open", "skill_search", "skill_meta"] as const;
+const e18eSuggestionPayload = z.object({
+  suggestions: z.array(z.string().max(400_000)).max(12),
+}).strict();
+const e18eLookupPayload = z.object({
+  results: z.array(
+    z.object({
+      source: z.enum(["native", "micro-utility", "preferred"]),
+      module_name: z.string().min(1).max(300),
+      type: z.string().min(1).max(100),
+      description: z.string().max(400_000).optional(),
+      documentation: z.string().max(400_000).optional(),
+      replacement: z.string().max(20_000).optional(),
+      url: z.string().url().max(2_000).refine((value) => value.startsWith("https://"), "上游文档链接必须使用 HTTPS。" ).optional(),
+    }).strict(),
+  ).max(500),
+}).strict();
 
-const skillOutlineSchema = z.object({}).strict();
+export function defaultE18eRoot(): string {
+  return path.join(/* turbopackIgnore: true */ process.cwd(), "var", "runtime", "e18e-mcp");
+}
+
+export async function ensureE18eSandbox(
+  root: string = defaultE18eRoot(),
+): Promise<{ root: string; temporary: string }> {
+  const resolved = path.resolve(/* turbopackIgnore: true */ root);
+  const temporary = path.join(resolved, "tmp");
+  await Promise.all([mkdir(resolved, { recursive: true }), mkdir(temporary, { recursive: true })]);
+  await Promise.all([
+    ensureNotSymbolicLink(resolved, "e18e MCP 运行目录"),
+    ensureNotSymbolicLink(temporary, "e18e MCP 临时目录"),
+  ]);
+  return { root: resolved, temporary };
+}
+
+const e18eAdapter: PluginAdapter = {
+  slug: "e18e-dependency-advisor",
+  allowedTools: Object.keys(e18eSchemas),
+  allowedResourceTemplates: ["replacement-docs"],
+  requireListedResource: true,
+  allowedPrompts: ["task"],
+  requestTimeoutMs() {
+    return 30_000;
+  },
+  async prepare(context) {
+    try {
+      await Promise.all([access(e18eBootstrap), access(e18ePackageEntryPoint)]);
+    } catch {
+      throw new InvocationValidationError("e18e MCP 0.0.9 运行环境尚未安装，请执行 npm install。");
+    }
+    const sandbox = await ensureE18eSandbox(context.e18eRoot ?? defaultE18eRoot());
+    return {
+      command: process.execPath,
+      args: ["--max-old-space-size=256", e18eBootstrap],
+      cwd: sandbox.root,
+      env: {
+        HOME: sandbox.root,
+        USERPROFILE: sandbox.root,
+        TEMP: sandbox.temporary,
+        TMP: sandbox.temporary,
+        TMPDIR: sandbox.temporary,
+        NODE_ENV: "production",
+        NO_COLOR: "1",
+      },
+    };
+  },
+  async validateAndTransform(tool, input) {
+    const schema = e18eSchemas[tool as keyof typeof e18eSchemas];
+    if (!schema) throw new InvocationValidationError(`Web 适配未开放工具：${tool}`);
+    const parsed = parseWithFriendlyError(schema, input);
+    if (tool === "npm-i-checker") {
+      const command = parseE18eInstallCommand(String(parsed.command));
+      if (!command) throw new InvocationValidationError("安装命令文本格式无效。");
+      parsed.command = `${command.runner} ${command.verb} ${command.packages.join(" ")}`;
+    }
+    return parsed;
+  },
+  async validateResourceUri(uri) {
+    const parsed = e18eResourceUri.safeParse(uri);
+    if (!parsed.success) {
+      throw new InvocationValidationError(parsed.error.issues.map((issue) => issue.message).join("；"));
+    }
+    return parsed.data;
+  },
+  async validatePromptAndTransform(prompt, input) {
+    if (prompt !== "task") throw new InvocationValidationError(`Web 适配未开放提示：${prompt}`);
+    return parseWithFriendlyError(e18eTaskPromptSchema, input);
+  },
+  async normalizeResult(tool, result) {
+    let payload: unknown = result.structuredContent;
+    if (!payload) {
+      const block = result.content.find(
+        (item): item is { type: "text"; text: string } =>
+          typeof item === "object" && item !== null && (item as { type?: unknown }).type === "text" &&
+          typeof (item as { text?: unknown }).text === "string",
+      );
+      if (block) {
+        try {
+          payload = JSON.parse(block.text);
+        } catch {
+          throw new InvocationValidationError("e18e MCP 返回了无法解析的工具结果。");
+        }
+      }
+    }
+    const schema = tool === "lookup-replacement" ? e18eLookupPayload : e18eSuggestionPayload;
+    const parsed = schema.safeParse(payload);
+    if (!parsed.success) throw new InvocationValidationError("e18e MCP 返回结果不符合固定 0.0.9 协议结构。");
+    const serialized = JSON.stringify(parsed.data);
+    if (Buffer.byteLength(serialized, "utf8") > 1_500_000) {
+      throw new InvocationValidationError("e18e MCP 返回结果超过 1.5 MiB 安全上限，请缩小检索词或减少包名。");
+    }
+    return {
+      content: [{ type: "text", text: JSON.stringify(parsed.data, null, 2) }],
+      structuredContent: parsed.data,
+      isError: result.isError,
+    };
+  },
+};
+
+const skillTools = [
+  "skill_prepare",
+  "skill_outline",
+  "skill_open",
+  "skill_search",
+  "skill_assets",
+  "skill_asset_open",
+  "skill_meta",
+] as const;
+
+const skillLocaleSchema = z.enum(["original", "zh-CN"]);
+const skillPrepareSchema = z
+  .object({
+    objective: z.string().trim().min(3).max(4_000),
+    context: z.string().trim().max(8_000).default(""),
+    mode: z.enum(["agent-prompt", "checklist", "reference-pack"]).default("agent-prompt"),
+    sectionLimit: z.number().int().min(1).max(8).default(4),
+    locale: skillLocaleSchema.default("original"),
+  })
+  .strict();
+const skillOutlineSchema = z.object({ locale: skillLocaleSchema.default("original") }).strict();
 const skillOpenSchema = z
   .object({
     sectionId: z.string().trim().min(1).max(120).optional(),
     includeFull: z.boolean().optional(),
+    locale: skillLocaleSchema.default("original"),
   })
   .strict();
 const skillSearchSchema = z
   .object({
     query: z.string().trim().min(1).max(120),
     limit: z.number().int().min(1).max(30).default(12),
+    locale: skillLocaleSchema.default("original"),
+  })
+  .strict();
+const skillAssetsSchema = z.object({}).strict();
+const skillAssetOpenSchema = z
+  .object({
+    path: z
+      .string()
+      .trim()
+      .min(1)
+      .max(260)
+      .regex(/^[A-Za-z0-9][A-Za-z0-9._/-]*$/, "支持文件路径包含不允许的字符。")
+      .refine((value) => !value.split("/").some((segment) => segment === "." || segment === ".."), "支持文件路径不能穿越。"),
   })
   .strict();
 const skillMetaSchema = z.object({}).strict();
@@ -1741,13 +2117,58 @@ function createSkillAdapter(slug: string): PluginAdapter {
       throw new InvocationValidationError(`Skill 适配器 ${slug} 为进程内文档运行时，不启动 MCP 子进程。`);
     },
     async validateAndTransform(tool, input) {
+      if (tool === "skill_prepare") return parseWithFriendlyError(skillPrepareSchema, input);
       if (tool === "skill_outline") return parseWithFriendlyError(skillOutlineSchema, input);
       if (tool === "skill_open") return parseWithFriendlyError(skillOpenSchema, input);
       if (tool === "skill_search") return parseWithFriendlyError(skillSearchSchema, input);
+      if (tool === "skill_assets") return parseWithFriendlyError(skillAssetsSchema, input);
+      if (tool === "skill_asset_open") return parseWithFriendlyError(skillAssetOpenSchema, input);
       if (tool === "skill_meta") return parseWithFriendlyError(skillMetaSchema, input);
       throw new InvocationValidationError(`Web 适配未开放工具：${tool}`);
     },
     async invokeInProcess(tool, input) {
+      if (tool === "skill_prepare") {
+        const payload = await buildSkillPlaybook(slug, {
+          objective: String(input.objective),
+          context: typeof input.context === "string" ? input.context : "",
+          mode: input.mode as "agent-prompt" | "checklist" | "reference-pack",
+          sectionLimit: typeof input.sectionLimit === "number" ? input.sectionLimit : 4,
+          locale: input.locale === "zh-CN" ? "zh-CN" : "original",
+        });
+        return {
+          content: [{ type: "text", text: payload.prompt }],
+          structuredContent: payload as unknown as Record<string, unknown>,
+          isError: false,
+        };
+      }
+
+      if (tool === "skill_assets") {
+        const bundle = await loadSkillBundle(slug);
+        const payload = {
+          slug,
+          sourceId: bundle.sourceId,
+          sourceCommit: bundle.sourceCommit,
+          sourcePath: bundle.sourcePath,
+          fileCount: bundle.supportingFiles.length,
+          files: bundle.supportingFiles,
+        };
+        return {
+          content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
+          structuredContent: payload,
+          isError: false,
+        };
+      }
+
+      if (tool === "skill_asset_open") {
+        const asset = await readSkillAsset(slug, String(input.path));
+        const payload = { slug, ...asset };
+        return {
+          content: [{ type: "text", text: asset.content }],
+          structuredContent: payload,
+          isError: false,
+        };
+      }
+
       if (tool === "skill_meta") {
         const index = await loadSkillIndex(slug);
         const doc = await readSkillDocument(slug);
@@ -1758,6 +2179,7 @@ function createSkillAdapter(slug: string): PluginAdapter {
           sectionCount: doc.sections.length,
           supportingFiles: index.supportingPaths,
           characterCount: doc.raw.length,
+          translationAvailable: Boolean(index.translationPath),
         };
         return {
           content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
@@ -1766,7 +2188,8 @@ function createSkillAdapter(slug: string): PluginAdapter {
         };
       }
 
-      const doc = await readSkillDocument(slug);
+      const locale = input.locale === "zh-CN" ? "zh-CN" : "original";
+      const doc = await readSkillDocument(slug, locale);
       if (tool === "skill_outline") {
         const outline = doc.sections.map((section) => ({
           id: section.id,
@@ -1774,7 +2197,7 @@ function createSkillAdapter(slug: string): PluginAdapter {
           title: section.title,
           preview: section.content.replace(/^#+\s+.+\n?/, "").trim().slice(0, 160),
         }));
-        const payload = { slug, sectionCount: outline.length, sections: outline };
+        const payload = { slug, locale, sectionCount: outline.length, sections: outline };
         return {
           content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
           structuredContent: payload,
@@ -1790,6 +2213,7 @@ function createSkillAdapter(slug: string): PluginAdapter {
             slug,
             mode: includeFull || !sectionId ? "full" : "section",
             title: doc.parsed.name ?? slug,
+            locale,
             content: doc.raw,
             characterCount: doc.raw.length,
           };
@@ -1801,6 +2225,7 @@ function createSkillAdapter(slug: string): PluginAdapter {
               mode: "section",
               sectionId: section.id,
               title: section.title,
+              locale,
               level: section.level,
               content: section.content,
               characterCount: section.content.length,
@@ -1824,6 +2249,7 @@ function createSkillAdapter(slug: string): PluginAdapter {
           mode: "section",
           sectionId: section.id,
           title: section.title,
+          locale,
           level: section.level,
           content: section.content,
           characterCount: section.content.length,
@@ -1839,7 +2265,7 @@ function createSkillAdapter(slug: string): PluginAdapter {
         const query = String(input.query ?? "");
         const limit = typeof input.limit === "number" ? input.limit : 12;
         const hits = searchSkillText(doc.raw, query, limit);
-        const payload = { slug, query, hitCount: hits.length, hits };
+        const payload = { slug, locale, query, hitCount: hits.length, hits };
         return {
           content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
           structuredContent: payload,
@@ -1863,16 +2289,16 @@ function loadSkillAdapters(): PluginAdapter[] {
   }
 }
 
-function createLocalMcpAdapter(slug: string): PluginAdapter {
+function createLocalPluginAdapter(slug: string): PluginAdapter {
   const entry = localMcpCatalog[slug];
-  if (!entry) throw new InvocationValidationError(`未知本地 MCP：${slug}`);
+  if (!entry) throw new InvocationValidationError(`未知第一方本地插件：${slug}`);
   const tools = entry.tools;
   return {
     slug,
     mode: "in-process",
     allowedTools: tools.map((tool) => tool.name),
     async prepare() {
-      throw new InvocationValidationError(`本地 MCP ${slug} 为进程内工具运行时，不启动外部子进程。`);
+      throw new InvocationValidationError(`第一方本地插件 ${slug} 为进程内工具运行时，不启动外部子进程。`);
     },
     async validateAndTransform(tool, input) {
       const def = tools.find((item) => item.name === tool);
@@ -1887,8 +2313,8 @@ function createLocalMcpAdapter(slug: string): PluginAdapter {
   };
 }
 
-function loadLocalMcpAdapters(): PluginAdapter[] {
-  return listLocalMcpSlugs().map((slug) => createLocalMcpAdapter(slug));
+function loadLocalPluginAdapters(): PluginAdapter[] {
+  return listLocalMcpSlugs().map((slug) => createLocalPluginAdapter(slug));
 }
 
 const adapters = new Map(
@@ -1898,6 +2324,7 @@ const adapters = new Map(
     sequentialThinkingAdapter,
     timeAdapter,
     fetchAdapter,
+    markitdownAdapter,
     gitAdapter,
     sqliteAdapter,
     defluffAdapter,
@@ -1906,8 +2333,24 @@ const adapters = new Map(
     oxidizeAdapter,
     bumpguardAdapter,
     svelteAdapter,
+    e18eAdapter,
+    designConstraintAdapter,
+    osvAdvisoryAdapter,
+    audioFileAdapter,
+    bouncerAdapter,
+    uxloomAdapter,
+    openLibraryAdapter,
+    safeDocxAdapter,
+    docguardAdapter,
+    starfetchAdapter,
+    pubmedAdapter,
+    astronomyAdapter,
+    crossrefAdapter,
+    earthquakeAdapter,
+    worldBankAdapter,
+    nhtsaAdapter,
     ...loadSkillAdapters(),
-    ...loadLocalMcpAdapters(),
+    ...loadLocalPluginAdapters(),
   ].map((adapter) => [adapter.slug, adapter]),
 );
 
@@ -1925,7 +2368,7 @@ export function getPluginAdapter(slug: string): PluginAdapter | undefined {
     }
   }
   if (slug.startsWith("local-") && localMcpCatalog[slug]) {
-    const adapter = createLocalMcpAdapter(slug);
+    const adapter = createLocalPluginAdapter(slug);
     adapters.set(slug, adapter);
     return adapter;
   }

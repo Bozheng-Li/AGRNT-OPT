@@ -1,0 +1,515 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "skill-accessibility-and-inclusive-visualization": {
+      "goalLabel": "无障碍可视化任务",
+      "contextLabel": "图表、受众与合规约束",
+      "defaultObjective": "审查一个数据图表方案，给出颜色、文本替代、键盘操作和屏幕阅读器层面的整改清单。",
+      "contextPlaceholder": "图表类型、数据字段、目标用户、WCAG 等级、已有配色…",
+      "preferredMode": "checklist",
+      "artifactLabel": "无障碍审查包",
+      "suggestions": ["检查仪表盘的颜色与对比度", "为交互图表设计文本替代"]
+    },
+    "skill-algorithmic-art": {
+      "goalLabel": "生成艺术创作目标",
+      "contextLabel": "视觉语言与交互参数",
+      "defaultObjective": "设计一幅使用 p5.js、固定随机种子和可调参数的生成艺术作品，并给出迭代方案。",
+      "contextPlaceholder": "主题、构图、色彩、运动方式、画布尺寸、交互参数…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "生成艺术创作包",
+      "suggestions": ["制作粒子流场作品", "设计可重复的几何纹理"]
+    },
+    "skill-brainstorming": {
+      "goalLabel": "需要澄清的创意问题",
+      "contextLabel": "现状、用户与硬约束",
+      "defaultObjective": "在动手实现之前，系统澄清一个产品想法，比较可行方案并形成可评审设计。",
+      "contextPlaceholder": "用户、问题、现有系统、范围、期限、不能改变的约束…",
+      "preferredMode": "checklist",
+      "artifactLabel": "结构化头脑风暴包",
+      "suggestions": ["澄清一个新功能设计", "比较三种技术方案"]
+    },
+    "skill-brand-guidelines": {
+      "goalLabel": "品牌化任务",
+      "contextLabel": "载体与品牌约束",
+      "defaultObjective": "把一个现有视觉稿调整为符合 Anthropic 品牌色、字体、留白和层级规范的方案。",
+      "contextPlaceholder": "页面/幻灯片/海报、尺寸、现有颜色、受众、必须保留元素…",
+      "preferredMode": "reference-pack",
+      "artifactLabel": "品牌规范应用包",
+      "suggestions": ["审查一页品牌落地页", "为演示文稿建立品牌样式"]
+    },
+    "skill-building-native-ui": {
+      "goalLabel": "原生应用界面任务",
+      "contextLabel": "平台、导航与组件约束",
+      "defaultObjective": "为 Expo Router 应用设计一个具有清晰导航、原生交互和一致视觉系统的核心页面流程。",
+      "contextPlaceholder": "iOS/Android、路由结构、数据状态、已有组件、无障碍要求…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "原生 UI 实施包",
+      "suggestions": ["设计移动端设置流程", "规划 Expo Router 导航结构"]
+    },
+    "skill-canvas2d-data-visualization": {
+      "goalLabel": "Canvas2D 可视化任务",
+      "contextLabel": "数据量与交互约束",
+      "defaultObjective": "为高标记数量的数据设计 Canvas2D 渲染、命中测试、缩放和性能验证方案。",
+      "contextPlaceholder": "数据行数、图形标记、刷新频率、交互、设备性能、可访问替代…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "Canvas2D 可视化实施包",
+      "suggestions": ["渲染十万散点", "设计实时 Canvas 图表"]
+    },
+    "skill-d3-data-visualization": {
+      "goalLabel": "D3 可视化任务",
+      "contextLabel": "数据、编码与交互",
+      "defaultObjective": "设计一个使用 D3 数据连接、比例尺、坐标轴和交互更新的定制 SVG 图表。",
+      "contextPlaceholder": "数据样例、视觉编码、响应式尺寸、交互、动画、框架集成…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "D3 图表实现包",
+      "suggestions": ["实现可交互散点图", "设计层级关系图"]
+    },
+    "skill-dashboards-and-real-time-visualization": {
+      "goalLabel": "仪表盘与实时监控任务",
+      "contextLabel": "指标、刷新与告警约束",
+      "defaultObjective": "规划一个实时运营仪表盘的信息层级、刷新策略、异常状态和性能预算。",
+      "contextPlaceholder": "用户角色、核心 KPI、数据延迟、刷新频率、告警、空/错/加载状态…",
+      "preferredMode": "checklist",
+      "artifactLabel": "实时仪表盘设计包",
+      "suggestions": ["规划服务监控大屏", "审查实时业务仪表盘"]
+    },
+    "skill-data-visualization": {
+      "goalLabel": "数据可视化路由任务",
+      "contextLabel": "分析目标与交付环境",
+      "defaultObjective": "根据分析问题、数据形态和交互需求选择正确的可视化实现路线并说明取舍。",
+      "contextPlaceholder": "问题、字段、数据规模、受众、框架、输出格式、无障碍要求…",
+      "preferredMode": "checklist",
+      "artifactLabel": "可视化选型包",
+      "suggestions": ["为时间序列选择图表", "比较 SVG、Canvas 与声明式方案"]
+    },
+    "skill-dispatching-parallel-agents": {
+      "goalLabel": "并行 Agent 调度任务",
+      "contextLabel": "任务依赖与共享状态",
+      "defaultObjective": "把一组工作拆成可以安全并行的 Agent 子任务，定义边界、交付物和汇合检查。",
+      "contextPlaceholder": "任务列表、依赖关系、可修改文件、共享资源、截止时间、汇合点…",
+      "preferredMode": "checklist",
+      "artifactLabel": "并行调度方案",
+      "suggestions": ["并行调查三个独立故障", "拆分前后端与测试任务"]
+    },
+    "skill-durable-objects": {
+      "goalLabel": "Durable Objects 任务",
+      "contextLabel": "一致性、状态与流量模型",
+      "defaultObjective": "设计一个 Cloudflare Durable Object 的状态模型、并发控制、存储和故障恢复方案。",
+      "contextPlaceholder": "实体边界、请求量、状态大小、一致性要求、WebSocket、迁移策略…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "Durable Object 设计包",
+      "suggestions": ["设计多人房间协调器", "审查有状态限流器"]
+    },
+    "skill-evaluate-plugin": {
+      "goalLabel": "待评估插件",
+      "contextLabel": "来源与验证环境",
+      "defaultObjective": "从来源、许可、能力、权限、安全、Web 适配和测试证据评估一个 Codex 插件。",
+      "contextPlaceholder": "插件路径/仓库、版本、目标用户、可用凭证、已运行测试…",
+      "preferredMode": "checklist",
+      "artifactLabel": "插件评估报告包",
+      "suggestions": ["评估本地插件目录", "复核市场插件质量"]
+    },
+    "skill-evaluate-skill": {
+      "goalLabel": "待评估 Skill",
+      "contextLabel": "来源与使用场景",
+      "defaultObjective": "从触发准确性、说明完整性、资源依赖、安全性和可验证性评估一个 Agent Skill。",
+      "contextPlaceholder": "Skill 路径、目标任务、来源 commit、资源文件、已知限制…",
+      "preferredMode": "checklist",
+      "artifactLabel": "Skill 评估报告包",
+      "suggestions": ["评估一个 SKILL.md", "比较两个重复 Skill"]
+    },
+    "skill-executing-plans": {
+      "goalLabel": "待执行计划",
+      "contextLabel": "代码库与检查点",
+      "defaultObjective": "把一份书面实施计划分批执行，并在每一批后提供验证结果和复核点。",
+      "contextPlaceholder": "计划文本、仓库状态、禁止修改区域、测试命令、批次大小…",
+      "preferredMode": "checklist",
+      "artifactLabel": "计划执行清单",
+      "suggestions": ["执行一份迁移计划", "按批次落地重构方案"]
+    },
+    "skill-expo-tailwind-setup": {
+      "goalLabel": "Expo Tailwind 配置任务",
+      "contextLabel": "版本与现有样式栈",
+      "defaultObjective": "为 Expo 项目配置 Tailwind CSS v4、react-native-css 与 NativeWind v5，并给出验证步骤。",
+      "contextPlaceholder": "Expo/React Native 版本、包管理器、现有 Babel/Metro/CSS 配置、目标平台…",
+      "preferredMode": "checklist",
+      "artifactLabel": "Expo Tailwind 配置包",
+      "suggestions": ["从零配置 NativeWind v5", "排查 Expo Tailwind 构建错误"]
+    },
+    "skill-finishing-a-development-branch": {
+      "goalLabel": "分支收尾任务",
+      "contextLabel": "分支状态与集成策略",
+      "defaultObjective": "在测试通过后审计开发分支，并比较合并、PR、保留或清理的安全收尾路径。",
+      "contextPlaceholder": "当前分支、基线分支、测试结果、未提交修改、团队流程、是否需要 PR…",
+      "preferredMode": "checklist",
+      "artifactLabel": "分支收尾决策包",
+      "suggestions": ["准备创建 PR", "决定是否合并本地分支"]
+    },
+    "skill-frontend-design": {
+      "goalLabel": "前端视觉设计任务",
+      "contextLabel": "产品、受众与视觉方向",
+      "defaultObjective": "为一个真实产品页面定义鲜明视觉方向、布局、字体、色彩、动效和细节实现策略。",
+      "contextPlaceholder": "产品类型、用户、品牌气质、内容结构、技术栈、必须避免的套路…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "前端设计执行包",
+      "suggestions": ["设计 SaaS 控制台首页", "重塑内容型落地页"]
+    },
+    "skill-frontend-testing-debugging": {
+      "goalLabel": "前端测试或调试任务",
+      "contextLabel": "页面、症状与运行环境",
+      "defaultObjective": "为一个可复现的前端问题制定观察、定位、修复和浏览器回归验证流程。",
+      "contextPlaceholder": "URL、复现步骤、浏览器、控制台/网络错误、预期行为、测试框架…",
+      "preferredMode": "checklist",
+      "artifactLabel": "前端调试验证包",
+      "suggestions": ["排查响应式布局溢出", "定位交互状态丢失"]
+    },
+    "skill-game-playtest": {
+      "goalLabel": "浏览器游戏试玩任务",
+      "contextLabel": "玩法、输入与验收标准",
+      "defaultObjective": "设计一轮浏览器游戏试玩，覆盖核心循环、控制、失败恢复、性能和视觉反馈。",
+      "contextPlaceholder": "游戏 URL、核心玩法、操作方式、目标设备、已知风险、成功标准…",
+      "preferredMode": "checklist",
+      "artifactLabel": "游戏试玩测试包",
+      "suggestions": ["测试新手关卡", "验证移动端触控玩法"]
+    },
+    "skill-game-studio": {
+      "goalLabel": "浏览器游戏立项任务",
+      "contextLabel": "玩法愿景与技术边界",
+      "defaultObjective": "为一个早期浏览器游戏选择技术栈、确定核心循环并规划最小可玩原型。",
+      "contextPlaceholder": "类型、视角、核心机制、素材情况、目标设备、多人/物理/存档需求…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "游戏工作室立项包",
+      "suggestions": ["规划 2D 解谜原型", "选择轻量 3D 游戏栈"]
+    },
+    "skill-game-ui-frontend": {
+      "goalLabel": "游戏 UI 任务",
+      "contextLabel": "游戏状态与界面层级",
+      "defaultObjective": "设计一个浏览器游戏 HUD、菜单、弹窗和响应式输入反馈系统。",
+      "contextPlaceholder": "游戏类型、核心状态、平台、控制方式、视觉风格、可访问性…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "游戏 UI 设计包",
+      "suggestions": ["设计战斗 HUD", "规划暂停与设置菜单"]
+    },
+    "skill-gantt-chart-visualization": {
+      "goalLabel": "甘特图任务",
+      "contextLabel": "计划数据与决策需求",
+      "defaultObjective": "为项目计划设计可读的甘特图，处理依赖、里程碑、关键路径、拥挤和交互。",
+      "contextPlaceholder": "任务字段、时间范围、依赖、层级、受众、更新频率、实现技术…",
+      "preferredMode": "checklist",
+      "artifactLabel": "甘特图设计包",
+      "suggestions": ["设计项目路线图", "审查复杂施工排期图"]
+    },
+    "skill-geospatial-and-cartographic-visualization": {
+      "goalLabel": "地理空间可视化任务",
+      "contextLabel": "空间数据与地图语义",
+      "defaultObjective": "为一组空间数据选择投影、地图类型、分类、底图和交互策略，并避免误导。",
+      "contextPlaceholder": "几何类型、坐标系、空间范围、指标、受众、缩放层级、隐私约束…",
+      "preferredMode": "checklist",
+      "artifactLabel": "地图设计实施包",
+      "suggestions": ["设计分级设色地图", "规划点密度与聚合地图"]
+    },
+    "skill-grammar-of-graphics-and-declarative-visualization": {
+      "goalLabel": "声明式可视化任务",
+      "contextLabel": "数据语义与目标语法",
+      "defaultObjective": "把一个分析目标表达为 Vega-Lite 等声明式图形语法，并规划转换、编码和交互。",
+      "contextPlaceholder": "数据字段、变换、mark、编码、分面、交互、目标库…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "声明式图表规格包",
+      "suggestions": ["编写 Vega-Lite 规格", "把手写图表改为声明式语法"]
+    },
+    "skill-internal-comms": {
+      "goalLabel": "内部沟通任务",
+      "contextLabel": "受众、语气与组织背景",
+      "defaultObjective": "起草一份结构清楚、信息密度合适并能推动行动的内部项目更新。",
+      "contextPlaceholder": "受众、背景、进展、风险、决策、下一步、组织常用格式…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "内部沟通写作包",
+      "suggestions": ["撰写周度项目更新", "起草事故沟通说明"]
+    },
+    "skill-mcp-builder": {
+      "goalLabel": "MCP Server 构建任务",
+      "contextLabel": "上游系统与工具边界",
+      "defaultObjective": "设计一个高质量 MCP Server 的工具面、资源、输入模式、错误、安全边界和评测计划。",
+      "contextPlaceholder": "目标 API/系统、认证、读写操作、数据规模、SDK 语言、部署方式…",
+      "preferredMode": "checklist",
+      "artifactLabel": "MCP Server 设计包",
+      "suggestions": ["为 REST API 设计 MCP", "审查现有 MCP 工具面"]
+    },
+    "skill-skill-creator": {
+      "goalLabel": "Skill 创建或改进任务",
+      "contextLabel": "触发场景与评测样本",
+      "defaultObjective": "设计一个触发准确、说明渐进、资源完整并可用评测验证的 Agent Skill。",
+      "contextPlaceholder": "目标任务、正/负触发样本、现有流程、脚本与参考资源、目标 Agent…",
+      "preferredMode": "checklist",
+      "artifactLabel": "Skill 创建评测包",
+      "suggestions": ["从零创建新 Skill", "改进现有 Skill 的触发描述"]
+    },
+    "skill-slack-gif-creator": {
+      "goalLabel": "Slack GIF 制作任务",
+      "contextLabel": "动画内容与平台约束",
+      "defaultObjective": "规划一个在 Slack 中清晰、轻量、循环自然的动画 GIF，并给出尺寸与压缩验证步骤。",
+      "contextPlaceholder": "主题、帧数、尺寸、颜色、文字、循环方式、文件大小预算…",
+      "preferredMode": "checklist",
+      "artifactLabel": "Slack GIF 制作包",
+      "suggestions": ["制作庆祝动画", "设计状态指示 GIF"]
+    },
+    "skill-web-artifacts-builder": {
+      "goalLabel": "复杂 Web Artifact 任务",
+      "contextLabel": "组件、状态与交付约束",
+      "defaultObjective": "规划一个多组件、带状态和交互的 Web artifact，并明确架构、样式和构建输出。",
+      "contextPlaceholder": "功能、组件关系、状态、路由、UI 库、数据、目标运行环境…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "Web Artifact 构建包",
+      "suggestions": ["构建交互式数据工具", "规划多页面演示 artifact"]
+    },
+    "skill-webapp-testing": {
+      "goalLabel": "Web 应用浏览器测试任务",
+      "contextLabel": "页面、流程与测试环境",
+      "defaultObjective": "为本地 Web 应用设计 Playwright 测试，覆盖真实交互、视觉状态、失败反馈和证据采集。",
+      "contextPlaceholder": "启动命令、URL、用户流程、测试账号、稳定选择器、关键断言…",
+      "preferredMode": "checklist",
+      "artifactLabel": "Web 应用测试包",
+      "suggestions": ["测试完整表单流程", "排查前端交互回归"]
+    },
+    "skill-receiving-code-review": {
+      "goalLabel": "待处理的代码审查反馈",
+      "contextLabel": "代码库现状与审查依据",
+      "defaultObjective": "逐条评估一组代码审查意见，区分正确建议、待澄清项与应以技术证据反驳的内容，并给出安全实施顺序。",
+      "contextPlaceholder": "审查评论、相关文件与测试、兼容性要求、既有架构决策、不能改变的约束…",
+      "preferredMode": "checklist",
+      "artifactLabel": "审查反馈处理包",
+      "suggestions": [
+        "评估一组 PR 审查评论",
+        "核查一条可能不适用的重构建议"
+      ]
+    },
+    "skill-requesting-code-review": {
+      "goalLabel": "待审查的实现",
+      "contextLabel": "需求、提交范围与验证结果",
+      "defaultObjective": "为刚完成的实现构造一个边界清楚、证据完整的代码审查请求，并定义 Critical、Important 与 Minor 问题的处理门槛。",
+      "contextPlaceholder": "功能说明、计划或需求、BASE_SHA、HEAD_SHA、测试结果、重点风险、禁止修改范围…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "代码审查请求包",
+      "suggestions": [
+        "审查一个刚完成的功能任务",
+        "在合并前发起最终代码审查"
+      ]
+    },
+    "skill-subagent-driven-development": {
+      "goalLabel": "待执行的多任务实施计划",
+      "contextLabel": "任务边界、依赖与审查标准",
+      "defaultObjective": "把一份实施计划组织为逐任务的子 Agent 执行流，并为每项任务设置规格符合性与代码质量两阶段审查。",
+      "contextPlaceholder": "完整计划、任务依赖、可修改文件、模型预算、测试命令、阻塞升级规则、最终集成标准…",
+      "preferredMode": "checklist",
+      "artifactLabel": "子 Agent 开发编排包",
+      "suggestions": [
+        "按任务执行五步实施计划",
+        "为多模块迁移安排实施与双重审查"
+      ]
+    },
+    "skill-systematic-debugging": {
+      "goalLabel": "待调查的技术故障",
+      "contextLabel": "症状、复现与系统边界",
+      "defaultObjective": "为一个可复现故障制定根因优先的调查方案，沿组件边界收集证据、形成单一假设，并定义最小验证实验。",
+      "contextPlaceholder": "错误消息、复现步骤、近期变更、调用栈、组件边界、已尝试方案、日志与环境差异…",
+      "preferredMode": "checklist",
+      "artifactLabel": "系统化调试调查包",
+      "suggestions": [
+        "定位间歇性测试失败",
+        "调查跨服务数据丢失"
+      ]
+    },
+    "skill-test-driven-development": {
+      "goalLabel": "待实现的行为",
+      "contextLabel": "接口、边界情况与测试环境",
+      "defaultObjective": "把一个功能或缺陷修复拆成严格的红—绿—重构循环，明确失败测试、最小实现和回归验证。",
+      "contextPlaceholder": "期望行为、当前接口、测试框架、失败症状、边界与错误情况、相关回归测试…",
+      "preferredMode": "checklist",
+      "artifactLabel": "TDD 实施循环包",
+      "suggestions": [
+        "用 TDD 修复一个表单缺陷",
+        "为重试功能设计测试先行步骤"
+      ]
+    },
+    "skill-using-git-worktrees": {
+      "goalLabel": "需要隔离的开发任务",
+      "contextLabel": "仓库、平台工具与目录策略",
+      "defaultObjective": "判断当前是否已经隔离，并为开发任务选择平台原生 worktree 或安全的 Git 后备方案，最后验证干净基线。",
+      "contextPlaceholder": "仓库路径、当前分支、原生 worktree 工具、目录偏好、忽略规则、依赖安装与基线测试命令…",
+      "preferredMode": "checklist",
+      "artifactLabel": "隔离工作区建立包",
+      "suggestions": [
+        "为新功能建立隔离 worktree",
+        "检查当前会话是否已处于链接 worktree"
+      ]
+    },
+    "skill-using-superpowers": {
+      "goalLabel": "需要路由的 Agent 任务",
+      "contextLabel": "可用技能与指令优先级",
+      "defaultObjective": "根据任务触发条件和用户指令选择应先加载的流程技能与实施技能，并明确调用顺序和不可绕过的要求。",
+      "contextPlaceholder": "用户请求、AGENTS.md/CLAUDE.md、可用技能列表、平台工具、已知冲突与优先级…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "技能路由决策包",
+      "suggestions": [
+        "为一个缺陷修复选择技能顺序",
+        "检查多项技能的优先级冲突"
+      ]
+    },
+    "skill-verification-before-completion": {
+      "goalLabel": "准备作出的完成声明",
+      "contextLabel": "声明、证明命令与最新输出",
+      "defaultObjective": "为一项即将完成的工作建立证据门禁，将每个成功声明映射到完整、最新且可读的验证命令与结果。",
+      "contextPlaceholder": "拟作出的声明、测试/构建/检查命令、最新输出、退出码、失败数量、需求清单、Agent 报告…",
+      "preferredMode": "checklist",
+      "artifactLabel": "完成前验证证据包",
+      "suggestions": [
+        "审核一次“全部测试通过”的声明",
+        "为 PR 创建前建立验证门禁"
+      ]
+    },
+    "skill-writing-plans": {
+      "goalLabel": "待规划的多步骤需求",
+      "contextLabel": "规格、代码库与执行约束",
+      "defaultObjective": "把一份规格写成可由零上下文工程师执行的细粒度实施计划，包含精确文件、代码、测试命令、预期输出与提交步骤。",
+      "contextPlaceholder": "规格全文、仓库结构、现有模式、技术栈、测试框架、不可变约束、计划保存位置…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "可执行实施计划包",
+      "suggestions": [
+        "为数据库迁移编写实施计划",
+        "把功能规格拆成 TDD 任务"
+      ]
+    },
+    "skill-writing-skills": {
+      "goalLabel": "待创建或修订的 Agent Skill",
+      "contextLabel": "触发场景、基线失败与资源",
+      "defaultObjective": "用红—绿—重构方法设计或改进 Agent Skill：先建立无技能基线，再编写最小指南，并通过压力场景堵住自我辩解漏洞。",
+      "contextPlaceholder": "目标 Agent、正负触发样本、基线行为、压力场景、现有 SKILL.md、脚本/参考/资产、部署位置…",
+      "preferredMode": "checklist",
+      "artifactLabel": "Skill 创建与评测包",
+      "suggestions": [
+        "从失败基线创建新 Skill",
+        "用压力测试改进纪律型 Skill"
+      ]
+    },
+    "skill-react-best-practices": {
+      "goalLabel": "待审查的 React/TSX 变更",
+      "contextLabel": "组件结构、运行环境与性能证据",
+      "defaultObjective": "审查一组 React/TSX 变更，按组件结构、Hooks、无障碍、渲染性能和 TypeScript 模式给出分级问题与可执行修复顺序。",
+      "contextPlaceholder": "相关 TSX 文件、React/Next.js 版本、交互路径、性能症状、无障碍要求、测试与不能修改的 API…",
+      "preferredMode": "checklist",
+      "artifactLabel": "React 最佳实践审查包",
+      "suggestions": [
+        "审查一个多组件页面",
+        "排查一次 React 渲染性能退化"
+      ]
+    },
+    "skill-swr": {
+      "goalLabel": "待设计的数据获取流程",
+      "contextLabel": "数据源、缓存与交互约束",
+      "defaultObjective": "为一个 React 功能设计完整的 SWR 数据获取流程，明确 key、fetcher、缓存与重新验证策略、mutation、乐观更新、分页以及错误状态。",
+      "contextPlaceholder": "API 端点、响应结构、认证边界、缓存时效、用户操作、分页方式、离线/失败行为与 React 版本…",
+      "preferredMode": "checklist",
+      "artifactLabel": "SWR 数据流设计包",
+      "suggestions": [
+        "设计带乐观更新的资料编辑流程",
+        "规划无限滚动与缓存重新验证"
+      ]
+    },
+    "skill-satori": {
+      "goalLabel": "待生成的 SVG/OG 图片",
+      "contextLabel": "视觉内容、字体与运行时约束",
+      "defaultObjective": "为动态 OG 图片设计一套可由 Satori 实现的方案，明确布局、支持的 CSS、字体加载、数据输入、缓存、输出尺寸和失败回退。",
+      "contextPlaceholder": "目标尺寸、标题/作者/图片数据、品牌样式、字体文件、Next.js 路由、Edge/Node 运行时、语言与降级要求…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "Satori 图片实现包",
+      "suggestions": [
+        "设计一个动态文章 OG 图片",
+        "排查 Satori 字体与布局错误"
+      ]
+    },
+    "skill-ncc": {
+      "goalLabel": "待打包的 Node.js 入口",
+      "contextLabel": "依赖、资产与目标运行时",
+      "defaultObjective": "为一个 Node.js 入口制定可复现的 ncc 单文件打包方案，覆盖依赖、动态资源、source map、外部模块、许可证与产物验证。",
+      "contextPlaceholder": "入口文件、package.json、Node 版本、部署目标、动态 require、原生模块、需要复制的资产、输出目录与体积限制…",
+      "preferredMode": "checklist",
+      "artifactLabel": "ncc 打包方案包",
+      "suggestions": [
+        "打包一个 Serverless Function",
+        "为 Node CLI 生成自包含产物"
+      ]
+    },
+    "skill-turbopack": {
+      "goalLabel": "待配置或诊断的 Turbopack 构建",
+      "contextLabel": "Next.js 项目、错误与兼容性证据",
+      "defaultObjective": "诊断或优化一个 Turbopack 构建，区分配置、模块解析、Webpack 兼容层、HMR 与生产构建问题，并给出最小验证步骤。",
+      "contextPlaceholder": "Next.js/Node 版本、next.config、启动命令、完整错误、最小复现、使用的 loader/plugin、HMR 症状与构建指标…",
+      "preferredMode": "checklist",
+      "artifactLabel": "Turbopack 构建诊断包",
+      "suggestions": [
+        "定位一次 Turbopack 模块解析失败",
+        "评估从 Webpack 迁移到 Turbopack"
+      ]
+    },
+    "skill-turborepo": {
+      "goalLabel": "待优化的 Monorepo 构建",
+      "contextLabel": "工作区、任务图与 CI 约束",
+      "defaultObjective": "优化一个 Turborepo monorepo 的任务图与 CI，明确 dependsOn、inputs、outputs、环境变量、缓存策略、过滤和 --affected 验证。",
+      "contextPlaceholder": "工作区结构、包管理器、turbo.json、任务脚本、依赖图、CI 平台、缓存现状、部署单元与失败日志…",
+      "preferredMode": "checklist",
+      "artifactLabel": "Turborepo 优化方案包",
+      "suggestions": [
+        "为 monorepo 设计增量 CI",
+        "排查一次错误的缓存命中"
+      ]
+    },
+    "skill-json-render": {
+      "goalLabel": "待呈现的 AI 响应流程",
+      "contextLabel": "消息 parts、工具与流式状态",
+      "defaultObjective": "为自定义聊天界面设计完整的 AI 响应渲染流程，覆盖 UIMessage parts、工具调用、流式状态、结构化数据、引用与失败反馈。",
+      "contextPlaceholder": "AI SDK 版本、消息样例、工具 schema、流式事件、目标组件、交互要求、持久化格式、错误与重试行为…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "AI 响应渲染设计包",
+      "suggestions": [
+        "设计带工具调用的聊天消息渲染",
+        "排查流式响应状态错乱"
+      ]
+    },
+    "skill-geist": {
+      "goalLabel": "待建立的字体排版系统",
+      "contextLabel": "框架、品牌与多语言约束",
+      "defaultObjective": "为一个 Next.js 界面建立 Geist 字体排版系统，明确 Sans/Mono/Pixel 用途、加载方式、字重、回退、token 与性能验证。",
+      "contextPlaceholder": "Next.js 版本、App/Pages Router、现有字体配置、品牌层级、语言字符集、性能预算、代码与数据展示需求…",
+      "preferredMode": "reference-pack",
+      "artifactLabel": "Geist 字体排版规范包",
+      "suggestions": [
+        "为 Next.js 产品配置 Geist 字体",
+        "修复字体回退与布局偏移"
+      ]
+    },
+    "skill-geistdocs": {
+      "goalLabel": "待搭建的文档站",
+      "contextLabel": "信息架构、内容与部署约束",
+      "defaultObjective": "为一个 Geistdocs 文档站制定实施方案，覆盖目录与 MDX、站点配置、国际化、搜索/AI、反馈、GitHub 集成、RSS 和部署。",
+      "contextPlaceholder": "产品与读者、文档目录、语言、品牌、GitHub 仓库、AI 聊天需求、反馈流程、环境变量、托管与发布要求…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "Geistdocs 文档站实施包",
+      "suggestions": [
+        "搭建一个双语产品文档站",
+        "规划带 AI 问答的文档基础设施"
+      ]
+    },
+    "skill-shadcn": {
+      "goalLabel": "待实现的产品界面",
+      "contextLabel": "框架、组件与设计系统约束",
+      "defaultObjective": "使用 shadcn/ui 规划一个完整产品界面，明确组件组合、CLI 操作、主题 token、响应式布局、无障碍以及加载/空白/错误状态。",
+      "contextPlaceholder": "框架与版本、components.json、页面目标、数据与操作、品牌 token、Radix/Base UI 选择、响应式与无障碍要求…",
+      "preferredMode": "agent-prompt",
+      "artifactLabel": "shadcn 界面实施包",
+      "suggestions": [
+        "设计一个高密度管理仪表盘",
+        "建立可共享的自定义组件注册表"
+      ]
+    }
+  }
+}

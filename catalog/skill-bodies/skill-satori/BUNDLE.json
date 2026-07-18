@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-satori",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/vercel/skills/satori",
+  "skillSha256": "af0488fb0d5cc63caad0592297adcb703788dad0e9d944b6014a50b8c6337f9d",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "0c13630fc7512975e13e2e6b7725da63569d2e7dea2230694d05383747bb75dc"
+    }
+  ]
+}

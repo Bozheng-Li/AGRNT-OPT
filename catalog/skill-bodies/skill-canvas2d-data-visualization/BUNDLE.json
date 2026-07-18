@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-canvas2d-data-visualization",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/build-web-data-visualization/skills/canvas2d-data-visualization",
+  "skillSha256": "3a90bb37ac0ad1392152bc836f937490fa4c14cc16c5fb66dc3500952434b869",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "0561538fe19fa228ba1e2589c9c6fe2072d99b80edb85010cef19bb8671674eb"
+    },
+    {
+      "path": "references/high-density-interaction.md",
+      "sha256": "50f4fe03590b2afa701b1c75da43978353698a0716d442af7f0971e67ac7eb67"
+    },
+    {
+      "path": "references/performance-playbook.md",
+      "sha256": "13680084e8df42a22b2bd6bbca214da936c8032f9aa39e94a6904248cd1a0dcb"
+    },
+    {
+      "path": "references/rendering-architecture.md",
+      "sha256": "69261e5f6b0e9c4e2a2e51c4e9a43be5c9b059f53f7b980e8dda17311d9e1682"
+    },
+    {
+      "path": "references/sparklines-and-microcharts.md",
+      "sha256": "acc34a3aec4b4242765ea26ca4b4d9f56eafea558967c22a428b742452c19fcb"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-ncc",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/vercel/skills/ncc",
+  "skillSha256": "8d42fe90c5af043ce384d7f57c1ef68843c3935d4d1603ab557984f8bc849764",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "dc19e065a2d65d2a59d3abfda929f99dab0e713f08c3ee358f74ca90cd1e3c8d"
+    }
+  ]
+}

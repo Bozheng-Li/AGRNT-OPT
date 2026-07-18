@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-geistdocs",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/vercel/skills/geistdocs",
+  "skillSha256": "92c51f3a579917b238e793c5b677d1aeb71fae4e97b95d10cbd79d2818608bba",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "0474e0e6216f27604289bfe1decd82efa2050f5d3e2228fdc7cd088f097efc6a"
+    }
+  ]
+}

@@ -2,6 +2,16 @@
   "schemaVersion": 1,
   "sources": [
     {
+      "id": "agent-opt-local",
+      "name": "Agent-OPT first-party plugins",
+      "type": "first-party-repository",
+      "url": "https://github.com/Bozheng-Li/AGRNT-OPT",
+      "priority": 100,
+      "status": "active",
+      "provenanceStrength": "first-party source code, manifest generator, runtime adapter, and tests live in the same pinned repository",
+      "caveats": "These in-process plugins are useful local capabilities but are not upstream marketplace MCP servers and must never be included in the MCP integration count."
+    },
+    {
       "id": "official-mcp-registry",
       "name": "Official MCP Registry",
       "type": "registry-api",

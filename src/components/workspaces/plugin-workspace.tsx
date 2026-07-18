@@ -14,6 +14,23 @@ import { SqliteWorkspace } from "./sqlite-workspace";
 import { SvelteWorkspace } from "./svelte-workspace";
 import { TimeWorkspace } from "./time-workspace";
 import { WebFetchWorkspace } from "./web-fetch-workspace";
+import { MarkitdownWorkspace } from "./markitdown-workspace";
+import { E18eWorkspace } from "./e18e-workspace";
+import { DesignConstraintWorkspace } from "./design-constraint-workspace";
+import { OsvAdvisoryWorkspace } from "./osv-advisory-workspace";
+import { AudioFileWorkspace } from "./audio-file-workspace";
+import { BouncerWorkspace } from "./bouncer-workspace";
+import { UxloomWorkspace } from "./uxloom-workspace";
+import { OpenLibraryWorkspace } from "./openlibrary-workspace";
+import { SafeDocxWorkspace } from "./safe-docx-workspace";
+import { DocGuardWorkspace } from "./docguard-workspace";
+import { StarfetchWorkspace } from "./starfetch-workspace";
+import { PubmedWorkspace } from "./pubmed-workspace";
+import { AstronomyWorkspace } from "./astronomy-workspace";
+import { CrossrefWorkspace } from "./crossref-workspace";
+import { EarthquakeWorkspace } from "./earthquake-workspace";
+import { WorldBankWorkspace } from "./worldbank-workspace";
+import { NhtsaWorkspace } from "./nhtsa-workspace";
 
 export function PluginWorkspace({ component, slug }: { component?: string; slug?: string }) {
   if (component === "BlueprintWorkspace") return <BlueprintWorkspace />;
@@ -35,5 +52,22 @@ export function PluginWorkspace({ component, slug }: { component?: string; slug?
   if (component === "SvelteWorkspace") return <SvelteWorkspace />;
   if (component === "TimeWorkspace") return <TimeWorkspace />;
   if (component === "WebFetchWorkspace") return <WebFetchWorkspace />;
+  if (component === "MarkitdownWorkspace") return <MarkitdownWorkspace />;
+  if (component === "E18eWorkspace") return <E18eWorkspace />;
+  if (component === "DesignConstraintWorkspace") return <DesignConstraintWorkspace />;
+  if (component === "OsvAdvisoryWorkspace") return <OsvAdvisoryWorkspace />;
+  if (component === "AudioFileWorkspace") return <AudioFileWorkspace />;
+  if (component === "BouncerWorkspace") return <BouncerWorkspace />;
+  if (component === "UxloomWorkspace") return <UxloomWorkspace />;
+  if (component === "OpenLibraryWorkspace") return <OpenLibraryWorkspace />;
+  if (component === "SafeDocxWorkspace") return <SafeDocxWorkspace />;
+  if (component === "DocGuardWorkspace") return <DocGuardWorkspace />;
+  if (component === "StarfetchWorkspace") return <StarfetchWorkspace />;
+  if (component === "PubmedWorkspace") return <PubmedWorkspace />;
+  if (component === "AstronomyWorkspace") return <AstronomyWorkspace />;
+  if (component === "CrossrefWorkspace") return <CrossrefWorkspace />;
+  if (component === "EarthquakeWorkspace") return <EarthquakeWorkspace />;
+  if (component === "WorldBankWorkspace") return <WorldBankWorkspace />;
+  if (component === "NhtsaWorkspace") return <NhtsaWorkspace />;
   return null;
 }

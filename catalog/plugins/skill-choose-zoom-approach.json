@@ -4,8 +4,9 @@
   "slug": "skill-choose-zoom-approach",
   "kind": "agent-skill",
   "lifecycle": {
-    "status": "verified",
-    "changedAt": "2026-07-16T13:40:57.604Z"
+    "status": "qualified",
+    "reason": "Qualified source candidate deferred behind the priority 30 because of overlap, missing support files, platform requirements, or lower Web readiness.",
+    "changedAt": "2026-07-16T14:39:44.203Z"
   },
   "name": {
     "original": "choose-zoom-approach",
@@ -38,7 +39,8 @@
   "tags": [
     "skill",
     "zoom",
-    "architecture"
+    "architecture",
+    "candidate-deferred"
   ],
   "source": {
     "primaryUrl": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/zoom/skills/choose-zoom-approach",
@@ -74,6 +76,20 @@
     "checkedAt": "2026-07-16T13:40:57.604Z"
   },
   "capabilities": [
+    {
+      "id": "prepare-task-playbook",
+      "name": {
+        "original": "Prepare a task-specific Agent playbook",
+        "zhCN": "?????? Agent ???",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Rank the pinned skill sections against a bounded user objective and context, then produce an agent prompt, checklist, or reference pack without executing upstream scripts.",
+        "zhCN": "??????????????????? Skill ???????????? Agent ?????????????????????",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
     {
       "id": "skill-read",
       "name": {
@@ -159,75 +175,78 @@
     ]
   },
   "translation": {
-    "status": "reviewed",
+    "status": "draft",
     "glossaryVersion": "agent-opt-zh-cn-v1",
-    "translatedAt": "2026-07-16T13:40:57.604Z",
+    "translatedAt": "2026-07-16T14:39:44.203Z",
     "notes": [
-      "Chinese UI labels and summary reviewed; original SKILL.md body remains English source text."
+      "Original SKILL.md is preserved exactly; the current Chinese metadata is partial and must not be treated as a complete skill translation.",
+      "Deferred candidate; translation review is not scheduled until higher-priority skills pass the full gate."
     ]
   },
   "web": {
-    "status": "ready",
+    "status": "in-progress",
     "component": "SkillWorkspace",
     "route": "/plugins/skill-choose-zoom-approach",
     "features": [
+      "task objective and bounded context input",
+      "agent prompt, checklist, and reference-pack modes",
+      "relevance-ranked sections from the pinned SKILL.md",
       "section outline",
       "full-text search",
-      "source viewer",
-      "bilingual metadata"
+      "readonly source viewer",
+      "bilingual catalog metadata"
     ],
     "dedicatedElements": [
+      "skill-specific task objective panel",
+      "output-mode and reference-depth controls",
+      "ranked official-section chips",
+      "generated GPT/Agent execution pack",
       "section navigator",
       "keyword search panel",
-      "readonly markdown source pane",
-      "skill metadata strip"
+      "readonly source pane"
     ]
   },
   "verification": {
-    "overall": "passed",
-    "testedVersion": "11c74d6ba24d",
+    "overall": "not-run",
     "tests": [
       {
         "id": "skill-choose-zoom-approach-core",
         "category": "core",
-        "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Skill body loaded from catalog/skill-bodies and outline/list tools returned structured sections."
+        "status": "not-run",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "evidence": "skill-choose-zoom-approach: pending a current-tree core run of the task-playbook adapter and capability-specific Web workflow."
       },
       {
         "id": "skill-choose-zoom-approach-scenario",
         "category": "scenario",
-        "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Representative section open + keyword search returned line excerpts from the official body."
+        "status": "not-run",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "evidence": "skill-choose-zoom-approach: pending a current-tree scenario run of the task-playbook adapter and capability-specific Web workflow."
       },
       {
         "id": "skill-choose-zoom-approach-error",
         "category": "error",
-        "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Empty query and unknown section id rejected with controlled validation errors."
+        "status": "not-run",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "evidence": "skill-choose-zoom-approach: pending a current-tree error run of the task-playbook adapter and capability-specific Web workflow."
       },
       {
         "id": "skill-choose-zoom-approach-web",
         "category": "web-e2e",
-        "status": "passed",
-        "command": "npm run test:e2e",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "SkillWorkspace route renders outline and can open a section through the invoke API."
+        "status": "not-run",
+        "command": "npm run test:e2e -- tests/e2e/skills.spec.ts",
+        "evidence": "skill-choose-zoom-approach: pending a current-tree web-e2e run of the task-playbook adapter and capability-specific Web workflow."
       },
       {
         "id": "skill-choose-zoom-approach-permission",
         "category": "permission",
-        "status": "passed",
-        "command": "npm test",
-        "checkedAt": "2026-07-16T13:40:57.604Z",
-        "evidence": "Runtime only reads curated skill-body files; no network/commands/secrets granted."
+        "status": "not-run",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "evidence": "skill-choose-zoom-approach: pending a current-tree permission run of the task-playbook adapter and capability-specific Web workflow."
       }
     ],
-    "blockers": []
+    "blockers": [
+      "Reviewed Chinese adaptation, complete supporting-file bundle, capability-specific Web scenario, and real browser verification are pending."
+    ]
   }
 }

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-verification-before-completion",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/verification-before-completion",
+  "skillSha256": "c35ac975d145f74d9f3668c1b035a3754d3c0f4edb491cc80a6a0265cfdf7749",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "89dd36f5126a8b2181687cbb68e14e189adf58aa7857a03a75d566ef20d661ee"
+    }
+  ]
+}

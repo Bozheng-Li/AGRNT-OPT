@@ -1,0 +1,279 @@
+{
+  "schemaVersion": 1,
+  "id": "com.vercel.plugins/turborepo",
+  "slug": "skill-turborepo",
+  "kind": "agent-skill",
+  "lifecycle": {
+    "status": "web-ready",
+    "changedAt": "2026-07-16T18:01:15.000Z"
+  },
+  "name": {
+    "original": "turborepo",
+    "zhCN": "Turborepo Monorepo",
+    "sourceLanguage": "en"
+  },
+  "summary": {
+    "original": "Turborepo expert guidance. Use when setting up or optimizing monorepo builds, configuring task caching, remote caching, parallel execution, or the --affected flag for incremental CI.",
+    "zhCN": "Turborepo 专家指南。用于设置或优化 monorepo 构建、配置任务缓存、远程缓存、并行执行，或在增量 CI 中使用 --affected 标志。",
+    "sourceLanguage": "en"
+  },
+  "description": {
+    "original": "Turborepo expert guidance. Use when setting up or optimizing monorepo builds, configuring task caching, remote caching, parallel execution, or the --affected flag for incremental CI. Agent-OPT preserves the fixed official bundle and adapts it for a dedicated bilingual SkillWorkspace workflow with ranked guidance, full-text search, and sandboxed supporting-file previews. Commands and external services described by the upstream guidance are not executed by this read-only adapter.",
+    "zhCN": "Turborepo 专家指南。用于设置或优化 monorepo 构建、配置任务缓存、远程缓存、并行执行，或在增量 CI 中使用 --affected 标志。 Agent-OPT 保留固定版本的官方完整资源包，并将其适配为能力专属的双语 SkillWorkspace 工作流，支持相关章节排序、全文检索和沙箱化支持文件预览；此只读适配器不会执行上游指南中描述的命令或外部服务。",
+    "sourceLanguage": "en"
+  },
+  "author": {
+    "name": "Vercel Labs",
+    "url": "https://github.com/vercel",
+    "verifiedIdentity": true
+  },
+  "version": {
+    "value": "11c74d6ba24d",
+    "checkedAt": "2026-07-16T17:47:38.417Z"
+  },
+  "categories": [
+    "development",
+    "monorepo",
+    "ci"
+  ],
+  "tags": [
+    "skill",
+    "turborepo",
+    "monorepo",
+    "caching",
+    "vercel-quality-wave"
+  ],
+  "source": {
+    "primaryUrl": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/vercel/skills/turborepo",
+    "repositoryUrl": "https://github.com/openai/plugins",
+    "marketplaces": [
+      {
+        "sourceId": "openai-codex-plugins",
+        "url": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/vercel/skills/turborepo",
+        "listingId": "turborepo",
+        "checkedAt": "2026-07-16T17:47:38.417Z"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/openai/plugins/tree/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/vercel/skills/turborepo",
+        "retrievedAt": "2026-07-16T17:47:38.417Z",
+        "note": "Pinned path-addressed SKILL.md from the official OpenAI plugins repository at commit 11c74d6ba24d3a6d48f54a194cd00ef3beea18f9; exact target byte SHA-256 8a2b3ad8e259aa01a484d1d63cf53580fece2a9176119e07725d58a6785e3a04."
+      },
+      {
+        "kind": "official-repository",
+        "url": "https://github.com/openai/plugins/blob/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/vercel/.codex-plugin/plugin.json",
+        "retrievedAt": "2026-07-16T17:47:38.417Z",
+        "note": "The fixed parent Vercel plugin manifest names Vercel Labs as author and declares Apache-2.0 for the packaged skills."
+      }
+    ]
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/openai/plugins/blob/11c74d6ba24d3a6d48f54a194cd00ef3beea18f9/plugins/vercel/.codex-plugin/plugin.json",
+    "redistribution": "allowed",
+    "evidence": "Primary-source Apache-2.0 evidence is recorded in the fixed plugins/vercel/.codex-plugin/plugin.json manifest. Agent-OPT redistributes the pinned text bundle for read-only bilingual Web rendering and does not execute upstream implementation code.",
+    "checkedAt": "2026-07-16T17:47:38.417Z"
+  },
+  "capabilities": [
+    {
+      "id": "prepare-task-playbook",
+      "name": {
+        "original": "Optimize a Turborepo task graph",
+        "zhCN": "优化 Turborepo 任务图",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Model workspace dependencies, task inputs and outputs, cache boundaries, filtering, affected CI, and deployment subsets into an optimized Turborepo plan.",
+        "zhCN": "把工作区依赖、任务输入输出、缓存边界、过滤、affected CI 与部署子集建模为优化后的 Turborepo 方案。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "skill-read",
+      "name": {
+        "original": "Read skill guidance",
+        "zhCN": "阅读技能指南",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Open the complete pinned skill document in Simplified Chinese or its original language.",
+        "zhCN": "以完整简体中文译文或原文打开固定版本的技能文档。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "skill-search",
+      "name": {
+        "original": "Search skill text",
+        "zhCN": "搜索技能正文",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Run keyword search across the selected skill body and return line-level excerpts.",
+        "zhCN": "在所选技能正文中执行关键词搜索，并返回行级摘录。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "skill-outline",
+      "name": {
+        "original": "Navigate skill sections",
+        "zhCN": "浏览技能章节",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "Inspect the heading outline and open one structured section at a time.",
+        "zhCN": "查看标题大纲，并一次打开一个结构化章节。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    },
+    {
+      "id": "browse-pinned-supporting-files",
+      "name": {
+        "original": "Browse pinned supporting resources",
+        "zhCN": "浏览固定版本支持资源",
+        "sourceLanguage": "en"
+      },
+      "description": {
+        "original": "List and safely preview the text resources captured from the exact upstream skill directory and recorded in BUNDLE.json.",
+        "zhCN": "列出并安全预览从精确上游技能目录固定、且记录在 BUNDLE.json 中的文本资源。",
+        "sourceLanguage": "en"
+      },
+      "risk": "low"
+    }
+  ],
+  "permissions": {
+    "filesystem": "sandboxed-read",
+    "network": "none",
+    "commands": "none",
+    "secrets": [],
+    "externalAccounts": [],
+    "notes": [
+      "The in-process adapter reads only curated files under catalog/skill-bodies/skill-turborepo.",
+      "Supporting-resource previews are limited to BUNDLE.json fixed-hash paths; traversal, unknown paths, symlinks, binaries, and oversized files are rejected.",
+      "No upstream commands, network calls, secrets, or external accounts are executed or accessed by this Web adaptation."
+    ]
+  },
+  "runtime": {
+    "adapter": "skill-document-in-process",
+    "transport": "in-process",
+    "package": {
+      "registry": "source",
+      "name": "turborepo",
+      "version": "11c74d6ba24d"
+    },
+    "requirements": [
+      "Pinned official body at catalog/skill-bodies/skill-turborepo/SKILL.md",
+      "Complete Simplified Chinese body at catalog/skill-bodies/skill-turborepo/SKILL.zh-CN.md",
+      "Fixed-commit supporting-file evidence at catalog/skill-bodies/skill-turborepo/BUNDLE.json",
+      "No external credentials"
+    ],
+    "configuration": []
+  },
+  "quality": {
+    "score": 90,
+    "usefulness": 4.9,
+    "uniqueness": 4.5,
+    "reliability": 4.7,
+    "maintenance": 4.8,
+    "provenance": 5,
+    "licenseClarity": 5,
+    "security": 4.9,
+    "webFitness": 4.8,
+    "notes": [
+      "Selected from the official Vercel plugin for a broadly useful, non-trivial development or design workflow that does not require credentials, paid access, regional services, or special hardware.",
+      "The complete Simplified Chinese SKILL.md preserves frontmatter, heading hierarchy, fenced code blocks, inline-code tokens, Markdown destinations, and raw URLs; the focused structural validator passed.",
+      "Every file from the pinned upstream skill directory is preserved byte-for-byte and recorded with SHA-256 evidence in BUNDLE.json.",
+      "The capability-specific Chinese Web profile is merged into the shared SkillWorkspace registry and passed its real Chromium task, bilingual source, supporting-resource and failure workflows.",
+      "Lifecycle remains web-ready: the read-only bilingual Web adapter is fully evidenced, while optional upstream commands and downstream implementation outcomes are not claimed as executed."
+    ]
+  },
+  "translation": {
+    "status": "reviewed",
+    "glossaryVersion": "agent-opt-zh-cn-v1",
+    "translatedAt": "2026-07-16T17:47:38.417Z",
+    "notes": [
+      "Complete Simplified Chinese translation reviewed against the pinned original; code blocks, commands, paths, inline tokens, links, URLs, and heading structure are preserved.",
+      "Chinese body: catalog/skill-bodies/skill-turborepo/SKILL.zh-CN.md"
+    ]
+  },
+  "web": {
+    "status": "ready",
+    "component": "SkillWorkspace",
+    "route": "/plugins/skill-turborepo",
+    "features": [
+      "待优化的 Monorepo 构建 with two capability-specific examples",
+      "工作区、任务图与 CI 约束 bounded context input",
+      "Turborepo 优化方案包 in checklist, checklist, agent-prompt, and reference-pack modes",
+      "complete Simplified Chinese and original SKILL.md switch",
+      "relevance-ranked official sections with outline, search, and full-text reader",
+      "fixed-commit supporting-resource browser backed by BUNDLE.json hashes",
+      "controlled validation and runtime feedback"
+    ],
+    "dedicatedElements": [
+      "待优化的 Monorepo 构建 input",
+      "工作区、任务图与 CI 约束 panel",
+      "Turborepo 优化方案包 result view",
+      "为 monorepo 设计增量 CI example chip",
+      "排查一次错误的缓存命中 example chip",
+      "Chinese/original document switch",
+      "ranked section navigator and search",
+      "fixed-commit supporting-resource browser"
+    ]
+  },
+  "verification": {
+    "overall": "passed",
+    "tests": [
+      {
+        "id": "skill-turborepo-core",
+        "category": "core",
+        "status": "passed",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:04:10.000Z",
+        "evidence": "skill-turborepo: pinned BUNDLE hashes and bilingual source, outline, search and asset runtime paths passed in the merged 50-Skill suite."
+      },
+      {
+        "id": "skill-turborepo-scenario",
+        "category": "scenario",
+        "status": "passed",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:04:10.000Z",
+        "evidence": "skill-turborepo: its dedicated Chinese profile executed skill_prepare with representative objective and context and returned a non-empty task artifact."
+      },
+      {
+        "id": "skill-turborepo-error",
+        "category": "error",
+        "status": "passed",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:04:10.000Z",
+        "evidence": "skill-turborepo: invalid locale, empty or oversized objective, unknown fields or sections, traversal and unknown supporting-resource paths were rejected."
+      },
+      {
+        "id": "skill-turborepo-web",
+        "category": "web-e2e",
+        "status": "passed",
+        "command": "npm run test:e2e",
+        "evidence": "runner=playwright; browser=chromium; report=var/test-results/playwright.json; testIds=skills.spec.ts › priority Agent Skill browser workflows › @web-e2e [skill-turborepo] runs bilingual task, source, asset, and failure workflows; route=/plugins/skill-turborepo; result=passed",
+        "checkedAt": "2026-07-16T18:05:30.911Z"
+      },
+      {
+        "id": "skill-turborepo-permission",
+        "category": "permission",
+        "status": "passed",
+        "command": "npm test -- tests/skill-runtime.test.ts",
+        "checkedAt": "2026-07-16T18:04:10.000Z",
+        "evidence": "skill-turborepo: bundle containment and fixed hashes passed; the adapter reads only curated files and grants no network, command, secret or external-account access."
+      }
+    ],
+    "blockers": [
+      "The shipped bilingual Web adaptation is verified; optional upstream scripts and downstream agent outcomes are outside this adapter and are not claimed as executed."
+    ],
+    "testedVersion": "11c74d6ba24d"
+  }
+}

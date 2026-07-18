@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-using-git-worktrees",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/superpowers/skills/using-git-worktrees",
+  "skillSha256": "498ba68274da48e3b96473be8cbddcdc35399e0969d6933d6e7b8fe2d8e89c07",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "dba8cb02d35d60b908c26a0476f620065150200c2b28e0be33deea763ff37161"
+    }
+  ]
+}

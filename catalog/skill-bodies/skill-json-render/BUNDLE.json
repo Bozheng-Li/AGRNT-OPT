@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "slug": "skill-json-render",
+  "sourceId": "openai-codex-plugins",
+  "sourceCommit": "11c74d6ba24d3a6d48f54a194cd00ef3beea18f9",
+  "sourcePath": "plugins/vercel/skills/json-render",
+  "skillSha256": "fdcdb49618f5cdf925130d43771a1364060a58b0499b4ed47a27508b4879c007",
+  "supportingFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "d48b76b5d28726c34e2014aaefc7f867f95642f31d1cfde4aa5aa56725f90ef6"
+    }
+  ]
+}
